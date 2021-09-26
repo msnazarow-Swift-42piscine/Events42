@@ -15,7 +15,7 @@ class EventCell: Cell {
     let eventTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .boldSystemFont(ofSize: 24)
+        label.font = .boldSystemFont(ofSize: 24 * verticalTranslation)
         label.textColor = .cyan
         label.textAlignment = .left
         return label
@@ -25,7 +25,7 @@ class EventCell: Cell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14)
+        label.font = .systemFont(ofSize: 14 * verticalTranslation)
         return label
     }()
     
@@ -33,7 +33,7 @@ class EventCell: Cell {
     let dateEventLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .boldSystemFont(ofSize: 20)
+        label.font = .boldSystemFont(ofSize: 20 * verticalTranslation)
         label.textAlignment = .left
         return label
     }()
@@ -41,7 +41,7 @@ class EventCell: Cell {
     let durationTimeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .boldSystemFont(ofSize: 20)
+        label.font = .boldSystemFont(ofSize: 20 * verticalTranslation)
         label.textAlignment = .right
         return label
     }()

@@ -12,7 +12,7 @@
 import Foundation
 
 protocol IntraAPIServiceProtocol {
-    func getRecentEvents(for userID: String, complition: @escaping (Result<[EventResponse], Error>) -> Void)
+    func getRecentEvents(with userID: String, complition: @escaping (Result<[EventResponse], Error>) -> Void)
     func getMe(with token: String, comlition: @escaping (MeResponse) -> Void)
     func getToken(with code: String, complition: @escaping (String) -> Void)
 }
@@ -29,7 +29,7 @@ class IntraAPIService: IntraAPIServiceProtocol {
         return decoder
     }()
 
-    func getRecentEvents(for userID: String, complition: @escaping (Result<[EventResponse], Error>) -> Void) {
+    func getRecentEvents(with token: String, complition: @escaping (Result<[EventResponse], Error>) -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.intra.42.fr"
@@ -43,7 +43,7 @@ class IntraAPIService: IntraAPIServiceProtocol {
 //            .init(name: "cursus_id", value: "21"),
         ]
         var request = URLRequest(url: urlComponents.url!)
-        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
                 complition(.failure(error))

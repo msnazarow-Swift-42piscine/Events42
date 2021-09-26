@@ -14,7 +14,7 @@ struct Model {
 
 struct CellModel: CellIdentifiable {
 
-    var identifier: String { return "Cell" }
+    var identifier: String { return "EventCell" }
     
     let name: String!
     let description: String!

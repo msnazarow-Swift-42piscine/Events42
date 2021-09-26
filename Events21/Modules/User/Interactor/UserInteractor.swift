@@ -17,8 +17,8 @@ class UserInteractor: PresenterToInteractorUserProtocol {
         self.imageCashingService = imageCashingService
     }
 
-    func getRecentEvents(for userID: String, complition: @escaping (Result<[EventResponse], Error>) -> Void) {
-        intraAPIService.getRecentEvents(for: userID, complition: complition)
+    func getRecentEvents(with token: String, complition: @escaping (Result<[EventResponse], Error>) -> Void) {
+        intraAPIService.getRecentEvents(with: token, complition: complition)
     }
 
     func getMe(with token: String, comlition: @escaping (MeResponse) -> Void) {

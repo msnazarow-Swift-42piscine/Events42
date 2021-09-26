@@ -28,7 +28,7 @@ class UserViewController: UIViewController {
     let loginLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .boldSystemFont(ofSize: 15)
+        label.font = .boldSystemFont(ofSize: 15 * verticalTranslation)
         label.textAlignment = .left
         return label
     }()
@@ -36,7 +36,7 @@ class UserViewController: UIViewController {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14)
+        label.font = .systemFont(ofSize: 14 * verticalTranslation)
         label.textAlignment = .left
         return label
     }()
@@ -44,18 +44,16 @@ class UserViewController: UIViewController {
     let surnameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14)
+        label.font = .systemFont(ofSize: 14 * verticalTranslation)
         label.textAlignment = .left
-        // remove after test
-//        label.text = "Bulwer"
         return label
     }()
     
     let levelTextView: UITextView = {
         let textView = UITextView()
+        textView.isEditable = false
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.font = .systemFont(ofSize: 14)
-        textView.text = "Current level: 9.88"
+        textView.font = .systemFont(ofSize: 14 * verticalTranslation)
         return textView
     }()
     
@@ -95,7 +93,7 @@ class UserViewController: UIViewController {
     private func setupUI() {
         addSubviews()
         tableView.dataSource = presenter?.dataSource
-//        tableView.delegate = self
+        tableView.register(EventCell.self, forCellReuseIdentifier: String(describing: EventCell.self))
         setupConstraints()
     }
 
@@ -153,6 +151,8 @@ extension UserViewController: PresenterToViewUserProtocol{
     }
     
     func reloadTableViewData() {
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
