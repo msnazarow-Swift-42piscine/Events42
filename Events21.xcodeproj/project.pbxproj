@@ -12,40 +12,40 @@
 		3E439124270094F400C8AC03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E439122270094F400C8AC03 /* Main.storyboard */; };
 		3E439126270094F600C8AC03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E439125270094F600C8AC03 /* Assets.xcassets */; };
 		3E439129270094F600C8AC03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E439127270094F600C8AC03 /* LaunchScreen.storyboard */; };
-		3E4391D6270095D300C8AC03 /* Intra21Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E439197270095D300C8AC03 /* Intra21Contract.swift */; };
-		3E4391D7270095D300C8AC03 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E43919B270095D300C8AC03 /* CellModel.swift */; };
-		3E4391D8270095D300C8AC03 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E43919C270095D300C8AC03 /* EventCell.swift */; };
-		3E4391D9270095D300C8AC03 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E43919D270095D300C8AC03 /* Cell.swift */; };
-		3E4391DA270095D300C8AC03 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E43919F270095D300C8AC03 /* SectionModel.swift */; };
-		3E4391DB270095D300C8AC03 /* TableViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391A0270095D300C8AC03 /* TableViewContract.swift */; };
-		3E4391DC270095D300C8AC03 /* ModelRepresentableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391A1270095D300C8AC03 /* ModelRepresentableProtocol.swift */; };
-		3E4391DD270095D300C8AC03 /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391A3270095D300C8AC03 /* EventResponse.swift */; };
-		3E4391DE270095D300C8AC03 /* IntraAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391A5270095D300C8AC03 /* IntraAPIService.swift */; };
-		3E4391DF270095D300C8AC03 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391A7270095D300C8AC03 /* Date+Ext.swift */; };
-		3E4391E0270095D300C8AC03 /* DataFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391A8270095D300C8AC03 /* DataFormatter+Ext.swift */; };
-		3E4391E1270095D300C8AC03 /* JSONDecoder+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391A9270095D300C8AC03 /* JSONDecoder+Ext.swift */; };
-		3E4391E2270095D300C8AC03 /* UIWindow+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391AA270095D300C8AC03 /* UIWindow+Ext.swift */; };
-		3E4391E3270095D300C8AC03 /* UserContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391AE270095D300C8AC03 /* UserContract.swift */; };
-		3E4391E4270095D300C8AC03 /* UserAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391B0270095D300C8AC03 /* UserAssembly.swift */; };
-		3E4391E5270095D300C8AC03 /* UserPresenterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391B2270095D300C8AC03 /* UserPresenterDataSource.swift */; };
-		3E4391E6270095D300C8AC03 /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391B3270095D300C8AC03 /* UserPresenter.swift */; };
-		3E4391E7270095D300C8AC03 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391B5270095D300C8AC03 /* UserViewController.swift */; };
-		3E4391E8270095D300C8AC03 /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391B7270095D300C8AC03 /* UserInteractor.swift */; };
-		3E4391E9270095D300C8AC03 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391B9270095D300C8AC03 /* UserRouter.swift */; };
-		3E4391EA270095D300C8AC03 /* AuthorizationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391BC270095D300C8AC03 /* AuthorizationContract.swift */; };
-		3E4391EB270095D300C8AC03 /* AuthorizationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391BE270095D300C8AC03 /* AuthorizationAssembly.swift */; };
-		3E4391EC270095D300C8AC03 /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391C0270095D300C8AC03 /* AuthorizationPresenter.swift */; };
-		3E4391ED270095D300C8AC03 /* AuthorizationPresenterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391C1270095D300C8AC03 /* AuthorizationPresenterDataSource.swift */; };
-		3E4391EE270095D300C8AC03 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391C3270095D300C8AC03 /* AuthorizationViewController.swift */; };
-		3E4391EF270095D300C8AC03 /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391C5270095D300C8AC03 /* AuthorizationInteractor.swift */; };
-		3E4391F0270095D300C8AC03 /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391C7270095D300C8AC03 /* AuthorizationRouter.swift */; };
-		3E4391F1270095D300C8AC03 /* EventContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391CA270095D300C8AC03 /* EventContract.swift */; };
-		3E4391F2270095D300C8AC03 /* EventAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391CC270095D300C8AC03 /* EventAssembly.swift */; };
-		3E4391F3270095D300C8AC03 /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391CE270095D300C8AC03 /* EventPresenter.swift */; };
-		3E4391F4270095D300C8AC03 /* EventPresenterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391CF270095D300C8AC03 /* EventPresenterDataSource.swift */; };
-		3E4391F5270095D300C8AC03 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391D1270095D300C8AC03 /* EventViewController.swift */; };
-		3E4391F6270095D300C8AC03 /* EventInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391D3270095D300C8AC03 /* EventInteractor.swift */; };
-		3E4391F7270095D300C8AC03 /* EventRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4391D5270095D300C8AC03 /* EventRouter.swift */; };
+		EAAEC40827009E4700AFD1FC /* UserContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3CB27009E4700AFD1FC /* UserContract.swift */; };
+		EAAEC40927009E4700AFD1FC /* UserAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3CD27009E4700AFD1FC /* UserAssembly.swift */; };
+		EAAEC40A27009E4700AFD1FC /* UserPresenterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3CF27009E4700AFD1FC /* UserPresenterDataSource.swift */; };
+		EAAEC40B27009E4700AFD1FC /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3D027009E4700AFD1FC /* UserPresenter.swift */; };
+		EAAEC40C27009E4700AFD1FC /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3D227009E4700AFD1FC /* UserViewController.swift */; };
+		EAAEC40D27009E4700AFD1FC /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3D427009E4700AFD1FC /* UserInteractor.swift */; };
+		EAAEC40E27009E4700AFD1FC /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3D627009E4700AFD1FC /* UserRouter.swift */; };
+		EAAEC40F27009E4700AFD1FC /* AuthorizationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3D927009E4700AFD1FC /* AuthorizationContract.swift */; };
+		EAAEC41027009E4700AFD1FC /* AuthorizationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3DB27009E4700AFD1FC /* AuthorizationAssembly.swift */; };
+		EAAEC41127009E4700AFD1FC /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3DD27009E4700AFD1FC /* AuthorizationPresenter.swift */; };
+		EAAEC41227009E4700AFD1FC /* AuthorizationPresenterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3DE27009E4700AFD1FC /* AuthorizationPresenterDataSource.swift */; };
+		EAAEC41327009E4700AFD1FC /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3E027009E4700AFD1FC /* AuthorizationViewController.swift */; };
+		EAAEC41427009E4700AFD1FC /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3E227009E4700AFD1FC /* AuthorizationInteractor.swift */; };
+		EAAEC41527009E4700AFD1FC /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3E427009E4700AFD1FC /* AuthorizationRouter.swift */; };
+		EAAEC41627009E4700AFD1FC /* EventContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3E727009E4700AFD1FC /* EventContract.swift */; };
+		EAAEC41727009E4700AFD1FC /* EventAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3E927009E4700AFD1FC /* EventAssembly.swift */; };
+		EAAEC41827009E4700AFD1FC /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3EB27009E4700AFD1FC /* EventPresenter.swift */; };
+		EAAEC41927009E4700AFD1FC /* EventPresenterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3EC27009E4700AFD1FC /* EventPresenterDataSource.swift */; };
+		EAAEC41A27009E4700AFD1FC /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3EE27009E4700AFD1FC /* EventViewController.swift */; };
+		EAAEC41B27009E4700AFD1FC /* EventInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3F027009E4700AFD1FC /* EventInteractor.swift */; };
+		EAAEC41C27009E4700AFD1FC /* EventRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3F227009E4700AFD1FC /* EventRouter.swift */; };
+		EAAEC41D27009E4700AFD1FC /* Intra21Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3F427009E4700AFD1FC /* Intra21Contract.swift */; };
+		EAAEC41E27009E4700AFD1FC /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3F627009E4700AFD1FC /* EventResponse.swift */; };
+		EAAEC41F27009E4700AFD1FC /* IntraAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3F827009E4700AFD1FC /* IntraAPIService.swift */; };
+		EAAEC42027009E4700AFD1FC /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3FA27009E4700AFD1FC /* Date+Ext.swift */; };
+		EAAEC42127009E4700AFD1FC /* DataFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3FB27009E4700AFD1FC /* DataFormatter+Ext.swift */; };
+		EAAEC42227009E4700AFD1FC /* JSONDecoder+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3FC27009E4700AFD1FC /* JSONDecoder+Ext.swift */; };
+		EAAEC42327009E4700AFD1FC /* UIWindow+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3FD27009E4700AFD1FC /* UIWindow+Ext.swift */; };
+		EAAEC42427009E4700AFD1FC /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40127009E4700AFD1FC /* CellModel.swift */; };
+		EAAEC42527009E4700AFD1FC /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40227009E4700AFD1FC /* EventCell.swift */; };
+		EAAEC42627009E4700AFD1FC /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40327009E4700AFD1FC /* Cell.swift */; };
+		EAAEC42727009E4700AFD1FC /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40527009E4700AFD1FC /* SectionModel.swift */; };
+		EAAEC42827009E4700AFD1FC /* TableViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40627009E4700AFD1FC /* TableViewContract.swift */; };
+		EAAEC42927009E4700AFD1FC /* ModelRepresentableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40727009E4700AFD1FC /* ModelRepresentableProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,40 +56,40 @@
 		3E439125270094F600C8AC03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E439128270094F600C8AC03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E43912A270094F600C8AC03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3E439197270095D300C8AC03 /* Intra21Contract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intra21Contract.swift; sourceTree = "<group>"; };
-		3E43919B270095D300C8AC03 /* CellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
-		3E43919C270095D300C8AC03 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
-		3E43919D270095D300C8AC03 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
-		3E43919F270095D300C8AC03 /* SectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
-		3E4391A0270095D300C8AC03 /* TableViewContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewContract.swift; sourceTree = "<group>"; };
-		3E4391A1270095D300C8AC03 /* ModelRepresentableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelRepresentableProtocol.swift; sourceTree = "<group>"; };
-		3E4391A3270095D300C8AC03 /* EventResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
-		3E4391A5270095D300C8AC03 /* IntraAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntraAPIService.swift; sourceTree = "<group>"; };
-		3E4391A7270095D300C8AC03 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
-		3E4391A8270095D300C8AC03 /* DataFormatter+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataFormatter+Ext.swift"; sourceTree = "<group>"; };
-		3E4391A9270095D300C8AC03 /* JSONDecoder+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Ext.swift"; sourceTree = "<group>"; };
-		3E4391AA270095D300C8AC03 /* UIWindow+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Ext.swift"; sourceTree = "<group>"; };
-		3E4391AE270095D300C8AC03 /* UserContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContract.swift; sourceTree = "<group>"; };
-		3E4391B0270095D300C8AC03 /* UserAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAssembly.swift; sourceTree = "<group>"; };
-		3E4391B2270095D300C8AC03 /* UserPresenterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenterDataSource.swift; sourceTree = "<group>"; };
-		3E4391B3270095D300C8AC03 /* UserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
-		3E4391B5270095D300C8AC03 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		3E4391B7270095D300C8AC03 /* UserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
-		3E4391B9270095D300C8AC03 /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
-		3E4391BC270095D300C8AC03 /* AuthorizationContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationContract.swift; sourceTree = "<group>"; };
-		3E4391BE270095D300C8AC03 /* AuthorizationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationAssembly.swift; sourceTree = "<group>"; };
-		3E4391C0270095D300C8AC03 /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
-		3E4391C1270095D300C8AC03 /* AuthorizationPresenterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenterDataSource.swift; sourceTree = "<group>"; };
-		3E4391C3270095D300C8AC03 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
-		3E4391C5270095D300C8AC03 /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
-		3E4391C7270095D300C8AC03 /* AuthorizationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
-		3E4391CA270095D300C8AC03 /* EventContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventContract.swift; sourceTree = "<group>"; };
-		3E4391CC270095D300C8AC03 /* EventAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAssembly.swift; sourceTree = "<group>"; };
-		3E4391CE270095D300C8AC03 /* EventPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPresenter.swift; sourceTree = "<group>"; };
-		3E4391CF270095D300C8AC03 /* EventPresenterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPresenterDataSource.swift; sourceTree = "<group>"; };
-		3E4391D1270095D300C8AC03 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
-		3E4391D3270095D300C8AC03 /* EventInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInteractor.swift; sourceTree = "<group>"; };
-		3E4391D5270095D300C8AC03 /* EventRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventRouter.swift; sourceTree = "<group>"; };
+		EAAEC3CB27009E4700AFD1FC /* UserContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContract.swift; sourceTree = "<group>"; };
+		EAAEC3CD27009E4700AFD1FC /* UserAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAssembly.swift; sourceTree = "<group>"; };
+		EAAEC3CF27009E4700AFD1FC /* UserPresenterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenterDataSource.swift; sourceTree = "<group>"; };
+		EAAEC3D027009E4700AFD1FC /* UserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
+		EAAEC3D227009E4700AFD1FC /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		EAAEC3D427009E4700AFD1FC /* UserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
+		EAAEC3D627009E4700AFD1FC /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		EAAEC3D927009E4700AFD1FC /* AuthorizationContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationContract.swift; sourceTree = "<group>"; };
+		EAAEC3DB27009E4700AFD1FC /* AuthorizationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationAssembly.swift; sourceTree = "<group>"; };
+		EAAEC3DD27009E4700AFD1FC /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
+		EAAEC3DE27009E4700AFD1FC /* AuthorizationPresenterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenterDataSource.swift; sourceTree = "<group>"; };
+		EAAEC3E027009E4700AFD1FC /* AuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		EAAEC3E227009E4700AFD1FC /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
+		EAAEC3E427009E4700AFD1FC /* AuthorizationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
+		EAAEC3E727009E4700AFD1FC /* EventContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventContract.swift; sourceTree = "<group>"; };
+		EAAEC3E927009E4700AFD1FC /* EventAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAssembly.swift; sourceTree = "<group>"; };
+		EAAEC3EB27009E4700AFD1FC /* EventPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPresenter.swift; sourceTree = "<group>"; };
+		EAAEC3EC27009E4700AFD1FC /* EventPresenterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPresenterDataSource.swift; sourceTree = "<group>"; };
+		EAAEC3EE27009E4700AFD1FC /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		EAAEC3F027009E4700AFD1FC /* EventInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInteractor.swift; sourceTree = "<group>"; };
+		EAAEC3F227009E4700AFD1FC /* EventRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventRouter.swift; sourceTree = "<group>"; };
+		EAAEC3F427009E4700AFD1FC /* Intra21Contract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intra21Contract.swift; sourceTree = "<group>"; };
+		EAAEC3F627009E4700AFD1FC /* EventResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
+		EAAEC3F827009E4700AFD1FC /* IntraAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntraAPIService.swift; sourceTree = "<group>"; };
+		EAAEC3FA27009E4700AFD1FC /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		EAAEC3FB27009E4700AFD1FC /* DataFormatter+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataFormatter+Ext.swift"; sourceTree = "<group>"; };
+		EAAEC3FC27009E4700AFD1FC /* JSONDecoder+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Ext.swift"; sourceTree = "<group>"; };
+		EAAEC3FD27009E4700AFD1FC /* UIWindow+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Ext.swift"; sourceTree = "<group>"; };
+		EAAEC40127009E4700AFD1FC /* CellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
+		EAAEC40227009E4700AFD1FC /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		EAAEC40327009E4700AFD1FC /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		EAAEC40527009E4700AFD1FC /* SectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
+		EAAEC40627009E4700AFD1FC /* TableViewContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewContract.swift; sourceTree = "<group>"; };
+		EAAEC40727009E4700AFD1FC /* ModelRepresentableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelRepresentableProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,12 +122,12 @@
 		3E43911B270094F400C8AC03 /* Events21 */ = {
 			isa = PBXGroup;
 			children = (
-				3E439198270095D300C8AC03 /* Components */,
-				3E439196270095D300C8AC03 /* Contract */,
-				3E4391A2270095D300C8AC03 /* Entities */,
-				3E4391A6270095D300C8AC03 /* Extentions */,
-				3E4391AB270095D300C8AC03 /* Modules */,
-				3E4391A4270095D300C8AC03 /* Services */,
+				EAAEC3FE27009E4700AFD1FC /* Components */,
+				EAAEC3F327009E4700AFD1FC /* Contract */,
+				EAAEC3F527009E4700AFD1FC /* Entities */,
+				EAAEC3F927009E4700AFD1FC /* Extentions */,
+				EAAEC3C827009E4700AFD1FC /* Modules */,
+				EAAEC3F727009E4700AFD1FC /* Services */,
 				3E43911C270094F400C8AC03 /* AppDelegate.swift */,
 				3E43911E270094F400C8AC03 /* SceneDelegate.swift */,
 				3E439122270094F400C8AC03 /* Main.storyboard */,
@@ -138,278 +138,272 @@
 			path = Events21;
 			sourceTree = "<group>";
 		};
-		3E439196270095D300C8AC03 /* Contract */ = {
+		EAAEC3C827009E4700AFD1FC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				3E439197270095D300C8AC03 /* Intra21Contract.swift */,
+				EAAEC3C927009E4700AFD1FC /* User */,
+				EAAEC3D727009E4700AFD1FC /* Authorization */,
+				EAAEC3E527009E4700AFD1FC /* Event */,
 			);
-			name = Contract;
-			path = ../../Intra21/Intra21/Contract;
+			path = Modules;
 			sourceTree = "<group>";
 		};
-		3E439198270095D300C8AC03 /* Components */ = {
+		EAAEC3C927009E4700AFD1FC /* User */ = {
 			isa = PBXGroup;
 			children = (
-				3E439199270095D300C8AC03 /* UITableViewComponents */,
-				3E4391A1270095D300C8AC03 /* ModelRepresentableProtocol.swift */,
-			);
-			name = Components;
-			path = ../../Intra21/Intra21/Components;
-			sourceTree = "<group>";
-		};
-		3E439199270095D300C8AC03 /* UITableViewComponents */ = {
-			isa = PBXGroup;
-			children = (
-				3E43919A270095D300C8AC03 /* Cells */,
-				3E43919E270095D300C8AC03 /* Sections */,
-				3E4391A0270095D300C8AC03 /* TableViewContract.swift */,
-			);
-			path = UITableViewComponents;
-			sourceTree = "<group>";
-		};
-		3E43919A270095D300C8AC03 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				3E43919B270095D300C8AC03 /* CellModel.swift */,
-				3E43919C270095D300C8AC03 /* EventCell.swift */,
-				3E43919D270095D300C8AC03 /* Cell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		3E43919E270095D300C8AC03 /* Sections */ = {
-			isa = PBXGroup;
-			children = (
-				3E43919F270095D300C8AC03 /* SectionModel.swift */,
-			);
-			path = Sections;
-			sourceTree = "<group>";
-		};
-		3E4391A2270095D300C8AC03 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				3E4391A3270095D300C8AC03 /* EventResponse.swift */,
-			);
-			name = Entities;
-			path = ../../Intra21/Intra21/Entities;
-			sourceTree = "<group>";
-		};
-		3E4391A4270095D300C8AC03 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				3E4391A5270095D300C8AC03 /* IntraAPIService.swift */,
-			);
-			name = Services;
-			path = ../../Intra21/Intra21/Services;
-			sourceTree = "<group>";
-		};
-		3E4391A6270095D300C8AC03 /* Extentions */ = {
-			isa = PBXGroup;
-			children = (
-				3E4391A7270095D300C8AC03 /* Date+Ext.swift */,
-				3E4391A8270095D300C8AC03 /* DataFormatter+Ext.swift */,
-				3E4391A9270095D300C8AC03 /* JSONDecoder+Ext.swift */,
-				3E4391AA270095D300C8AC03 /* UIWindow+Ext.swift */,
-			);
-			name = Extentions;
-			path = ../../Intra21/Intra21/Extentions;
-			sourceTree = "<group>";
-		};
-		3E4391AB270095D300C8AC03 /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				3E4391AC270095D300C8AC03 /* User */,
-				3E4391BA270095D300C8AC03 /* Authorization */,
-				3E4391C8270095D300C8AC03 /* Event */,
-			);
-			name = Modules;
-			path = ../../Intra21/Intra21/Modules;
-			sourceTree = "<group>";
-		};
-		3E4391AC270095D300C8AC03 /* User */ = {
-			isa = PBXGroup;
-			children = (
-				3E4391AD270095D300C8AC03 /* Contract */,
-				3E4391AF270095D300C8AC03 /* Assembly */,
-				3E4391B1270095D300C8AC03 /* Presenter */,
-				3E4391B4270095D300C8AC03 /* View */,
-				3E4391B6270095D300C8AC03 /* Interactor */,
-				3E4391B8270095D300C8AC03 /* Router */,
+				EAAEC3CA27009E4700AFD1FC /* Contract */,
+				EAAEC3CC27009E4700AFD1FC /* Assembly */,
+				EAAEC3CE27009E4700AFD1FC /* Presenter */,
+				EAAEC3D127009E4700AFD1FC /* View */,
+				EAAEC3D327009E4700AFD1FC /* Interactor */,
+				EAAEC3D527009E4700AFD1FC /* Router */,
 			);
 			path = User;
 			sourceTree = "<group>";
 		};
-		3E4391AD270095D300C8AC03 /* Contract */ = {
+		EAAEC3CA27009E4700AFD1FC /* Contract */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391AE270095D300C8AC03 /* UserContract.swift */,
+				EAAEC3CB27009E4700AFD1FC /* UserContract.swift */,
 			);
 			path = Contract;
 			sourceTree = "<group>";
 		};
-		3E4391AF270095D300C8AC03 /* Assembly */ = {
+		EAAEC3CC27009E4700AFD1FC /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391B0270095D300C8AC03 /* UserAssembly.swift */,
+				EAAEC3CD27009E4700AFD1FC /* UserAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
 		};
-		3E4391B1270095D300C8AC03 /* Presenter */ = {
+		EAAEC3CE27009E4700AFD1FC /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391B2270095D300C8AC03 /* UserPresenterDataSource.swift */,
-				3E4391B3270095D300C8AC03 /* UserPresenter.swift */,
+				EAAEC3CF27009E4700AFD1FC /* UserPresenterDataSource.swift */,
+				EAAEC3D027009E4700AFD1FC /* UserPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		3E4391B4270095D300C8AC03 /* View */ = {
+		EAAEC3D127009E4700AFD1FC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391B5270095D300C8AC03 /* UserViewController.swift */,
+				EAAEC3D227009E4700AFD1FC /* UserViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		3E4391B6270095D300C8AC03 /* Interactor */ = {
+		EAAEC3D327009E4700AFD1FC /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391B7270095D300C8AC03 /* UserInteractor.swift */,
+				EAAEC3D427009E4700AFD1FC /* UserInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		3E4391B8270095D300C8AC03 /* Router */ = {
+		EAAEC3D527009E4700AFD1FC /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391B9270095D300C8AC03 /* UserRouter.swift */,
+				EAAEC3D627009E4700AFD1FC /* UserRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
 		};
-		3E4391BA270095D300C8AC03 /* Authorization */ = {
+		EAAEC3D727009E4700AFD1FC /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391BB270095D300C8AC03 /* Contract */,
-				3E4391BD270095D300C8AC03 /* Assembly */,
-				3E4391BF270095D300C8AC03 /* Presenter */,
-				3E4391C2270095D300C8AC03 /* View */,
-				3E4391C4270095D300C8AC03 /* Interactor */,
-				3E4391C6270095D300C8AC03 /* Router */,
+				EAAEC3D827009E4700AFD1FC /* Contract */,
+				EAAEC3DA27009E4700AFD1FC /* Assembly */,
+				EAAEC3DC27009E4700AFD1FC /* Presenter */,
+				EAAEC3DF27009E4700AFD1FC /* View */,
+				EAAEC3E127009E4700AFD1FC /* Interactor */,
+				EAAEC3E327009E4700AFD1FC /* Router */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
 		};
-		3E4391BB270095D300C8AC03 /* Contract */ = {
+		EAAEC3D827009E4700AFD1FC /* Contract */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391BC270095D300C8AC03 /* AuthorizationContract.swift */,
+				EAAEC3D927009E4700AFD1FC /* AuthorizationContract.swift */,
 			);
 			path = Contract;
 			sourceTree = "<group>";
 		};
-		3E4391BD270095D300C8AC03 /* Assembly */ = {
+		EAAEC3DA27009E4700AFD1FC /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391BE270095D300C8AC03 /* AuthorizationAssembly.swift */,
+				EAAEC3DB27009E4700AFD1FC /* AuthorizationAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
 		};
-		3E4391BF270095D300C8AC03 /* Presenter */ = {
+		EAAEC3DC27009E4700AFD1FC /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391C0270095D300C8AC03 /* AuthorizationPresenter.swift */,
-				3E4391C1270095D300C8AC03 /* AuthorizationPresenterDataSource.swift */,
+				EAAEC3DD27009E4700AFD1FC /* AuthorizationPresenter.swift */,
+				EAAEC3DE27009E4700AFD1FC /* AuthorizationPresenterDataSource.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		3E4391C2270095D300C8AC03 /* View */ = {
+		EAAEC3DF27009E4700AFD1FC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391C3270095D300C8AC03 /* AuthorizationViewController.swift */,
+				EAAEC3E027009E4700AFD1FC /* AuthorizationViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		3E4391C4270095D300C8AC03 /* Interactor */ = {
+		EAAEC3E127009E4700AFD1FC /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391C5270095D300C8AC03 /* AuthorizationInteractor.swift */,
+				EAAEC3E227009E4700AFD1FC /* AuthorizationInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		3E4391C6270095D300C8AC03 /* Router */ = {
+		EAAEC3E327009E4700AFD1FC /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391C7270095D300C8AC03 /* AuthorizationRouter.swift */,
+				EAAEC3E427009E4700AFD1FC /* AuthorizationRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
 		};
-		3E4391C8270095D300C8AC03 /* Event */ = {
+		EAAEC3E527009E4700AFD1FC /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391C9270095D300C8AC03 /* Contract */,
-				3E4391CB270095D300C8AC03 /* Assembly */,
-				3E4391CD270095D300C8AC03 /* Presenter */,
-				3E4391D0270095D300C8AC03 /* View */,
-				3E4391D2270095D300C8AC03 /* Interactor */,
-				3E4391D4270095D300C8AC03 /* Router */,
+				EAAEC3E627009E4700AFD1FC /* Contract */,
+				EAAEC3E827009E4700AFD1FC /* Assembly */,
+				EAAEC3EA27009E4700AFD1FC /* Presenter */,
+				EAAEC3ED27009E4700AFD1FC /* View */,
+				EAAEC3EF27009E4700AFD1FC /* Interactor */,
+				EAAEC3F127009E4700AFD1FC /* Router */,
 			);
 			path = Event;
 			sourceTree = "<group>";
 		};
-		3E4391C9270095D300C8AC03 /* Contract */ = {
+		EAAEC3E627009E4700AFD1FC /* Contract */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391CA270095D300C8AC03 /* EventContract.swift */,
+				EAAEC3E727009E4700AFD1FC /* EventContract.swift */,
 			);
 			path = Contract;
 			sourceTree = "<group>";
 		};
-		3E4391CB270095D300C8AC03 /* Assembly */ = {
+		EAAEC3E827009E4700AFD1FC /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391CC270095D300C8AC03 /* EventAssembly.swift */,
+				EAAEC3E927009E4700AFD1FC /* EventAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
 		};
-		3E4391CD270095D300C8AC03 /* Presenter */ = {
+		EAAEC3EA27009E4700AFD1FC /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391CE270095D300C8AC03 /* EventPresenter.swift */,
-				3E4391CF270095D300C8AC03 /* EventPresenterDataSource.swift */,
+				EAAEC3EB27009E4700AFD1FC /* EventPresenter.swift */,
+				EAAEC3EC27009E4700AFD1FC /* EventPresenterDataSource.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		3E4391D0270095D300C8AC03 /* View */ = {
+		EAAEC3ED27009E4700AFD1FC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391D1270095D300C8AC03 /* EventViewController.swift */,
+				EAAEC3EE27009E4700AFD1FC /* EventViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		3E4391D2270095D300C8AC03 /* Interactor */ = {
+		EAAEC3EF27009E4700AFD1FC /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391D3270095D300C8AC03 /* EventInteractor.swift */,
+				EAAEC3F027009E4700AFD1FC /* EventInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		3E4391D4270095D300C8AC03 /* Router */ = {
+		EAAEC3F127009E4700AFD1FC /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3E4391D5270095D300C8AC03 /* EventRouter.swift */,
+				EAAEC3F227009E4700AFD1FC /* EventRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		EAAEC3F327009E4700AFD1FC /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				EAAEC3F427009E4700AFD1FC /* Intra21Contract.swift */,
+			);
+			path = Contract;
+			sourceTree = "<group>";
+		};
+		EAAEC3F527009E4700AFD1FC /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				EAAEC3F627009E4700AFD1FC /* EventResponse.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		EAAEC3F727009E4700AFD1FC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EAAEC3F827009E4700AFD1FC /* IntraAPIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EAAEC3F927009E4700AFD1FC /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				EAAEC3FA27009E4700AFD1FC /* Date+Ext.swift */,
+				EAAEC3FB27009E4700AFD1FC /* DataFormatter+Ext.swift */,
+				EAAEC3FC27009E4700AFD1FC /* JSONDecoder+Ext.swift */,
+				EAAEC3FD27009E4700AFD1FC /* UIWindow+Ext.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		EAAEC3FE27009E4700AFD1FC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EAAEC3FF27009E4700AFD1FC /* UITableViewComponents */,
+				EAAEC40727009E4700AFD1FC /* ModelRepresentableProtocol.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		EAAEC3FF27009E4700AFD1FC /* UITableViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				EAAEC40027009E4700AFD1FC /* Cells */,
+				EAAEC40427009E4700AFD1FC /* Sections */,
+				EAAEC40627009E4700AFD1FC /* TableViewContract.swift */,
+			);
+			path = UITableViewComponents;
+			sourceTree = "<group>";
+		};
+		EAAEC40027009E4700AFD1FC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EAAEC40127009E4700AFD1FC /* CellModel.swift */,
+				EAAEC40227009E4700AFD1FC /* EventCell.swift */,
+				EAAEC40327009E4700AFD1FC /* Cell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		EAAEC40427009E4700AFD1FC /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				EAAEC40527009E4700AFD1FC /* SectionModel.swift */,
+			);
+			path = Sections;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -482,42 +476,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E4391EE270095D300C8AC03 /* AuthorizationViewController.swift in Sources */,
-				3E4391DC270095D300C8AC03 /* ModelRepresentableProtocol.swift in Sources */,
-				3E4391E9270095D300C8AC03 /* UserRouter.swift in Sources */,
-				3E4391E8270095D300C8AC03 /* UserInteractor.swift in Sources */,
-				3E4391E7270095D300C8AC03 /* UserViewController.swift in Sources */,
-				3E4391E2270095D300C8AC03 /* UIWindow+Ext.swift in Sources */,
+				EAAEC42927009E4700AFD1FC /* ModelRepresentableProtocol.swift in Sources */,
+				EAAEC42027009E4700AFD1FC /* Date+Ext.swift in Sources */,
+				EAAEC42327009E4700AFD1FC /* UIWindow+Ext.swift in Sources */,
+				EAAEC41327009E4700AFD1FC /* AuthorizationViewController.swift in Sources */,
+				EAAEC41F27009E4700AFD1FC /* IntraAPIService.swift in Sources */,
+				EAAEC41627009E4700AFD1FC /* EventContract.swift in Sources */,
+				EAAEC41A27009E4700AFD1FC /* EventViewController.swift in Sources */,
+				EAAEC41127009E4700AFD1FC /* AuthorizationPresenter.swift in Sources */,
+				EAAEC41427009E4700AFD1FC /* AuthorizationInteractor.swift in Sources */,
+				EAAEC42627009E4700AFD1FC /* Cell.swift in Sources */,
+				EAAEC40C27009E4700AFD1FC /* UserViewController.swift in Sources */,
+				EAAEC42127009E4700AFD1FC /* DataFormatter+Ext.swift in Sources */,
+				EAAEC42427009E4700AFD1FC /* CellModel.swift in Sources */,
+				EAAEC40D27009E4700AFD1FC /* UserInteractor.swift in Sources */,
+				EAAEC42527009E4700AFD1FC /* EventCell.swift in Sources */,
+				EAAEC41B27009E4700AFD1FC /* EventInteractor.swift in Sources */,
+				EAAEC42727009E4700AFD1FC /* SectionModel.swift in Sources */,
+				EAAEC42827009E4700AFD1FC /* TableViewContract.swift in Sources */,
+				EAAEC41927009E4700AFD1FC /* EventPresenterDataSource.swift in Sources */,
+				EAAEC40927009E4700AFD1FC /* UserAssembly.swift in Sources */,
+				EAAEC41C27009E4700AFD1FC /* EventRouter.swift in Sources */,
+				EAAEC41527009E4700AFD1FC /* AuthorizationRouter.swift in Sources */,
+				EAAEC41727009E4700AFD1FC /* EventAssembly.swift in Sources */,
 				3E43911D270094F400C8AC03 /* AppDelegate.swift in Sources */,
-				3E4391F7270095D300C8AC03 /* EventRouter.swift in Sources */,
-				3E4391E1270095D300C8AC03 /* JSONDecoder+Ext.swift in Sources */,
-				3E4391EF270095D300C8AC03 /* AuthorizationInteractor.swift in Sources */,
-				3E4391F3270095D300C8AC03 /* EventPresenter.swift in Sources */,
-				3E4391ED270095D300C8AC03 /* AuthorizationPresenterDataSource.swift in Sources */,
-				3E4391EC270095D300C8AC03 /* AuthorizationPresenter.swift in Sources */,
+				EAAEC41027009E4700AFD1FC /* AuthorizationAssembly.swift in Sources */,
+				EAAEC41E27009E4700AFD1FC /* EventResponse.swift in Sources */,
+				EAAEC40E27009E4700AFD1FC /* UserRouter.swift in Sources */,
+				EAAEC41227009E4700AFD1FC /* AuthorizationPresenterDataSource.swift in Sources */,
+				EAAEC40827009E4700AFD1FC /* UserContract.swift in Sources */,
+				EAAEC41827009E4700AFD1FC /* EventPresenter.swift in Sources */,
+				EAAEC40B27009E4700AFD1FC /* UserPresenter.swift in Sources */,
+				EAAEC40F27009E4700AFD1FC /* AuthorizationContract.swift in Sources */,
+				EAAEC40A27009E4700AFD1FC /* UserPresenterDataSource.swift in Sources */,
 				3E43911F270094F400C8AC03 /* SceneDelegate.swift in Sources */,
-				3E4391DF270095D300C8AC03 /* Date+Ext.swift in Sources */,
-				3E4391D8270095D300C8AC03 /* EventCell.swift in Sources */,
-				3E4391E0270095D300C8AC03 /* DataFormatter+Ext.swift in Sources */,
-				3E4391E6270095D300C8AC03 /* UserPresenter.swift in Sources */,
-				3E4391F6270095D300C8AC03 /* EventInteractor.swift in Sources */,
-				3E4391DB270095D300C8AC03 /* TableViewContract.swift in Sources */,
-				3E4391DD270095D300C8AC03 /* EventResponse.swift in Sources */,
-				3E4391E3270095D300C8AC03 /* UserContract.swift in Sources */,
-				3E4391EB270095D300C8AC03 /* AuthorizationAssembly.swift in Sources */,
-				3E4391F1270095D300C8AC03 /* EventContract.swift in Sources */,
-				3E4391F0270095D300C8AC03 /* AuthorizationRouter.swift in Sources */,
-				3E4391EA270095D300C8AC03 /* AuthorizationContract.swift in Sources */,
-				3E4391D6270095D300C8AC03 /* Intra21Contract.swift in Sources */,
-				3E4391D7270095D300C8AC03 /* CellModel.swift in Sources */,
-				3E4391E4270095D300C8AC03 /* UserAssembly.swift in Sources */,
-				3E4391E5270095D300C8AC03 /* UserPresenterDataSource.swift in Sources */,
-				3E4391F4270095D300C8AC03 /* EventPresenterDataSource.swift in Sources */,
-				3E4391DA270095D300C8AC03 /* SectionModel.swift in Sources */,
-				3E4391F2270095D300C8AC03 /* EventAssembly.swift in Sources */,
-				3E4391DE270095D300C8AC03 /* IntraAPIService.swift in Sources */,
-				3E4391D9270095D300C8AC03 /* Cell.swift in Sources */,
-				3E4391F5270095D300C8AC03 /* EventViewController.swift in Sources */,
+				EAAEC41D27009E4700AFD1FC /* Intra21Contract.swift in Sources */,
+				EAAEC42227009E4700AFD1FC /* JSONDecoder+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
