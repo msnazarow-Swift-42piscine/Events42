@@ -11,7 +11,7 @@ import Foundation
 final class SectionModel: SectionRowsRepresentable {
     var rows: [CellIdentifiable] = []
 
-    init(_ properties: [Model]) {
+    init(_ properties: [EventResponse]) {
         properties.forEach { property in
             rows.append(CellModel(property))
         }

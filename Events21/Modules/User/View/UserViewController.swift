@@ -51,17 +51,16 @@ class UserViewController: UIViewController {
         return label
     }()
     
-    let levelLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14)
-        // remove after test
-//        label.text = "Current level: 7.88"
-        return label
+    let levelTextView: UITextView = {
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.font = .systemFont(ofSize: 14)
+        textView.text = "Current level: 9.88"
+        return textView
     }()
     
     lazy var verticalStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [loginLabel, nameLabel, surnameLabel, levelLabel])
+        let stackView = UIStackView(arrangedSubviews: [loginLabel, nameLabel, surnameLabel, levelTextView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 8
         stackView.axis = .vertical
@@ -149,7 +148,11 @@ extension UserViewController: PresenterToViewUserProtocol{
 
     func setLevel(_ level: String) {
         DispatchQueue.main.async {
-            self.levelLabel.text = level
+            self.levelTextView.text = level
         }
+    }
+    
+    func reloadTableViewData() {
+        tableView.reloadData()
     }
 }

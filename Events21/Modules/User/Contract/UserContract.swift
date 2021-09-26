@@ -15,7 +15,8 @@ protocol PresenterToViewUserProtocol: AnyObject {
     func setLogin(_ login: String)
     func setName(_ name: String)
     func setSurname(_ surname: String)
-    func setLevel(_ level: String) 
+    func setLevel(_ level: String)
+    func reloadTableViewData()
 }
 
 
