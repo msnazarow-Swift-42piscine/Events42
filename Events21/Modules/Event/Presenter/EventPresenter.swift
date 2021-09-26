@@ -6,7 +6,7 @@
 //  
 //
 
-import Foundation
+import UIKit
 
 class EventPresenter: ViewToPresenterEventProtocol {
 
@@ -15,20 +15,71 @@ class EventPresenter: ViewToPresenterEventProtocol {
     let interactor: PresenterToInteractorEventProtocol
     let router: PresenterToRouterEventProtocol
     let dataSource:PresenterToDataSourceEventProtocol
-
+    let model: CellModel
+    let userId: Int
+    var status = false
     // MARK: Init
     init(view: PresenterToViewEventProtocol,
          interactor: PresenterToInteractorEventProtocol,
          router: PresenterToRouterEventProtocol,
-         dataSource: PresenterToDataSourceEventProtocol) {
+         dataSource: PresenterToDataSourceEventProtocol,
+         model: CellModel,
+         userId: Int) {
         self.view = view
         self.interactor = interactor
         self.router = router
         self.dataSource = dataSource
+        self.model = model
+        self.userId = userId
     }
 
     func viewDidLoad(){
+        let text = NSMutableAttributedString()
+        if let kind = model.kind {
+            text.append(NSAttributedString(string: "\(kind)\n", attributes: [.font: UIFont.systemFont(ofSize: 40 * verticalTranslation), .foregroundColor: UIColor.cyan]))
+        }
+        if let name = model.name {
+            text.append(NSAttributedString(string: "\(name)\n", attributes: [.font: UIFont.systemFont(ofSize: 30 * verticalTranslation), .foregroundColor: UIColor.black]))
+        }
+        if let description = model.description {
+            text.append(NSAttributedString(string: "\(description)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.darkGray]))
+        }
+        if let nbrSubscribers = model.nbrSubscribers  {
+            let maxPeople = (model.maxPeople != nil) ? "\(model.maxPeople!)" : ""
+            text.append(NSAttributedString(string: "Current number of guests: \(nbrSubscribers)/\(maxPeople)\n", attributes: [.font: UIFont.systemFont(ofSize: 40 * verticalTranslation), .foregroundColor: UIColor.black]))
+        }
+        if let location = model.location {
+            text.append(NSAttributedString(string: "Localisation: \(location)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.black]))
+        }
+        if let beginAt = model.beginAt {
+            text.append(NSAttributedString(string: "Begin: \(beginAt.dateSlashString)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.gray]))
+        }
+        if let endAt = model.endAt {
+            text.append(NSAttributedString(string: "End: \(endAt.dateSlashString)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.gray]))
+        }
+        if let duration = model.duration {
+            text.append(NSAttributedString(string: "Duration: \(duration)", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.black]))
+        }
+        view.setTextView(text: text)
 
+    }
+
+    func didTapButton(){
+        if !status {
+            interactor.registerToEvent(userId: userId, eventId: model.eventId) { [self] result in
+                status = result
+                if result {
+                    view.showAlert(with: "You have registered")
+                    view.setButtonUnregistered()
+                } else {
+                    view.showAlert(with: "You cannot register")
+                }
+            }
+        } else {
+            status = !status
+            view.showAlert(with: "You have unregistered")
+            view.setButtonRegistered()
+        }
     }
 }
 

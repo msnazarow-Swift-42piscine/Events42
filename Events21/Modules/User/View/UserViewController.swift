@@ -93,6 +93,7 @@ class UserViewController: UIViewController {
     private func setupUI() {
         addSubviews()
         tableView.dataSource = presenter?.dataSource
+        tableView.delegate = self
         tableView.register(EventCell.self, forCellReuseIdentifier: String(describing: EventCell.self))
         setupConstraints()
     }
@@ -154,5 +155,11 @@ extension UserViewController: PresenterToViewUserProtocol{
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+}
+
+extension UserViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelectRowAt(modelId: indexPath.row)
     }
 }

@@ -10,5 +10,8 @@ import Foundation
 
 class EventInteractor: PresenterToInteractorEventProtocol {
 
-   
+    let intraAPIService = IntraAPIService.shared
+    func registerToEvent(userId: Int, eventId: Int, complition: @escaping (Bool) -> Void){
+        intraAPIService.registerToEvent(userId: userId, eventId: eventId, complition: complition)
+    }
 }

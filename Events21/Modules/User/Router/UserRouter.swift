@@ -17,5 +17,8 @@ class UserRouter: PresenterToRouterUserProtocol {
     init(view: UIViewController) {
         self.view = view
     }
-    
+
+    func routeToEventScreen(with model: CellModel, userId: Int) {
+        view.navigationController?.pushViewController(EventAssembly.createModule(with: model, userId: userId), animated: true)
+    }
 }

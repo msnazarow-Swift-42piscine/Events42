@@ -28,10 +28,9 @@ class AuthorizationPresenter: ViewToPresenterAuthorizationProtocol {
     }
 
     func viewDidLoad(){
-//        interactor.getRecentEvents(for: "sgertrud") { result in
-//            print(result)
-//        }
+
     }
+    
     func didTapLoginButton() {
         interactor.openIntra()
     }

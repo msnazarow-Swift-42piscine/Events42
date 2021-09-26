@@ -11,7 +11,10 @@ import UIKit
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewEventProtocol: AnyObject {
-
+    func setTextView(text: NSAttributedString)
+    func showAlert(with message: String)
+    func setButtonUnregistered()
+    func setButtonRegistered()
 }
 
 
@@ -19,12 +22,13 @@ protocol PresenterToViewEventProtocol: AnyObject {
 protocol ViewToPresenterEventProtocol: AnyObject {
     var dataSource:PresenterToDataSourceEventProtocol { get }
     func viewDidLoad()
+    func didTapButton()
 }
 
 
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorEventProtocol: AnyObject {
-
+    func registerToEvent(userId: Int, eventId: Int, complition: @escaping (Bool) -> Void)
 }
 
 // MARK: Presenter Output (Presenter -> Router)

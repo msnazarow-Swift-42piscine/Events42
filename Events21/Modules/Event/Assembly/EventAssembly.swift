@@ -11,13 +11,18 @@ import UIKit
 enum EventAssembly{
     
     // MARK: Static methods
-    static func createModule() -> UIViewController {
+    static func createModule(with model: CellModel, userId: Int) -> UIViewController {
 
         let viewController = EventViewController()
         let router = EventRouter(view: viewController)
         let interactor = EventInteractor()
         let dataSource = EventPresenterDataSource()
-        let presenter = EventPresenter(view: viewController, interactor: interactor, router: router, dataSource: dataSource)
+        let presenter = EventPresenter(view: viewController,
+                                       interactor: interactor,
+                                       router: router,
+                                       dataSource: dataSource,
+                                       model: model,
+                                       userId: userId)
 
         viewController.presenter = presenter
         dataSource.presenter = presenter

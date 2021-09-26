@@ -8,6 +8,7 @@
 import Foundation
 
 struct MeResponse: Codable {
+    let id: Int!
     let firstName: String!
     let lastName: String!
     let imageUrl: String!

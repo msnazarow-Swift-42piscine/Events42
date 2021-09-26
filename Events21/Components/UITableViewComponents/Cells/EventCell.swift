@@ -88,6 +88,7 @@ class EventCell: Cell {
         nameLabel.text = model.name
         eventTitleLabel.text = model.kind
         dateEventLabel.text = model.beginAt.dateSlashString
+        durationTimeLabel.text = model.duration
 //        Calendar.current.dateComponents([.minute], from: , to: <#T##Date#>)
     }
 }

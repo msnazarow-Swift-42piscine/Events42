@@ -23,7 +23,9 @@ protocol PresenterToViewUserProtocol: AnyObject {
 // MARK: View Input (View -> Presenter)
 protocol ViewToPresenterUserProtocol: AnyObject {
     var dataSource:PresenterToDataSourceUserProtocol { get }
+
     func viewDidLoad()
+    func didSelectRowAt(modelId: Int)
 }
 
 
@@ -37,7 +39,7 @@ protocol PresenterToInteractorUserProtocol: AnyObject {
 
 // MARK: Presenter Output (Presenter -> Router)
 protocol PresenterToRouterUserProtocol: AnyObject {
-    
+    func routeToEventScreen(with event: CellModel, userId: Int)
 }
 
 // MARK: Presenter Output (Presenter -> DataSource)

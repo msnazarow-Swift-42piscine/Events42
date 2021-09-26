@@ -8,6 +8,7 @@
 import Foundation
 
 struct EventResponse: Codable {
+    let id: Int!
     let name: String!
     let description: String!
     let maxPeople: Int!

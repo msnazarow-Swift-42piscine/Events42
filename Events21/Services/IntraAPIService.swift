@@ -21,13 +21,16 @@ class IntraAPIService: IntraAPIServiceProtocol {
     let redirecdedUrl = "events21://events21"//.addingPercentEncoding(withAllowedCharacters: .urlUserAllowed)!
     let uid = "304465722129fb447b62e46570c95cbad281250121c76f71a64fd9b0098baaa9"
     let secret = "9dd7cc32e3dd76eccfcd4587cd3a435ac3826d35c86715c92207aa8b868f06d1"
-    let accessToken = "c70498426056d011b250dd12ba60099a2a299b64a6e75b447069dee2bf02a1bd"
+    var accessToken = "c70498426056d011b250dd12ba60099a2a299b64a6e75b447069dee2bf02a1bd"
     let decoder: JSONDecoder = {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         decoder.dateDecodingStrategyFormatters = [.iso8601Full]
         return decoder
     }()
+
+    static let shared = IntraAPIService()
+    private init(){}
 
     func getRecentEvents(with token: String, complition: @escaping (Result<[EventResponse], Error>) -> Void) {
         var urlComponents = URLComponents()
@@ -54,7 +57,7 @@ class IntraAPIService: IntraAPIServiceProtocol {
                 return
             }
             do {
-                try print(JSONSerialization.jsonObject(with: data))
+//                try print(JSONSerialization.jsonObject(with: data))
                 let tweets = try self.decoder.decode([EventResponse].self, from: data)
                 complition(.success(tweets))
             } catch {
@@ -96,21 +99,40 @@ class IntraAPIService: IntraAPIServiceProtocol {
         ]
         var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = "POST"
-        let task = URLSession.shared.dataTask(with: request as URLRequest) {
-            data, response, error in
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             if error != nil {
 //                self.delegate?.apiError(error: err, message: "1 - An error occurred for getToken")
             }
             else if let data = data {
                 do {
                     let token = try self.decoder.decode(TokenResponse.self, from: data)
+                    self.accessToken = token.accessToken
                     complition(token.accessToken)
                 }
-                catch (let _) {
+                catch ( _) {
 //                    self.delegate?.apiError(error: err, message: "2 - An error occurred for getToken")
                 }
             }
         }
         task.resume()
+    }
+
+    func registerToEvent(userId: Int, eventId: Int, complition: @escaping (Bool) -> Void){
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.intra.42.fr"
+        urlComponents.path = "/v2/event_users"
+        urlComponents.queryItems = [
+            .init(name: "event_id", value: "\(eventId)"),
+            .init(name: "user_id", value: "\(userId)")
+        ]
+        var request = URLRequest(url: urlComponents.url!)
+        request.httpMethod = "POST"
+        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            guard let data = data, error == nil else { return }
+            complition(true)
+//            try! print(JSONSerialization.jsonObject(with: data))
+        }.resume()
     }
 }

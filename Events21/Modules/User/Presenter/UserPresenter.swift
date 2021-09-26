@@ -16,6 +16,9 @@ class UserPresenter: ViewToPresenterUserProtocol {
     let router: PresenterToRouterUserProtocol
     let dataSource:PresenterToDataSourceUserProtocol
 
+    var events: [EventResponse]!
+    var userId: Int!
+
     // MARK: Init
     init(view: PresenterToViewUserProtocol,
          interactor: PresenterToInteractorUserProtocol,
@@ -35,8 +38,10 @@ class UserPresenter: ViewToPresenterUserProtocol {
             }
         }
     }
+    
     func getMe(with token: String) {
         interactor.getMe(with: token) { [self] me in
+            userId = me.id
             view.setName(me.firstName)
             view.setSurname(me.lastName)
             view.setLogin(me.login)
@@ -54,16 +59,22 @@ class UserPresenter: ViewToPresenterUserProtocol {
             }
         }
     }
+
     func getRecentEvents(with token: String) {
         interactor.getRecentEvents(with: token) { result in
             switch result {
             case .success(let responses):
+                self.events = responses
                 self.dataSource.updateForSections([SectionModel(responses)])
                 self.view.reloadTableViewData()
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+    }
+
+    func didSelectRowAt(modelId: Int) {
+        router.routeToEventScreen(with: CellModel(events[modelId]), userId: userId)
     }
 }
 

@@ -24,6 +24,8 @@ struct CellModel: CellIdentifiable {
     let kind: String!
     let beginAt: Date!
     let endAt: Date!
+    let duration: String!
+    let eventId: Int!
 
     init(_ property: EventResponse) {
         name = property.name
@@ -34,5 +36,9 @@ struct CellModel: CellIdentifiable {
         kind = property.kind
         beginAt = property.beginAt
         endAt = property.endAt
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .full
+        eventId = property.id
+        duration = formatter.localizedString(for: property.beginAt, relativeTo: property.endAt).replacingOccurrences(of: " ago", with: "")
     }
 }
