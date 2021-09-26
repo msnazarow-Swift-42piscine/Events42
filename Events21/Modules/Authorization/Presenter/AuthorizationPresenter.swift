@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import SwiftUI
-    
+
 class AuthorizationPresenter: ViewToPresenterAuthorizationProtocol {
 
     // MARK: Properties
@@ -29,9 +28,12 @@ class AuthorizationPresenter: ViewToPresenterAuthorizationProtocol {
     }
 
     func viewDidLoad(){
-        interactor.getRecentEvents(for: "sgertrud") { result in
-            print(result)
-        }
+//        interactor.getRecentEvents(for: "sgertrud") { result in
+//            print(result)
+//        }
+    }
+    func didTapLoginButton() {
+        interactor.openIntra()
     }
 }
  

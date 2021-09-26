@@ -11,7 +11,11 @@ import UIKit
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewUserProtocol: AnyObject {
-
+    func setProfileImageView(image: UIImage)
+    func setLogin(_ login: String)
+    func setName(_ name: String)
+    func setSurname(_ surname: String)
+    func setLevel(_ level: String) 
 }
 
 
@@ -24,7 +28,10 @@ protocol ViewToPresenterUserProtocol: AnyObject {
 
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorUserProtocol: AnyObject {
-
+    func getRecentEvents(for userID: String, complition: @escaping (Result<[EventResponse], Error>) -> Void)
+    func getMe(with token: String, comlition: @escaping (MeResponse) -> Void)
+    func getToken(with code: String, complition: @escaping (String) -> Void)
+    func getImage(for url: String, complition: @escaping (UIImage?) -> Void)
 }
 
 // MARK: Presenter Output (Presenter -> Router)

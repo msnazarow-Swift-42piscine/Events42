@@ -19,12 +19,13 @@ protocol PresenterToViewAuthorizationProtocol: AnyObject {
 protocol ViewToPresenterAuthorizationProtocol: AnyObject {
     var dataSource:PresenterToDataSourceAuthorizationProtocol { get }
     func viewDidLoad()
+    func didTapLoginButton()
 }
 
 
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorAuthorizationProtocol: AnyObject {
-    func getRecentEvents(for userID: String, complition: @escaping (Result<[EventResponse], Error>) -> Void)
+    func openIntra()
 }
 
 // MARK: Presenter Output (Presenter -> Router)

@@ -28,6 +28,24 @@ class UserPresenter: ViewToPresenterUserProtocol {
     }
 
     func viewDidLoad(){
+        if let code = UserDefaults.standard.value(forKey: .userToken) as? String {
+//            interactor.getMe(with: code)
+            interactor.getToken(with: code) {[self] token in
+                interactor.getMe(with: token) { me in
+                    
+                    view.setName(me.firstName)
+                    view.setSurname(me.lastName)
+                    view.setLogin(me.login)
+                    guard let cursus = me.cursusUsers.first,
+                          let level = cursus.level else { return }
+                    view.setLevel("\(level)")
+                    interactor.getImage(for: me.imageUrl) { image in
+                        guard let image = image else { return }
+                        view.setProfileImageView(image: image)
+                    }
+                }
+            }
+        }
 
     }
 }

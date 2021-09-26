@@ -20,9 +20,8 @@ class UserViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
-        // remove after test
-        imageView.image = UIImage(systemName: "person")
-        imageView.backgroundColor = .cyan
+        imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 150 * verticalTranslation).isActive = true
         return imageView
     }()
     
@@ -31,8 +30,6 @@ class UserViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .boldSystemFont(ofSize: 15)
         label.textAlignment = .left
-        // remove after test
-        label.text = "ebulwer"
         return label
     }()
     
@@ -41,8 +38,6 @@ class UserViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14)
         label.textAlignment = .left
-        // remove after test
-        label.text = "Effrafax"
         return label
     }()
     
@@ -52,7 +47,7 @@ class UserViewController: UIViewController {
         label.font = .systemFont(ofSize: 14)
         label.textAlignment = .left
         // remove after test
-        label.text = "Bulwer"
+//        label.text = "Bulwer"
         return label
     }()
     
@@ -61,7 +56,7 @@ class UserViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14)
         // remove after test
-        label.text = "Current level: 7.88"
+//        label.text = "Current level: 7.88"
         return label
     }()
     
@@ -77,7 +72,7 @@ class UserViewController: UIViewController {
         let stackView = UIStackView(arrangedSubviews: [profileImageView, verticalStackView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fill
         stackView.spacing = 10
         return stackView
     }()
@@ -111,7 +106,7 @@ class UserViewController: UIViewController {
     }
 
     private func setupConstraints() {
-        view.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        view.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         view.backgroundColor = .white
         
         NSLayoutConstraint.activate([
@@ -128,5 +123,33 @@ class UserViewController: UIViewController {
 }
 
 extension UserViewController: PresenterToViewUserProtocol{
-    
+    func setProfileImageView(image: UIImage)  {
+        DispatchQueue.main.async {
+            self.profileImageView.image = image
+        }
+    }
+
+    func setLogin(_ login: String) {
+        DispatchQueue.main.async {
+            self.loginLabel.text = login
+        }
+    }
+
+    func setName(_ name: String) {
+        DispatchQueue.main.async {
+            self.nameLabel.text = name
+        }
+    }
+
+    func setSurname(_ surname: String) {
+        DispatchQueue.main.async {
+            self.surnameLabel.text = surname
+        }
+    }
+
+    func setLevel(_ level: String) {
+        DispatchQueue.main.async {
+            self.levelLabel.text = level
+        }
+    }
 }

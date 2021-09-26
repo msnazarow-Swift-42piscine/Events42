@@ -15,7 +15,9 @@ enum UserAssembly{
 
         let viewController = UserViewController()
         let router = UserRouter(view: viewController)
-        let interactor = UserInteractor()
+        let intraAPIService =  IntraAPIService()
+        let imageCashingService = ImageCashingService()
+        let interactor = UserInteractor(intraAPIService: intraAPIService, imageCashingService: imageCashingService)
         let dataSource = UserPresenterDataSource()
         let presenter = UserPresenter(view: viewController, interactor: interactor, router: router, dataSource: dataSource)
 
