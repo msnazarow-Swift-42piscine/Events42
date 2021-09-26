@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Intra21
+//  Events21
 //
-//  Created by out-nazarov2-ms on 25.09.2021.
+//  Created by out-nazarov2-ms on 26.09.2021.
 //
 
 import UIKit

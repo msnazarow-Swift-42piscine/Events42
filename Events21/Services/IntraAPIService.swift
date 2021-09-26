@@ -28,7 +28,7 @@ class IntraAPIService: IntraAPIServiceProtocol {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.intra.42.fr"
-//        urlComponents.path = "/v2/events"
+        urlComponents.path = "/v2/events"
 //        urlComponents.path = "/v2/users/sgertrud/events"
 //        urlComponents.path = "/oauth/authorize?client_id=your_very_long_client_id&redirect_uri=http%3A%2F%2Flocalhost%3A1919%2Fusers%2Fauth%2Fft%2Fcallback&response_type=code&scope=public&state=a_very_long_random_string_witchmust_be_unguessable"
         urlComponents.queryItems = [

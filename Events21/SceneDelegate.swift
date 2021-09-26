@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  Intra21
+//  Events21
 //
 //  Created by out-nazarov2-ms on 25.09.2021.
 //
