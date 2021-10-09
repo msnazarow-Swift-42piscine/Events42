@@ -10,7 +10,7 @@ import Foundation
 struct TokenResponse: Codable {
     let accessToken: String
     let createdAt: Date
-    let expiresIn: Date
+    let expiresIn: Int64
     let refreshToken: String
     let scope: String
     let tokenType: String

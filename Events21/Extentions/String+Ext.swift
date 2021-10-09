@@ -8,5 +8,7 @@
 import Foundation
 
 extension String {
-    static let userToken = "userCode"
+    static let token = "token"
+    static let intra42 = "intra42"
+    static let code = "code"
 }

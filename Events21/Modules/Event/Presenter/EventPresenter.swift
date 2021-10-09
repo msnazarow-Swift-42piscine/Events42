@@ -42,8 +42,8 @@ class EventPresenter: ViewToPresenterEventProtocol {
             text.append(NSAttributedString(string: "\(description)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.darkGray]))
         }
         if let nbrSubscribers = model.nbrSubscribers  {
-            let maxPeople = (model.maxPeople != nil) ? "\(model.maxPeople!)" : ""
-            text.append(NSAttributedString(string: "Current number of guests: \(nbrSubscribers)/\(maxPeople)\n", attributes: [.font: UIFont.systemFont(ofSize: 40 * verticalTranslation), .foregroundColor: UIColor.black]))
+            let maxPeople = (model.maxPeople != nil) ? "/\(model.maxPeople!)" : ""
+            text.append(NSAttributedString(string: "Current number of guests: \(nbrSubscribers)\(maxPeople)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.black]))
         }
         if let location = model.location {
             text.append(NSAttributedString(string: "Localisation: \(location)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.black]))

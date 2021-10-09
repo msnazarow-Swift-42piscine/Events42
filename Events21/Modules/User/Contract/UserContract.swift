@@ -32,6 +32,7 @@ protocol ViewToPresenterUserProtocol: AnyObject {
 
     func viewDidLoad()
     func didSelectRowAt(modelId: Int)
+    func buttonDidTapped(_ tag: Int)
 }
 
 

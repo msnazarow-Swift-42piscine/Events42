@@ -99,8 +99,7 @@ class UserViewController: UITableViewController {
     }
 
     private func addSubviews() {
-//        view.addSubview(horizontalStackView)
-//        view.addSubview(tableView)
+        navigationItem.rightBarButtonItem = .init(title: "LogOut", style: .plain, target: self, action: #selector(buttonDidTapped))
         tableView.tableHeaderView = horizontalStackView
     }
 
@@ -109,6 +108,10 @@ class UserViewController: UITableViewController {
             horizontalStackView.leadingAnchor.constraint(equalTo: tableView.layoutMarginsGuide.leadingAnchor),
             horizontalStackView.trailingAnchor.constraint(equalTo: tableView.layoutMarginsGuide.trailingAnchor),
         ])
+    }
+
+    @objc func buttonDidTapped(_ sender: UIButton) {
+        presenter.buttonDidTapped(sender.tag)
     }
 }
 

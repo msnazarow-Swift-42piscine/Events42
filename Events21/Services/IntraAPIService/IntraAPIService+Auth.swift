@@ -30,23 +30,24 @@ extension IntraAPIService {
                 return
             }
             do {
-                let decoder: JSONDecoder = {
-                    let decoder = JSONDecoder()
-                    decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    return decoder
-                }()
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .secondsSince1970
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
                 if let error = try? decoder.decode(IntraAPIError.self, from: data) {
                     completion(.failure(error))
                     return
                 }
-                let token = try decoder.decode(TokenResponse.self, from: data)
-                self.token = token.accessToken
-                UserDefaults.standard.set(token.accessToken, forKey: "token")
-                let expireData = token.createdAt + token.expiresIn.timeIntervalSince1970
-                UserDefaults.standard.set(expireData, forKey: "tokenExpire")
-                completion(.success(token.accessToken))
-            }
-            catch  {
+
+
+
+                let tokenResponse = try decoder.decode(TokenResponse.self, from: data)
+
+
+
+                self.token = tokenResponse
+                KeychainHelper.standard.save(tokenResponse, service: "token", account: "intra42")
+                completion(.success(tokenResponse.accessToken))
+            } catch  {
                 completion(.failure(IntraAPIError(error: "JSONDecoderError", errorDescription: error.localizedDescription)))
             }
 
@@ -97,7 +98,7 @@ extension IntraAPIService {
         switch result {
         case .success(let code):
             self.code = code
-            UserDefaults.standard.set(code, forKey: "code")
+            KeychainHelper.standard.save(code, service: .code, account: .intra42)
             self.getToken(with: code, completion: completion)
         case .failure(let error):
             completion(.failure(error))
@@ -105,8 +106,34 @@ extension IntraAPIService {
     }
 
     func getToken(completion: @escaping (Result<String, IntraAPIError>) -> Void) {
-        if let token = token, let tokenExpire = tokenExpire, tokenExpire > Date() {
-            completion(.success(token))
+        if let token = token {
+            if token.createdAt.addingTimeInterval(TimeInterval(token.expiresIn)) > Date() {
+                completion(.success(token.accessToken))
+            } else {
+                refreshToken { [self] result in
+                    switch result {
+                    case .success(let token):
+                        completion(.success(token))
+                    case .failure(let error):
+                        if let code = code {
+                            getToken(with: code) { result in
+                                switch result {
+                                case .success(let token):
+                                    completion(.success(token))
+                                case .failure(let error):
+                                    self.getUserCode { result in
+                                        self.handleCode(result: result, completion: completion)
+                                    }
+                                }
+                            }
+                        } else {
+                            getUserCode { result in
+                                self.handleCode(result: result, completion: completion)
+                            }
+                        }
+                    }
+                }
+            }
         } else if let code = code {
             getToken(with: code) { result in
                 switch result {
@@ -116,7 +143,6 @@ extension IntraAPIService {
                     self.getUserCode { result in
                         self.handleCode(result: result, completion: completion)
                     }
-//                    print(error.localizedDescription)
                 }
             }
         } else {
@@ -126,19 +152,62 @@ extension IntraAPIService {
         }
     }
 
+
+    func refreshToken(completion: @escaping (Result<String, IntraAPIError>) -> Void) {
+        urlComponents.path = "/oauth/token"
+        urlComponents.queryItems = [
+            .init(name: "grant_type", value: "refresh_token"),
+            .init(name: "client_id", value: uid),
+            .init(name: "client_secret", value: secret),
+            .init(name: "redirect_uri", value: redirecdedUrl),
+            .init(name: "refresh_token", value: "\(token!.refreshToken)")
+        ]
+        var request = URLRequest(url: urlComponents.url!)
+        request.httpMethod = "POST"
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(IntraAPIError(error: "URLSessionError", errorDescription: error.localizedDescription)))
+                return
+            }
+            guard let data = data, let response = response as? HTTPURLResponse else {
+                completion(.failure(IntraAPIError(error: "URLSessionError")))
+                return
+            }
+            do {
+                let decoder: JSONDecoder = {
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .secondsSince1970
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    return decoder
+                }()
+                if let error = try? decoder.decode(IntraAPIError.self, from: data) {
+                    completion(.failure(error))
+                    return
+                }
+                let token = try decoder.decode(TokenResponse.self, from: data)
+                self.token = token
+                KeychainHelper.standard.save(token, service: .token, account: .intra42)
+//                KeychainHelper.standard.save(data, service: .token, account: .intra42)
+                completion(.success(token.accessToken))
+            }
+            catch  {
+                completion(.failure(IntraAPIError(error: "JSONDecoderError", errorDescription: error.localizedDescription)))
+            }
+
+        }.resume()
+    }
     func removeToken(){
         token = nil
-        UserDefaults.standard.set(nil, forKey: "token")
-        UserDefaults.standard.set(nil, forKey: "tokenExpire")
+        KeychainHelper.standard.delete(service: .token, account: .intra42)
     }
 
     func removeCode(){
         code = nil
-        UserDefaults.standard.set(nil, forKey: "code")
+        KeychainHelper.standard.delete(service: .code, account: .intra42)
     }
 
     func hasToken() -> Bool {
-        if let token = token, let tokenExpire = tokenExpire, tokenExpire > Date() {
+        if let token = token, token.createdAt.addingTimeInterval(TimeInterval(token.expiresIn)) > Date() {
             return true
         } else {
             return false

@@ -32,7 +32,7 @@ class UserPresenter: ViewToPresenterUserProtocol {
 
     func viewDidLoad(){
         getMe() {
-            self.getRecentEvents(sort: [], filter: ["future": ["true"]])
+            self.getRecentEvents(sort: [], filter: [:])
 //            self.getUserEvents()
         }
     }
@@ -123,6 +123,11 @@ class UserPresenter: ViewToPresenterUserProtocol {
 
     func didSelectRowAt(modelId: Int) {
         router.routeToEventScreen(with: CellModel(events[modelId]), userId: userId)
+    }
+
+    func buttonDidTapped(_ tag: Int) {
+        self.interactor.removeToken()
+        self.router.routeToAuthScreen()
     }
 }
 

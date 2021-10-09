@@ -17,7 +17,7 @@ extension IntraAPIService {
                     completion(.failure(error))
                     return
                 }
-                try print(JSONSerialization.jsonObject(with: data, options: []))
+//                try print(JSONSerialization.jsonObject(with: data, options: []))
                 let me = try self.decoder.decode(MeResponse.self, from: data)
                 self.me = me
                 completion(.success(me))

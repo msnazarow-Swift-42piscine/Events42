@@ -8,7 +8,10 @@
 import Foundation
 
 protocol IntraAPIServiceProtocol {
-    func getRecentEvents(sort: [String], filter: [String: [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void)
+    func getFutureEvents(campusId: Int?,
+                         cursusId: Int?,
+                         sort: [String], filter: [String: [String]],
+                         completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void)
     func getMe(completion: @escaping (Result<MeResponse, IntraAPIError>) -> Void)
     func registerToEvent(eventId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void)
     func getUserEvents(completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) 
@@ -23,13 +26,22 @@ protocol IntraAPIServiceAuthProtocol {
     func hasToken() -> Bool
 }
 
+extension IntraAPIServiceProtocol {
+    func getFutureEvents(sort: [String], filter: [String: [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
+        getFutureEvents(campusId: nil,
+                        cursusId: nil,
+                        sort: sort,
+                        filter: filter,
+                        completion: completion)
+    }
+}
+
 class IntraAPIService: NSObject, IntraAPIServiceProtocol, IntraAPIServiceAuthProtocol {
     let redirecdedUrl = "events21://events21"
     let uid = "304465722129fb447b62e46570c95cbad281250121c76f71a64fd9b0098baaa9"
     let secret = "9dd7cc32e3dd76eccfcd4587cd3a435ac3826d35c86715c92207aa8b868f06d1"
-    var token = UserDefaults.standard.string(forKey: "token")
-    var code = UserDefaults.standard.string(forKey: "code")
-    var tokenExpire = UserDefaults.standard.object(forKey: "tokenExpire") as? Date
+    var token = KeychainHelper.standard.read(service: .token, account: .intra42, type: TokenResponse.self)
+    var code = KeychainHelper.standard.read(service: .code, account: .intra42, type: String.self)
     var me: MeResponse!
 
     let decoder: JSONDecoder = {
@@ -49,7 +61,7 @@ class IntraAPIService: NSObject, IntraAPIServiceProtocol, IntraAPIServiceAuthPro
     var request: URLRequest{
         var request = URLRequest(url: urlComponents.url!)
         if let token = token {
-            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            request.setValue("Bearer \(token.accessToken)", forHTTPHeaderField: "Authorization")
         }
         return request
     }

@@ -8,8 +8,29 @@
 import Foundation
 
 extension IntraAPIService {
-    func getRecentEvents(sort: [String], filter: [String: [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
-        urlComponents.path = "/v2/events"
+
+    func getFutureEvents(campusId: Int? = nil,
+                         cursusId: Int? = nil,
+                         sort: [String], filter: [String: [String]],
+                         completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
+        var filter = filter
+        filter["future"] = ["true"]
+        getEvents(sort: sort, filter: filter, completion: completion)
+    }
+
+    func getEvents(campusId: Int? = nil,
+                   cursusId: Int? = nil,
+                   sort: [String],
+                   filter: [String: [String]],
+                   completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void){
+        urlComponents.path = "/v2"
+        if let campusId = campusId {
+            urlComponents.path.append("/cursus/\(campusId)")
+        }
+        if let cursusId = cursusId {
+            urlComponents.path.append("/cursus/\(cursusId)")
+        }
+        urlComponents.path.append("/events")
         var queryItems: [URLQueryItem] = []
         if !sort.isEmpty {
             queryItems.append(.init(name: "sort", value: sort.joined(separator: ",")))
@@ -20,6 +41,7 @@ extension IntraAPIService {
             }
         }
 //        queryItems.append(.init(name: "range[begin_at]", value: "\(Date().iso8601Full),\(Calendar.current.date(byAdding: .year, value: 100, to: Date())!.iso8601Full)"))
+        queryItems.append(.init(name: "page[size]", value: "100"))
         urlComponents.queryItems = queryItems
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {

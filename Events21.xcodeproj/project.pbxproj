@@ -18,6 +18,7 @@
 		3E5352EC2711CB2E00FD0B4C /* IntraAPIService+GetEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352EB2711CB2E00FD0B4C /* IntraAPIService+GetEvents.swift */; };
 		3E5352EE2711CBB000FD0B4C /* IntraAPIService+GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352ED2711CBB000FD0B4C /* IntraAPIService+GetUser.swift */; };
 		3E5352F02711D23800FD0B4C /* EventUsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352EF2711D23800FD0B4C /* EventUsersResponse.swift */; };
+		3E5352F22711F8A200FD0B4C /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352F12711F8A200FD0B4C /* KeychainHelper.swift */; };
 		3E9714702700C4B900FC2F3F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E97146F2700C4B900FC2F3F /* String+Ext.swift */; };
 		3E9714732700C9A800FC2F3F /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9714722700C9A800FC2F3F /* TokenResponse.swift */; };
 		3EB5CF6E2700D89F0011E88C /* MeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB5CF6D2700D89F0011E88C /* MeResponse.swift */; };
@@ -72,6 +73,7 @@
 		3E5352EB2711CB2E00FD0B4C /* IntraAPIService+GetEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntraAPIService+GetEvents.swift"; sourceTree = "<group>"; };
 		3E5352ED2711CBB000FD0B4C /* IntraAPIService+GetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntraAPIService+GetUser.swift"; sourceTree = "<group>"; };
 		3E5352EF2711D23800FD0B4C /* EventUsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventUsersResponse.swift; sourceTree = "<group>"; };
+		3E5352F12711F8A200FD0B4C /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		3E97146F2700C4B900FC2F3F /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		3E9714722700C9A800FC2F3F /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		3EB5CF6D2700D89F0011E88C /* MeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeResponse.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 			children = (
 				3E5352E82711CAFA00FD0B4C /* IntraAPIService */,
 				3EB5CF712700E05D0011E88C /* ImageCashingService.swift */,
+				3E5352F12711F8A200FD0B4C /* KeychainHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				EAAEC41427009E4700AFD1FC /* AuthorizationInteractor.swift in Sources */,
 				EAAEC42627009E4700AFD1FC /* Cell.swift in Sources */,
 				EAAEC40C27009E4700AFD1FC /* UserViewController.swift in Sources */,
+				3E5352F22711F8A200FD0B4C /* KeychainHelper.swift in Sources */,
 				EAAEC42127009E4700AFD1FC /* DataFormatter+Ext.swift in Sources */,
 				EAAEC42427009E4700AFD1FC /* CellModel.swift in Sources */,
 				3EB5CF722700E05D0011E88C /* ImageCashingService.swift in Sources */,

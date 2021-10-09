@@ -18,7 +18,7 @@ class UserInteractor: PresenterToInteractorUserProtocol {
     }
 
     func getRecentEvents(sort: [String], filter: [String: [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
-        intraAPIService.getRecentEvents(sort: sort, filter: filter, completion: completion)
+        intraAPIService.getFutureEvents(sort: sort, filter: filter, completion: completion)
     }
 
     func getUserEvents(completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
