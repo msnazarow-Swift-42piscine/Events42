@@ -17,8 +17,14 @@ protocol PresenterToViewUserProtocol: AnyObject {
     func setSurname(_ surname: String)
     func setLevel(_ level: String)
     func reloadTableViewData()
+    func showAlert(title: String, message: String, completion: (() -> Void)?)
 }
 
+extension PresenterToViewUserProtocol {
+    func showAlert(title: String, message: String) {
+        showAlert(title: title, message: message, completion: nil)
+    }
+}
 
 // MARK: View Input (View -> Presenter)
 protocol ViewToPresenterUserProtocol: AnyObject {
@@ -31,15 +37,17 @@ protocol ViewToPresenterUserProtocol: AnyObject {
 
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorUserProtocol: AnyObject {
-    func getRecentEvents(with userID: String, complition: @escaping (Result<[EventResponse], Error>) -> Void)
-    func getMe(with token: String, comlition: @escaping (MeResponse) -> Void)
-    func getToken(with code: String, complition: @escaping (String) -> Void)
-    func getImage(for url: String, complition: @escaping (UIImage?) -> Void)
+    func getRecentEvents(sort: [String], filter: [String: [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void)
+    func getUserEvents(completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void)
+    func getMe(comlition: @escaping (Result<MeResponse, IntraAPIError>) -> Void)
+    func getImage(for url: String, completion: @escaping (UIImage?) -> Void)
+    func removeToken()
 }
 
 // MARK: Presenter Output (Presenter -> Router)
 protocol PresenterToRouterUserProtocol: AnyObject {
     func routeToEventScreen(with event: CellModel, userId: Int)
+    func routeToAuthScreen()
 }
 
 // MARK: Presenter Output (Presenter -> DataSource)

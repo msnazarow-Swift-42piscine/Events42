@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E25B209270E91C7003F3C37 /* IntraAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25B208270E91C7003F3C37 /* IntraAPIError.swift */; };
 		3E43911D270094F400C8AC03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E43911C270094F400C8AC03 /* AppDelegate.swift */; };
 		3E43911F270094F400C8AC03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E43911E270094F400C8AC03 /* SceneDelegate.swift */; };
 		3E439124270094F400C8AC03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E439122270094F400C8AC03 /* Main.storyboard */; };
 		3E439126270094F600C8AC03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E439125270094F600C8AC03 /* Assets.xcassets */; };
 		3E439129270094F600C8AC03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E439127270094F600C8AC03 /* LaunchScreen.storyboard */; };
+		3E5352E727111BDC00FD0B4C /* EventRegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352E627111BDC00FD0B4C /* EventRegisterResponse.swift */; };
+		3E5352EA2711CB1C00FD0B4C /* IntraAPIService+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352E92711CB1C00FD0B4C /* IntraAPIService+Auth.swift */; };
+		3E5352EC2711CB2E00FD0B4C /* IntraAPIService+GetEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352EB2711CB2E00FD0B4C /* IntraAPIService+GetEvents.swift */; };
+		3E5352EE2711CBB000FD0B4C /* IntraAPIService+GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352ED2711CBB000FD0B4C /* IntraAPIService+GetUser.swift */; };
+		3E5352F02711D23800FD0B4C /* EventUsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352EF2711D23800FD0B4C /* EventUsersResponse.swift */; };
 		3E9714702700C4B900FC2F3F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E97146F2700C4B900FC2F3F /* String+Ext.swift */; };
 		3E9714732700C9A800FC2F3F /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9714722700C9A800FC2F3F /* TokenResponse.swift */; };
 		3EB5CF6E2700D89F0011E88C /* MeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB5CF6D2700D89F0011E88C /* MeResponse.swift */; };
@@ -53,6 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E25B208270E91C7003F3C37 /* IntraAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntraAPIError.swift; sourceTree = "<group>"; };
 		3E439119270094F400C8AC03 /* Events21.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Events21.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E43911C270094F400C8AC03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E43911E270094F400C8AC03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +67,11 @@
 		3E439125270094F600C8AC03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E439128270094F600C8AC03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E43912A270094F600C8AC03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E5352E627111BDC00FD0B4C /* EventRegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRegisterResponse.swift; sourceTree = "<group>"; };
+		3E5352E92711CB1C00FD0B4C /* IntraAPIService+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntraAPIService+Auth.swift"; sourceTree = "<group>"; };
+		3E5352EB2711CB2E00FD0B4C /* IntraAPIService+GetEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntraAPIService+GetEvents.swift"; sourceTree = "<group>"; };
+		3E5352ED2711CBB000FD0B4C /* IntraAPIService+GetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntraAPIService+GetUser.swift"; sourceTree = "<group>"; };
+		3E5352EF2711D23800FD0B4C /* EventUsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventUsersResponse.swift; sourceTree = "<group>"; };
 		3E97146F2700C4B900FC2F3F /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		3E9714722700C9A800FC2F3F /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		3EB5CF6D2700D89F0011E88C /* MeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeResponse.swift; sourceTree = "<group>"; };
@@ -144,6 +156,17 @@
 				3E43912A270094F600C8AC03 /* Info.plist */,
 			);
 			path = Events21;
+			sourceTree = "<group>";
+		};
+		3E5352E82711CAFA00FD0B4C /* IntraAPIService */ = {
+			isa = PBXGroup;
+			children = (
+				EAAEC3F827009E4700AFD1FC /* IntraAPIService.swift */,
+				3E5352E92711CB1C00FD0B4C /* IntraAPIService+Auth.swift */,
+				3E5352EB2711CB2E00FD0B4C /* IntraAPIService+GetEvents.swift */,
+				3E5352ED2711CBB000FD0B4C /* IntraAPIService+GetUser.swift */,
+			);
+			path = IntraAPIService;
 			sourceTree = "<group>";
 		};
 		EAAEC3C827009E4700AFD1FC /* Modules */ = {
@@ -356,6 +379,9 @@
 				EAAEC3F627009E4700AFD1FC /* EventResponse.swift */,
 				3E9714722700C9A800FC2F3F /* TokenResponse.swift */,
 				3EB5CF6D2700D89F0011E88C /* MeResponse.swift */,
+				3E25B208270E91C7003F3C37 /* IntraAPIError.swift */,
+				3E5352E627111BDC00FD0B4C /* EventRegisterResponse.swift */,
+				3E5352EF2711D23800FD0B4C /* EventUsersResponse.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -363,8 +389,8 @@
 		EAAEC3F727009E4700AFD1FC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3E5352E82711CAFA00FD0B4C /* IntraAPIService */,
 				3EB5CF712700E05D0011E88C /* ImageCashingService.swift */,
-				EAAEC3F827009E4700AFD1FC /* IntraAPIService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -491,6 +517,7 @@
 				EAAEC42927009E4700AFD1FC /* ModelRepresentableProtocol.swift in Sources */,
 				EAAEC42027009E4700AFD1FC /* Date+Ext.swift in Sources */,
 				EAAEC42327009E4700AFD1FC /* UIWindow+Ext.swift in Sources */,
+				3E5352EA2711CB1C00FD0B4C /* IntraAPIService+Auth.swift in Sources */,
 				EAAEC41327009E4700AFD1FC /* AuthorizationViewController.swift in Sources */,
 				EAAEC41F27009E4700AFD1FC /* IntraAPIService.swift in Sources */,
 				EAAEC41627009E4700AFD1FC /* EventContract.swift in Sources */,
@@ -502,11 +529,15 @@
 				EAAEC42127009E4700AFD1FC /* DataFormatter+Ext.swift in Sources */,
 				EAAEC42427009E4700AFD1FC /* CellModel.swift in Sources */,
 				3EB5CF722700E05D0011E88C /* ImageCashingService.swift in Sources */,
+				3E5352E727111BDC00FD0B4C /* EventRegisterResponse.swift in Sources */,
 				EAAEC40D27009E4700AFD1FC /* UserInteractor.swift in Sources */,
 				EAAEC42527009E4700AFD1FC /* EventCell.swift in Sources */,
 				EAAEC41B27009E4700AFD1FC /* EventInteractor.swift in Sources */,
+				3E5352EC2711CB2E00FD0B4C /* IntraAPIService+GetEvents.swift in Sources */,
+				3E25B209270E91C7003F3C37 /* IntraAPIError.swift in Sources */,
 				EAAEC42727009E4700AFD1FC /* SectionModel.swift in Sources */,
 				3EB5CF6E2700D89F0011E88C /* MeResponse.swift in Sources */,
+				3E5352F02711D23800FD0B4C /* EventUsersResponse.swift in Sources */,
 				EAAEC42827009E4700AFD1FC /* TableViewContract.swift in Sources */,
 				EAAEC41927009E4700AFD1FC /* EventPresenterDataSource.swift in Sources */,
 				EAAEC40927009E4700AFD1FC /* UserAssembly.swift in Sources */,
@@ -516,6 +547,7 @@
 				EAAEC41727009E4700AFD1FC /* EventAssembly.swift in Sources */,
 				3E43911D270094F400C8AC03 /* AppDelegate.swift in Sources */,
 				EAAEC41027009E4700AFD1FC /* AuthorizationAssembly.swift in Sources */,
+				3E5352EE2711CBB000FD0B4C /* IntraAPIService+GetUser.swift in Sources */,
 				3E9714732700C9A800FC2F3F /* TokenResponse.swift in Sources */,
 				EAAEC41E27009E4700AFD1FC /* EventResponse.swift in Sources */,
 				EAAEC40E27009E4700AFD1FC /* UserRouter.swift in Sources */,

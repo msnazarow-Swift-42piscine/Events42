@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 
 class AuthorizationRouter: PresenterToRouterAuthorizationProtocol {
 
@@ -17,5 +18,10 @@ class AuthorizationRouter: PresenterToRouterAuthorizationProtocol {
     init(view: UIViewController) {
         self.view = view
     }
-    
+
+    func routeToUserScreen() {
+        DispatchQueue.main.async {
+            self.view.navigationController?.setViewControllers([UserAssembly.createModule()], animated: true)
+        }
+    }
 }

@@ -15,8 +15,14 @@ protocol PresenterToViewEventProtocol: AnyObject {
     func showAlert(with message: String)
     func setButtonUnregistered()
     func setButtonRegistered()
+    func showAlert(title: String, message: String, completion: (() -> Void)?)
 }
 
+extension PresenterToViewEventProtocol {
+    func showAlert(title: String, message: String) {
+        showAlert(title: title, message: message, completion: nil)
+    }
+}
 
 // MARK: View Input (View -> Presenter)
 protocol ViewToPresenterEventProtocol: AnyObject {
@@ -28,7 +34,7 @@ protocol ViewToPresenterEventProtocol: AnyObject {
 
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorEventProtocol: AnyObject {
-    func registerToEvent(userId: Int, eventId: Int, complition: @escaping (Bool) -> Void)
+    func registerToEvent(eventId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void)
 }
 
 // MARK: Presenter Output (Presenter -> Router)

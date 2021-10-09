@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import WebKit
 
-class AuthorizationPresenter: ViewToPresenterAuthorizationProtocol {
+
+class AuthorizationPresenter: NSObject, ViewToPresenterAuthorizationProtocol {
 
     // MARK: Properties
     weak var view: PresenterToViewAuthorizationProtocol!
@@ -28,11 +30,25 @@ class AuthorizationPresenter: ViewToPresenterAuthorizationProtocol {
     }
 
     func viewDidLoad(){
-
+        if interactor.hasToken() {
+            router.routeToUserScreen()
+        }
     }
     
     func didTapLoginButton() {
-        interactor.openIntra()
+//        router.routeToWebView()
+        interactor.getToken { result in
+            switch result {
+            case .success(let token):
+                self.router.routeToUserScreen()
+            case .failure(let error):
+                if let description = error.errorDescription {
+                    self.view.showAlert(title: error.error, message: description)
+                } else if let message = error.message {
+                    self.view.showAlert(title: error.error, message: message)
+                }
+            }
+        }
     }
 }
  

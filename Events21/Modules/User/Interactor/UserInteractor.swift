@@ -9,26 +9,31 @@
 import UIKit
 
 class UserInteractor: PresenterToInteractorUserProtocol {
-    let intraAPIService: IntraAPIServiceProtocol
+    let intraAPIService: IntraAPIServiceProtocol & IntraAPIServiceAuthProtocol
     let imageCashingService: ImageCashingServiceProtocol
 
-    init(intraAPIService: IntraAPIServiceProtocol, imageCashingService: ImageCashingServiceProtocol) {
+    init(intraAPIService: IntraAPIServiceProtocol & IntraAPIServiceAuthProtocol, imageCashingService: ImageCashingServiceProtocol) {
         self.intraAPIService = intraAPIService
         self.imageCashingService = imageCashingService
     }
 
-    func getRecentEvents(with token: String, complition: @escaping (Result<[EventResponse], Error>) -> Void) {
-        intraAPIService.getRecentEvents(with: token, complition: complition)
+    func getRecentEvents(sort: [String], filter: [String: [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
+        intraAPIService.getRecentEvents(sort: sort, filter: filter, completion: completion)
     }
 
-    func getMe(with token: String, comlition: @escaping (MeResponse) -> Void) {
-        intraAPIService.getMe(with: token, comlition: comlition)
+    func getUserEvents(completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
+        intraAPIService.getUserEvents(completion: completion)
     }
-    
-    func getToken(with code: String, complition: @escaping (String) -> Void) {
-        intraAPIService.getToken(with: code, complition: complition)
+
+    func getMe(comlition: @escaping (Result<MeResponse, IntraAPIError>) -> Void) {
+        intraAPIService.getMe(completion: comlition)
     }
-    func getImage(for url: String, complition: @escaping (UIImage?) -> Void) {
-        imageCashingService.getImage(for: url, comlition: complition)
+
+    func getImage(for url: String, completion: @escaping (UIImage?) -> Void) {
+        imageCashingService.getImage(for: url, comlition: completion)
+    }
+    func removeToken(){
+        intraAPIService.removeCode()
+        intraAPIService.removeToken()
     }
 }

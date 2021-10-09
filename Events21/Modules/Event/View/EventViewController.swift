@@ -84,6 +84,14 @@ extension EventViewController: PresenterToViewEventProtocol{
         }
     }
 
+    func showAlert(title: String, message: String, completion: (() -> Void)?) {
+        DispatchQueue.main.async { [self] in
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: completion)
+        }
+    }
+
     func setButtonUnregistered() {
         DispatchQueue.main.async { [self] in
             registerButton.setTitle("Unregister", for: .normal)

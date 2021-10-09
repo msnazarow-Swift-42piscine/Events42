@@ -11,7 +11,7 @@ import UIKit
 //TODO: Сверстать основной экран с инфой о пользователе и табличкой евентов - по клике на ивент - в отдельном вью через navigation (можно через popup) доп инфа Event модуль
 
 
-class UserViewController: UIViewController {
+class UserViewController: UITableViewController {
     
     // MARK: - UI
     let profileImageView: UIImageView = {
@@ -73,12 +73,12 @@ class UserViewController: UIViewController {
         stackView.spacing = 10
         return stackView
     }()
-    
-    let tableView: UITableView = {
-        let tv = UITableView()
-        tv.translatesAutoresizingMaskIntoConstraints = false
-        return tv
-    }()
+//
+//    let tableView: UITableView = {
+//        let tv = UITableView()
+//        tv.translatesAutoresizingMaskIntoConstraints = false
+//        return tv
+//    }()
 
     // MARK: - Properties
     var presenter: ViewToPresenterUserProtocol!
@@ -99,23 +99,15 @@ class UserViewController: UIViewController {
     }
 
     private func addSubviews() {
-        view.addSubview(horizontalStackView)
-        view.addSubview(tableView)
+//        view.addSubview(horizontalStackView)
+//        view.addSubview(tableView)
+        tableView.tableHeaderView = horizontalStackView
     }
 
     private func setupConstraints() {
-        view.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        view.backgroundColor = .white
-        
         NSLayoutConstraint.activate([
-            horizontalStackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            horizontalStackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            horizontalStackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            
-            tableView.topAnchor.constraint(equalTo: horizontalStackView.bottomAnchor, constant: 20),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            horizontalStackView.leadingAnchor.constraint(equalTo: tableView.layoutMarginsGuide.leadingAnchor),
+            horizontalStackView.trailingAnchor.constraint(equalTo: tableView.layoutMarginsGuide.trailingAnchor),
         ])
     }
 }
@@ -156,10 +148,18 @@ extension UserViewController: PresenterToViewUserProtocol{
             self.tableView.reloadData()
         }
     }
+
+    func showAlert(title: String, message: String, completion: (() -> Void)?) {
+        DispatchQueue.main.async { [self] in
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: completion)
+        }
+    }
 }
 
-extension UserViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension UserViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelectRowAt(modelId: indexPath.row)
     }
 }

@@ -15,7 +15,8 @@ enum AuthorizationAssembly{
 
         let viewController = AuthorizationViewController()
         let router = AuthorizationRouter(view: viewController)
-        let interactor = AuthorizationInteractor()
+        let intraAPIService = IntraAPIService.shared
+        let interactor = AuthorizationInteractor(intraAPIService: intraAPIService)
         let dataSource = AuthorizationPresenterDataSource()
         let presenter = AuthorizationPresenter(view: viewController, interactor: interactor, router: router, dataSource: dataSource)
 

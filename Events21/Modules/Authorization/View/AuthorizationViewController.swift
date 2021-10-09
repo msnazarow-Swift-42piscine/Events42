@@ -11,10 +11,13 @@
 
 import UIKit
 import WebKit
+
+
 class AuthorizationViewController: UIViewController {
 
     // MARK: - Properties
     var presenter: ViewToPresenterAuthorizationProtocol!
+
     let loginButton: UIButton = {
         let button = UIButton()
         button.setTitle("Login", for: .normal)
@@ -26,7 +29,11 @@ class AuthorizationViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         return button
     }()
-
+    
+    let webView = WKWebView()
+    override func loadView() {
+        view = webView
+    }
     // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
@@ -36,6 +43,7 @@ class AuthorizationViewController: UIViewController {
     }
 
     private func setupUI() {
+        webView.navigationDelegate = self
         view.backgroundColor = .white
         view.addSubview(loginButton)
         loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -48,5 +56,28 @@ class AuthorizationViewController: UIViewController {
 }
 
 extension AuthorizationViewController: PresenterToViewAuthorizationProtocol{
-    
+    func loadRequest(request: URLRequest) {
+        webView.load(request)
+    }
+
+    func showAlert(title: String, message: String, completion: (() -> Void)?) {
+        DispatchQueue.main.async { [self] in
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: completion)
+        }
+    }
+}
+
+
+extension AuthorizationViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        guard let serverTrust = challenge.protectionSpace.serverTrust else {
+                completionHandler(.cancelAuthenticationChallenge, nil)
+                return
+            }
+            let exceptions = SecTrustCopyExceptions(serverTrust)
+            SecTrustSetExceptions(serverTrust, exceptions)
+            completionHandler(.useCredential, URLCredential(trust: serverTrust));
+    }
 }

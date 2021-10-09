@@ -9,11 +9,26 @@
 import UIKit
 
 class AuthorizationInteractor: PresenterToInteractorAuthorizationProtocol {
-    let redirecdedUrl = "events21://events21".addingPercentEncoding(withAllowedCharacters: .urlUserAllowed)!
+    let intraAPIService: IntraAPIServiceAuthProtocol
 
-    lazy var url = URL(string: "https://api.intra.42.fr/oauth/authorize?client_id=304465722129fb447b62e46570c95cbad281250121c76f71a64fd9b0098baaa9&redirect_uri=\(redirecdedUrl)&response_type=code&scope=public%20forum&state=coucou")
 
-    func openIntra() {
-        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+    init(intraAPIService: IntraAPIServiceAuthProtocol) {
+        self.intraAPIService = intraAPIService
+    }
+
+    func getUserCode(completion: @escaping (Result<String, IntraAPIError>) -> Void) {
+        intraAPIService.getUserCode(completion: completion)
+    }
+
+    func getToken(completion: @escaping (Result<String, IntraAPIError>) -> Void) {
+        intraAPIService.getToken(completion: completion)
+    }
+
+    func getAuthRequest() -> URLRequest {
+        intraAPIService.getAuthRequest()
+    }
+
+    func hasToken() -> Bool {
+        intraAPIService.hasToken()
     }
 }

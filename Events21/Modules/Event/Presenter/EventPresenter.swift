@@ -19,6 +19,7 @@ class EventPresenter: ViewToPresenterEventProtocol {
     let userId: Int
     var status = false
     // MARK: Init
+
     init(view: PresenterToViewEventProtocol,
          interactor: PresenterToInteractorEventProtocol,
          router: PresenterToRouterEventProtocol,
@@ -35,13 +36,9 @@ class EventPresenter: ViewToPresenterEventProtocol {
 
     func viewDidLoad(){
         let text = NSMutableAttributedString()
-        if let kind = model.kind {
-            text.append(NSAttributedString(string: "\(kind)\n", attributes: [.font: UIFont.systemFont(ofSize: 40 * verticalTranslation), .foregroundColor: UIColor.cyan]))
-        }
-        if let name = model.name {
-            text.append(NSAttributedString(string: "\(name)\n", attributes: [.font: UIFont.systemFont(ofSize: 30 * verticalTranslation), .foregroundColor: UIColor.black]))
-        }
-        if let description = model.description {
+            text.append(NSAttributedString(string: "\(model.kind)\n", attributes: [.font: UIFont.systemFont(ofSize: 40 * verticalTranslation), .foregroundColor: UIColor.cyan]))
+                  text.append(NSAttributedString(string: "\(model.name)\n", attributes: [.font: UIFont.systemFont(ofSize: 30 * verticalTranslation), .foregroundColor: UIColor.black]))
+              if let description = model.description {
             text.append(NSAttributedString(string: "\(description)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.darkGray]))
         }
         if let nbrSubscribers = model.nbrSubscribers  {
@@ -51,10 +48,8 @@ class EventPresenter: ViewToPresenterEventProtocol {
         if let location = model.location {
             text.append(NSAttributedString(string: "Localisation: \(location)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.black]))
         }
-        if let beginAt = model.beginAt {
-            text.append(NSAttributedString(string: "Begin: \(beginAt.dateSlashString)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.gray]))
-        }
-        if let endAt = model.endAt {
+        text.append(NSAttributedString(string: "Begin: \(model.beginAt.dateSlashString)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.gray]))
+         if let endAt = model.endAt {
             text.append(NSAttributedString(string: "End: \(endAt.dateSlashString)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.gray]))
         }
         if let duration = model.duration {
@@ -66,13 +61,19 @@ class EventPresenter: ViewToPresenterEventProtocol {
 
     func didTapButton(){
         if !status {
-            interactor.registerToEvent(userId: userId, eventId: model.eventId) { [self] result in
-                status = result
-                if result {
+            interactor.registerToEvent(eventId: model.eventId) { [self] result in
+                switch result {
+                case .success:
+                    status = true
                     view.showAlert(with: "You have registered")
                     view.setButtonUnregistered()
-                } else {
-                    view.showAlert(with: "You cannot register")
+                case .failure(let error):
+                    status = false
+                    if let description = error.errorDescription {
+                        self.view.showAlert(title: error.error, message: description)
+                    } else if let message = error.message {
+                        self.view.showAlert(title: error.error, message: message)
+                    }
                 }
             }
         } else {
