@@ -13,9 +13,9 @@ class EventPresenterDataSource: NSObject, PresenterToDataSourceEventProtocol {
     // MARK: Properties
     weak var presenter: CellToPresenterEventProtocol!
 
-    private var sections: [SectionModel] = []
+    private var sections: [EventSectionModel] = []
 
-    func updateForSections(_ sections: [SectionModel]) {
+    func updateForSections(_ sections: [EventSectionModel]) {
         self.sections = sections
     }
 

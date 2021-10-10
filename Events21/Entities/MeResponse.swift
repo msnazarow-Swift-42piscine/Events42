@@ -13,16 +13,6 @@ struct MeResponse: Codable {
     let lastName: String
     let imageUrl: String!
     let login: String
-    let cursusUsers: [CursusUsersResponse]!
-
-
-    struct CursusUsersResponse: Codable {
-
-        let cursus: CursusResponse!
-        let level: Double!
-
-        struct CursusResponse: Codable {
-            let name: String!
-        }
-    }
+    let cursusUsers: [CursusUsersResponse]
+    let campus: [CampusResponse]
 }

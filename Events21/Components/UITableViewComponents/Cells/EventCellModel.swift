@@ -8,11 +8,7 @@
 
 import Foundation
 
-struct Model {
-
-}
-
-struct CellModel: CellIdentifiable {
+struct EventCellModel: CellIdentifiable {
 
     var identifier: String { return "EventCell" }
     

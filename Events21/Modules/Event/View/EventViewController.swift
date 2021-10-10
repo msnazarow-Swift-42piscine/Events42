@@ -30,7 +30,7 @@ class EventViewController: UIViewController {
         button.backgroundColor = .cyan
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 40 * verticalTranslation)
-        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -64,8 +64,8 @@ class EventViewController: UIViewController {
         ])
 
     }
-    @objc private func didTapButton(){
-        presenter.didTapButton()
+    @objc private func buttonDidTapped(){
+        presenter.buttonDidTapped()
     }
 }
 

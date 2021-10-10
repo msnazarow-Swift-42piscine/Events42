@@ -24,10 +24,6 @@ class AuthorizationInteractor: PresenterToInteractorAuthorizationProtocol {
         intraAPIService.getToken(completion: completion)
     }
 
-    func getAuthRequest() -> URLRequest {
-        intraAPIService.getAuthRequest()
-    }
-
     func hasToken() -> Bool {
         intraAPIService.hasToken()
     }

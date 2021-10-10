@@ -21,7 +21,7 @@ extension IntraAPIService {
                 let me = try self.decoder.decode(MeResponse.self, from: data)
                 self.me = me
                 completion(.success(me))
-            } catch {
+            } catch(let error) {
                 completion(.failure(IntraAPIError(error: "JSONDecoderError", errorDescription: error.localizedDescription)))
             }
         }.resume()

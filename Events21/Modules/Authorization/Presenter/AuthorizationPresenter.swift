@@ -35,7 +35,7 @@ class AuthorizationPresenter: NSObject, ViewToPresenterAuthorizationProtocol {
         }
     }
     
-    func didTapLoginButton() {
+    func buttonDidTapped() {
 //        router.routeToWebView()
         interactor.getToken { result in
             switch result {

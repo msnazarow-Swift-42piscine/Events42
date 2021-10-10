@@ -11,7 +11,7 @@ import UIKit
 enum EventAssembly{
     
     // MARK: Static methods
-    static func createModule(with model: CellModel, userId: Int) -> UIViewController {
+    static func createModule(with model: EventCellModel, userId: Int) -> UIViewController {
 
         let viewController = EventViewController()
         let router = EventRouter(view: viewController)

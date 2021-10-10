@@ -18,7 +18,7 @@ class UserRouter: PresenterToRouterUserProtocol {
         self.view = view
     }
 
-    func routeToEventScreen(with model: CellModel, userId: Int) {
+    func routeToEventScreen(with model: EventCellModel, userId: Int) {
         DispatchQueue.main.async {
             self.view.navigationController?.pushViewController(EventAssembly.createModule(with: model, userId: userId), animated: true)
         }
@@ -27,6 +27,12 @@ class UserRouter: PresenterToRouterUserProtocol {
     func routeToAuthScreen(){
         DispatchQueue.main.async {
             self.view.navigationController?.setViewControllers([AuthorizationAssembly.createModule()], animated: true)
+        }
+    }
+
+    func presentFilterScreen() {
+        DispatchQueue.main.async {
+            self.view.present(FiltersAssembly.createModule(), animated: true, completion: nil)
         }
     }
 }

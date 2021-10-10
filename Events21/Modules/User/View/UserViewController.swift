@@ -73,13 +73,17 @@ class UserViewController: UITableViewController {
         stackView.spacing = 10
         return stackView
     }()
-//
-//    let tableView: UITableView = {
-//        let tv = UITableView()
-//        tv.translatesAutoresizingMaskIntoConstraints = false
-//        return tv
-//    }()
 
+    let filterButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "line.3.horizontal.decrease.circle"), for: .normal)
+        button.setTitle(.filters, for: .normal)
+        button.tag = 1
+//        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: - Properties
     var presenter: ViewToPresenterUserProtocol!
 
@@ -99,7 +103,9 @@ class UserViewController: UITableViewController {
     }
 
     private func addSubviews() {
-        navigationItem.rightBarButtonItem = .init(title: "LogOut", style: .plain, target: self, action: #selector(buttonDidTapped))
+        let item = UIBarButtonItem(title: .logOut, style: .plain, target: self, action: #selector(buttonDidTapped))
+        item.tag = 1
+        navigationItem.rightBarButtonItem = item
         tableView.tableHeaderView = horizontalStackView
     }
 
@@ -110,8 +116,12 @@ class UserViewController: UITableViewController {
         ])
     }
 
-    @objc func buttonDidTapped(_ sender: UIButton) {
-        presenter.buttonDidTapped(sender.tag)
+    @objc func buttonDidTapped(_ sender: AnyObject) {
+        if let sender = sender as? UIButton {
+            presenter.buttonDidTapped(sender.currentTitle ?? "")
+        } else if let sender = sender as? UIBarButtonItem {
+            presenter.buttonDidTapped(sender.title ?? "")
+        }
     }
 }
 
@@ -164,5 +174,9 @@ extension UserViewController: PresenterToViewUserProtocol{
 extension UserViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelectRowAt(modelId: indexPath.row)
+    }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        filterButton
     }
 }

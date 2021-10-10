@@ -23,7 +23,7 @@ class AuthorizationViewController: UIViewController {
         button.setTitle("Login", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 20 * verticalTranslation)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside)
         button.layer.cornerRadius = 10
         button.layer.backgroundColor = UIColor.cyan.cgColor
         button.setTitleColor(.black, for: .normal)
@@ -50,8 +50,8 @@ class AuthorizationViewController: UIViewController {
         loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 
-    @objc private func didTapLoginButton() {
-        presenter.didTapLoginButton()
+    @objc private func buttonDidTapped() {
+        presenter.buttonDidTapped()
     }
 }
 

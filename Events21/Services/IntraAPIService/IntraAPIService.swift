@@ -19,7 +19,6 @@ protocol IntraAPIServiceProtocol {
 
 protocol IntraAPIServiceAuthProtocol {
     func getToken(completion: @escaping (Result<String, IntraAPIError>) -> Void)
-    func getAuthRequest() -> URLRequest
     func getUserCode(completion: @escaping (Result<String, IntraAPIError>) -> Void)
     func removeCode()
     func removeToken()

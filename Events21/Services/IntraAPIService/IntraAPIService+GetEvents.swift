@@ -15,7 +15,11 @@ extension IntraAPIService {
                          completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
         var filter = filter
         filter["future"] = ["true"]
-        getEvents(sort: sort, filter: filter, completion: completion)
+        getEvents(campusId: campusId ?? me.campus.last?.id,
+                  cursusId: cursusId ?? me.cursusUsers.last?.cursusId,
+                  sort: sort,
+                  filter: filter,
+                  completion: completion)
     }
 
     func getEvents(campusId: Int? = nil,
@@ -25,7 +29,7 @@ extension IntraAPIService {
                    completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void){
         urlComponents.path = "/v2"
         if let campusId = campusId {
-            urlComponents.path.append("/cursus/\(campusId)")
+            urlComponents.path.append("/campus/\(campusId)")
         }
         if let cursusId = cursusId {
             urlComponents.path.append("/cursus/\(cursusId)")
@@ -52,6 +56,12 @@ extension IntraAPIService {
                 completion(.failure(IntraAPIError(error: "URLSessionError")))
                 return
             }
+
+            if response.statusCode >= 400 {
+                completion(.failure(IntraAPIError(error: response.value(forHTTPHeaderField: "Status") ?? "HTTP Error", errorDescription: data.html2String, statusCode: response.statusCode)))
+                return
+            }
+
             do {
                 if let error = try? self.decoder.decode(IntraAPIError.self, from: data) {
                     completion(.failure(error))

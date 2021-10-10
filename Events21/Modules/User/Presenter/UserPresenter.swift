@@ -45,12 +45,9 @@ class UserPresenter: ViewToPresenterUserProtocol {
                 view.setName(me.firstName)
                 view.setSurname(me.lastName)
                 view.setLogin(me.login)
-                guard let cursuses = me.cursusUsers else { return }
                 var levels = ""
-                cursuses.forEach{ cursus in
-                    if let name = cursus.cursus.name, let level = cursus.level {
-                        levels.append("\(name) \(level)\n")
-                    }
+                me.cursusUsers.forEach{ cursus in
+                    levels.append("\(cursus.cursus.name) \(cursus.level)\n")
                 }
                 view.setLevel("\(levels)")
                 interactor.getImage(for: me.imageUrl) { image in
@@ -80,7 +77,7 @@ class UserPresenter: ViewToPresenterUserProtocol {
             switch result {
             case .success(let responses):
                 self.events = responses
-                self.dataSource.updateForSections([SectionModel(self.events)])
+                self.dataSource.updateForSections([EventSectionModel(self.events)])
                 self.view.reloadTableViewData()
             case .failure(let error):
                 if let description = error.errorDescription {
@@ -103,7 +100,7 @@ class UserPresenter: ViewToPresenterUserProtocol {
             switch result {
             case .success(let responses):
                 self.events = responses.map{ $0.event }
-                self.dataSource.updateForSections([SectionModel(self.events)])
+                self.dataSource.updateForSections([EventSectionModel(self.events)])
                 self.view.reloadTableViewData()
             case .failure(let error):
                 if let description = error.errorDescription {
@@ -122,12 +119,19 @@ class UserPresenter: ViewToPresenterUserProtocol {
     }
 
     func didSelectRowAt(modelId: Int) {
-        router.routeToEventScreen(with: CellModel(events[modelId]), userId: userId)
+        router.routeToEventScreen(with: EventCellModel(events[modelId]), userId: userId)
     }
 
-    func buttonDidTapped(_ tag: Int) {
-        self.interactor.removeToken()
-        self.router.routeToAuthScreen()
+    func buttonDidTapped(_ title: String) {
+        switch title {
+        case .filters:
+            router.presentFilterScreen()
+        case .logOut:
+            self.interactor.removeToken()
+            self.router.routeToAuthScreen()
+        default:
+            break
+        }
     }
 }
 

@@ -83,7 +83,7 @@ class EventCell: Cell {
     }
     
     override func updateViews() {
-        guard let model = model as? CellModel else { return }
+        guard let model = model as? EventCellModel else { return }
         //TODO: Сверстать ячейку таблицы - событие по модели
         nameLabel.text = model.name
         eventTitleLabel.text = model.kind

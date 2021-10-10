@@ -32,7 +32,7 @@ protocol ViewToPresenterUserProtocol: AnyObject {
 
     func viewDidLoad()
     func didSelectRowAt(modelId: Int)
-    func buttonDidTapped(_ tag: Int)
+    func buttonDidTapped(_ title: String)
 }
 
 
@@ -47,13 +47,14 @@ protocol PresenterToInteractorUserProtocol: AnyObject {
 
 // MARK: Presenter Output (Presenter -> Router)
 protocol PresenterToRouterUserProtocol: AnyObject {
-    func routeToEventScreen(with event: CellModel, userId: Int)
+    func routeToEventScreen(with event: EventCellModel, userId: Int)
     func routeToAuthScreen()
+    func presentFilterScreen()
 }
 
 // MARK: Presenter Output (Presenter -> DataSource)
 protocol PresenterToDataSourceUserProtocol: UITableViewDataSource {
-    func updateForSections(_ sections: [SectionModel])
+    func updateForSections(_ sections: [EventSectionModel])
 }
 
 // MARK: Cell Input (Cell -> Presenter)

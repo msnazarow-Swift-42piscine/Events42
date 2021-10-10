@@ -28,7 +28,7 @@ extension PresenterToViewEventProtocol {
 protocol ViewToPresenterEventProtocol: AnyObject {
     var dataSource:PresenterToDataSourceEventProtocol { get }
     func viewDidLoad()
-    func didTapButton()
+    func buttonDidTapped()
 }
 
 
@@ -44,7 +44,7 @@ protocol PresenterToRouterEventProtocol: AnyObject {
 
 // MARK: Presenter Output (Presenter -> DataSource)
 protocol PresenterToDataSourceEventProtocol: UITableViewDataSource {
-    func updateForSections(_ sections: [SectionModel])
+    func updateForSections(_ sections: [EventSectionModel])
 }
 
 // MARK: Cell Input (Cell -> Presenter)

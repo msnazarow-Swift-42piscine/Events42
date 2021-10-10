@@ -15,7 +15,7 @@ class EventPresenter: ViewToPresenterEventProtocol {
     let interactor: PresenterToInteractorEventProtocol
     let router: PresenterToRouterEventProtocol
     let dataSource:PresenterToDataSourceEventProtocol
-    let model: CellModel
+    let model: EventCellModel
     let userId: Int
     var status = false
     // MARK: Init
@@ -24,7 +24,7 @@ class EventPresenter: ViewToPresenterEventProtocol {
          interactor: PresenterToInteractorEventProtocol,
          router: PresenterToRouterEventProtocol,
          dataSource: PresenterToDataSourceEventProtocol,
-         model: CellModel,
+         model: EventCellModel,
          userId: Int) {
         self.view = view
         self.interactor = interactor
@@ -59,7 +59,7 @@ class EventPresenter: ViewToPresenterEventProtocol {
 
     }
 
-    func didTapButton(){
+    func buttonDidTapped(){
         if !status {
             interactor.registerToEvent(eventId: model.eventId) { [self] result in
                 switch result {

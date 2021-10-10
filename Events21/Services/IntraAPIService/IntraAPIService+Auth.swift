@@ -54,16 +54,6 @@ extension IntraAPIService {
         }.resume()
     }
 
-    func getAuthRequest() -> URLRequest {
-        urlComponents.path = "/oauth/authorize"
-        urlComponents.queryItems = [
-            URLQueryItem(name: "client_id", value: uid),
-            URLQueryItem(name: "redirect_uri", value: redirecdedUrl),
-            URLQueryItem(name: "response_type", value: "code")
-        ]
-        return URLRequest(url: urlComponents.url!)
-    }
-
     func getUserCode(completion: @escaping (Result<String, IntraAPIError>) -> Void) {
         urlComponents.path = "/oauth/authorize"
         urlComponents.queryItems = [
