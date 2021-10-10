@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		3E439126270094F600C8AC03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E439125270094F600C8AC03 /* Assets.xcassets */; };
 		3E439129270094F600C8AC03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E439127270094F600C8AC03 /* LaunchScreen.storyboard */; };
 		3E4681D62713242D001D67C2 /* IntraAPIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4681D52713242D001D67C2 /* IntraAPIServiceMock.swift */; };
+		3E4681D927137E8D001D67C2 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 3E4681D827137E8D001D67C2 /* OrderedCollections */; };
+		3E4681DB271380B1001D67C2 /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4681DA271380B1001D67C2 /* UserDefaults+Ext.swift */; };
 		3E5352E727111BDC00FD0B4C /* EventRegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352E627111BDC00FD0B4C /* EventRegisterResponse.swift */; };
 		3E5352EA2711CB1C00FD0B4C /* IntraAPIService+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352E92711CB1C00FD0B4C /* IntraAPIService+Auth.swift */; };
 		3E5352EC2711CB2E00FD0B4C /* IntraAPIService+GetEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352EB2711CB2E00FD0B4C /* IntraAPIService+GetEvents.swift */; };
@@ -83,6 +85,7 @@
 		3E439128270094F600C8AC03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E43912A270094F600C8AC03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E4681D52713242D001D67C2 /* IntraAPIServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntraAPIServiceMock.swift; sourceTree = "<group>"; };
+		3E4681DA271380B1001D67C2 /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
 		3E5352E627111BDC00FD0B4C /* EventRegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRegisterResponse.swift; sourceTree = "<group>"; };
 		3E5352E92711CB1C00FD0B4C /* IntraAPIService+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntraAPIService+Auth.swift"; sourceTree = "<group>"; };
 		3E5352EB2711CB2E00FD0B4C /* IntraAPIService+GetEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntraAPIService+GetEvents.swift"; sourceTree = "<group>"; };
@@ -147,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E4681D927137E8D001D67C2 /* OrderedCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +506,7 @@
 				EAAEC3FD27009E4700AFD1FC /* UIWindow+Ext.swift */,
 				3E97146F2700C4B900FC2F3F /* String+Ext.swift */,
 				3E53531227127F4800FD0B4C /* UITableView+Ext.swift */,
+				3E4681DA271380B1001D67C2 /* UserDefaults+Ext.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -561,6 +566,9 @@
 			dependencies = (
 			);
 			name = Events21;
+			packageProductDependencies = (
+				3E4681D827137E8D001D67C2 /* OrderedCollections */,
+			);
 			productName = Events21;
 			productReference = 3E439119270094F400C8AC03 /* Events21.app */;
 			productType = "com.apple.product-type.application";
@@ -588,6 +596,9 @@
 				Base,
 			);
 			mainGroup = 3E439110270094F400C8AC03;
+			packageReferences = (
+				3E4681D727137E8D001D67C2 /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			productRefGroup = 3E43911A270094F400C8AC03 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -657,6 +668,7 @@
 				3E43911D270094F400C8AC03 /* AppDelegate.swift in Sources */,
 				3E53530D271269B000FD0B4C /* FiltersRouter.swift in Sources */,
 				EAAEC41027009E4700AFD1FC /* AuthorizationAssembly.swift in Sources */,
+				3E4681DB271380B1001D67C2 /* UserDefaults+Ext.swift in Sources */,
 				3E5352EE2711CBB000FD0B4C /* IntraAPIService+GetUser.swift in Sources */,
 				3E5352F62712264500FD0B4C /* CursusUsersResponse.swift in Sources */,
 				3E9714732700C9A800FC2F3F /* TokenResponse.swift in Sources */,
@@ -877,6 +889,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3E4681D727137E8D001D67C2 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3E4681D827137E8D001D67C2 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E4681D727137E8D001D67C2 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3E439111270094F400C8AC03 /* Project object */;
 }

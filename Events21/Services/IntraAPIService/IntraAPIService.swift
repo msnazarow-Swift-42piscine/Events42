@@ -12,6 +12,11 @@ protocol IntraAPIServiceProtocol {
                          cursusId: Int?,
                          sort: [String], filter: [String: [String]],
                          completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void)
+    func getEvents(campusId: Int?,
+                   cursusId: Int?,
+                   sort: [String],
+                   filter: [String: [String]],
+                   completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void)
     func getMe(completion: @escaping (Result<MeResponse, IntraAPIError>) -> Void)
     func registerToEvent(eventId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void)
     func getUserEvents(completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) 

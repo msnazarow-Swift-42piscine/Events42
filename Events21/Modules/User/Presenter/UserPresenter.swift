@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import OrderedCollections
 
 class UserPresenter: ViewToPresenterUserProtocol {
 
@@ -17,7 +18,7 @@ class UserPresenter: ViewToPresenterUserProtocol {
     let dataSource:PresenterToDataSourceUserProtocol
 
     var events: [EventResponse]!
-    var userId: Int!
+    var me: MeResponse!
 
     // MARK: Init
     init(view: PresenterToViewUserProtocol,
@@ -31,17 +32,17 @@ class UserPresenter: ViewToPresenterUserProtocol {
     }
 
     func viewDidLoad(){
-        getMe() {
-            self.getRecentEvents(sort: [], filter: [:])
+        loadMe() {
+            self.loadEvents(sort: [], filter: [:])
 //            self.getUserEvents()
         }
     }
     
-    func getMe(comletion: @escaping (() -> Void)) {
+    func loadMe(comletion: @escaping (() -> Void)) {
         interactor.getMe() { [unowned self] result in
             switch result {
             case .success(let me):
-                userId = me.id
+                self.me = me
                 view.setName(me.firstName)
                 view.setSurname(me.lastName)
                 view.setLogin(me.login)
@@ -72,8 +73,8 @@ class UserPresenter: ViewToPresenterUserProtocol {
         }
     }
 
-    func getRecentEvents(sort: [String], filter: [String : [String]]) {
-        interactor.getRecentEvents(sort: sort, filter: filter) { result in
+    func loadEvents(campusId: Int? = nil, cursusId: Int? = nil, sort: [String], filter: [String : [String]]) {
+        interactor.getEvents(campusId: campusId, cursusId: cursusId, sort: sort, filter: filter) { result in
             switch result {
             case .success(let responses):
                 self.events = responses
@@ -119,13 +120,13 @@ class UserPresenter: ViewToPresenterUserProtocol {
     }
 
     func didSelectRowAt(modelId: Int) {
-        router.routeToEventScreen(with: EventCellModel(events[modelId]), userId: userId)
+        router.routeToEventScreen(with: EventCellModel(events[modelId]), userId: me.id)
     }
 
     func buttonDidTapped(_ title: String) {
         switch title {
         case .filters:
-            router.presentFilterScreen()
+            router.presentFilterScreen(delegate: self)
         case .logOut:
             self.interactor.removeToken()
             self.router.routeToAuthScreen()
@@ -137,4 +138,21 @@ class UserPresenter: ViewToPresenterUserProtocol {
 
 extension UserPresenter: CellToPresenterUserProtocol {
     
+}
+
+extension UserPresenter: TableViewToFiltersDelegateProtocol {
+    func refresh(with filters: OrderedDictionary<String, Bool>) {
+        var interactorFilter: [String: [String]] = [:]
+        if let future = filters[.future], future {
+            interactorFilter[.future] = ["true"]
+        }
+        if let didSubscribe = filters[.didSubscribe], didSubscribe {
+            interactorFilter["user_id"] = ["\(me.id)"]
+        }
+
+        loadEvents(campusId: filters[.myCampus]! ? me.campus.last!.id : nil,
+                  cursusId: filters[.myCursus]! ? me.campus.last!.id : nil,
+                  sort: [],
+                  filter: interactorFilter)
+    }
 }

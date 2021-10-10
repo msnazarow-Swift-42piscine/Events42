@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import OrderedCollections
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewUserProtocol: AnyObject {
@@ -38,7 +38,11 @@ protocol ViewToPresenterUserProtocol: AnyObject {
 
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorUserProtocol: AnyObject {
-    func getRecentEvents(sort: [String], filter: [String: [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void)
+    func getEvents(campusId: Int?,
+                   cursusId: Int?,
+                   sort: [String],
+                   filter: [String: [String]],
+                   completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void)
     func getUserEvents(completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void)
     func getMe(comlition: @escaping (Result<MeResponse, IntraAPIError>) -> Void)
     func getImage(for url: String, completion: @escaping (UIImage?) -> Void)
@@ -49,7 +53,7 @@ protocol PresenterToInteractorUserProtocol: AnyObject {
 protocol PresenterToRouterUserProtocol: AnyObject {
     func routeToEventScreen(with event: EventCellModel, userId: Int)
     func routeToAuthScreen()
-    func presentFilterScreen()
+    func presentFilterScreen(delegate: TableViewToFiltersDelegateProtocol)
 }
 
 // MARK: Presenter Output (Presenter -> DataSource)
@@ -60,4 +64,9 @@ protocol PresenterToDataSourceUserProtocol: UITableViewDataSource {
 // MARK: Cell Input (Cell -> Presenter)
 protocol CellToPresenterUserProtocol: AnyObject {
 
+}
+
+
+protocol TableViewToFiltersDelegateProtocol: AnyObject {
+    func refresh(with filters: OrderedDictionary<String, Bool>)
 }

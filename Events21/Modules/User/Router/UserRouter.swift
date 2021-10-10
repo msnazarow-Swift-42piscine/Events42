@@ -30,9 +30,9 @@ class UserRouter: PresenterToRouterUserProtocol {
         }
     }
 
-    func presentFilterScreen() {
+    func presentFilterScreen(delegate: TableViewToFiltersDelegateProtocol) {
         DispatchQueue.main.async {
-            self.view.present(FiltersAssembly.createModule(), animated: true, completion: nil)
+            self.view.present(FiltersAssembly.createModule(delegate: delegate), animated: true, completion: nil)
         }
     }
 }

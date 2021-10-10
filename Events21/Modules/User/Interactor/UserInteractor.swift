@@ -17,8 +17,8 @@ class UserInteractor: PresenterToInteractorUserProtocol {
         self.imageCashingService = imageCashingService
     }
 
-    func getRecentEvents(sort: [String], filter: [String: [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
-        intraAPIService.getFutureEvents(sort: sort, filter: filter, completion: completion)
+    func getEvents(campusId: Int?, cursusId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
+        intraAPIService.getFutureEvents(campusId: campusId, cursusId: cursusId, sort: sort, filter: filter, completion: completion)
     }
 
     func getUserEvents(completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
