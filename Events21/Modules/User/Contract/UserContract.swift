@@ -44,7 +44,6 @@ protocol PresenterToInteractorUserProtocol: AnyObject {
                    sort: [String],
                    filter: [String: [String]],
                    completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void)
-    func getUserEvents(userIds: [Int], eventIds: [Int], sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void)
     func getMe(comlition: @escaping (Result<MeResponse, IntraAPIError>) -> Void)
     func getImage(for url: String, completion: @escaping (UIImage?) -> Void)
     func removeToken()

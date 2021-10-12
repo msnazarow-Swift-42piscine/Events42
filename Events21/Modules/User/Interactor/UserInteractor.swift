@@ -23,20 +23,87 @@ class UserInteractor: PresenterToInteractorUserProtocol {
     }
 
     func getEvents(campusIds: [Int], cursusIds: [Int], userIds: [Int], sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
-        intraAPIService.getEvents(campusIds: campusIds,
-                                  cursusIds: cursusIds,
-                                  userIds: userIds,
-                                  sort: sort,
-                                  filter: filter,
-                                  completion: completion)
-    }
-
-    func getUserEvents(userIds: [Int], eventIds: [Int], sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
-        intraAPIService.getUserEvents(userIds: userIds,
-                                      eventIds: eventIds,
+        let group = DispatchGroup()
+        var resultEvents: [EventResponse] = []
+        let arrays: [(String, [Int])] = [(.campusId, campusIds), (.cursusId, cursusIds), (.userId, userIds)].sorted(by: { $0.1.count > $1.1.count })
+        if !arrays[0].1.isEmpty {
+            arrays[0].1.forEach { value0 in
+                if !arrays[1].1.isEmpty {
+                    arrays[1].1.forEach { value1 in
+                        if !arrays[2].1.isEmpty {
+                            arrays[2].1.forEach { value2 in
+                                group.enter()
+                                intraAPIService.getEvents(campusId: [value0, value1, value2][arrays.firstIndex(where: {$0.0 == .campusId})!],
+                                                          cursusId: [value0, value1, value2][arrays.firstIndex(where: {$0.0 == .cursusId})!],
+                                                          userId: [value0, value1, value2][arrays.firstIndex(where: {$0.0 == .userId})!],
+                                                          sort: sort,
+                                                          filter: filter) { result in
+                                    defer { group.leave() }
+                                    switch result {
+                                    case .failure(let error):
+                                        completion(.failure(error))
+                                        return
+                                    case .success(let events):
+                                        resultEvents.append(contentsOf: events)
+                                    }
+                                }
+                            }
+                        } else {
+                            group.enter()
+                            intraAPIService.getEvents(campusId: arrays[0...1].contains(where: { $0.0 == .campusId }) ? [value0, value1][arrays.firstIndex(where: {$0.0 == .campusId})!] : nil,
+                                                      cursusId: arrays[0...1].contains(where: { $0.0 == .cursusId }) ? [value0, value1][arrays.firstIndex(where: {$0.0 == .cursusId})!] : nil,
+                                                      userId: arrays[0...1].contains(where: { $0.0 == .userId }) ? [value0, value1][arrays.firstIndex(where: {$0.0 == .userId})!] : nil,
+                                                      sort: sort,
+                                                      filter: filter) { result in
+                                defer { group.leave() }
+                                switch result {
+                                case .failure(let error):
+                                    completion(.failure(error))
+                                    return
+                                case .success(let events):
+                                    resultEvents.append(contentsOf: events)
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    group.enter()
+                    intraAPIService.getEvents(campusId: arrays[0].0 == .campusId ? value0 : nil,
+                                              cursusId: arrays[0].0 == .cursusId ? value0 : nil,
+                                              userId: arrays[0].0 == .userId ? value0 : nil,
+                                              sort: sort,
+                                              filter: filter) { result in
+                        defer { group.leave() }
+                        switch result {
+                        case .failure(let error):
+                            completion(.failure(error))
+                            return
+                        case .success(let events):
+                            resultEvents.append(contentsOf: events)
+                        }
+                    }
+                }
+            }
+        } else {
+            group.enter()
+            intraAPIService.getEvents(campusId: nil,
+                                      cursusId: nil,
+                                      userId: nil,
                                       sort: sort,
-                                      filter: filter,
-                                      completion: completion)
+                                      filter: filter) { result in
+                defer { group.leave() }
+                switch result {
+                case .failure(let error):
+                    completion(.failure(error))
+                    return
+                case .success(let events):
+                    resultEvents.append(contentsOf: events)
+                }
+            }
+        }
+        group.notify(queue: .main) {
+            completion(.success(resultEvents))
+        }
     }
 
     func saveFilters(filters: OrderedDictionary<String, Bool>) {

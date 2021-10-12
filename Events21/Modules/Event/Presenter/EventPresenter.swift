@@ -35,6 +35,16 @@ class EventPresenter: ViewToPresenterEventProtocol {
     }
 
     func viewDidLoad(){
+        interactor.getUserEvents(userIds: [userId], eventIds: [model.eventId], sort: [], filter: [:]) {   [self] result in
+            switch result {
+            case .success:
+                view.setButtonRegistered()
+            case .failure:
+                view.setButtonUnregistered()
+            }
+
+
+
         let text = NSMutableAttributedString()
             text.append(NSAttributedString(string: "\(model.kind)\n", attributes: [.font: UIFont.systemFont(ofSize: 40 * verticalTranslation), .foregroundColor: UIColor.cyan]))
                   text.append(NSAttributedString(string: "\(model.name)\n", attributes: [.font: UIFont.systemFont(ofSize: 30 * verticalTranslation), .foregroundColor: UIColor.black]))
@@ -56,7 +66,7 @@ class EventPresenter: ViewToPresenterEventProtocol {
             text.append(NSAttributedString(string: "Duration: \(duration)", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.black]))
         }
         view.setTextView(text: text)
-
+        }
     }
 
     func buttonDidTapped(){
@@ -77,9 +87,22 @@ class EventPresenter: ViewToPresenterEventProtocol {
                 }
             }
         } else {
-            status = !status
-            view.showAlert(with: "You have unregistered")
-            view.setButtonRegistered()
+            interactor.unregisterFromEvent(eventUserId: model.eventId) { [self] result in
+                switch result {
+                case .success:
+                    status = !status
+                    view.showAlert(with: "You have unregistered")
+                    view.setButtonRegistered()
+                case .failure(let error):
+                    status = false
+                    if let description = error.errorDescription {
+                        self.view.showAlert(title: error.error, message: description)
+                    } else if let message = error.message {
+                        self.view.showAlert(title: error.error, message: message)
+                    }
+                }
+            }
+
         }
     }
 }

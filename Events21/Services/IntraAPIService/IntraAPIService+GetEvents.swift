@@ -8,25 +8,24 @@
 import Foundation
 
 extension IntraAPIService {
-    func getEvents(campusIds: [Int],
-                   cursusIds: [Int],
-                   userIds: [Int],
-                   sort: [String],
-                   filter: [String: [String]],
+    func getEvents(campusId: Int? = nil,
+                   cursusId: Int? = nil,
+                   userId: Int? = nil,
+                   sort: [String] = [],
+                   filter: [String: [String]] = [:],
                    completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
         urlComponents.path = "/v2/events"
         var queryItems: [URLQueryItem] = []
-        if !campusIds.isEmpty {
-            queryItems.append(.init(name: .campusId, value: campusIds.map{ "\($0)" }.joined(separator: ",")))
+        if let campusId = campusId {
+            queryItems.append(.init(name: .campusId, value: "\(campusId)"))
         }
 
-//        if !cursusIds.isEmpty {
-//            queryItems.append(.init(name: .cursusId, value: cursusIds.map{ "\($0)" }.joined(separator: ",")))
-//        }
+        if let cursusId = cursusId {
+            queryItems.append(.init(name: .cursusId, value: "\(cursusId)"))
+        }
 
-        queryItems.append(.init(name: .cursusId, value: "\(cursusIds.last!)"))
-        if !userIds.isEmpty {
-            queryItems.append(.init(name: .userId, value: userIds.map{ "\($0)" }.joined(separator: ",")))
+        if let userId = userId {
+            queryItems.append(.init(name: .userId, value: "\(userId)"))
         }
 
         if !sort.isEmpty {
@@ -69,19 +68,15 @@ extension IntraAPIService {
         }.resume()
     }
 
-    func getUserEvents(userIds: [Int], eventIds: [Int], sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
+    func getUserEvents(userId: Int?, eventId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
         urlComponents.path = ("/v2/events_users")
         var queryItems: [URLQueryItem] = []
-        if !userIds.isEmpty {
-            queryItems.append(.init(name: .userId, value: userIds.map{ "\($0)" }.joined(separator: ",")))
+        if let eventId = eventId {
+            queryItems.append(.init(name: .eventId, value: "\(eventId)"))
         }
 
-        if !eventIds.isEmpty {
-            queryItems.append(.init(name: .eventId, value: eventIds.map{ "\($0)" }.joined(separator: ",")))
-        }
-
-        if !userIds.isEmpty {
-            queryItems.append(.init(name: .userId, value: userIds.map{ "\($0)" }.joined(separator: ",")))
+        if let userId = userId {
+            queryItems.append(.init(name: .userId, value: "\(userId)"))
         }
 
         if !sort.isEmpty {
@@ -95,9 +90,6 @@ extension IntraAPIService {
         }
         queryItems.append(.init(name: "page[size]", value: "100"))
         urlComponents.queryItems = queryItems
-
-
-
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
@@ -118,36 +110,6 @@ extension IntraAPIService {
                 completion(.success(events))
             } catch {
                 completion(.failure(IntraAPIError(error: "JSONDecoder error", errorDescription: error.localizedDescription)))
-            }
-        }.resume()
-    }
-
-    func registerToEvent(eventId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void) {
-        urlComponents.path = "/v2/events_users"
-        urlComponents.queryItems = [
-            .init(name: "events_user[event_id]", value: "\(eventId)"),
-            .init(name: "events_user[user_id]", value: "\(me!.id)")
-        ]
-        var request = self.request
-        request.httpMethod = "POST"
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                completion(.failure(IntraAPIError(error: "URLSessionError", errorDescription: error.localizedDescription)))
-                return
-            }
-            guard let data = data, let response = response as? HTTPURLResponse else {
-                completion(.failure(IntraAPIError(error: "URLSessionError")))
-                return
-            }
-            do {
-                if let error = try? self.decoder.decode(IntraAPIError.self, from: data) {
-                    completion(.failure(error))
-                    return
-                }
-                try self.decoder.decode(EventRegisterResponse.self, from: data)
-                completion(.success(true))
-            } catch {
-                completion(.failure(IntraAPIError(error: "JSONDecoder error", message: error.localizedDescription)))
             }
         }.resume()
     }

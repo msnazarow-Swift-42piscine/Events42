@@ -8,16 +8,17 @@
 import Foundation
 
 protocol IntraAPIServiceProtocol {
-    func getEvents(campusIds: [Int],
-                   cursusIds: [Int],
-                   userIds: [Int],
+    func getEvents(campusId: Int?,
+                   cursusId: Int?,
+                   userId: Int?,
                    sort: [String],
                    filter: [String: [String]],
                    completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void)
     func getMe(completion: @escaping (Result<MeResponse, IntraAPIError>) -> Void)
     func registerToEvent(eventId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void)
-    func getUserEvents(userIds: [Int],
-                       eventIds: [Int],
+    func unregisterFromEvent(eventUserId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void)
+    func getUserEvents(userId: Int?,
+                       eventId: Int?,
                        sort: [String],
                        filter: [String : [String]],
                        completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void)

@@ -97,28 +97,28 @@ class UserPresenter: ViewToPresenterUserProtocol {
         }
     }
 
-    func getUserEvents(userIds: [Int], eventIds: [Int], sort: [String], filter: [String : [String]]) {
-        interactor.getUserEvents(userIds: userIds, eventIds: eventIds, sort: sort, filter: filter) { result in
-            switch result {
-            case .success(let responses):
-                self.events = responses.map{ $0.event }
-                self.dataSource.updateForSections([EventSectionModel(self.events)])
-                self.view.reloadTableViewData()
-            case .failure(let error):
-                if let description = error.errorDescription {
-                    self.view.showAlert(title: error.error, message: description) {
-                        self.interactor.removeToken()
-                        self.router.routeToAuthScreen()
-                    }
-                } else if let message = error.message {
-                    self.view.showAlert(title: error.error, message: message) {
-                        self.interactor.removeToken()
-                        self.router.routeToAuthScreen()
-                    }
-                }
-            }
-        }
-    }
+//    func getUserEvents(userIds: [Int], eventIds: [Int], sort: [String], filter: [String : [String]]) {
+//        interactor.getUserEvents(userIds: userIds, eventIds: eventIds, sort: sort, filter: filter) { result in
+//            switch result {
+//            case .success(let responses):
+//                self.events = responses.map{ $0.event }
+//                self.dataSource.updateForSections([EventSectionModel(self.events)])
+//                self.view.reloadTableViewData()
+//            case .failure(let error):
+//                if let description = error.errorDescription {
+//                    self.view.showAlert(title: error.error, message: description) {
+//                        self.interactor.removeToken()
+//                        self.router.routeToAuthScreen()
+//                    }
+//                } else if let message = error.message {
+//                    self.view.showAlert(title: error.error, message: message) {
+//                        self.interactor.removeToken()
+//                        self.router.routeToAuthScreen()
+//                    }
+//                }
+//            }
+//        }
+//    }
 
     func didSelectRowAt(modelId: Int) {
         router.routeToEventScreen(with: EventCellModel(events[modelId]), userId: me.id)

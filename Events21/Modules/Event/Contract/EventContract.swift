@@ -34,7 +34,13 @@ protocol ViewToPresenterEventProtocol: AnyObject {
 
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorEventProtocol: AnyObject {
+    func getUserEvents(userIds: [Int],
+                       eventIds: [Int],
+                       sort: [String],
+                       filter: [String : [String]],
+                       completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void)
     func registerToEvent(eventId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void)
+    func unregisterFromEvent(eventUserId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void)
 }
 
 // MARK: Presenter Output (Presenter -> Router)
