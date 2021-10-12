@@ -8,18 +8,19 @@
 import Foundation
 
 protocol IntraAPIServiceProtocol {
-    func getFutureEvents(campusId: Int?,
-                         cursusId: Int?,
-                         sort: [String], filter: [String: [String]],
-                         completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void)
-    func getEvents(campusId: Int?,
-                   cursusId: Int?,
+    func getEvents(campusIds: [Int],
+                   cursusIds: [Int],
+                   userIds: [Int],
                    sort: [String],
                    filter: [String: [String]],
                    completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void)
     func getMe(completion: @escaping (Result<MeResponse, IntraAPIError>) -> Void)
     func registerToEvent(eventId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void)
-    func getUserEvents(completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) 
+    func getUserEvents(userIds: [Int],
+                       eventIds: [Int],
+                       sort: [String],
+                       filter: [String : [String]],
+                       completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void)
 }
 
 protocol IntraAPIServiceAuthProtocol {
@@ -28,16 +29,6 @@ protocol IntraAPIServiceAuthProtocol {
     func removeCode()
     func removeToken()
     func hasToken() -> Bool
-}
-
-extension IntraAPIServiceProtocol {
-    func getFutureEvents(sort: [String], filter: [String: [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
-        getFutureEvents(campusId: nil,
-                        cursusId: nil,
-                        sort: sort,
-                        filter: filter,
-                        completion: completion)
-    }
 }
 
 class IntraAPIService: NSObject, IntraAPIServiceProtocol, IntraAPIServiceAuthProtocol {

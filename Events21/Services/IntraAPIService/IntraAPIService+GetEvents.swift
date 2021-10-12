@@ -8,43 +8,36 @@
 import Foundation
 
 extension IntraAPIService {
-
-    func getFutureEvents(campusId: Int? = nil,
-                         cursusId: Int? = nil,
-                         sort: [String], filter: [String: [String]],
-                         completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
-        var filter = filter
-        filter["future"] = ["true"]
-        getEvents(campusId: campusId ?? me.campus.last?.id,
-                  cursusId: cursusId ?? me.cursusUsers.last?.cursusId,
-                  sort: sort,
-                  filter: filter,
-                  completion: completion)
-    }
-
-    func getEvents(campusId: Int? = nil,
-                   cursusId: Int? = nil,
+    func getEvents(campusIds: [Int],
+                   cursusIds: [Int],
+                   userIds: [Int],
                    sort: [String],
                    filter: [String: [String]],
-                   completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void){
-        urlComponents.path = "/v2"
-        if let campusId = campusId {
-            urlComponents.path.append("/campus/\(campusId)")
-        }
-        if let cursusId = cursusId {
-            urlComponents.path.append("/cursus/\(cursusId)")
-        }
-        urlComponents.path.append("/events")
+                   completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
+        urlComponents.path = "/v2/events"
         var queryItems: [URLQueryItem] = []
+        if !campusIds.isEmpty {
+            queryItems.append(.init(name: .campusId, value: campusIds.map{ "\($0)" }.joined(separator: ",")))
+        }
+
+//        if !cursusIds.isEmpty {
+//            queryItems.append(.init(name: .cursusId, value: cursusIds.map{ "\($0)" }.joined(separator: ",")))
+//        }
+
+        queryItems.append(.init(name: .cursusId, value: "\(cursusIds.last!)"))
+        if !userIds.isEmpty {
+            queryItems.append(.init(name: .userId, value: userIds.map{ "\($0)" }.joined(separator: ",")))
+        }
+
         if !sort.isEmpty {
             queryItems.append(.init(name: "sort", value: sort.joined(separator: ",")))
         }
+
         if !filter.isEmpty {
             filter.forEach { (key: String, value: [String]) in
                 queryItems.append(.init(name: "filter[\(key)]", value: value.joined(separator: ",")))
             }
         }
-//        queryItems.append(.init(name: "range[begin_at]", value: "\(Date().iso8601Full),\(Calendar.current.date(byAdding: .year, value: 100, to: Date())!.iso8601Full)"))
         queryItems.append(.init(name: "page[size]", value: "100"))
         urlComponents.queryItems = queryItems
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -76,14 +69,36 @@ extension IntraAPIService {
         }.resume()
     }
 
-    func getUserEvents(completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
-        urlComponents.path = "/v2/users/\(me.id)/events_users"
-//        urlComponents.queryItems = [
-//            .init(name: "user_id", value: "\(me.id)"),
-//            .init(name: "sort", value: "kind,location,remote"),
-//            .init(name: "range[begin_at]", value: "\(Date().iso8601Full),\(Calendar.current.date(byAdding: .year, value: 100, to: Date())!.iso8601Full)"),
-            //            .init(name: "cursus_id", value: "21"),
-//        ]
+    func getUserEvents(userIds: [Int], eventIds: [Int], sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
+        urlComponents.path = ("/v2/events_users")
+        var queryItems: [URLQueryItem] = []
+        if !userIds.isEmpty {
+            queryItems.append(.init(name: .userId, value: userIds.map{ "\($0)" }.joined(separator: ",")))
+        }
+
+        if !eventIds.isEmpty {
+            queryItems.append(.init(name: .eventId, value: eventIds.map{ "\($0)" }.joined(separator: ",")))
+        }
+
+        if !userIds.isEmpty {
+            queryItems.append(.init(name: .userId, value: userIds.map{ "\($0)" }.joined(separator: ",")))
+        }
+
+        if !sort.isEmpty {
+            queryItems.append(.init(name: "sort", value: sort.joined(separator: ",")))
+        }
+
+        if !filter.isEmpty {
+            filter.forEach { (key: String, value: [String]) in
+                queryItems.append(.init(name: "filter[\(key)]", value: value.joined(separator: ",")))
+            }
+        }
+        queryItems.append(.init(name: "page[size]", value: "100"))
+        urlComponents.queryItems = queryItems
+
+
+
+
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(IntraAPIError(error: "URLSessionError", errorDescription: error.localizedDescription)))

@@ -15,15 +15,21 @@ enum UserAssembly{
 
         let viewController = UserViewController()
         let router = UserRouter(view: viewController)
-        #if DEBUG
-            let intraAPIService = IntraAPIServiceMock()
-        #else
+//        #if DEBUG
+//            let intraAPIService = IntraAPIServiceMock()
+//        #else
             let intraAPIService = IntraAPIService.shared
-        #endif
+//        #endif
         let imageCashingService = ImageCashingService()
-        let interactor = UserInteractor(intraAPIService: intraAPIService, imageCashingService: imageCashingService)
+        let filterStorage = FiltersStorage.shared
+        let interactor = UserInteractor(intraAPIService: intraAPIService,
+                                        imageCashingService: imageCashingService,
+                                        filterStorage: filterStorage)
         let dataSource = UserPresenterDataSource()
-        let presenter = UserPresenter(view: viewController, interactor: interactor, router: router, dataSource: dataSource)
+        let presenter = UserPresenter(view: viewController,
+                                      interactor: interactor,
+                                      router: router,
+                                      dataSource: dataSource)
 
         viewController.presenter = presenter
         dataSource.presenter = presenter

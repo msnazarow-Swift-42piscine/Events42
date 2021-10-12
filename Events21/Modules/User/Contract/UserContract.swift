@@ -38,15 +38,18 @@ protocol ViewToPresenterUserProtocol: AnyObject {
 
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorUserProtocol: AnyObject {
-    func getEvents(campusId: Int?,
-                   cursusId: Int?,
+    func getEvents(campusIds: [Int],
+                   cursusIds: [Int],
+                   userIds: [Int],
                    sort: [String],
                    filter: [String: [String]],
                    completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void)
-    func getUserEvents(completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void)
+    func getUserEvents(userIds: [Int], eventIds: [Int], sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void)
     func getMe(comlition: @escaping (Result<MeResponse, IntraAPIError>) -> Void)
     func getImage(for url: String, completion: @escaping (UIImage?) -> Void)
     func removeToken()
+    func saveFilters(filters: OrderedDictionary<String, Bool>)
+    func loadFilters() -> OrderedDictionary<String, Bool>?
 }
 
 // MARK: Presenter Output (Presenter -> Router)

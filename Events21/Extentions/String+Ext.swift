@@ -17,6 +17,10 @@ extension String {
     static let didSubscribe = "subscribed"
     static let filters = "Filters"
     static let logOut = "LogOut"
+    static let cursusId = "cursus_id"
+    static let campusId = "campus_id"
+    static let userId = "user_id"
+    static let eventId = "event_id"
 }
 
 extension StringProtocol {

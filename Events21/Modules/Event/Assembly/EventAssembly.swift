@@ -15,7 +15,8 @@ enum EventAssembly{
 
         let viewController = EventViewController()
         let router = EventRouter(view: viewController)
-        let interactor = EventInteractor()
+        let intraAPIService = IntraAPIService.shared
+        let interactor = EventInteractor(intraAPIService: intraAPIService)
         let dataSource = EventPresenterDataSource()
         let presenter = EventPresenter(view: viewController,
                                        interactor: interactor,

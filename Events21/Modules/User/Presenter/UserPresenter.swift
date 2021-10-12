@@ -31,10 +31,11 @@ class UserPresenter: ViewToPresenterUserProtocol {
         self.dataSource = dataSource
     }
 
-    func viewDidLoad(){
+    func viewDidLoad() {
         loadMe() {
-            self.loadEvents(sort: [], filter: [:])
-//            self.getUserEvents()
+            if let filters = self.interactor.loadFilters() {
+                self.refresh(with: filters)
+            }
         }
     }
     
@@ -73,8 +74,8 @@ class UserPresenter: ViewToPresenterUserProtocol {
         }
     }
 
-    func loadEvents(campusId: Int? = nil, cursusId: Int? = nil, sort: [String], filter: [String : [String]]) {
-        interactor.getEvents(campusId: campusId, cursusId: cursusId, sort: sort, filter: filter) { result in
+    func loadEvents(campusIds: [Int], cursusIds: [Int], userIds: [Int], sort: [String], filter: [String : [String]]) {
+        interactor.getEvents(campusIds: campusIds, cursusIds: cursusIds, userIds: userIds, sort: sort, filter: filter) { result in
             switch result {
             case .success(let responses):
                 self.events = responses
@@ -96,8 +97,8 @@ class UserPresenter: ViewToPresenterUserProtocol {
         }
     }
 
-    func getUserEvents() {
-        interactor.getUserEvents { result in
+    func getUserEvents(userIds: [Int], eventIds: [Int], sort: [String], filter: [String : [String]]) {
+        interactor.getUserEvents(userIds: userIds, eventIds: eventIds, sort: sort, filter: filter) { result in
             switch result {
             case .success(let responses):
                 self.events = responses.map{ $0.event }
@@ -146,12 +147,9 @@ extension UserPresenter: TableViewToFiltersDelegateProtocol {
         if let future = filters[.future], future {
             interactorFilter[.future] = ["true"]
         }
-        if let didSubscribe = filters[.didSubscribe], didSubscribe {
-            interactorFilter["user_id"] = ["\(me.id)"]
-        }
-
-        loadEvents(campusId: filters[.myCampus]! ? me.campus.last!.id : nil,
-                  cursusId: filters[.myCursus]! ? me.campus.last!.id : nil,
+        loadEvents(campusIds: filters[.myCampus]! ? me.campus.map{ $0.id } : [],
+                   cursusIds: filters[.myCursus]! ? me.cursusUsers.map{ $0.cursusId } : [] ,
+                   userIds: filters[.didSubscribe]! ? [me.id] : [],
                   sort: [],
                   filter: interactorFilter)
     }

@@ -10,7 +10,11 @@ import Foundation
 
 class EventInteractor: PresenterToInteractorEventProtocol {
 
-    let intraAPIService = IntraAPIService.shared
+    let intraAPIService: IntraAPIServiceProtocol
+
+    init(intraAPIService: IntraAPIServiceProtocol) {
+        self.intraAPIService = intraAPIService
+    }
     func registerToEvent(eventId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void){
         intraAPIService.registerToEvent(eventId: eventId, completion: completion)
     }

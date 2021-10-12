@@ -7,22 +7,44 @@
 //
 
 import UIKit
+import OrderedCollections
 
 class UserInteractor: PresenterToInteractorUserProtocol {
     let intraAPIService: IntraAPIServiceProtocol & IntraAPIServiceAuthProtocol
     let imageCashingService: ImageCashingServiceProtocol
+    let filterStorage: FiltersStorageProtocol
 
-    init(intraAPIService: IntraAPIServiceProtocol & IntraAPIServiceAuthProtocol, imageCashingService: ImageCashingServiceProtocol) {
+    init(intraAPIService: IntraAPIServiceProtocol & IntraAPIServiceAuthProtocol,
+         imageCashingService: ImageCashingServiceProtocol,
+         filterStorage: FiltersStorageProtocol) {
         self.intraAPIService = intraAPIService
         self.imageCashingService = imageCashingService
+        self.filterStorage = filterStorage
     }
 
-    func getEvents(campusId: Int?, cursusId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
-        intraAPIService.getFutureEvents(campusId: campusId, cursusId: cursusId, sort: sort, filter: filter, completion: completion)
+    func getEvents(campusIds: [Int], cursusIds: [Int], userIds: [Int], sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
+        intraAPIService.getEvents(campusIds: campusIds,
+                                  cursusIds: cursusIds,
+                                  userIds: userIds,
+                                  sort: sort,
+                                  filter: filter,
+                                  completion: completion)
     }
 
-    func getUserEvents(completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
-        intraAPIService.getUserEvents(completion: completion)
+    func getUserEvents(userIds: [Int], eventIds: [Int], sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
+        intraAPIService.getUserEvents(userIds: userIds,
+                                      eventIds: eventIds,
+                                      sort: sort,
+                                      filter: filter,
+                                      completion: completion)
+    }
+
+    func saveFilters(filters: OrderedDictionary<String, Bool>) {
+        filterStorage.saveFilters(filters: filters)
+    }
+
+    func loadFilters() -> OrderedDictionary<String, Bool>? {
+        filterStorage.loadFilters()
     }
 
     func getMe(comlition: @escaping (Result<MeResponse, IntraAPIError>) -> Void) {
@@ -32,6 +54,7 @@ class UserInteractor: PresenterToInteractorUserProtocol {
     func getImage(for url: String, completion: @escaping (UIImage?) -> Void) {
         imageCashingService.getImage(for: url, comlition: completion)
     }
+
     func removeToken(){
         intraAPIService.removeCode()
         intraAPIService.removeToken()

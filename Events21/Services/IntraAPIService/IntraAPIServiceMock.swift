@@ -24,6 +24,14 @@ class IntraAPIServiceMock {
 
 
 extension IntraAPIServiceMock: IntraAPIServiceProtocol, IntraAPIServiceAuthProtocol {
+    func getUserEvents(userIds: [Int], eventIds: [Int], sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
+        completion(.success([eventUser]))
+    }
+
+    func getEvents(campusIds: [Int], cursusIds: [Int], userIds: [Int], sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
+        completion(.success([event]))
+    }
+
     func getEvents(campusId: Int?, cursusId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
         completion(.success([event]))
     }
