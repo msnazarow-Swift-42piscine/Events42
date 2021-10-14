@@ -76,9 +76,11 @@ class UserViewController: UITableViewController {
 
     let filterButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "line.3.horizontal.decrease.circle"), for: .normal)
+        button.setImage(UIImage(systemName: "slider.horizontal.3"), for: .normal)
         button.setTitle(.filters, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.tag = 1
+//        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
 //        button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside)
         return button
@@ -92,6 +94,10 @@ class UserViewController: UITableViewController {
         super.viewDidLoad()
         setupUI()
         presenter?.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        presenter.viewWillAppear()
     }
 
     private func setupUI() {
@@ -179,4 +185,5 @@ extension UserViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         filterButton
     }
+
 }

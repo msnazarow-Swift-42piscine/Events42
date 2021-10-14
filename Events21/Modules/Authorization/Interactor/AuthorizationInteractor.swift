@@ -27,4 +27,12 @@ class AuthorizationInteractor: PresenterToInteractorAuthorizationProtocol {
     func hasToken() -> Bool {
         intraAPIService.hasToken()
     }
+
+    func tokenIsOutdated() -> Bool {
+        intraAPIService.tokenIsOutdated()
+    }
+
+    func refreshToken(completion: @escaping (Result<String, IntraAPIError>) -> Void) {
+        intraAPIService.refreshToken(completion: completion)
+    }
 }

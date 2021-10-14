@@ -37,20 +37,13 @@ extension IntraAPIService {
                     completion(.failure(error))
                     return
                 }
-
-
-
                 let tokenResponse = try decoder.decode(TokenResponse.self, from: data)
-
-
-
                 self.token = tokenResponse
                 KeychainHelper.standard.save(tokenResponse, service: "token", account: "intra42")
                 completion(.success(tokenResponse.accessToken))
             } catch  {
                 completion(.failure(IntraAPIError(error: "JSONDecoderError", errorDescription: error.localizedDescription)))
             }
-
         }.resume()
     }
 
@@ -95,35 +88,45 @@ extension IntraAPIService {
         }
     }
 
-    func getToken(completion: @escaping (Result<String, IntraAPIError>) -> Void) {
-        if let token = token {
-            if token.createdAt.addingTimeInterval(TimeInterval(token.expiresIn)) > Date() {
-                completion(.success(token.accessToken))
-            } else {
-                refreshToken { [self] result in
-                    switch result {
-                    case .success(let token):
-                        completion(.success(token))
-                    case .failure(let error):
-                        if let code = code {
-                            getToken(with: code) { result in
-                                switch result {
-                                case .success(let token):
-                                    completion(.success(token))
-                                case .failure(let error):
-                                    self.getUserCode { result in
-                                        self.handleCode(result: result, completion: completion)
-                                    }
-                                }
-                            }
-                        } else {
-                            getUserCode { result in
-                                self.handleCode(result: result, completion: completion)
-                            }
-                        }
+
+    func refreshTokenError(completion: @escaping (Result<String, IntraAPIError>) -> Void) {
+        if let code = code {
+            getToken(with: code) { result in
+                switch result {
+                case .success(let token):
+                    completion(.success(token))
+                case .failure(let error):
+                    self.getUserCode { result in
+                        self.handleCode(result: result, completion: completion)
                     }
                 }
             }
+        } else {
+            getUserCode { result in
+                self.handleCode(result: result, completion: completion)
+            }
+        }
+    }
+
+    func handleToken(token: TokenResponse, completion: @escaping (Result<String, IntraAPIError>) -> Void) {
+        if token.createdAt.addingTimeInterval(TimeInterval(token.expiresIn)) > Date() {
+            completion(.success(token.accessToken))
+        } else {
+            refreshToken { [self] result in
+                switch result {
+                case .success(let token):
+                    completion(.success(token))
+                case .failure(let error):
+                    refreshTokenError(completion: completion)
+                }
+            }
+        }
+    }
+
+
+    func getToken(completion: @escaping (Result<String, IntraAPIError>) -> Void) {
+        if let token = token {
+            handleToken(token: token, completion: completion)
         } else if let code = code {
             getToken(with: code) { result in
                 switch result {
@@ -144,13 +147,17 @@ extension IntraAPIService {
 
 
     func refreshToken(completion: @escaping (Result<String, IntraAPIError>) -> Void) {
+        guard let token = token else {
+            completion(.failure(IntraAPIError(error: "No token")))
+            return
+        }
         urlComponents.path = "/oauth/token"
         urlComponents.queryItems = [
             .init(name: "grant_type", value: "refresh_token"),
             .init(name: "client_id", value: uid),
             .init(name: "client_secret", value: secret),
             .init(name: "redirect_uri", value: redirecdedUrl),
-            .init(name: "refresh_token", value: "\(token!.refreshToken)")
+            .init(name: "refresh_token", value: "\(token.refreshToken)")
         ]
         var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = "POST"
@@ -177,13 +184,10 @@ extension IntraAPIService {
                 let token = try decoder.decode(TokenResponse.self, from: data)
                 self.token = token
                 KeychainHelper.standard.save(token, service: .token, account: .intra42)
-//                KeychainHelper.standard.save(data, service: .token, account: .intra42)
                 completion(.success(token.accessToken))
-            }
-            catch  {
+            } catch  {
                 completion(.failure(IntraAPIError(error: "JSONDecoderError", errorDescription: error.localizedDescription)))
             }
-
         }.resume()
     }
     func removeToken(){
@@ -197,7 +201,11 @@ extension IntraAPIService {
     }
 
     func hasToken() -> Bool {
-        if let token = token, token.createdAt.addingTimeInterval(TimeInterval(token.expiresIn)) > Date() {
+        return token != nil
+    }
+    
+    func tokenIsOutdated() -> Bool {
+        if let token = token, token.createdAt.addingTimeInterval(TimeInterval(token.expiresIn)) <= Date() {
             return true
         } else {
             return false

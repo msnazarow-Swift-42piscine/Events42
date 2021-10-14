@@ -30,8 +30,13 @@ class AuthorizationPresenter: NSObject, ViewToPresenterAuthorizationProtocol {
     }
 
     func viewDidLoad(){
-        if interactor.hasToken() {
+        guard interactor.hasToken() else { return }
+        if !interactor.tokenIsOutdated() {
             router.routeToUserScreen()
+        } else {
+            interactor.refreshToken { _ in
+                self.router.routeToUserScreen()
+            }
         }
     }
     

@@ -11,6 +11,6 @@ struct EventUsersResponse: Codable {
     let event: EventResponse
     let eventId: Int
     let id: Int
-    let user: MeResponse
+    let user: UserResponse
     let userId: Int
 }

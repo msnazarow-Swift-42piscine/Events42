@@ -44,6 +44,7 @@ class EventViewController: UIViewController {
 
     private func setupUI() {
         view.backgroundColor = .white
+        view.isHidden = true
         addSubviews()
         setupConstraints()
     }
@@ -103,6 +104,18 @@ extension EventViewController: PresenterToViewEventProtocol{
         DispatchQueue.main.async { [self] in
             registerButton.setTitle("Register", for: .normal)
             registerButton.backgroundColor = .cyan
+        }
+    }
+
+    func hideButton() {
+        DispatchQueue.main.async { [self] in
+            registerButton.isHidden = true
+        }
+    }
+
+    func show() {
+        DispatchQueue.main.async { [self] in
+            view.isHidden = false
         }
     }
 }

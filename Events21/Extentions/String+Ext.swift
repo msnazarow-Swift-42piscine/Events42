@@ -21,6 +21,11 @@ extension String {
     static let campusId = "campus_id"
     static let userId = "user_id"
     static let eventId = "event_id"
+    static let syllabus = "Syllabus"
+    static let campus = "Campus"
+    static let type = "Type"
+    static let inc = "\u{2191}"
+    static let dec = "\u{2193}"
 }
 
 extension StringProtocol {

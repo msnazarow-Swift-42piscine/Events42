@@ -58,6 +58,7 @@ class FilterCell: Cell {
             stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: gap),
             stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -gap)
         ])
+        switcher.addTarget(self, action: #selector(switcherDidChanged), for: .valueChanged)
     }
 
     required init?(coder: NSCoder) {
@@ -70,7 +71,7 @@ class FilterCell: Cell {
         switcher.isOn = model.value
     }
 
-    @objc func switcherDidChanged(_ sender: UISwitch){
+    @objc func switcherDidChanged(){
         guard let model = model as? FilterCellModel else { return }
         presenter.switcherDidChanged(model.name)
     }

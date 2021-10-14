@@ -8,7 +8,7 @@
 import Foundation
 
 class IntraAPIServiceMock {
-    let event = EventResponse(id: 0, name: "myName", description: "Mydescr", maxPeople: 30, nbrSubscribers: 20, location: "Carolina", kind: "Prize", beginAt: Date(), endAt: Date().addingTimeInterval(7200))
+    let event = EventResponse(id: 0, name: "myName", description: "Mydescr", maxPeople: 30, nbrSubscribers: 20, location: "Carolina", kind: "Prize", beginAt: Date(), endAt: Date().addingTimeInterval(7200), cursusIds: [1], campusIds: [2])
 
     lazy var cursusUser = CursusUsersResponse(id: 0, hasCoalition: true, cursus: cursus, cursusId: 1, level: 30.3)
 
@@ -18,12 +18,24 @@ class IntraAPIServiceMock {
 
     lazy var me = MeResponse(id: 0, firstName: "FirstName", lastName: "LastName", imageUrl: "https://purr.objects-us-east-1.dream.io/i/capture.png", login: "sgertrud", cursusUsers: [cursusUser], campus: [campus])
 
-    lazy var eventUser = EventUsersResponse(event: event, eventId: 2, id: 3, user: me, userId: 0)
+    let user = UserResponse(id: 0, firstName: "FirstName", lastName: "LastName", url: "https://example.com", login: "sgertrud", createdAt: Date().byAddingDay(-720), email: "example@example.com")
+
+    lazy var eventUser = EventUsersResponse(event: event, eventId: 2, id: 3, user: user, userId: 0)
+
+    let token = "my_very_secure_token"
 }
 
 
 
 extension IntraAPIServiceMock: IntraAPIServiceProtocol, IntraAPIServiceAuthProtocol {
+    func tokenIsOutdated() -> Bool {
+        true
+    }
+
+    func refreshToken(completion: @escaping (Result<String, IntraAPIError>) -> Void) {
+        completion(.success(token))
+    }
+
     func unregisterFromEvent(eventUserId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void) {
         completion(.success(true))
     }
@@ -65,7 +77,7 @@ extension IntraAPIServiceMock: IntraAPIServiceProtocol, IntraAPIServiceAuthProto
     }
 
     func getToken(completion: @escaping (Result<String, IntraAPIError>) -> Void) {
-        completion(.success("my_very_secure_token"))
+        completion(.success(token))
     }
 
     func getUserCode(completion: @escaping (Result<String, IntraAPIError>) -> Void) {

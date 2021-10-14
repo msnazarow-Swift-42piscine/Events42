@@ -32,11 +32,7 @@ struct EventCellModel: CellIdentifiable {
         kind = property.kind
         beginAt = property.beginAt
         endAt = property.endAt
-        let formatter = RelativeDateTimeFormatter()
-        formatter.unitsStyle = .full
         eventId = property.id
-        if let endAt = property.endAt {
-            duration = formatter.localizedString(for: property.beginAt, relativeTo: endAt).replacingOccurrences(of: " ago", with: "")
-        }
+
     }
 }

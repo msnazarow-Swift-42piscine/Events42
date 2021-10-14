@@ -34,7 +34,9 @@ protocol ViewToPresenterAuthorizationProtocol: AnyObject, WKNavigationDelegate {
 protocol PresenterToInteractorAuthorizationProtocol: AnyObject {
     func getUserCode(completion: @escaping (Result<String, IntraAPIError>) -> Void)
     func getToken(completion: @escaping (Result<String, IntraAPIError>) -> Void)
+    func refreshToken(completion: @escaping (Result<String, IntraAPIError>) -> Void)
     func hasToken() -> Bool
+    func tokenIsOutdated() -> Bool
 }
 
 // MARK: Presenter Output (Presenter -> Router)

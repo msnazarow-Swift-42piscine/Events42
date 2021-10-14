@@ -16,6 +16,8 @@ protocol PresenterToViewEventProtocol: AnyObject {
     func setButtonUnregistered()
     func setButtonRegistered()
     func showAlert(title: String, message: String, completion: (() -> Void)?)
+    func hideButton()
+    func show()
 }
 
 extension PresenterToViewEventProtocol {

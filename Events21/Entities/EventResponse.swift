@@ -16,5 +16,8 @@ struct EventResponse: Codable {
     let location: String?
     let kind: String
     let beginAt: Date
-    let endAt: Date?
+    let endAt: Date
+    let cursusIds: [Int]
+    let campusIds: [Int]
+    var duration: String!
 }

@@ -30,7 +30,8 @@ extension IntraAPIService {
                     completion(.failure(error))
                     return
                 }
-                try self.decoder.decode(EventRegisterResponse.self, from: data)
+//                try print(JSONSerialization.jsonObject(with: data, options: []))
+                try self.decoder.decode(EventUsersResponse.self, from: data)
                 completion(.success(true))
             } catch {
                 completion(.failure(IntraAPIError(error: "JSONDecoder error", message: error.localizedDescription)))
@@ -58,6 +59,10 @@ extension IntraAPIService {
             do {
                 if let error = try? self.decoder.decode(IntraAPIError.self, from: data) {
                     completion(.failure(error))
+                    return
+                }
+                if String(data: data, encoding: .utf8) == "{}" {
+                    completion(.failure(IntraAPIError(error: "No data")))
                     return
                 }
 //                try self.decoder.decode(EventRegisterResponse.self, from: data)

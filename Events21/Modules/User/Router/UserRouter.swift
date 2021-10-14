@@ -18,7 +18,7 @@ class UserRouter: PresenterToRouterUserProtocol {
         self.view = view
     }
 
-    func routeToEventScreen(with model: EventCellModel, userId: Int) {
+    func routeToEventScreen(with model: EventResponse, userId: Int) {
         DispatchQueue.main.async {
             self.view.navigationController?.pushViewController(EventAssembly.createModule(with: model, userId: userId), animated: true)
         }

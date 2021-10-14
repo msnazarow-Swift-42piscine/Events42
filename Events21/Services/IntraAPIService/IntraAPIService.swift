@@ -30,6 +30,8 @@ protocol IntraAPIServiceAuthProtocol {
     func removeCode()
     func removeToken()
     func hasToken() -> Bool
+    func tokenIsOutdated() -> Bool
+    func refreshToken(completion: @escaping (Result<String, IntraAPIError>) -> Void)
 }
 
 class IntraAPIService: NSObject, IntraAPIServiceProtocol, IntraAPIServiceAuthProtocol {

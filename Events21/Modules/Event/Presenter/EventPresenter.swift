@@ -15,16 +15,17 @@ class EventPresenter: ViewToPresenterEventProtocol {
     let interactor: PresenterToInteractorEventProtocol
     let router: PresenterToRouterEventProtocol
     let dataSource:PresenterToDataSourceEventProtocol
-    let model: EventCellModel
+    let model: EventResponse
     let userId: Int
-    var status = false
+    var userEvent: EventUsersResponse?
+    var isRegistered = false
     // MARK: Init
 
     init(view: PresenterToViewEventProtocol,
          interactor: PresenterToInteractorEventProtocol,
          router: PresenterToRouterEventProtocol,
          dataSource: PresenterToDataSourceEventProtocol,
-         model: EventCellModel,
+         model: EventResponse,
          userId: Int) {
         self.view = view
         self.interactor = interactor
@@ -35,12 +36,25 @@ class EventPresenter: ViewToPresenterEventProtocol {
     }
 
     func viewDidLoad(){
-        interactor.getUserEvents(userIds: [userId], eventIds: [model.eventId], sort: [], filter: [:]) {   [self] result in
+        interactor.getUserEvents(userIds: [userId], eventIds: [model.id], sort: [], filter: [:]) {   [self] result in
+            defer { view.show() }
             switch result {
-            case .success:
-                view.setButtonRegistered()
-            case .failure:
-                view.setButtonUnregistered()
+            case .success(let eventUsers):
+                guard let user = eventUsers.first else { break }
+                userEvent = user
+                if user.event.beginAt < Date() {
+                    view.hideButton()
+                } else {
+                    isRegistered = true
+                    view.setButtonUnregistered()
+                }
+            case .failure(let error):
+                if model.beginAt < Date() {
+                    view.hideButton()
+                } else {
+                    isRegistered = false
+                    view.setButtonRegistered()
+                }
             }
 
 
@@ -59,26 +73,30 @@ class EventPresenter: ViewToPresenterEventProtocol {
             text.append(NSAttributedString(string: "Localisation: \(location)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.black]))
         }
         text.append(NSAttributedString(string: "Begin: \(model.beginAt.dateSlashString)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.gray]))
-         if let endAt = model.endAt {
-            text.append(NSAttributedString(string: "End: \(endAt.dateSlashString)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.gray]))
-        }
+//         if let endAt = model.endAt {
+            text.append(NSAttributedString(string: "End: \(model.endAt.dateSlashString)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.gray]))
+//        }
         if let duration = model.duration {
-            text.append(NSAttributedString(string: "Duration: \(duration)", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.black]))
+            text.append(NSAttributedString(string: "Duration: \(duration)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.black]))
         }
+            text.append(NSAttributedString(string: "Campuses: \(model.campusIds)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.black]))
+            text.append(NSAttributedString(string: "Cursuses: \(model.cursusIds)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.black]))
+
+
         view.setTextView(text: text)
         }
     }
 
     func buttonDidTapped(){
-        if !status {
-            interactor.registerToEvent(eventId: model.eventId) { [self] result in
+        if !isRegistered {
+            interactor.registerToEvent(eventId: model.id) { [self] result in
                 switch result {
                 case .success:
-                    status = true
+                    isRegistered = true
                     view.showAlert(with: "You have registered")
                     view.setButtonUnregistered()
                 case .failure(let error):
-                    status = false
+                    isRegistered = false
                     if let description = error.errorDescription {
                         self.view.showAlert(title: error.error, message: description)
                     } else if let message = error.message {
@@ -87,14 +105,15 @@ class EventPresenter: ViewToPresenterEventProtocol {
                 }
             }
         } else {
-            interactor.unregisterFromEvent(eventUserId: model.eventId) { [self] result in
+            guard let userId = userEvent?.id else { return }
+            interactor.unregisterFromEvent(eventUserId: userId) { [self] result in
                 switch result {
                 case .success:
-                    status = !status
+                    isRegistered.toggle()
                     view.showAlert(with: "You have unregistered")
                     view.setButtonRegistered()
                 case .failure(let error):
-                    status = false
+                    isRegistered = false
                     if let description = error.errorDescription {
                         self.view.showAlert(title: error.error, message: description)
                     } else if let message = error.message {

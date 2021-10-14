@@ -24,6 +24,7 @@ class UserInteractor: PresenterToInteractorUserProtocol {
 
     func getEvents(campusIds: [Int], cursusIds: [Int], userIds: [Int], sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
         let group = DispatchGroup()
+        var resultError: IntraAPIError?
         var resultEvents: [EventResponse] = []
         let arrays: [(String, [Int])] = [(.campusId, campusIds), (.cursusId, cursusIds), (.userId, userIds)].sorted(by: { $0.1.count > $1.1.count })
         if !arrays[0].1.isEmpty {
@@ -41,8 +42,7 @@ class UserInteractor: PresenterToInteractorUserProtocol {
                                     defer { group.leave() }
                                     switch result {
                                     case .failure(let error):
-                                        completion(.failure(error))
-                                        return
+                                        resultError = error
                                     case .success(let events):
                                         resultEvents.append(contentsOf: events)
                                     }
@@ -58,8 +58,7 @@ class UserInteractor: PresenterToInteractorUserProtocol {
                                 defer { group.leave() }
                                 switch result {
                                 case .failure(let error):
-                                    completion(.failure(error))
-                                    return
+                                    resultError = error
                                 case .success(let events):
                                     resultEvents.append(contentsOf: events)
                                 }
@@ -76,8 +75,7 @@ class UserInteractor: PresenterToInteractorUserProtocol {
                         defer { group.leave() }
                         switch result {
                         case .failure(let error):
-                            completion(.failure(error))
-                            return
+                            resultError = error
                         case .success(let events):
                             resultEvents.append(contentsOf: events)
                         }
@@ -94,15 +92,18 @@ class UserInteractor: PresenterToInteractorUserProtocol {
                 defer { group.leave() }
                 switch result {
                 case .failure(let error):
-                    completion(.failure(error))
-                    return
+                    resultError = error
                 case .success(let events):
                     resultEvents.append(contentsOf: events)
                 }
             }
         }
         group.notify(queue: .main) {
-            completion(.success(resultEvents))
+            if let error = resultError {
+                completion(.failure(error))
+            } else {
+                completion(.success(resultEvents))
+            }
         }
     }
 

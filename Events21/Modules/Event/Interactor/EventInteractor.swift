@@ -26,6 +26,7 @@ class EventInteractor: PresenterToInteractorEventProtocol {
 
     func getUserEvents(userIds: [Int], eventIds: [Int], sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
         let group = DispatchGroup()
+        var resultError: IntraAPIError?
         var resultEvents: [EventUsersResponse] = []
         let arrays: [(String, [Int])] = [(.userId, userIds), (.eventId, eventIds)].sorted(by: { $0.1.count > $1.1.count })
                 if !arrays[0].1.isEmpty {
@@ -40,8 +41,7 @@ class EventInteractor: PresenterToInteractorEventProtocol {
                                     defer { group.leave() }
                                     switch result {
                                     case .failure(let error):
-                                        completion(.failure(error))
-                                        return
+                                        resultError = error
                                     case .success(let events):
                                         resultEvents.append(contentsOf: events)
                                     }
@@ -56,8 +56,7 @@ class EventInteractor: PresenterToInteractorEventProtocol {
                         defer { group.leave() }
                         switch result {
                         case .failure(let error):
-                            completion(.failure(error))
-                            return
+                            resultError = error
                         case .success(let events):
                             resultEvents.append(contentsOf: events)
                         }
@@ -73,15 +72,18 @@ class EventInteractor: PresenterToInteractorEventProtocol {
                 defer { group.leave() }
                 switch result {
                 case .failure(let error):
-                    completion(.failure(error))
-                    return
+                    resultError = error
                 case .success(let events):
                     resultEvents.append(contentsOf: events)
                 }
             }
         }
         group.notify(queue: .main) {
-            completion(.success(resultEvents))
+            if let error = resultError {
+                completion(.failure(error))
+            } else {
+                completion(.success(resultEvents))
+            }
         }
     }
 }

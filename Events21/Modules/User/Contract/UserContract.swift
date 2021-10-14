@@ -31,6 +31,7 @@ protocol ViewToPresenterUserProtocol: AnyObject {
     var dataSource:PresenterToDataSourceUserProtocol { get }
 
     func viewDidLoad()
+    func viewWillAppear()
     func didSelectRowAt(modelId: Int)
     func buttonDidTapped(_ title: String)
 }
@@ -53,7 +54,7 @@ protocol PresenterToInteractorUserProtocol: AnyObject {
 
 // MARK: Presenter Output (Presenter -> Router)
 protocol PresenterToRouterUserProtocol: AnyObject {
-    func routeToEventScreen(with event: EventCellModel, userId: Int)
+    func routeToEventScreen(with event: EventResponse, userId: Int)
     func routeToAuthScreen()
     func presentFilterScreen(delegate: TableViewToFiltersDelegateProtocol)
 }
@@ -70,5 +71,5 @@ protocol CellToPresenterUserProtocol: AnyObject {
 
 
 protocol TableViewToFiltersDelegateProtocol: AnyObject {
-    func refresh(with filters: OrderedDictionary<String, Bool>)
+    func refresh(filters: OrderedDictionary<String, Bool>, sort: [String?])
 }

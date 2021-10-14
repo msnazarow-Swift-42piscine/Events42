@@ -48,12 +48,10 @@ extension IntraAPIService {
                 completion(.failure(IntraAPIError(error: "URLSessionError")))
                 return
             }
-
             if response.statusCode >= 400 {
                 completion(.failure(IntraAPIError(error: response.value(forHTTPHeaderField: "Status") ?? "HTTP Error", errorDescription: data.html2String, statusCode: response.statusCode)))
                 return
             }
-
             do {
                 if let error = try? self.decoder.decode(IntraAPIError.self, from: data) {
                     completion(.failure(error))
@@ -105,6 +103,9 @@ extension IntraAPIService {
                     completion(.failure(error))
                     return
                 }
+//                if String(data: data, encoding: .utf8) == "{}" {
+//                    co
+//                }
 //                try print(JSONSerialization.jsonObject(with: data, options: []))
                 let events = try self.decoder.decode([EventUsersResponse].self, from: data)
                 completion(.success(events))
