@@ -28,6 +28,10 @@ class IntraAPIServiceMock {
 
 
 extension IntraAPIServiceMock: IntraAPIServiceProtocol, IntraAPIServiceAuthProtocol {
+    func registerToEvent(eventId: Int, completion: @escaping (Result<EventUsersResponse, IntraAPIError>) -> Void) {
+        completion(.success(eventUser))
+    }
+
     func tokenIsOutdated() -> Bool {
         true
     }

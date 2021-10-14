@@ -12,7 +12,7 @@ struct EventResponse: Codable {
     let name: String
     let description: String?
     let maxPeople: Int?
-    let nbrSubscribers: Int?
+    let nbrSubscribers: Int
     let location: String?
     let kind: String
     let beginAt: Date

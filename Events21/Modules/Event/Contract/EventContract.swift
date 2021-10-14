@@ -41,7 +41,7 @@ protocol PresenterToInteractorEventProtocol: AnyObject {
                        sort: [String],
                        filter: [String : [String]],
                        completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void)
-    func registerToEvent(eventId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void)
+    func registerToEvent(eventId: Int, completion: @escaping (Result<EventUsersResponse, IntraAPIError>) -> Void)
     func unregisterFromEvent(eventUserId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void)
 }
 

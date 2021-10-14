@@ -42,7 +42,7 @@ class EventPresenter: ViewToPresenterEventProtocol {
             case .success(let eventUsers):
                 guard let user = eventUsers.first else { break }
                 userEvent = user
-                if user.event.beginAt < Date() {
+                if model.nbrSubscribers == (model.maxPeople ?? -1) || user.event.beginAt < Date() {
                     view.hideButton()
                 } else {
                     isRegistered = true
@@ -65,10 +65,8 @@ class EventPresenter: ViewToPresenterEventProtocol {
               if let description = model.description {
             text.append(NSAttributedString(string: "\(description)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.darkGray]))
         }
-        if let nbrSubscribers = model.nbrSubscribers  {
             let maxPeople = (model.maxPeople != nil) ? "/\(model.maxPeople!)" : ""
-            text.append(NSAttributedString(string: "Current number of guests: \(nbrSubscribers)\(maxPeople)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.black]))
-        }
+            text.append(NSAttributedString(string: "Current number of guests: \(model.nbrSubscribers)\(maxPeople)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.black]))
         if let location = model.location {
             text.append(NSAttributedString(string: "Localisation: \(location)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.black]))
         }
@@ -91,7 +89,8 @@ class EventPresenter: ViewToPresenterEventProtocol {
         if !isRegistered {
             interactor.registerToEvent(eventId: model.id) { [self] result in
                 switch result {
-                case .success:
+                case .success(let userEvent):
+                    self.userEvent = userEvent
                     isRegistered = true
                     view.showAlert(with: "You have registered")
                     view.setButtonUnregistered()

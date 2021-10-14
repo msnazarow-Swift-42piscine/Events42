@@ -16,7 +16,7 @@ class EventInteractor: PresenterToInteractorEventProtocol {
         self.intraAPIService = intraAPIService
     }
     
-    func registerToEvent(eventId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void){
+    func registerToEvent(eventId: Int, completion: @escaping (Result<EventUsersResponse, IntraAPIError>) -> Void){
         intraAPIService.registerToEvent(eventId: eventId, completion: completion)
     }
 

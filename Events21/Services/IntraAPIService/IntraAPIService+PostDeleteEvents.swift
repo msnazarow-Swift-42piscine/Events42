@@ -8,7 +8,7 @@
 import Foundation
 
 extension IntraAPIService {
-    func registerToEvent(eventId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void) {
+    func registerToEvent(eventId: Int, completion: @escaping (Result<EventUsersResponse, IntraAPIError>) -> Void) {
         urlComponents.path = "/v2/events_users"
         urlComponents.queryItems = [
             .init(name: "events_user[event_id]", value: "\(eventId)"),
@@ -31,8 +31,8 @@ extension IntraAPIService {
                     return
                 }
 //                try print(JSONSerialization.jsonObject(with: data, options: []))
-                try self.decoder.decode(EventUsersResponse.self, from: data)
-                completion(.success(true))
+                let event = try self.decoder.decode(EventUsersResponse.self, from: data)
+                completion(.success(event))
             } catch {
                 completion(.failure(IntraAPIError(error: "JSONDecoder error", message: error.localizedDescription)))
             }
@@ -41,10 +41,6 @@ extension IntraAPIService {
 
     func unregisterFromEvent(eventUserId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void) {
         urlComponents.path = "/v2/events_users/\(eventUserId)"
-//        urlComponents.queryItems = [
-//            .init(name: "events_user[event_id]", value: "\(eventId)"),
-//            .init(name: "events_user[user_id]", value: "\(me!.id)")
-//        ]
         var request = self.request
         request.httpMethod = "DELETE"
         URLSession.shared.dataTask(with: request) { data, response, error in

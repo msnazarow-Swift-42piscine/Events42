@@ -66,11 +66,12 @@ extension FiltersPresenter: CellToPresenterFiltersProtocol {
     func textFieldDidBeginEditing(_ number: Int) {
         editingNubmer = number
         dataSource.removeTemporarySortSelect()
+        view.selectPicker(at: 0)
         if var sortName = sort[editingNubmer], !sortName.isEmpty {
             sortName.removeLast(2)
             dataSource.addTemporarySortSelect(sortName)
-//            view.reloadPickerView()
         }
+        view.reloadPickerView()
     }
 
     func setTextField(_ text: String) {

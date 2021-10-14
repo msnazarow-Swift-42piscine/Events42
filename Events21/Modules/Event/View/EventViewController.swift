@@ -66,7 +66,7 @@ class EventViewController: UIViewController {
 
     }
     @objc private func buttonDidTapped(){
-        presenter.buttonDidTapped()
+         presenter.buttonDidTapped()
     }
 }
 

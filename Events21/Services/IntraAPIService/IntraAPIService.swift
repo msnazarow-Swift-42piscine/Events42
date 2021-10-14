@@ -15,7 +15,7 @@ protocol IntraAPIServiceProtocol {
                    filter: [String: [String]],
                    completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void)
     func getMe(completion: @escaping (Result<MeResponse, IntraAPIError>) -> Void)
-    func registerToEvent(eventId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void)
+    func registerToEvent(eventId: Int, completion: @escaping (Result<EventUsersResponse, IntraAPIError>) -> Void)
     func unregisterFromEvent(eventUserId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void)
     func getUserEvents(userId: Int?,
                        eventId: Int?,

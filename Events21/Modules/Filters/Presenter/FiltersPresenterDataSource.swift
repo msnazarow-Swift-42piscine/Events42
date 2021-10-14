@@ -33,6 +33,7 @@ class FiltersPresenterDataSource: NSObject, PresenterToDataSourceFiltersProtocol
         if let index = sortSelect.firstIndex(of: temporarySortSelect) {
             sortSelect.remove(at: index)
         }
+        self.selectedSort = 0
         self.temporarySortSelect = nil
     }
 
@@ -87,7 +88,6 @@ extension FiltersPresenterDataSource {
             return selectedOrder = row
         }
     }
-
 }
 
 
@@ -104,15 +104,9 @@ extension FiltersPresenterDataSource {
         }
         presenter.selectPicker(at: 0)
         selectedSort = 0
-
-//        let row = self.pickerView.selectedRow(inComponent: 0)
-//        self.pickerView.selectRow(row, inComponent: 0, animated: false)
-//        self.textView.text = self.titles[row]
-//        self.textField.resignFirstResponder()
     }
 
     func didTapCancel() {
-//        self.textField.text = nil
         presenter.textFieldResignFirstResponder()
     }
 }
