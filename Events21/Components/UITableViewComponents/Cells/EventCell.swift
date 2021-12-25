@@ -9,9 +9,9 @@ import UIKit
 
 class EventCell: Cell {
     static let identifier = "EventCell"
-    
+
     // MARK: - UI
-    
+
     let eventTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -20,8 +20,7 @@ class EventCell: Cell {
         label.textAlignment = .left
         return label
     }()
-    
-    
+
     let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false

@@ -67,7 +67,7 @@ extension FiltersPresenterDataSource {
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == 0 {
-            return sortSelect .count
+            return sortSelect.count
         } else {
             return order.count
         }

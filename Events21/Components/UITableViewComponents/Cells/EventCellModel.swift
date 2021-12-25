@@ -33,6 +33,5 @@ struct EventCellModel: CellIdentifiable {
         beginAt = property.beginAt
         endAt = property.endAt
         eventId = property.id
-
     }
 }
