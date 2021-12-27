@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "595AFD56-458E-427F-9006-1E4146C7A8B4"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "532F51EA-ECC5-4ECD-BEE8-3C6A853E138C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Events21/Modules/UserMain/View/UserMainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "00FE6D7D-3D77-4FB0-86EA-0A7AE84BCA2D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Events21/Modules/Authorization/Presenter/AuthorizationPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ECAD7DF6-1717-4F6A-8CA2-008C10899DAE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Events21/Modules/Authorization/Presenter/AuthorizationPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "loadMe(comletion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ECAD7DF6-1717-4F6A-8CA2-008C10899DAE - 2d83d5189c5b63d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Events21.MeResponse, Events21.IntraAPIError&gt;) -&gt; () in Events21.AuthorizationPresenter.loadMe(comletion: () -&gt; ()) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Modules/Authorization/Presenter/AuthorizationPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "194">
+               </Location>
+               <Location
+                  uuid = "ECAD7DF6-1717-4F6A-8CA2-008C10899DAE - 2d83d5189c5b63d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Events21.MeResponse, Events21.IntraAPIError&gt;) -&gt; () in Events21.AuthorizationPresenter.loadMe(comletion: () -&gt; ()) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Modules/Authorization/Presenter/AuthorizationPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "229">
+               </Location>
+               <Location
+                  uuid = "ECAD7DF6-1717-4F6A-8CA2-008C10899DAE - 2d83d5189c5b63d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Events21.MeResponse, Events21.IntraAPIError&gt;) -&gt; () in Events21.AuthorizationPresenter.loadMe(comletion: () -&gt; ()) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Modules/Authorization/Presenter/AuthorizationPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "605">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "78DDB784-7176-4A61-94F2-74620528C5B2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Events21/Services/IntraAPIService/IntraAPIService+GetUser.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "getMe(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C9A05BA9-0364-42A6-B477-48546F5CA271"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Events21/Modules/Authorization/View/AuthorizationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "showAlert(title:message:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "37E8DA3C-D947-425D-BA9D-07DB382A042B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Events21/Services/IntraAPIService/IntraAPIService+GetUser.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "getMe(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "37E8DA3C-D947-425D-BA9D-07DB382A042B - 8e308bb3811bde57"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Events21.IntraAPIService.getMe(completion: (Swift.Result&lt;Events21.MeResponse, Events21.IntraAPIError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Services/IntraAPIService/IntraAPIService+GetUser.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "297">
+               </Location>
+               <Location
+                  uuid = "37E8DA3C-D947-425D-BA9D-07DB382A042B - bf8d6a4deeb887b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Events21.IntraAPIService.getMe(completion: (Swift.Result&lt;Events21.MeResponse, Events21.IntraAPIError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Services/IntraAPIService/IntraAPIService+GetUser.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "340">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "419BD0AA-53C1-4799-B6BE-729144847E06"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Events21/Services/IntraAPIService/IntraAPIService+GetUser.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "getMe(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

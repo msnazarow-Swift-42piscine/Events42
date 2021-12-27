@@ -13,6 +13,7 @@ import WebKit
 protocol PresenterToViewAuthorizationProtocol: AnyObject {
     func loadRequest(request: URLRequest)
     func showAlert(title: String, message: String, completion: (() -> Void)?)
+	func setLoginButtonHidden(_ hidden: Bool)
 }
 
 extension PresenterToViewAuthorizationProtocol {
@@ -37,16 +38,20 @@ protocol PresenterToInteractorAuthorizationProtocol: AnyObject {
     func refreshToken(completion: @escaping (Result<String, IntraAPIError>) -> Void)
     func hasToken() -> Bool
     func tokenIsOutdated() -> Bool
+	func getMe(comletion: @escaping (Result<MeResponse, IntraAPIError>) -> Void)
+	func removeToken()
+
 }
 
 // MARK: Presenter Output (Presenter -> Router)
 protocol PresenterToRouterAuthorizationProtocol: AnyObject {
-    func routeToUserScreen()
+//	func routeToAuthScreen()
+	func routeToUserScreen(me: MeResponse)
 }
 
 // MARK: Presenter Output (Presenter -> DataSource)
 protocol PresenterToDataSourceAuthorizationProtocol: UITableViewDataSource {
-    func updateForSections(_ sections: [EventSectionModel])
+    func updateForSections(_ sections: [EventDetailSectionModel])
 }
 
 // MARK: Cell Input (Cell -> Presenter)

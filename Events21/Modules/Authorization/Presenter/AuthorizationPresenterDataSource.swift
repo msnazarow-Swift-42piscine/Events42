@@ -13,9 +13,9 @@ class AuthorizationPresenterDataSource: NSObject, PresenterToDataSourceAuthoriza
     // MARK: Properties
     weak var presenter: CellToPresenterAuthorizationProtocol!
 
-    private var sections: [EventSectionModel] = []
+    private var sections: [EventDetailSectionModel] = []
 
-    func updateForSections(_ sections: [EventSectionModel]) {
+    func updateForSections(_ sections: [EventDetailSectionModel]) {
         self.sections = sections
     }
 
@@ -29,7 +29,7 @@ class AuthorizationPresenterDataSource: NSObject, PresenterToDataSourceAuthoriza
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = sections[indexPath.section].rows[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: model.identifier, for: indexPath) as? Cell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: model.identifier, for: indexPath) as? CellIdentifiable else {
             return UITableViewCell()
         }
 //        cell.presenter = presenter

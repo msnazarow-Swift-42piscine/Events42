@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class FilterSectionModel: SectionRowsRepresentable {
-    var rows: [CellIdentifiable] = []
+final class FilterSectionModel: TableViewSectionProtocol {
+    var rows: [Identifiable] = []
 
     init(_ properties: [FilterModel]) {
         properties.forEach { property in

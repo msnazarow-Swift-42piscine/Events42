@@ -8,11 +8,6 @@
 import OrderedCollections
 import Foundation
 
-protocol FiltersStorageProtocol {
-    func saveFilters(filters: OrderedDictionary<String, Bool>)
-    func loadFilters() -> OrderedDictionary<String, Bool>?
-}
-
 class FiltersStorage: FiltersStorageProtocol {
     static let shared = FiltersStorage()
 

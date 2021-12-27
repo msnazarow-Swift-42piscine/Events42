@@ -8,16 +8,11 @@
 import Foundation
 import UIKit
 
-protocol ImageCashingServiceProtocol {
-    func getImage(for urlString: String, comlition: @escaping (UIImage?) -> Void)
-    func saveImage(for url: String, image: UIImage)
-}
-
 class ImageCashingService: ImageCashingServiceProtocol {
     var images: [String: UIImage] = [:]
-    func getImage(for urlString: String, comlition: @escaping (UIImage?) -> Void) {
+    func getImage(for urlString: String, comletion: @escaping (UIImage?) -> Void) {
         if let image = images[urlString] {
-            comlition(image)
+            comletion(image)
         } else {
             var url = URL(string: urlString.replacingOccurrences(of: "_normal", with: ""))
             if url == nil {
@@ -32,7 +27,7 @@ class ImageCashingService: ImageCashingServiceProtocol {
                 }
                 if let image = UIImage(data: data) {
                     saveImage(for: urlString, image: image)
-                    comlition(image)
+                    comletion(image)
                 }
             }.resume()
         }

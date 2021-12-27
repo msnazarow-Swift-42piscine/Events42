@@ -7,34 +7,7 @@
 
 import Foundation
 
-protocol IntraAPIServiceProtocol {
-    func getEvents(campusId: Int?,
-                   cursusId: Int?,
-                   userId: Int?,
-                   sort: [String],
-                   filter: [String: [String]],
-                   completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void)
-    func getMe(completion: @escaping (Result<MeResponse, IntraAPIError>) -> Void)
-    func registerToEvent(eventId: Int, completion: @escaping (Result<EventUsersResponse, IntraAPIError>) -> Void)
-    func unregisterFromEvent(eventUserId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void)
-    func getUserEvents(userId: Int?,
-                       eventId: Int?,
-                       sort: [String],
-                       filter: [String : [String]],
-                       completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void)
-}
-
-protocol IntraAPIServiceAuthProtocol {
-    func getToken(completion: @escaping (Result<String, IntraAPIError>) -> Void)
-    func getUserCode(completion: @escaping (Result<String, IntraAPIError>) -> Void)
-    func removeCode()
-    func removeToken()
-    func hasToken() -> Bool
-    func tokenIsOutdated() -> Bool
-    func refreshToken(completion: @escaping (Result<String, IntraAPIError>) -> Void)
-}
-
-class IntraAPIService: NSObject, IntraAPIServiceProtocol, IntraAPIServiceAuthProtocol {
+class IntraAPIService: NSObject, IntraAPIServiceProtocol {
     let redirecdedUrl = "events21://events21"
     let uid = "304465722129fb447b62e46570c95cbad281250121c76f71a64fd9b0098baaa9"
     let secret = "9dd7cc32e3dd76eccfcd4587cd3a435ac3826d35c86715c92207aa8b868f06d1"
@@ -66,8 +39,7 @@ class IntraAPIService: NSObject, IntraAPIServiceProtocol, IntraAPIServiceAuthPro
 
     static let shared = IntraAPIService()
 
-    private override init(){
-        super.init()
-    }
-
+	private override init() {
+		super.init()
+	}
 }

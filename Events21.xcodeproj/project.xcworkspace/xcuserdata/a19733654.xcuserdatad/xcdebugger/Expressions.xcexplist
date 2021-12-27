@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "UserViewController.setupNavigationController():UserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tabBarController?.selectedViewController?.navigationController">
+            </PersistentString>
+            <PersistentString
+               value = "navigationController">
+            </PersistentString>
+            <PersistentString
+               value = "tabBarController?.navigationController">
+            </PersistentString>
+            <PersistentString
+               value = "navigationController?.navigationItem">
+            </PersistentString>
+            <PersistentString
+               value = "tabBarController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserMainViewController.setupUI():UserMainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationController?.navigationItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserMainPresenter.viewDidLoad():UserMainPresenter.swift">
+      </ContextState>
+      <ContextState
+         contextName = "UserViewController.viewWillAppear(_:):UserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tabBarController?.navigationItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

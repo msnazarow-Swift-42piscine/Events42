@@ -11,7 +11,14 @@ extension IntraAPIService {
     func getMe(completion: @escaping (Result<MeResponse, IntraAPIError>) -> Void) {
         urlComponents.path = "/v2/me"
         URLSession.shared.dataTask(with: request){ data, _, error in
-            guard let data = data, error == nil else { return }
+			if let error = error {
+				completion(.failure(IntraAPIError(error: "Error", errorDescription: error.localizedDescription)))
+				return
+			}
+			guard let data = data else {
+				completion(.failure(IntraAPIError(error: "Error", errorDescription: "Unknown Error")))
+				return
+			}
             do {
                 if let error = try? self.decoder.decode(IntraAPIError.self, from: data) {
                     completion(.failure(error))

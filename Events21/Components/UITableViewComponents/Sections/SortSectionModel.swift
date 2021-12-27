@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class SortSectionModel: SectionRowsRepresentable {
-    var rows: [CellIdentifiable] = []
+final class SortSectionModel: TableViewSectionProtocol {
+    var rows: [Identifiable] = []
 
     init(_ properties: [SortModel]) {
         properties.forEach { property in

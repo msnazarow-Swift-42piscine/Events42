@@ -9,10 +9,10 @@
 import UIKit
 
 class AuthorizationInteractor: PresenterToInteractorAuthorizationProtocol {
-    let intraAPIService: IntraAPIServiceAuthProtocol
+    let intraAPIService: IntraAPIServiceProtocol
 
 
-    init(intraAPIService: IntraAPIServiceAuthProtocol) {
+    init(intraAPIService: IntraAPIServiceProtocol) {
         self.intraAPIService = intraAPIService
     }
 
@@ -35,4 +35,13 @@ class AuthorizationInteractor: PresenterToInteractorAuthorizationProtocol {
     func refreshToken(completion: @escaping (Result<String, IntraAPIError>) -> Void) {
         intraAPIService.refreshToken(completion: completion)
     }
+
+	func getMe(comletion: @escaping (Result<MeResponse, IntraAPIError>) -> Void) {
+		intraAPIService.getMe(completion: comletion)
+	}
+
+	func removeToken(){
+		intraAPIService.removeCode()
+		intraAPIService.removeToken()
+	}
 }

@@ -32,29 +32,84 @@ class AuthorizationPresenter: NSObject, ViewToPresenterAuthorizationProtocol {
     func viewDidLoad(){
         guard interactor.hasToken() else { return }
         if !interactor.tokenIsOutdated() {
-            router.routeToUserScreen()
+			loadMe() { [weak self] in
+	//				self?.refresh(
+	//					filters: self?.interactor.loadFilters() ?? [
+	//						.myCursus: false,
+	//						.myCampus: false,
+	//						.future: false,
+	//						.didSubscribe: false
+	//					],
+	//					sort:  []
+	//				)
+			}
         } else {
-            interactor.refreshToken { _ in
-                self.router.routeToUserScreen()
+            interactor.refreshToken { [weak self] _ in
+				self?.loadMe() {
+		//				self?.refresh(
+		//					filters: self?.interactor.loadFilters() ?? [
+		//						.myCursus: false,
+		//						.myCampus: false,
+		//						.future: false,
+		//						.didSubscribe: false
+		//					],
+		//					sort:  []
+		//				)
+				}
             }
         }
     }
     
     func buttonDidTapped() {
 //        router.routeToWebView()
-        interactor.getToken { result in
+        interactor.getToken { [weak self] result in
             switch result {
             case .success(let token):
-                self.router.routeToUserScreen()
+				self?.loadMe() { [weak self] in
+		//				self?.refresh(
+		//					filters: self?.interactor.loadFilters() ?? [
+		//						.myCursus: false,
+		//						.myCampus: false,
+		//						.future: false,
+		//						.didSubscribe: false
+		//					],
+		//					sort:  []
+		//				)
+				}
             case .failure(let error):
                 if let description = error.errorDescription {
-                    self.view.showAlert(title: error.error, message: description)
+                    self?.view.showAlert(title: error.error, message: description)
                 } else if let message = error.message {
-                    self.view.showAlert(title: error.error, message: message)
+                    self?.view.showAlert(title: error.error, message: message)
                 }
             }
         }
     }
+	
+
+	func loadMe(comletion: @escaping (() -> Void)) {
+		interactor.getMe() { [weak self] result in
+			switch result {
+			case .success(let me):
+				self?.router.routeToUserScreen(me: me)
+
+			case .failure(let error):
+				if let description = error.errorDescription {
+					self?.view.showAlert(title: error.error, message: description) {
+						self?.interactor.removeToken()
+						self?.view.setLoginButtonHidden(false)
+//						self.router.routeToAuthScreen()
+					}
+				} else if let message = error.message {
+					self?.view.showAlert(title: error.error, message: message) {
+						self?.interactor.removeToken()
+							self?.view.setLoginButtonHidden(false)
+//						self.router.routeToAuthScreen()
+					}
+				}
+			}
+		}
+	}
 }
  
 extension AuthorizationPresenter: CellToPresenterAuthorizationProtocol {

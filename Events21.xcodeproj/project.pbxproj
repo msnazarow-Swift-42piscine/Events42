@@ -13,7 +13,6 @@
 		3E2E081B271738B300E6B40F /* ToolbarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E081A271738B300E6B40F /* ToolbarPickerView.swift */; };
 		3E43911D270094F400C8AC03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E43911C270094F400C8AC03 /* AppDelegate.swift */; };
 		3E43911F270094F400C8AC03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E43911E270094F400C8AC03 /* SceneDelegate.swift */; };
-		3E439124270094F400C8AC03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E439122270094F400C8AC03 /* Main.storyboard */; };
 		3E439126270094F600C8AC03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E439125270094F600C8AC03 /* Assets.xcassets */; };
 		3E439129270094F600C8AC03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E439127270094F600C8AC03 /* LaunchScreen.storyboard */; };
 		3E4681D62713242D001D67C2 /* IntraAPIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4681D52713242D001D67C2 /* IntraAPIServiceMock.swift */; };
@@ -28,13 +27,13 @@
 		3E5352F42712254300FD0B4C /* CampusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352F32712254300FD0B4C /* CampusResponse.swift */; };
 		3E5352F62712264500FD0B4C /* CursusUsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352F52712264500FD0B4C /* CursusUsersResponse.swift */; };
 		3E5352F8271226F000FD0B4C /* CursusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352F7271226F000FD0B4C /* CursusResponse.swift */; };
-		3E535307271269B000FD0B4C /* FiltersContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352FB271269B000FD0B4C /* FiltersContract.swift */; };
-		3E535308271269B000FD0B4C /* FiltersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352FD271269B000FD0B4C /* FiltersAssembly.swift */; };
-		3E535309271269B000FD0B4C /* FiltersPresenterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352FF271269B000FD0B4C /* FiltersPresenterDataSource.swift */; };
-		3E53530A271269B000FD0B4C /* FiltersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535300271269B000FD0B4C /* FiltersPresenter.swift */; };
-		3E53530B271269B000FD0B4C /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535302271269B000FD0B4C /* FiltersViewController.swift */; };
-		3E53530C271269B000FD0B4C /* FiltersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535304271269B000FD0B4C /* FiltersInteractor.swift */; };
-		3E53530D271269B000FD0B4C /* FiltersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535306271269B000FD0B4C /* FiltersRouter.swift */; };
+		3E535307271269B000FD0B4C /* EventListFiltersContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352FB271269B000FD0B4C /* EventListFiltersContract.swift */; };
+		3E535308271269B000FD0B4C /* EventListFiltersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352FD271269B000FD0B4C /* EventListFiltersAssembly.swift */; };
+		3E535309271269B000FD0B4C /* EventListFiltersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5352FF271269B000FD0B4C /* EventListFiltersDataSource.swift */; };
+		3E53530A271269B000FD0B4C /* EventListFiltersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535300271269B000FD0B4C /* EventListFiltersPresenter.swift */; };
+		3E53530B271269B000FD0B4C /* EventListFiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535302271269B000FD0B4C /* EventListFiltersView.swift */; };
+		3E53530C271269B000FD0B4C /* EventListFiltersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535304271269B000FD0B4C /* EventListFiltersInteractor.swift */; };
+		3E53530D271269B000FD0B4C /* EventListFiltersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535306271269B000FD0B4C /* EventListFiltersRouter.swift */; };
 		3E53530F271273BE00FD0B4C /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E53530E271273BE00FD0B4C /* FilterCell.swift */; };
 		3E53531127127D0500FD0B4C /* FilterSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E53531027127D0500FD0B4C /* FilterSectionModel.swift */; };
 		3E53531327127F4800FD0B4C /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E53531227127F4800FD0B4C /* UITableView+Ext.swift */; };
@@ -46,13 +45,13 @@
 		3EB5CF6E2700D89F0011E88C /* MeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB5CF6D2700D89F0011E88C /* MeResponse.swift */; };
 		3EB5CF722700E05D0011E88C /* ImageCashingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB5CF712700E05D0011E88C /* ImageCashingService.swift */; };
 		3EEDD40B2715FE2E005A8017 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEDD40A2715FE2E005A8017 /* UserResponse.swift */; };
-		EAAEC40827009E4700AFD1FC /* UserContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3CB27009E4700AFD1FC /* UserContract.swift */; };
-		EAAEC40927009E4700AFD1FC /* UserAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3CD27009E4700AFD1FC /* UserAssembly.swift */; };
-		EAAEC40A27009E4700AFD1FC /* UserPresenterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3CF27009E4700AFD1FC /* UserPresenterDataSource.swift */; };
-		EAAEC40B27009E4700AFD1FC /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3D027009E4700AFD1FC /* UserPresenter.swift */; };
-		EAAEC40C27009E4700AFD1FC /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3D227009E4700AFD1FC /* UserViewController.swift */; };
-		EAAEC40D27009E4700AFD1FC /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3D427009E4700AFD1FC /* UserInteractor.swift */; };
-		EAAEC40E27009E4700AFD1FC /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3D627009E4700AFD1FC /* UserRouter.swift */; };
+		EAAEC40827009E4700AFD1FC /* EventListContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3CB27009E4700AFD1FC /* EventListContract.swift */; };
+		EAAEC40927009E4700AFD1FC /* EventListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3CD27009E4700AFD1FC /* EventListAssembly.swift */; };
+		EAAEC40A27009E4700AFD1FC /* EventListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3CF27009E4700AFD1FC /* EventListDataSource.swift */; };
+		EAAEC40B27009E4700AFD1FC /* EventListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3D027009E4700AFD1FC /* EventListPresenter.swift */; };
+		EAAEC40C27009E4700AFD1FC /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3D227009E4700AFD1FC /* EventListView.swift */; };
+		EAAEC40D27009E4700AFD1FC /* EventListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3D427009E4700AFD1FC /* EventListInteractor.swift */; };
+		EAAEC40E27009E4700AFD1FC /* EventListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3D627009E4700AFD1FC /* EventListRouter.swift */; };
 		EAAEC40F27009E4700AFD1FC /* AuthorizationContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3D927009E4700AFD1FC /* AuthorizationContract.swift */; };
 		EAAEC41027009E4700AFD1FC /* AuthorizationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3DB27009E4700AFD1FC /* AuthorizationAssembly.swift */; };
 		EAAEC41127009E4700AFD1FC /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3DD27009E4700AFD1FC /* AuthorizationPresenter.swift */; };
@@ -60,13 +59,13 @@
 		EAAEC41327009E4700AFD1FC /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3E027009E4700AFD1FC /* AuthorizationViewController.swift */; };
 		EAAEC41427009E4700AFD1FC /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3E227009E4700AFD1FC /* AuthorizationInteractor.swift */; };
 		EAAEC41527009E4700AFD1FC /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3E427009E4700AFD1FC /* AuthorizationRouter.swift */; };
-		EAAEC41627009E4700AFD1FC /* EventContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3E727009E4700AFD1FC /* EventContract.swift */; };
-		EAAEC41727009E4700AFD1FC /* EventAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3E927009E4700AFD1FC /* EventAssembly.swift */; };
-		EAAEC41827009E4700AFD1FC /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3EB27009E4700AFD1FC /* EventPresenter.swift */; };
-		EAAEC41927009E4700AFD1FC /* EventPresenterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3EC27009E4700AFD1FC /* EventPresenterDataSource.swift */; };
-		EAAEC41A27009E4700AFD1FC /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3EE27009E4700AFD1FC /* EventViewController.swift */; };
-		EAAEC41B27009E4700AFD1FC /* EventInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3F027009E4700AFD1FC /* EventInteractor.swift */; };
-		EAAEC41C27009E4700AFD1FC /* EventRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3F227009E4700AFD1FC /* EventRouter.swift */; };
+		EAAEC41627009E4700AFD1FC /* EventDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3E727009E4700AFD1FC /* EventDetailContract.swift */; };
+		EAAEC41727009E4700AFD1FC /* EventDetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3E927009E4700AFD1FC /* EventDetailAssembly.swift */; };
+		EAAEC41827009E4700AFD1FC /* EventDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3EB27009E4700AFD1FC /* EventDetailPresenter.swift */; };
+		EAAEC41927009E4700AFD1FC /* EventDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3EC27009E4700AFD1FC /* EventDetailDataSource.swift */; };
+		EAAEC41A27009E4700AFD1FC /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3EE27009E4700AFD1FC /* EventDetailView.swift */; };
+		EAAEC41B27009E4700AFD1FC /* EventDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3F027009E4700AFD1FC /* EventDetailInteractor.swift */; };
+		EAAEC41C27009E4700AFD1FC /* EventDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3F227009E4700AFD1FC /* EventDetailRouter.swift */; };
 		EAAEC41D27009E4700AFD1FC /* Intra21Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3F427009E4700AFD1FC /* Intra21Contract.swift */; };
 		EAAEC41E27009E4700AFD1FC /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3F627009E4700AFD1FC /* EventResponse.swift */; };
 		EAAEC41F27009E4700AFD1FC /* IntraAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3F827009E4700AFD1FC /* IntraAPIService.swift */; };
@@ -74,12 +73,23 @@
 		EAAEC42127009E4700AFD1FC /* DataFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3FB27009E4700AFD1FC /* DataFormatter+Ext.swift */; };
 		EAAEC42227009E4700AFD1FC /* JSONDecoder+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3FC27009E4700AFD1FC /* JSONDecoder+Ext.swift */; };
 		EAAEC42327009E4700AFD1FC /* UIWindow+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC3FD27009E4700AFD1FC /* UIWindow+Ext.swift */; };
-		EAAEC42427009E4700AFD1FC /* EventCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40127009E4700AFD1FC /* EventCellModel.swift */; };
-		EAAEC42527009E4700AFD1FC /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40227009E4700AFD1FC /* EventCell.swift */; };
-		EAAEC42627009E4700AFD1FC /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40327009E4700AFD1FC /* Cell.swift */; };
-		EAAEC42727009E4700AFD1FC /* EventSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40527009E4700AFD1FC /* EventSectionModel.swift */; };
+		EAAEC42427009E4700AFD1FC /* EventDetailCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40127009E4700AFD1FC /* EventDetailCellModel.swift */; };
+		EAAEC42527009E4700AFD1FC /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40227009E4700AFD1FC /* EventDetailCell.swift */; };
+		EAAEC42627009E4700AFD1FC /* CellIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40327009E4700AFD1FC /* CellIdentifiable.swift */; };
+		EAAEC42727009E4700AFD1FC /* EventDetailSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40527009E4700AFD1FC /* EventDetailSectionModel.swift */; };
 		EAAEC42827009E4700AFD1FC /* TableViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40627009E4700AFD1FC /* TableViewContract.swift */; };
 		EAAEC42927009E4700AFD1FC /* ModelRepresentableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40727009E4700AFD1FC /* ModelRepresentableProtocol.swift */; };
+		F6D164D82779E0D400138291 /* UserMainContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D164C62779E0D400138291 /* UserMainContract.swift */; };
+		F6D164D92779E0D400138291 /* UserMainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D164C82779E0D400138291 /* UserMainAssembly.swift */; };
+		F6D164DA2779E0D400138291 /* UserMainPresenterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D164CA2779E0D400138291 /* UserMainPresenterDataSource.swift */; };
+		F6D164DB2779E0D400138291 /* UserMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D164CB2779E0D400138291 /* UserMainPresenter.swift */; };
+		F6D164DC2779E0D400138291 /* UserMainCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D164CE2779E0D400138291 /* UserMainCellModel.swift */; };
+		F6D164DD2779E0D400138291 /* UserMainSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D164CF2779E0D400138291 /* UserMainSectionModel.swift */; };
+		F6D164DE2779E0D400138291 /* UserMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D164D02779E0D400138291 /* UserMainCell.swift */; };
+		F6D164DF2779E0D400138291 /* UserMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D164D22779E0D400138291 /* UserMainViewController.swift */; };
+		F6D164E02779E0D400138291 /* UserMainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D164D42779E0D400138291 /* UserMainInteractor.swift */; };
+		F6D164E12779E0D400138291 /* UserMainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D164D72779E0D400138291 /* UserMainRouter.swift */; };
+		F6D164E42779E1EA00138291 /* TableViewSectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D164E32779E1EA00138291 /* TableViewSectionProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,7 +100,6 @@
 		3E439119270094F400C8AC03 /* Events21.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Events21.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E43911C270094F400C8AC03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E43911E270094F400C8AC03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3E439123270094F400C8AC03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E439125270094F600C8AC03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E439128270094F600C8AC03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E43912A270094F600C8AC03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,13 +114,13 @@
 		3E5352F32712254300FD0B4C /* CampusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusResponse.swift; sourceTree = "<group>"; };
 		3E5352F52712264500FD0B4C /* CursusUsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursusUsersResponse.swift; sourceTree = "<group>"; };
 		3E5352F7271226F000FD0B4C /* CursusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursusResponse.swift; sourceTree = "<group>"; };
-		3E5352FB271269B000FD0B4C /* FiltersContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersContract.swift; sourceTree = "<group>"; };
-		3E5352FD271269B000FD0B4C /* FiltersAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersAssembly.swift; sourceTree = "<group>"; };
-		3E5352FF271269B000FD0B4C /* FiltersPresenterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersPresenterDataSource.swift; sourceTree = "<group>"; };
-		3E535300271269B000FD0B4C /* FiltersPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersPresenter.swift; sourceTree = "<group>"; };
-		3E535302271269B000FD0B4C /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
-		3E535304271269B000FD0B4C /* FiltersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersInteractor.swift; sourceTree = "<group>"; };
-		3E535306271269B000FD0B4C /* FiltersRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersRouter.swift; sourceTree = "<group>"; };
+		3E5352FB271269B000FD0B4C /* EventListFiltersContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListFiltersContract.swift; sourceTree = "<group>"; };
+		3E5352FD271269B000FD0B4C /* EventListFiltersAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListFiltersAssembly.swift; sourceTree = "<group>"; };
+		3E5352FF271269B000FD0B4C /* EventListFiltersDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListFiltersDataSource.swift; sourceTree = "<group>"; };
+		3E535300271269B000FD0B4C /* EventListFiltersPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListFiltersPresenter.swift; sourceTree = "<group>"; };
+		3E535302271269B000FD0B4C /* EventListFiltersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListFiltersView.swift; sourceTree = "<group>"; };
+		3E535304271269B000FD0B4C /* EventListFiltersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListFiltersInteractor.swift; sourceTree = "<group>"; };
+		3E535306271269B000FD0B4C /* EventListFiltersRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListFiltersRouter.swift; sourceTree = "<group>"; };
 		3E53530E271273BE00FD0B4C /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		3E53531027127D0500FD0B4C /* FilterSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSectionModel.swift; sourceTree = "<group>"; };
 		3E53531227127F4800FD0B4C /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
@@ -123,13 +132,13 @@
 		3EB5CF6D2700D89F0011E88C /* MeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeResponse.swift; sourceTree = "<group>"; };
 		3EB5CF712700E05D0011E88C /* ImageCashingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCashingService.swift; sourceTree = "<group>"; };
 		3EEDD40A2715FE2E005A8017 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
-		EAAEC3CB27009E4700AFD1FC /* UserContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContract.swift; sourceTree = "<group>"; };
-		EAAEC3CD27009E4700AFD1FC /* UserAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAssembly.swift; sourceTree = "<group>"; };
-		EAAEC3CF27009E4700AFD1FC /* UserPresenterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenterDataSource.swift; sourceTree = "<group>"; };
-		EAAEC3D027009E4700AFD1FC /* UserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
-		EAAEC3D227009E4700AFD1FC /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		EAAEC3D427009E4700AFD1FC /* UserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
-		EAAEC3D627009E4700AFD1FC /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		EAAEC3CB27009E4700AFD1FC /* EventListContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListContract.swift; sourceTree = "<group>"; };
+		EAAEC3CD27009E4700AFD1FC /* EventListAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListAssembly.swift; sourceTree = "<group>"; };
+		EAAEC3CF27009E4700AFD1FC /* EventListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListDataSource.swift; sourceTree = "<group>"; };
+		EAAEC3D027009E4700AFD1FC /* EventListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListPresenter.swift; sourceTree = "<group>"; };
+		EAAEC3D227009E4700AFD1FC /* EventListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
+		EAAEC3D427009E4700AFD1FC /* EventListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListInteractor.swift; sourceTree = "<group>"; };
+		EAAEC3D627009E4700AFD1FC /* EventListRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListRouter.swift; sourceTree = "<group>"; };
 		EAAEC3D927009E4700AFD1FC /* AuthorizationContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationContract.swift; sourceTree = "<group>"; };
 		EAAEC3DB27009E4700AFD1FC /* AuthorizationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationAssembly.swift; sourceTree = "<group>"; };
 		EAAEC3DD27009E4700AFD1FC /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
@@ -137,13 +146,13 @@
 		EAAEC3E027009E4700AFD1FC /* AuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		EAAEC3E227009E4700AFD1FC /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
 		EAAEC3E427009E4700AFD1FC /* AuthorizationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
-		EAAEC3E727009E4700AFD1FC /* EventContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventContract.swift; sourceTree = "<group>"; };
-		EAAEC3E927009E4700AFD1FC /* EventAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAssembly.swift; sourceTree = "<group>"; };
-		EAAEC3EB27009E4700AFD1FC /* EventPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPresenter.swift; sourceTree = "<group>"; };
-		EAAEC3EC27009E4700AFD1FC /* EventPresenterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPresenterDataSource.swift; sourceTree = "<group>"; };
-		EAAEC3EE27009E4700AFD1FC /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
-		EAAEC3F027009E4700AFD1FC /* EventInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInteractor.swift; sourceTree = "<group>"; };
-		EAAEC3F227009E4700AFD1FC /* EventRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventRouter.swift; sourceTree = "<group>"; };
+		EAAEC3E727009E4700AFD1FC /* EventDetailContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailContract.swift; sourceTree = "<group>"; };
+		EAAEC3E927009E4700AFD1FC /* EventDetailAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailAssembly.swift; sourceTree = "<group>"; };
+		EAAEC3EB27009E4700AFD1FC /* EventDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailPresenter.swift; sourceTree = "<group>"; };
+		EAAEC3EC27009E4700AFD1FC /* EventDetailDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailDataSource.swift; sourceTree = "<group>"; };
+		EAAEC3EE27009E4700AFD1FC /* EventDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
+		EAAEC3F027009E4700AFD1FC /* EventDetailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailInteractor.swift; sourceTree = "<group>"; };
+		EAAEC3F227009E4700AFD1FC /* EventDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailRouter.swift; sourceTree = "<group>"; };
 		EAAEC3F427009E4700AFD1FC /* Intra21Contract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intra21Contract.swift; sourceTree = "<group>"; };
 		EAAEC3F627009E4700AFD1FC /* EventResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
 		EAAEC3F827009E4700AFD1FC /* IntraAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntraAPIService.swift; sourceTree = "<group>"; };
@@ -151,12 +160,23 @@
 		EAAEC3FB27009E4700AFD1FC /* DataFormatter+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataFormatter+Ext.swift"; sourceTree = "<group>"; };
 		EAAEC3FC27009E4700AFD1FC /* JSONDecoder+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Ext.swift"; sourceTree = "<group>"; };
 		EAAEC3FD27009E4700AFD1FC /* UIWindow+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Ext.swift"; sourceTree = "<group>"; };
-		EAAEC40127009E4700AFD1FC /* EventCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCellModel.swift; sourceTree = "<group>"; };
-		EAAEC40227009E4700AFD1FC /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
-		EAAEC40327009E4700AFD1FC /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
-		EAAEC40527009E4700AFD1FC /* EventSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSectionModel.swift; sourceTree = "<group>"; };
+		EAAEC40127009E4700AFD1FC /* EventDetailCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailCellModel.swift; sourceTree = "<group>"; };
+		EAAEC40227009E4700AFD1FC /* EventDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailCell.swift; sourceTree = "<group>"; };
+		EAAEC40327009E4700AFD1FC /* CellIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellIdentifiable.swift; sourceTree = "<group>"; };
+		EAAEC40527009E4700AFD1FC /* EventDetailSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailSectionModel.swift; sourceTree = "<group>"; };
 		EAAEC40627009E4700AFD1FC /* TableViewContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewContract.swift; sourceTree = "<group>"; };
 		EAAEC40727009E4700AFD1FC /* ModelRepresentableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelRepresentableProtocol.swift; sourceTree = "<group>"; };
+		F6D164C62779E0D400138291 /* UserMainContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMainContract.swift; sourceTree = "<group>"; };
+		F6D164C82779E0D400138291 /* UserMainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMainAssembly.swift; sourceTree = "<group>"; };
+		F6D164CA2779E0D400138291 /* UserMainPresenterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMainPresenterDataSource.swift; sourceTree = "<group>"; };
+		F6D164CB2779E0D400138291 /* UserMainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMainPresenter.swift; sourceTree = "<group>"; };
+		F6D164CE2779E0D400138291 /* UserMainCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMainCellModel.swift; sourceTree = "<group>"; };
+		F6D164CF2779E0D400138291 /* UserMainSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMainSectionModel.swift; sourceTree = "<group>"; };
+		F6D164D02779E0D400138291 /* UserMainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMainCell.swift; sourceTree = "<group>"; };
+		F6D164D22779E0D400138291 /* UserMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMainViewController.swift; sourceTree = "<group>"; };
+		F6D164D42779E0D400138291 /* UserMainInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMainInteractor.swift; sourceTree = "<group>"; };
+		F6D164D72779E0D400138291 /* UserMainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMainRouter.swift; sourceTree = "<group>"; };
+		F6D164E32779E1EA00138291 /* TableViewSectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,12 +216,7 @@
 				EAAEC3F927009E4700AFD1FC /* Extentions */,
 				EAAEC3C827009E4700AFD1FC /* Modules */,
 				EAAEC3F727009E4700AFD1FC /* Services */,
-				3E43911C270094F400C8AC03 /* AppDelegate.swift */,
-				3E43911E270094F400C8AC03 /* SceneDelegate.swift */,
-				3E439122270094F400C8AC03 /* Main.storyboard */,
-				3E439125270094F600C8AC03 /* Assets.xcassets */,
-				3E439127270094F600C8AC03 /* LaunchScreen.storyboard */,
-				3E43912A270094F600C8AC03 /* Info.plist */,
+				F6FCD4432779F6E600FE5C9B /* SupportedFiles */,
 			);
 			path = Events21;
 			sourceTree = "<group>";
@@ -235,7 +250,7 @@
 		3E5352FA271269B000FD0B4C /* Contract */ = {
 			isa = PBXGroup;
 			children = (
-				3E5352FB271269B000FD0B4C /* FiltersContract.swift */,
+				3E5352FB271269B000FD0B4C /* EventListFiltersContract.swift */,
 			);
 			path = Contract;
 			sourceTree = "<group>";
@@ -243,7 +258,7 @@
 		3E5352FC271269B000FD0B4C /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				3E5352FD271269B000FD0B4C /* FiltersAssembly.swift */,
+				3E5352FD271269B000FD0B4C /* EventListFiltersAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -251,8 +266,8 @@
 		3E5352FE271269B000FD0B4C /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				3E5352FF271269B000FD0B4C /* FiltersPresenterDataSource.swift */,
-				3E535300271269B000FD0B4C /* FiltersPresenter.swift */,
+				3E5352FF271269B000FD0B4C /* EventListFiltersDataSource.swift */,
+				3E535300271269B000FD0B4C /* EventListFiltersPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -260,7 +275,7 @@
 		3E535301271269B000FD0B4C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3E535302271269B000FD0B4C /* FiltersViewController.swift */,
+				3E535302271269B000FD0B4C /* EventListFiltersView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -268,7 +283,7 @@
 		3E535303271269B000FD0B4C /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3E535304271269B000FD0B4C /* FiltersInteractor.swift */,
+				3E535304271269B000FD0B4C /* EventListFiltersInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -276,7 +291,7 @@
 		3E535305271269B000FD0B4C /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3E535306271269B000FD0B4C /* FiltersRouter.swift */,
+				3E535306271269B000FD0B4C /* EventListFiltersRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -284,15 +299,16 @@
 		EAAEC3C827009E4700AFD1FC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				3E5352F9271269B000FD0B4C /* Filters */,
-				EAAEC3C927009E4700AFD1FC /* User */,
+				F6D164C42779E0D400138291 /* UserMain */,
 				EAAEC3D727009E4700AFD1FC /* Authorization */,
-				EAAEC3E527009E4700AFD1FC /* Event */,
+				3E5352F9271269B000FD0B4C /* Filters */,
+				EAAEC3C927009E4700AFD1FC /* EventList */,
+				EAAEC3E527009E4700AFD1FC /* EventDetail */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		EAAEC3C927009E4700AFD1FC /* User */ = {
+		EAAEC3C927009E4700AFD1FC /* EventList */ = {
 			isa = PBXGroup;
 			children = (
 				EAAEC3CA27009E4700AFD1FC /* Contract */,
@@ -302,13 +318,13 @@
 				EAAEC3D327009E4700AFD1FC /* Interactor */,
 				EAAEC3D527009E4700AFD1FC /* Router */,
 			);
-			path = User;
+			path = EventList;
 			sourceTree = "<group>";
 		};
 		EAAEC3CA27009E4700AFD1FC /* Contract */ = {
 			isa = PBXGroup;
 			children = (
-				EAAEC3CB27009E4700AFD1FC /* UserContract.swift */,
+				EAAEC3CB27009E4700AFD1FC /* EventListContract.swift */,
 			);
 			path = Contract;
 			sourceTree = "<group>";
@@ -316,7 +332,7 @@
 		EAAEC3CC27009E4700AFD1FC /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				EAAEC3CD27009E4700AFD1FC /* UserAssembly.swift */,
+				EAAEC3CD27009E4700AFD1FC /* EventListAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -324,8 +340,8 @@
 		EAAEC3CE27009E4700AFD1FC /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				EAAEC3CF27009E4700AFD1FC /* UserPresenterDataSource.swift */,
-				EAAEC3D027009E4700AFD1FC /* UserPresenter.swift */,
+				EAAEC3CF27009E4700AFD1FC /* EventListDataSource.swift */,
+				EAAEC3D027009E4700AFD1FC /* EventListPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -333,7 +349,7 @@
 		EAAEC3D127009E4700AFD1FC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EAAEC3D227009E4700AFD1FC /* UserViewController.swift */,
+				EAAEC3D227009E4700AFD1FC /* EventListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -341,7 +357,7 @@
 		EAAEC3D327009E4700AFD1FC /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				EAAEC3D427009E4700AFD1FC /* UserInteractor.swift */,
+				EAAEC3D427009E4700AFD1FC /* EventListInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -349,7 +365,7 @@
 		EAAEC3D527009E4700AFD1FC /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				EAAEC3D627009E4700AFD1FC /* UserRouter.swift */,
+				EAAEC3D627009E4700AFD1FC /* EventListRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -416,7 +432,7 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		EAAEC3E527009E4700AFD1FC /* Event */ = {
+		EAAEC3E527009E4700AFD1FC /* EventDetail */ = {
 			isa = PBXGroup;
 			children = (
 				EAAEC3E627009E4700AFD1FC /* Contract */,
@@ -426,13 +442,13 @@
 				EAAEC3EF27009E4700AFD1FC /* Interactor */,
 				EAAEC3F127009E4700AFD1FC /* Router */,
 			);
-			path = Event;
+			path = EventDetail;
 			sourceTree = "<group>";
 		};
 		EAAEC3E627009E4700AFD1FC /* Contract */ = {
 			isa = PBXGroup;
 			children = (
-				EAAEC3E727009E4700AFD1FC /* EventContract.swift */,
+				EAAEC3E727009E4700AFD1FC /* EventDetailContract.swift */,
 			);
 			path = Contract;
 			sourceTree = "<group>";
@@ -440,7 +456,7 @@
 		EAAEC3E827009E4700AFD1FC /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				EAAEC3E927009E4700AFD1FC /* EventAssembly.swift */,
+				EAAEC3E927009E4700AFD1FC /* EventDetailAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -448,8 +464,8 @@
 		EAAEC3EA27009E4700AFD1FC /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				EAAEC3EB27009E4700AFD1FC /* EventPresenter.swift */,
-				EAAEC3EC27009E4700AFD1FC /* EventPresenterDataSource.swift */,
+				EAAEC3EB27009E4700AFD1FC /* EventDetailPresenter.swift */,
+				EAAEC3EC27009E4700AFD1FC /* EventDetailDataSource.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -457,7 +473,7 @@
 		EAAEC3ED27009E4700AFD1FC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EAAEC3EE27009E4700AFD1FC /* EventViewController.swift */,
+				EAAEC3EE27009E4700AFD1FC /* EventDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -465,7 +481,7 @@
 		EAAEC3EF27009E4700AFD1FC /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				EAAEC3F027009E4700AFD1FC /* EventInteractor.swift */,
+				EAAEC3F027009E4700AFD1FC /* EventDetailInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -473,7 +489,7 @@
 		EAAEC3F127009E4700AFD1FC /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				EAAEC3F227009E4700AFD1FC /* EventRouter.swift */,
+				EAAEC3F227009E4700AFD1FC /* EventDetailRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -542,6 +558,7 @@
 		EAAEC3FF27009E4700AFD1FC /* UITableViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				F6D164E32779E1EA00138291 /* TableViewSectionProtocol.swift */,
 				EAAEC40027009E4700AFD1FC /* Cells */,
 				EAAEC40427009E4700AFD1FC /* Sections */,
 				EAAEC40627009E4700AFD1FC /* TableViewContract.swift */,
@@ -552,10 +569,10 @@
 		EAAEC40027009E4700AFD1FC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				EAAEC40127009E4700AFD1FC /* EventCellModel.swift */,
-				EAAEC40227009E4700AFD1FC /* EventCell.swift */,
+				EAAEC40127009E4700AFD1FC /* EventDetailCellModel.swift */,
+				EAAEC40227009E4700AFD1FC /* EventDetailCell.swift */,
 				3E53530E271273BE00FD0B4C /* FilterCell.swift */,
-				EAAEC40327009E4700AFD1FC /* Cell.swift */,
+				EAAEC40327009E4700AFD1FC /* CellIdentifiable.swift */,
 				3E2E081327170AF700E6B40F /* SortCellModel.swift */,
 			);
 			path = Cells;
@@ -564,11 +581,112 @@
 		EAAEC40427009E4700AFD1FC /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				EAAEC40527009E4700AFD1FC /* EventSectionModel.swift */,
+				EAAEC40527009E4700AFD1FC /* EventDetailSectionModel.swift */,
 				3E53531027127D0500FD0B4C /* FilterSectionModel.swift */,
 				3E2E081727171D4C00E6B40F /* SortSectionModel.swift */,
 			);
 			path = Sections;
+			sourceTree = "<group>";
+		};
+		F6D164C42779E0D400138291 /* UserMain */ = {
+			isa = PBXGroup;
+			children = (
+				F6D164C52779E0D400138291 /* Contract */,
+				F6D164C72779E0D400138291 /* Assembly */,
+				F6D164C92779E0D400138291 /* Presenter */,
+				F6D164CC2779E0D400138291 /* Components */,
+				F6D164D12779E0D400138291 /* View */,
+				F6D164D32779E0D400138291 /* Interactor */,
+				F6D164D52779E0D400138291 /* Entities */,
+				F6D164D62779E0D400138291 /* Router */,
+			);
+			path = UserMain;
+			sourceTree = "<group>";
+		};
+		F6D164C52779E0D400138291 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				F6D164C62779E0D400138291 /* UserMainContract.swift */,
+			);
+			path = Contract;
+			sourceTree = "<group>";
+		};
+		F6D164C72779E0D400138291 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				F6D164C82779E0D400138291 /* UserMainAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		F6D164C92779E0D400138291 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F6D164CA2779E0D400138291 /* UserMainPresenterDataSource.swift */,
+				F6D164CB2779E0D400138291 /* UserMainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F6D164CC2779E0D400138291 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F6D164CD2779E0D400138291 /* UITableViewComponents */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F6D164CD2779E0D400138291 /* UITableViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				F6D164CE2779E0D400138291 /* UserMainCellModel.swift */,
+				F6D164CF2779E0D400138291 /* UserMainSectionModel.swift */,
+				F6D164D02779E0D400138291 /* UserMainCell.swift */,
+			);
+			path = UITableViewComponents;
+			sourceTree = "<group>";
+		};
+		F6D164D12779E0D400138291 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6D164D22779E0D400138291 /* UserMainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F6D164D32779E0D400138291 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F6D164D42779E0D400138291 /* UserMainInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		F6D164D52779E0D400138291 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		F6D164D62779E0D400138291 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F6D164D72779E0D400138291 /* UserMainRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F6FCD4432779F6E600FE5C9B /* SupportedFiles */ = {
+			isa = PBXGroup;
+			children = (
+				3E43911C270094F400C8AC03 /* AppDelegate.swift */,
+				3E43911E270094F400C8AC03 /* SceneDelegate.swift */,
+				3E439125270094F600C8AC03 /* Assets.xcassets */,
+				3E439127270094F600C8AC03 /* LaunchScreen.storyboard */,
+				3E43912A270094F600C8AC03 /* Info.plist */,
+			);
+			path = SupportedFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -636,7 +754,6 @@
 			files = (
 				3E439129270094F600C8AC03 /* LaunchScreen.storyboard in Resources */,
 				3E439126270094F600C8AC03 /* Assets.xcassets in Resources */,
-				3E439124270094F400C8AC03 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,62 +773,73 @@
 				3E5352EA2711CB1C00FD0B4C /* IntraAPIService+Auth.swift in Sources */,
 				EAAEC41327009E4700AFD1FC /* AuthorizationViewController.swift in Sources */,
 				EAAEC41F27009E4700AFD1FC /* IntraAPIService.swift in Sources */,
-				EAAEC41627009E4700AFD1FC /* EventContract.swift in Sources */,
+				F6D164DD2779E0D400138291 /* UserMainSectionModel.swift in Sources */,
+				EAAEC41627009E4700AFD1FC /* EventDetailContract.swift in Sources */,
 				3E5352F42712254300FD0B4C /* CampusResponse.swift in Sources */,
-				EAAEC41A27009E4700AFD1FC /* EventViewController.swift in Sources */,
-				3E53530B271269B000FD0B4C /* FiltersViewController.swift in Sources */,
+				EAAEC41A27009E4700AFD1FC /* EventDetailView.swift in Sources */,
+				3E53530B271269B000FD0B4C /* EventListFiltersView.swift in Sources */,
 				3E7A3693271503960066F47E /* FiltersStorage.swift in Sources */,
 				EAAEC41127009E4700AFD1FC /* AuthorizationPresenter.swift in Sources */,
 				EAAEC41427009E4700AFD1FC /* AuthorizationInteractor.swift in Sources */,
-				EAAEC42627009E4700AFD1FC /* Cell.swift in Sources */,
-				3E535307271269B000FD0B4C /* FiltersContract.swift in Sources */,
-				EAAEC40C27009E4700AFD1FC /* UserViewController.swift in Sources */,
+				EAAEC42627009E4700AFD1FC /* CellIdentifiable.swift in Sources */,
+				F6D164DF2779E0D400138291 /* UserMainViewController.swift in Sources */,
+				F6D164E42779E1EA00138291 /* TableViewSectionProtocol.swift in Sources */,
+				3E535307271269B000FD0B4C /* EventListFiltersContract.swift in Sources */,
+				EAAEC40C27009E4700AFD1FC /* EventListView.swift in Sources */,
+				F6D164DC2779E0D400138291 /* UserMainCellModel.swift in Sources */,
 				3E53530F271273BE00FD0B4C /* FilterCell.swift in Sources */,
 				3E5352F22711F8A200FD0B4C /* KeychainHelper.swift in Sources */,
 				EAAEC42127009E4700AFD1FC /* DataFormatter+Ext.swift in Sources */,
-				EAAEC42427009E4700AFD1FC /* EventCellModel.swift in Sources */,
+				EAAEC42427009E4700AFD1FC /* EventDetailCellModel.swift in Sources */,
 				3EB5CF722700E05D0011E88C /* ImageCashingService.swift in Sources */,
 				3E2E081427170AF700E6B40F /* SortCellModel.swift in Sources */,
 				3E5352E727111BDC00FD0B4C /* EventRegisterResponse.swift in Sources */,
-				EAAEC40D27009E4700AFD1FC /* UserInteractor.swift in Sources */,
-				EAAEC42527009E4700AFD1FC /* EventCell.swift in Sources */,
+				EAAEC40D27009E4700AFD1FC /* EventListInteractor.swift in Sources */,
+				EAAEC42527009E4700AFD1FC /* EventDetailCell.swift in Sources */,
 				3EA54ABF27178C30007DD11D /* Sequence+Ext.swift in Sources */,
-				EAAEC41B27009E4700AFD1FC /* EventInteractor.swift in Sources */,
+				EAAEC41B27009E4700AFD1FC /* EventDetailInteractor.swift in Sources */,
 				3E5352EC2711CB2E00FD0B4C /* IntraAPIService+GetEvents.swift in Sources */,
+				F6D164E02779E0D400138291 /* UserMainInteractor.swift in Sources */,
 				3E25B209270E91C7003F3C37 /* IntraAPIError.swift in Sources */,
-				EAAEC42727009E4700AFD1FC /* EventSectionModel.swift in Sources */,
+				EAAEC42727009E4700AFD1FC /* EventDetailSectionModel.swift in Sources */,
 				3EB5CF6E2700D89F0011E88C /* MeResponse.swift in Sources */,
 				3E5352F02711D23800FD0B4C /* EventUsersResponse.swift in Sources */,
 				EAAEC42827009E4700AFD1FC /* TableViewContract.swift in Sources */,
-				EAAEC41927009E4700AFD1FC /* EventPresenterDataSource.swift in Sources */,
-				EAAEC40927009E4700AFD1FC /* UserAssembly.swift in Sources */,
-				EAAEC41C27009E4700AFD1FC /* EventRouter.swift in Sources */,
+				EAAEC41927009E4700AFD1FC /* EventDetailDataSource.swift in Sources */,
+				EAAEC40927009E4700AFD1FC /* EventListAssembly.swift in Sources */,
+				EAAEC41C27009E4700AFD1FC /* EventDetailRouter.swift in Sources */,
 				3E53531127127D0500FD0B4C /* FilterSectionModel.swift in Sources */,
 				EAAEC41527009E4700AFD1FC /* AuthorizationRouter.swift in Sources */,
+				F6D164DB2779E0D400138291 /* UserMainPresenter.swift in Sources */,
+				F6D164D82779E0D400138291 /* UserMainContract.swift in Sources */,
 				3E9714702700C4B900FC2F3F /* String+Ext.swift in Sources */,
-				EAAEC41727009E4700AFD1FC /* EventAssembly.swift in Sources */,
+				EAAEC41727009E4700AFD1FC /* EventDetailAssembly.swift in Sources */,
 				3EEDD40B2715FE2E005A8017 /* UserResponse.swift in Sources */,
-				3E53530A271269B000FD0B4C /* FiltersPresenter.swift in Sources */,
+				3E53530A271269B000FD0B4C /* EventListFiltersPresenter.swift in Sources */,
 				3E43911D270094F400C8AC03 /* AppDelegate.swift in Sources */,
-				3E53530D271269B000FD0B4C /* FiltersRouter.swift in Sources */,
+				3E53530D271269B000FD0B4C /* EventListFiltersRouter.swift in Sources */,
 				EAAEC41027009E4700AFD1FC /* AuthorizationAssembly.swift in Sources */,
+				F6D164DA2779E0D400138291 /* UserMainPresenterDataSource.swift in Sources */,
 				3E4681DB271380B1001D67C2 /* UserDefaults+Ext.swift in Sources */,
 				3E2E081827171D4C00E6B40F /* SortSectionModel.swift in Sources */,
+				F6D164E12779E0D400138291 /* UserMainRouter.swift in Sources */,
+				F6D164D92779E0D400138291 /* UserMainAssembly.swift in Sources */,
 				3E5352EE2711CBB000FD0B4C /* IntraAPIService+GetUser.swift in Sources */,
+				F6D164DE2779E0D400138291 /* UserMainCell.swift in Sources */,
 				3E5352F62712264500FD0B4C /* CursusUsersResponse.swift in Sources */,
 				3E9714732700C9A800FC2F3F /* TokenResponse.swift in Sources */,
 				EAAEC41E27009E4700AFD1FC /* EventResponse.swift in Sources */,
-				EAAEC40E27009E4700AFD1FC /* UserRouter.swift in Sources */,
-				3E535309271269B000FD0B4C /* FiltersPresenterDataSource.swift in Sources */,
-				3E535308271269B000FD0B4C /* FiltersAssembly.swift in Sources */,
+				EAAEC40E27009E4700AFD1FC /* EventListRouter.swift in Sources */,
+				3E535309271269B000FD0B4C /* EventListFiltersDataSource.swift in Sources */,
+				3E535308271269B000FD0B4C /* EventListFiltersAssembly.swift in Sources */,
 				EAAEC41227009E4700AFD1FC /* AuthorizationPresenterDataSource.swift in Sources */,
-				3E53530C271269B000FD0B4C /* FiltersInteractor.swift in Sources */,
+				3E53530C271269B000FD0B4C /* EventListFiltersInteractor.swift in Sources */,
 				3E5352F8271226F000FD0B4C /* CursusResponse.swift in Sources */,
-				EAAEC40827009E4700AFD1FC /* UserContract.swift in Sources */,
-				EAAEC41827009E4700AFD1FC /* EventPresenter.swift in Sources */,
-				EAAEC40B27009E4700AFD1FC /* UserPresenter.swift in Sources */,
+				EAAEC40827009E4700AFD1FC /* EventListContract.swift in Sources */,
+				EAAEC41827009E4700AFD1FC /* EventDetailPresenter.swift in Sources */,
+				EAAEC40B27009E4700AFD1FC /* EventListPresenter.swift in Sources */,
 				EAAEC40F27009E4700AFD1FC /* AuthorizationContract.swift in Sources */,
-				EAAEC40A27009E4700AFD1FC /* UserPresenterDataSource.swift in Sources */,
+				EAAEC40A27009E4700AFD1FC /* EventListDataSource.swift in Sources */,
 				3E43911F270094F400C8AC03 /* SceneDelegate.swift in Sources */,
 				3E53531327127F4800FD0B4C /* UITableView+Ext.swift in Sources */,
 				EAAEC41D27009E4700AFD1FC /* Intra21Contract.swift in Sources */,
@@ -722,14 +850,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3E439122270094F400C8AC03 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3E439123270094F400C8AC03 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3E439127270094F600C8AC03 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -860,11 +980,10 @@
 		3E43912E270094F600C8AC03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L63NHFJ3AD;
-				INFOPLIST_FILE = Events21/Info.plist;
+				INFOPLIST_FILE = Events21/SupportedFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -879,11 +998,10 @@
 		3E43912F270094F600C8AC03 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L63NHFJ3AD;
-				INFOPLIST_FILE = Events21/Info.plist;
+				INFOPLIST_FILE = Events21/SupportedFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

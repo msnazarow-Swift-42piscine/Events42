@@ -27,7 +27,7 @@ class IntraAPIServiceMock {
 
 
 
-extension IntraAPIServiceMock: IntraAPIServiceProtocol, IntraAPIServiceAuthProtocol {
+extension IntraAPIServiceMock: IntraAPIServiceProtocol {
     func registerToEvent(eventId: Int, completion: @escaping (Result<EventUsersResponse, IntraAPIError>) -> Void) {
         completion(.success(eventUser))
     }

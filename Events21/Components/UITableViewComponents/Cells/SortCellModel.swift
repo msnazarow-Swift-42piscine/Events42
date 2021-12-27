@@ -14,7 +14,7 @@ struct SortModel {
     let inputView: ToolbarPickerView
 }
 
-struct SortCellModel: CellIdentifiable {
+struct SortCellModel: Identifiable {
 
     var identifier: String { return "SortCell" }
 
@@ -31,7 +31,7 @@ struct SortCellModel: CellIdentifiable {
     }
 }
 
-class SortCell: Cell {
+class SortCell: CellIdentifiable {
     let gap: CGFloat = 10
 
     let label: UILabel = {
@@ -80,7 +80,8 @@ class SortCell: Cell {
     }
 
     @objc func textFieldDidBeginEditing(_ textField: UITextField) {
-        guard let model = model as? SortCellModel else { return }
+		guard let model = model as? SortCellModel,
+			  let presenter = presenter as? CellToPresenterFiltersProtocol else { return }
         presenter.textFieldDidBeginEditing(model.number)
     }
 }

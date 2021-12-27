@@ -12,7 +12,7 @@ struct FilterModel {
     let value: Bool
 }
 
-struct FilterCellModel: CellIdentifiable {
+struct FilterCellModel: Identifiable {
 
     var identifier: String { return "FilterCell" }
 
@@ -26,7 +26,7 @@ struct FilterCellModel: CellIdentifiable {
 }
 
 
-class FilterCell: Cell {
+class FilterCell: CellIdentifiable {
     let gap: CGFloat = 10
 
     let label: UILabel = {
@@ -72,7 +72,8 @@ class FilterCell: Cell {
     }
 
     @objc func switcherDidChanged(){
-        guard let model = model as? FilterCellModel else { return }
+        guard let model = model as? FilterCellModel,
+			  let presenter = presenter as? CellToPresenterFiltersProtocol else { return }
         presenter.switcherDidChanged(model.name)
     }
 }
