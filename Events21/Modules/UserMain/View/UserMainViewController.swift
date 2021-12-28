@@ -75,9 +75,9 @@ class UserMainViewController: UIViewController {
 		return stackView
 	}()
 
-	lazy var logOutButton = UIBarButtonItem(title: .logOut, style: .done, target: self, action: #selector(logoutButtonTapped))
+	lazy var logOutButton = UIBarButtonItem(image: UIImage(systemName: "arrow.right.square"), style: .done, target: self, action: #selector(logoutButtonTapped))
 
-    // MARK: - Init
+	// MARK: - Init
     convenience init(presenter: ViewToPresenterUserMainProtocol) {
         self.init()
         self.presenter = presenter
@@ -92,7 +92,6 @@ class UserMainViewController: UIViewController {
 
     private func setupUI() {
 		view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
-		tabBarController?.navigationController?.navigationBar.isHidden = true
 		navigationItem.rightBarButtonItem = logOutButton
         addSubviews()
         setupConstraints()
@@ -147,6 +146,15 @@ extension UserMainViewController: PresenterToViewUserMainProtocol {
 			let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 			alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
 			present(alert, animated: true, completion: completion)
+		}
+	}
+
+	func showAlertQuestion(title: String, message: String, completion: (() -> Void)?) {
+		DispatchQueue.main.async { [self] in
+			let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "Yes", style: .default) { _ in completion?() })
+			alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+			present(alert, animated: true)
 		}
 	}
 

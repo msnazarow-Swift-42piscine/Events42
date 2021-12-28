@@ -18,7 +18,7 @@ class UserMainCell: CellIdentifiable {
     }
 
     override func updateViews() {
-//        guard let model = model as? UserMainCellModule else { return }
+        guard let model = model as? UserMainCellModel else { return }
 
     }
 }

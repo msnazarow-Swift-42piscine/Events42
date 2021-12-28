@@ -8,37 +8,24 @@
 import Foundation
 
 extension IntraAPIService {
-    func getEvents(campusId: Int? = nil,
-                   cursusId: Int? = nil,
-                   userId: Int? = nil,
-                   sort: [String] = [],
-                   filter: [String: [String]] = [:],
-                   completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
+    func getEvents(
+		campusId: Int? = nil,
+		cursusId: Int? = nil,
+		userId: Int? = nil,
+		sort: [String] = [],
+		filter: [String: [String]] = [:],
+		completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void
+	) {
         urlComponents.path = "/v2/events"
-        var queryItems: [URLQueryItem] = []
-        if let campusId = campusId {
-            queryItems.append(.init(name: .campusId, value: "\(campusId)"))
-        }
+		let queryItems: [URLQueryItem?] = [
+			campusId?.URLQueryItem(name: .campusId),
+			cursusId?.URLQueryItem(name: .cursusId),
+			userId?.URLQueryItem(name: .userId),
+			sort.URLQueryItem(name: "sort"),
+			100.URLQueryItem(name: "page[size]")
+		] + filter.URLQueryItems(name: "filter")
 
-        if let cursusId = cursusId {
-            queryItems.append(.init(name: .cursusId, value: "\(cursusId)"))
-        }
-
-        if let userId = userId {
-            queryItems.append(.init(name: .userId, value: "\(userId)"))
-        }
-
-        if !sort.isEmpty {
-            queryItems.append(.init(name: "sort", value: sort.joined(separator: ",")))
-        }
-
-        if !filter.isEmpty {
-            filter.forEach { (key: String, value: [String]) in
-                queryItems.append(.init(name: "filter[\(key)]", value: value.joined(separator: ",")))
-            }
-        }
-        queryItems.append(.init(name: "page[size]", value: "100"))
-        urlComponents.queryItems = queryItems
+		urlComponents.queryItems = queryItems.compactMap{ $0 }
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(IntraAPIError(error: "URLSessionError", errorDescription: error.localizedDescription)))
@@ -68,26 +55,13 @@ extension IntraAPIService {
 
     func getUserEvents(userId: Int?, eventId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
         urlComponents.path = ("/v2/events_users")
-        var queryItems: [URLQueryItem] = []
-        if let eventId = eventId {
-            queryItems.append(.init(name: .eventId, value: "\(eventId)"))
-        }
-
-        if let userId = userId {
-            queryItems.append(.init(name: .userId, value: "\(userId)"))
-        }
-
-        if !sort.isEmpty {
-            queryItems.append(.init(name: "sort", value: sort.joined(separator: ",")))
-        }
-
-        if !filter.isEmpty {
-            filter.forEach { (key: String, value: [String]) in
-                queryItems.append(.init(name: "filter[\(key)]", value: value.joined(separator: ",")))
-            }
-        }
-        queryItems.append(.init(name: "page[size]", value: "100"))
-        urlComponents.queryItems = queryItems
+        var queryItems: [URLQueryItem?] = [
+			eventId?.URLQueryItem(name: .eventId),
+			userId?.URLQueryItem(name: .userId),
+			sort.URLQueryItem(name: "sort"),
+			100.URLQueryItem(name: "page[size]")
+		] + filter.URLQueryItems(name: "filter")
+		urlComponents.queryItems = queryItems.compactMap{ $0 }
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
@@ -98,14 +72,15 @@ extension IntraAPIService {
                 completion(.failure(IntraAPIError(error: "URLSessionError")))
                 return
             }
+			if response.statusCode >= 400 {
+				completion(.failure(IntraAPIError(error: response.value(forHTTPHeaderField: "Status") ?? "HTTP Error", errorDescription: data.html2String, statusCode: response.statusCode)))
+				return
+			}
             do {
                 if let error = try? self.decoder.decode(IntraAPIError.self, from: data) {
                     completion(.failure(error))
                     return
                 }
-//                if String(data: data, encoding: .utf8) == "{}" {
-//                    co
-//                }
 //                try print(JSONSerialization.jsonObject(with: data, options: []))
                 let events = try self.decoder.decode([EventUsersResponse].self, from: data)
                 completion(.success(events))
@@ -114,4 +89,39 @@ extension IntraAPIService {
             }
         }.resume()
     }
+}
+
+
+private extension String {
+	func URLQueryItem(name: String) -> URLQueryItem {
+		.init(name: name, value: self)
+	}
+}
+
+private extension Int {
+	func URLQueryItem(name: String) -> URLQueryItem {
+		.init(name: name, value: "\(self)")
+	}
+}
+
+private extension Array where Element == String {
+	func URLQueryItem(name: String) -> URLQueryItem? {
+		if !self.isEmpty {
+			return .init(name: "sort", value: self.joined(separator: ","))
+		} else {
+			return nil
+		}
+	}
+}
+
+private extension Dictionary where Key == String, Value == [String] {
+	func URLQueryItems(name: String) -> [URLQueryItem] {
+		if !self.isEmpty {
+			return self.map { (key, value) -> URLQueryItem in
+				.init(name: "\(name)[\(key)]", value: value.joined(separator: ","))
+			}
+		} else {
+			return []
+		}
+	}
 }

@@ -69,8 +69,10 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
 	}
 
 	func logoutButtonTapped() {
-		self.interactor.removeToken()
-		self.router.routeToAuthScreen()
+		view.showAlertQuestion(title: "Do you want to logout?", message: "") {
+			self.interactor.removeToken()
+			self.router.routeToAuthScreen()
+		}
 	}
 
 }

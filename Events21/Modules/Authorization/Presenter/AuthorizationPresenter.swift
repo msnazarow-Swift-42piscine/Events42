@@ -30,7 +30,10 @@ class AuthorizationPresenter: NSObject, ViewToPresenterAuthorizationProtocol {
     }
 
     func viewDidLoad(){
-        guard interactor.hasToken() else { return }
+        guard interactor.hasToken() else {
+			view.setLoginButtonHidden(false)
+			return
+		}
         if !interactor.tokenIsOutdated() {
 			loadMe() { [weak self] in
 	//				self?.refresh(
@@ -92,7 +95,6 @@ class AuthorizationPresenter: NSObject, ViewToPresenterAuthorizationProtocol {
 			switch result {
 			case .success(let me):
 				self?.router.routeToUserScreen(me: me)
-
 			case .failure(let error):
 				if let description = error.errorDescription {
 					self?.view.showAlert(title: error.error, message: description) {

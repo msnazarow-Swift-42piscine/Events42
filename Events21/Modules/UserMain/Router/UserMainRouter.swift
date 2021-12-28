@@ -15,7 +15,8 @@ class UserMainRouter: PresenterToRouterUserMainProtocol {
 
 	func routeToAuthScreen() {
 		DispatchQueue.main.async { [weak self] in
-			self?.view.navigationController?.setViewControllers([AuthorizationAssembly.createModule()], animated: true)
+			self?.view.tabBarController?.navigationController?.popViewController(animated: true)
+//			self?.view.navigationController?.setViewControllers([AuthorizationAssembly.createModule()], animated: true)
 		}
 	}
 }

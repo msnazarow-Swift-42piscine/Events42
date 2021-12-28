@@ -1,5 +1,5 @@
 //
-//  IntraAPIService+GetUser.swift
+//  IntraAPIService+GetMe.swift
 //  Events21
 //
 //  Created by out-nazarov2-ms on 09.10.2021.

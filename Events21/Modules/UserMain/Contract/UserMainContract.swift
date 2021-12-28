@@ -17,6 +17,7 @@ protocol PresenterToViewUserMainProtocol: AnyObject {
 	func setSurname(_ surname: String)
 	func setLevel(_ level: String)
 	func showAlert(title: String, message: String, completion: (() -> Void)?)
+	func showAlertQuestion(title: String, message: String, completion: (() -> Void)?)
 }
 
 extension PresenterToViewUserMainProtocol {
