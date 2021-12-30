@@ -75,6 +75,16 @@ class UserMainViewController: UIViewController {
 		return stackView
 	}()
 
+	lazy var tableView: UITableView = {
+		let tableView = UITableView(frame: CGRect(), style: .grouped)
+		tableView.translatesAutoresizingMaskIntoConstraints = false
+		tableView.register(UITableViewCell.self)
+		tableView.delegate = self
+		tableView.dataSource = presenter.dataSource
+		tableView.backgroundColor = .clear
+		return tableView
+	}()
+
 	lazy var logOutButton = UIBarButtonItem(image: UIImage(systemName: "arrow.right.square"), style: .done, target: self, action: #selector(logoutButtonTapped))
 
 	// MARK: - Init
@@ -98,11 +108,17 @@ class UserMainViewController: UIViewController {
     }
 
     private func addSubviews() {
+		view.addSubview(tableView)
 		view.addSubview(horizontalStackView)
     }
 
     private func setupConstraints() {
 		NSLayoutConstraint.activate([
+			tableView.leftAnchor.constraint(equalTo: tableView.superview!.leftAnchor),
+			tableView.rightAnchor.constraint(equalTo: tableView.superview!.rightAnchor),
+			tableView.topAnchor.constraint(equalTo: tableView.superview!.topAnchor),
+			tableView.bottomAnchor.constraint(equalTo: tableView.superview!.bottomAnchor),
+
 			horizontalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
 			horizontalStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
 			horizontalStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
@@ -162,4 +178,8 @@ extension UserMainViewController: PresenterToViewUserMainProtocol {
 		presenter.logoutButtonTapped()
 	}
 
+}
+
+extension UserMainViewController: UITableViewDelegate {
+	
 }

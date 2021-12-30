@@ -9,10 +9,18 @@
 import UIKit
 
 struct SearchUserCellModel: Identifiable {
-    var identifier: String = "SearchUserCellModel"
+    var identifier: String = "SearchUserCell"
+	let imageUrl: URL
+	let login: String
+	var pool: String?
+	let staff: Bool
 
-
-    init(_ property: SearchUserModel) {
-
+    init(_ property: UserShortModel) {
+		imageUrl = property.imageUrl
+		login = property.login
+		if let month = property.poolMonth, let year = property.poolYear {
+			pool = "Poll at \(month) \(year)"
+		}
+		staff = property.staff ?? false
     }
 }

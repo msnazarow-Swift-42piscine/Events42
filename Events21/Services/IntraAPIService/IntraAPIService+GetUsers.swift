@@ -8,7 +8,7 @@
 import Foundation
 
 extension IntraAPIService {
-	func getUsers(userId: Int?, eventId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
+	func getUsers(userId: Int?, eventId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[UserShortModel], IntraAPIError>) -> Void) {
 		urlComponents.path = ("/v2/users")
 		var queryItems: [URLQueryItem?] = [
 			eventId?.URLQueryItem(name: .eventId),
@@ -38,9 +38,8 @@ extension IntraAPIService {
 					completion(.failure(error))
 					return
 				}
-
-				let events = try JSONDecoder.intraIso8601Full.decode([EventUsersResponse].self, from: data)
-				completion(.success(events))
+				let user = try JSONDecoder.intraIso8601Full.decode([UserShortModel].self, from: data)
+				completion(.success(user))
 			} catch {
 				completion(.failure(IntraAPIError(error: "JSONDecoder error", errorDescription: error.localizedDescription)))
 			}

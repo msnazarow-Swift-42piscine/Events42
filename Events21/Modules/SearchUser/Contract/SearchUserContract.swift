@@ -11,7 +11,7 @@ import UIKit
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewSearchUserProtocol: AnyObject {
-
+	func tableViewReload()
 }
 
 
@@ -26,11 +26,11 @@ protocol ViewToPresenterSearchUserProtocol: AnyObject {
 
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorSearchUserProtocol: AnyObject {
-	func getUsers(userId: Int?, eventId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void)
+	func getUsers(userId: Int?, eventId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[UserShortModel], IntraAPIError>) -> Void)
 }
 
 extension PresenterToInteractorSearchUserProtocol {
-	func getUsers(filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
+	func getUsers(filter: [String : [String]], completion: @escaping (Result<[UserShortModel], IntraAPIError>) -> Void) {
 		getUsers(userId: nil, eventId: nil, sort: [], filter: filter, completion: completion)
 	}
 }

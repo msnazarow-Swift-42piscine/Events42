@@ -19,7 +19,7 @@ class AuthorizationRouter: PresenterToRouterAuthorizationProtocol {
         self.view = view
     }
 
-	func routeToUserScreen(me: MeResponse) {
+	func routeToUserScreen(me: UserFullModel) {
         DispatchQueue.main.async { [weak self] in
 			let tabView = UITabBarController()
 			let nav1 = UINavigationController(rootViewController: UserMainAssembly.createModule(me: me))

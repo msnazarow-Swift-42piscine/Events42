@@ -38,7 +38,7 @@ protocol PresenterToInteractorAuthorizationProtocol: AnyObject {
     func refreshToken(completion: @escaping (Result<String, IntraAPIError>) -> Void)
     func hasToken() -> Bool
     func tokenIsOutdated() -> Bool
-	func getMe(comletion: @escaping (Result<MeResponse, IntraAPIError>) -> Void)
+	func getMe(comletion: @escaping (Result<UserFullModel, IntraAPIError>) -> Void)
 	func removeToken()
 
 }
@@ -46,7 +46,7 @@ protocol PresenterToInteractorAuthorizationProtocol: AnyObject {
 // MARK: Presenter Output (Presenter -> Router)
 protocol PresenterToRouterAuthorizationProtocol: AnyObject {
 //	func routeToAuthScreen()
-	func routeToUserScreen(me: MeResponse)
+	func routeToUserScreen(me: UserFullModel)
 }
 
 // MARK: Presenter Output (Presenter -> DataSource)

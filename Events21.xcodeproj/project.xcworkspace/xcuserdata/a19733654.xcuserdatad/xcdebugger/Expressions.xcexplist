@@ -3,13 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "UserMainViewController.setupUI():UserMainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationController?.navigationItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UserViewController.setupNavigationController():UserViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "tabBarController?.selectedViewController?.navigationController">
             </PersistentString>
             <PersistentString
-               value = "navigationController">
+               value = "tabBarController">
             </PersistentString>
             <PersistentString
                value = "tabBarController?.navigationController">
@@ -18,15 +26,15 @@
                value = "navigationController?.navigationItem">
             </PersistentString>
             <PersistentString
-               value = "tabBarController">
+               value = "navigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UserMainViewController.setupUI():UserMainViewController.swift">
+         contextName = "closure #2 in IntraAPIService.getUsers(userId:eventId:sort:filter:completion:):IntraAPIService+GetUsers.swift">
          <PersistentStrings>
             <PersistentString
-               value = "navigationController?.navigationItem">
+               value = "String(data:data, encoding: .utf8)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -8,7 +8,7 @@
 import Foundation
 
 extension IntraAPIService {
-    func getMe(completion: @escaping (Result<MeResponse, IntraAPIError>) -> Void) {
+    func getMe(completion: @escaping (Result<UserFullModel, IntraAPIError>) -> Void) {
         urlComponents.path = "/v2/me"
 		print("\(request.httpMethod ?? "GET") \(request.url?.absoluteString ?? "")")
         URLSession.shared.dataTask(with: request){ data, _, error in
@@ -26,7 +26,7 @@ extension IntraAPIService {
                     completion(.failure(error))
                     return
                 }
-                let me = try JSONDecoder.intraIso8601Full.decode(MeResponse.self, from: data)
+                let me = try! JSONDecoder.intraIso8601Full.decode(UserFullModel.self, from: data)
                 self.me = me
                 completion(.success(me))
             } catch(let error) {

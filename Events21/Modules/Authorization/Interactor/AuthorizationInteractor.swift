@@ -36,7 +36,7 @@ class AuthorizationInteractor: PresenterToInteractorAuthorizationProtocol {
         intraAPIService.refreshToken(completion: completion)
     }
 
-	func getMe(comletion: @escaping (Result<MeResponse, IntraAPIError>) -> Void) {
+	func getMe(comletion: @escaping (Result<UserFullModel, IntraAPIError>) -> Void) {
 		intraAPIService.getMe(completion: comletion)
 	}
 

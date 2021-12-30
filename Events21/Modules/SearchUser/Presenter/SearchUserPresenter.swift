@@ -33,13 +33,19 @@ class SearchUserPresenter: ViewToPresenterSearchUserProtocol {
     }
 
 	func updateSearchResults(_ text: String?) {
-		guard let text = text, !text.isEmpty else {
+		guard let text = text?.lowercased(), !text.isEmpty else {
 			return
 		}
 		debounceTimer?.invalidate()
 		debounceTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] _ in
-			self?.interactor.getUsers(filter: ["login" : [text]]) { (result) in
-				
+			self?.interactor.getUsers(filter: ["login" : [text]]) { [weak self] (result) in
+				switch result {
+				case .success(let users):
+					self?.dataSource.updateForSections([SearchUserSection(users)])
+					self?.view?.tableViewReload()
+				case .failure(let error):
+					print(error)
+				}
 			}
 		}
 	}

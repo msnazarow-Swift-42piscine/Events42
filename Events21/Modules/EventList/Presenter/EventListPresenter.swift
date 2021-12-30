@@ -18,7 +18,7 @@ class EventListPresenter: ViewToPresenterUserProtocol {
     let dataSource:PresenterToDataSourceUserProtocol
 
     var events: [EventResponse]!
-    var me: MeResponse
+    var me: UserFullModel
 
     let formatter: RelativeDateTimeFormatter = {
         let formatter = RelativeDateTimeFormatter()
@@ -42,7 +42,7 @@ class EventListPresenter: ViewToPresenterUserProtocol {
 		interactor: PresenterToInteractorUserProtocol,
 		router: PresenterToRouterUserProtocol,
 		dataSource: PresenterToDataSourceUserProtocol,
-		me: MeResponse
+		me: UserFullModel
 	) {
         self.view = view
         self.interactor = interactor
@@ -52,7 +52,7 @@ class EventListPresenter: ViewToPresenterUserProtocol {
     }
 
     func viewDidLoad() {
-
+		refresh(filters: [:], sort: [])
     }
 
     func viewWillAppear(){
@@ -137,9 +137,9 @@ extension EventListPresenter: TableViewToFiltersDelegateProtocol {
             guard let sortName = sortName else { return nil }
             return self.predicates[sortName]
         }
-        loadEvents(campusIds: filters[.myCampus]! ? me.campus.map{ $0.id } : [],
-                   cursusIds: filters[.myCursus]! ? me.cursusUsers.map{ $0.cursusId } : [] ,
-                   userIds: filters[.didSubscribe]! ? [me.id] : [],
+        loadEvents(campusIds: (filters[.myCampus] ?? false) ? me.campus.map{ $0.id } : [],
+                   cursusIds: (filters[.myCursus] ?? false) ? me.cursusUsers.map{ $0.cursusId } : [] ,
+                   userIds: (filters[.didSubscribe] ?? false) ? [me.id] : [],
                    sort: [],
                    filter: interactorFilter,
                    sortedByPredicates: predicates)

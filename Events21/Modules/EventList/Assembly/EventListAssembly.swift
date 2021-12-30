@@ -11,7 +11,7 @@ import UIKit
 enum EventListAssembly{
     
     // MARK: Static methods
-	static func createModule(me: MeResponse) -> UIViewController {
+	static func createModule(me: UserFullModel) -> UIViewController {
 
         let viewController = EventListView()
         let router = EventListRouter(view: viewController)

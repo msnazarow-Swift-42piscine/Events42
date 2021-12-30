@@ -15,14 +15,14 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
     let interactor: PresenterToInteractorUserMainProtocol
     let router: PresenterToRouterUserMainProtocol
     let dataSource:PresenterToDataSourceUserMainProtocol
-	let me: MeResponse
+	let me: UserFullModel
 
     // MARK: Init
     init(
         interactor: PresenterToInteractorUserMainProtocol,
         router: PresenterToRouterUserMainProtocol,
         dataSource: PresenterToDataSourceUserMainProtocol,
-		me: MeResponse
+		me: UserFullModel
     ) {
         self.interactor = interactor
         self.router = router

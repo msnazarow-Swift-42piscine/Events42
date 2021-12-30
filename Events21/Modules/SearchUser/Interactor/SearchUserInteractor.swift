@@ -15,7 +15,7 @@ class SearchUserInteractor: PresenterToInteractorSearchUserProtocol {
 	init(intraAPIservice: IntraAPIServiceProtocol) {
 		self.intraAPIservice = intraAPIservice
 	}
-	func getUsers(userId: Int?, eventId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
+	func getUsers(userId: Int?, eventId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[UserShortModel], IntraAPIError>) -> Void) {
 		intraAPIservice.getUsers(userId: userId, eventId: eventId, sort: sort, filter: filter, completion: completion)
 	}
 }

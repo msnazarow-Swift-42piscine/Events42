@@ -36,7 +36,7 @@ protocol ViewToPresenterUserMainProtocol: AnyObject {
 
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorUserMainProtocol: AnyObject {
-	func getImage(for url: String, completion: @escaping (UIImage?) -> Void)
+	func getImage(for url: URL, completion: @escaping (UIImage?) -> Void)
 	func removeToken()
 }
 

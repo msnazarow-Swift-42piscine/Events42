@@ -11,10 +11,10 @@ import UIKit
 enum UserMainAssembly{
     
     // MARK: Static methods
-	static func createModule(me: MeResponse) -> UIViewController {
+	static func createModule(me: UserFullModel) -> UIViewController {
         let router = UserMainRouter()
 		let intraAPIService = IntraAPIService.shared
-		let imageCashingService = ImageCashingService()
+		let imageCashingService = ImageCashingService.shared
         let interactor = UserMainInteractor(
 			intraAPIService: intraAPIService,
 			imageCashingService: imageCashingService)

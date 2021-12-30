@@ -23,8 +23,8 @@ protocol FiltersStorageProtocol {
 }
 
 protocol ImageCashingServiceProtocol {
-	func getImage(for urlString: String, comletion: @escaping (UIImage?) -> Void)
-	func saveImage(for url: String, image: UIImage)
+	func getImage(for url: URL, comletion: @escaping (UIImage?) -> Void)
+	func saveImage(for url: URL, image: UIImage)
 }
 
 protocol IntraAPIServiceProtocol {
@@ -45,7 +45,7 @@ protocol IntraAPIServiceProtocol {
 		filter: [String : [String]],
 		completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void
 	)
-	func getMe(completion: @escaping (Result<MeResponse, IntraAPIError>) -> Void)
+	func getMe(completion: @escaping (Result<UserFullModel, IntraAPIError>) -> Void)
 	func getToken(completion: @escaping (Result<String, IntraAPIError>) -> Void)
 	func getUserCode(completion: @escaping (Result<String, IntraAPIError>) -> Void)
 	func removeCode()
@@ -53,7 +53,7 @@ protocol IntraAPIServiceProtocol {
 	func hasToken() -> Bool
 	func tokenIsOutdated() -> Bool
 	func refreshToken(completion: @escaping (Result<String, IntraAPIError>) -> Void)
-	func getUsers(userId: Int?, eventId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void)
+	func getUsers(userId: Int?, eventId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[UserShortModel], IntraAPIError>) -> Void)
 }
 /*TODO: Флоу Авторизация -> презентер -> интерактор -> сервис -> комплишн -> презентер получает ответ принимает решение
 валалидная пара логин пароль или нет ( вообще не понятно нужен ли пароль) -> если невалидна -> view показать алерт ->

@@ -11,5 +11,5 @@ struct EventRegisterResponse: Codable {
     let id: Int
     let userId: Int
     let event: EventResponse
-    let user: MeResponse
+    let user: UserFullModel
 }

@@ -21,7 +21,7 @@ class UserMainInteractor: PresenterToInteractorUserMainProtocol {
 		self.imageCashingService = imageCashingService
 	}
 
-	func getImage(for url: String, completion: @escaping (UIImage?) -> Void) {
+	func getImage(for url: URL, completion: @escaping (UIImage?) -> Void) {
 		imageCashingService.getImage(for: url, comletion: completion)
 	}
 
