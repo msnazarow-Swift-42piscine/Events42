@@ -17,8 +17,9 @@ extension IntraAPIService {
 			100.URLQueryItem(name: "page[size]")
 		] + filter.URLQueryItems(name: "filter")
 		urlComponents.queryItems = queryItems.compactMap{ $0 }
-
+		print("\(request.httpMethod ?? "GET") \(request.url?.absoluteString ?? "")")
 		URLSession.shared.dataTask(with: request) { data, response, error in
+
 			if let error = error {
 				completion(.failure(IntraAPIError(error: "URLSessionError", errorDescription: error.localizedDescription)))
 				return
@@ -27,17 +28,18 @@ extension IntraAPIService {
 				completion(.failure(IntraAPIError(error: "URLSessionError")))
 				return
 			}
+			print(data.jsonString ?? "")
 			if response.statusCode >= 400 {
 				completion(.failure(IntraAPIError(error: response.value(forHTTPHeaderField: "Status") ?? "HTTP Error", errorDescription: data.html2String, statusCode: response.statusCode)))
 				return
 			}
 			do {
-				if let error = try? self.decoder.decode(IntraAPIError.self, from: data) {
+				if let error = try? JSONDecoder.intraIso8601Full.decode(IntraAPIError.self, from: data) {
 					completion(.failure(error))
 					return
 				}
-                try print(JSONSerialization.jsonObject(with: data, options: []))
-				let events = try self.decoder.decode([EventUsersResponse].self, from: data)
+
+				let events = try JSONDecoder.intraIso8601Full.decode([EventUsersResponse].self, from: data)
 				completion(.success(events))
 			} catch {
 				completion(.failure(IntraAPIError(error: "JSONDecoder error", errorDescription: error.localizedDescription)))

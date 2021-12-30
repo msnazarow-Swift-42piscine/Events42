@@ -38,8 +38,6 @@ class SearchUserPresenter: ViewToPresenterSearchUserProtocol {
 		}
 		debounceTimer?.invalidate()
 		debounceTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] _ in
-//			self?.downloadNewData()
-			print("hello world")
 			self?.interactor.getUsers(filter: ["login" : [text]]) { (result) in
 				
 			}

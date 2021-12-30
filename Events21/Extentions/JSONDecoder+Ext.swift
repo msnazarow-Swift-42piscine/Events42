@@ -34,3 +34,19 @@ extension JSONDecoder {
         }
     }
 }
+
+extension JSONDecoder {
+	static let intraSecondsSince1970: JSONDecoder = {
+		let decoder = JSONDecoder()
+		decoder.dateDecodingStrategy = .secondsSince1970
+		decoder.keyDecodingStrategy = .convertFromSnakeCase
+		return decoder
+	}()
+
+	static let intraIso8601Full: JSONDecoder = {
+		let decoder = JSONDecoder()
+		decoder.keyDecodingStrategy = .convertFromSnakeCase
+		decoder.dateDecodingStrategyFormatters = [.iso8601Full]
+		return decoder
+	}()
+}

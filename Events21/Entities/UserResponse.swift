@@ -11,8 +11,12 @@ struct UserResponse: Codable {
     let id: Int
     let firstName: String
     let lastName: String
-    let url: String!
+    let url: URL?
     let login: String
     let createdAt: Date
     let email: String
+	let imageUrl: URL?
+	let poolMonth: String
+	let poolYear: Int
+	let staff: Bool
 }

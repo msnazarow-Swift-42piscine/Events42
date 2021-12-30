@@ -12,7 +12,7 @@ struct SearchUserCellModel: Identifiable {
     var identifier: String = "SearchUserCellModel"
 
 
-//    init(_ property: SearchUserModel) {
-//
-//    }
+    init(_ property: SearchUserModel) {
+
+    }
 }

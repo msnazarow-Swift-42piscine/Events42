@@ -15,13 +15,6 @@ class IntraAPIService: NSObject, IntraAPIServiceProtocol {
     var code = KeychainHelper.standard.read(service: .code, account: .intra42, type: String.self)
     var me: MeResponse!
 
-    let decoder: JSONDecoder = {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        decoder.dateDecodingStrategyFormatters = [.iso8601Full]
-        return decoder
-    }()
-
     var urlComponents: URLComponents = {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"

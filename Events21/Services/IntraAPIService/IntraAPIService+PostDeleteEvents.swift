@@ -16,6 +16,7 @@ extension IntraAPIService {
         ]
         var request = self.request
         request.httpMethod = "POST"
+		print("\(request.httpMethod ?? "GET") \(request.url?.absoluteString ?? "")")
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(IntraAPIError(error: "URLSessionError", errorDescription: error.localizedDescription)))
@@ -25,13 +26,13 @@ extension IntraAPIService {
                 completion(.failure(IntraAPIError(error: "URLSessionError")))
                 return
             }
+			print(data.jsonString ?? "")
             do {
-                if let error = try? self.decoder.decode(IntraAPIError.self, from: data) {
+                if let error = try? JSONDecoder.intraIso8601Full.decode(IntraAPIError.self, from: data) {
                     completion(.failure(error))
                     return
                 }
-//                try print(JSONSerialization.jsonObject(with: data, options: []))
-                let event = try self.decoder.decode(EventUsersResponse.self, from: data)
+                let event = try JSONDecoder.intraIso8601Full.decode(EventUsersResponse.self, from: data)
                 completion(.success(event))
             } catch {
                 completion(.failure(IntraAPIError(error: "JSONDecoder error", message: error.localizedDescription)))
@@ -43,6 +44,7 @@ extension IntraAPIService {
         urlComponents.path = "/v2/events_users/\(eventUserId)"
         var request = self.request
         request.httpMethod = "DELETE"
+		print("\(request.httpMethod ?? "GET") \(request.url?.absoluteString ?? "")")
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(IntraAPIError(error: "URLSessionError", errorDescription: error.localizedDescription)))
@@ -52,8 +54,9 @@ extension IntraAPIService {
                 completion(.failure(IntraAPIError(error: "URLSessionError")))
                 return
             }
+			print(data.jsonString ?? "")
             do {
-                if let error = try? self.decoder.decode(IntraAPIError.self, from: data) {
+                if let error = try? JSONDecoder.intraIso8601Full.decode(IntraAPIError.self, from: data) {
                     completion(.failure(error))
                     return
                 }

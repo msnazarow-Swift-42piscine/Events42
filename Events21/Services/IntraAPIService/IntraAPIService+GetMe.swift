@@ -10,6 +10,7 @@ import Foundation
 extension IntraAPIService {
     func getMe(completion: @escaping (Result<MeResponse, IntraAPIError>) -> Void) {
         urlComponents.path = "/v2/me"
+		print("\(request.httpMethod ?? "GET") \(request.url?.absoluteString ?? "")")
         URLSession.shared.dataTask(with: request){ data, _, error in
 			if let error = error {
 				completion(.failure(IntraAPIError(error: "Error", errorDescription: error.localizedDescription)))
@@ -19,13 +20,13 @@ extension IntraAPIService {
 				completion(.failure(IntraAPIError(error: "Error", errorDescription: "Unknown Error")))
 				return
 			}
+			print(data.jsonString ?? "")
             do {
-                if let error = try? self.decoder.decode(IntraAPIError.self, from: data) {
+				if let error = try? JSONDecoder.intraIso8601Full.decode(IntraAPIError.self, from: data) {
                     completion(.failure(error))
                     return
                 }
-//                try print(JSONSerialization.jsonObject(with: data, options: []))
-                let me = try self.decoder.decode(MeResponse.self, from: data)
+                let me = try JSONDecoder.intraIso8601Full.decode(MeResponse.self, from: data)
                 self.me = me
                 completion(.success(me))
             } catch(let error) {

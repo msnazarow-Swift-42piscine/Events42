@@ -20,6 +20,7 @@ extension IntraAPIService {
         ]
         var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = "POST"
+		print("\(request.httpMethod ?? "GET") \(request.url?.absoluteString ?? "")")
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(IntraAPIError(error: "URLSessionError", errorDescription: error.localizedDescription)))
@@ -29,15 +30,13 @@ extension IntraAPIService {
                 completion(.failure(IntraAPIError(error: "URLSessionError")))
                 return
             }
+			print(data.jsonString ?? "")
             do {
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .secondsSince1970
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                if let error = try? decoder.decode(IntraAPIError.self, from: data) {
+				if let error = try? JSONDecoder.intraSecondsSince1970.decode(IntraAPIError.self, from: data) {
                     completion(.failure(error))
                     return
                 }
-                let tokenResponse = try decoder.decode(TokenResponse.self, from: data)
+                let tokenResponse = try JSONDecoder.intraSecondsSince1970.decode(TokenResponse.self, from: data)
                 self.token = tokenResponse
                 KeychainHelper.standard.save(tokenResponse, service: "token", account: "intra42")
                 completion(.success(tokenResponse.accessToken))
@@ -55,6 +54,7 @@ extension IntraAPIService {
             URLQueryItem(name: "redirect_uri", value: redirecdedUrl),
             URLQueryItem(name: "response_type", value: "code")
         ]
+		print("\(request.httpMethod ?? "GET") \(request.url?.absoluteString ?? "")")
         let session = ASWebAuthenticationSession(url: urlComponents.url!, callbackURLScheme: "events21%3A%2F%2Fevents21") { url, error in
             if let error = error {
                 completion(.failure(IntraAPIError(error: "Authentification Error", errorDescription: error.localizedDescription)))
@@ -161,6 +161,7 @@ extension IntraAPIService {
         ]
         var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = "POST"
+		print("\(request.httpMethod ?? "GET") \(request.url?.absoluteString ?? "")")
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(IntraAPIError(error: "URLSessionError", errorDescription: error.localizedDescription)))
@@ -170,22 +171,17 @@ extension IntraAPIService {
                 completion(.failure(IntraAPIError(error: "URLSessionError")))
                 return
             }
+			print(data.jsonString ?? "")
             do {
-                let decoder: JSONDecoder = {
-                    let decoder = JSONDecoder()
-                    decoder.dateDecodingStrategy = .secondsSince1970
-                    decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    return decoder
-                }()
-                if let error = try? decoder.decode(IntraAPIError.self, from: data) {
+                if let error = try? JSONDecoder.intraSecondsSince1970.decode(IntraAPIError.self, from: data) {
                     completion(.failure(error))
                     return
                 }
-                let token = try decoder.decode(TokenResponse.self, from: data)
+                let token = try JSONDecoder.intraSecondsSince1970.decode(TokenResponse.self, from: data)
                 self.token = token
                 KeychainHelper.standard.save(token, service: .token, account: .intra42)
                 completion(.success(token.accessToken))
-            } catch  {
+            } catch {
                 completion(.failure(IntraAPIError(error: "JSONDecoderError", errorDescription: error.localizedDescription)))
             }
         }.resume()
