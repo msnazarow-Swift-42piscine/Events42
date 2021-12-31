@@ -7,25 +7,6 @@
 
 import UIKit
 
-struct FilterModel {
-    let name: String
-    let value: Bool
-}
-
-struct FilterCellModel: Identifiable {
-
-    var identifier: String { return "FilterCell" }
-
-    let name: String
-    let value: Bool
-
-    init(_ property: FilterModel) {
-        name = property.name
-        value = property.value
-    }
-}
-
-
 class FilterCell: CellIdentifiable {
     let gap: CGFloat = 10
 
@@ -35,7 +16,7 @@ class FilterCell: CellIdentifiable {
         return label
     }()
 
-    let switcher: UISwitch = {
+    lazy var switcher: UISwitch = {
         let switcher = UISwitch()
         switcher.translatesAutoresizingMaskIntoConstraints = false
         switcher.addTarget(self, action: #selector(switcherDidChanged), for: .valueChanged)
@@ -58,7 +39,6 @@ class FilterCell: CellIdentifiable {
             stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: gap),
             stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -gap)
         ])
-        switcher.addTarget(self, action: #selector(switcherDidChanged), for: .valueChanged)
     }
 
     required init?(coder: NSCoder) {

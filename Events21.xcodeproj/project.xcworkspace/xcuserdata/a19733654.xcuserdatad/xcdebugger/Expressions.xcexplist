@@ -3,6 +3,36 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "UserMainPresenter.viewDidLoad():UserMainPresenter.swift">
+      </ContextState>
+      <ContextState
+         contextName = "EventListPresenter.refresh(filters:sort:):EventListPresenter.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in IntraAPIService.getUsers(userId:eventId:sort:filter:completion:):IntraAPIService+GetUsers.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "String(data:data, encoding: .utf8)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserViewController.viewWillAppear(_:):UserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tabBarController?.navigationItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EventListFiltersPresenter.switcherDidChanged(_:):EventListFiltersPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "filters[title]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UserMainViewController.setupUI():UserMainViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -17,7 +47,7 @@
                value = "tabBarController?.selectedViewController?.navigationController">
             </PersistentString>
             <PersistentString
-               value = "tabBarController">
+               value = "navigationController">
             </PersistentString>
             <PersistentString
                value = "tabBarController?.navigationController">
@@ -26,26 +56,7 @@
                value = "navigationController?.navigationItem">
             </PersistentString>
             <PersistentString
-               value = "navigationController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #2 in IntraAPIService.getUsers(userId:eventId:sort:filter:completion:):IntraAPIService+GetUsers.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "String(data:data, encoding: .utf8)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "UserMainPresenter.viewDidLoad():UserMainPresenter.swift">
-      </ContextState>
-      <ContextState
-         contextName = "UserViewController.viewWillAppear(_:):UserViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "tabBarController?.navigationItem">
+               value = "tabBarController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

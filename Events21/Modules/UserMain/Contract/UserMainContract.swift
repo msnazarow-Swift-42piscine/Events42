@@ -11,11 +11,11 @@ import UIKit
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewUserMainProtocol: AnyObject {
-	func setProfileImageView(image: UIImage)
-	func setLogin(_ login: String)
-	func setName(_ name: String)
-	func setSurname(_ surname: String)
-	func setLevel(_ level: String)
+//	func setProfileImageView(image: UIImage)
+//	func setLogin(_ login: String)
+//	func setName(_ name: String)
+//	func setSurname(_ surname: String)
+//	func setLevel(_ level: String)
 	func showAlert(title: String, message: String, completion: (() -> Void)?)
 	func showAlertQuestion(title: String, message: String, completion: (() -> Void)?)
 }

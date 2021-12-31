@@ -9,9 +9,7 @@
 import Foundation
 
 struct EventDetailCellModel: Identifiable {
-
-    var identifier: String { return "EventDetailCell" }
-    
+    let identifier = "EventDetailCell"
     let name: String
     let description: String?
     let maxPeople: Int?

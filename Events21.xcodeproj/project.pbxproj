@@ -77,9 +77,12 @@
 		EAAEC42527009E4700AFD1FC /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40227009E4700AFD1FC /* EventDetailCell.swift */; };
 		EAAEC42627009E4700AFD1FC /* CellIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40327009E4700AFD1FC /* CellIdentifiable.swift */; };
 		EAAEC42727009E4700AFD1FC /* EventDetailSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40527009E4700AFD1FC /* EventDetailSectionModel.swift */; };
-		EAAEC42827009E4700AFD1FC /* TableViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40627009E4700AFD1FC /* TableViewContract.swift */; };
 		EAAEC42927009E4700AFD1FC /* ModelRepresentableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEC40727009E4700AFD1FC /* ModelRepresentableProtocol.swift */; };
 		F61A8BE0277A7F44003169CF /* UIimage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61A8BDF277A7F44003169CF /* UIimage+Ext.swift */; };
+		F67523E6277F0AB200CCBAC6 /* FilterCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67523E5277F0AB200CCBAC6 /* FilterCellModel.swift */; };
+		F67523E9277F0AD300CCBAC6 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67523E8277F0AD300CCBAC6 /* FilterModel.swift */; };
+		F67523ED277F0B8700CCBAC6 /* SortCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67523EC277F0B8700CCBAC6 /* SortCell.swift */; };
+		F67523EF277F0C8B00CCBAC6 /* SortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67523EE277F0C8B00CCBAC6 /* SortModel.swift */; };
 		F69F58E1277A96D300FF0B67 /* SearchUserContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69F58CF277A96D300FF0B67 /* SearchUserContract.swift */; };
 		F69F58E2277A96D300FF0B67 /* SearchUserAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69F58D1277A96D300FF0B67 /* SearchUserAssembly.swift */; };
 		F69F58E3277A96D300FF0B67 /* SearchUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69F58D3277A96D300FF0B67 /* SearchUserPresenter.swift */; };
@@ -185,9 +188,12 @@
 		EAAEC40227009E4700AFD1FC /* EventDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailCell.swift; sourceTree = "<group>"; };
 		EAAEC40327009E4700AFD1FC /* CellIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellIdentifiable.swift; sourceTree = "<group>"; };
 		EAAEC40527009E4700AFD1FC /* EventDetailSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailSectionModel.swift; sourceTree = "<group>"; };
-		EAAEC40627009E4700AFD1FC /* TableViewContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewContract.swift; sourceTree = "<group>"; };
 		EAAEC40727009E4700AFD1FC /* ModelRepresentableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelRepresentableProtocol.swift; sourceTree = "<group>"; };
 		F61A8BDF277A7F44003169CF /* UIimage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimage+Ext.swift"; sourceTree = "<group>"; };
+		F67523E5277F0AB200CCBAC6 /* FilterCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCellModel.swift; sourceTree = "<group>"; };
+		F67523E8277F0AD300CCBAC6 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
+		F67523EC277F0B8700CCBAC6 /* SortCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCell.swift; sourceTree = "<group>"; };
+		F67523EE277F0C8B00CCBAC6 /* SortModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModel.swift; sourceTree = "<group>"; };
 		F69F58CF277A96D300FF0B67 /* SearchUserContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserContract.swift; sourceTree = "<group>"; };
 		F69F58D1277A96D300FF0B67 /* SearchUserAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserAssembly.swift; sourceTree = "<group>"; };
 		F69F58D3277A96D300FF0B67 /* SearchUserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserPresenter.swift; sourceTree = "<group>"; };
@@ -280,6 +286,8 @@
 		3E5352F9271269B000FD0B4C /* Filters */ = {
 			isa = PBXGroup;
 			children = (
+				F67523F0277F0C9800CCBAC6 /* Components */,
+				F67523EA277F0B4900CCBAC6 /* Entites */,
 				3E5352FA271269B000FD0B4C /* Contract */,
 				3E5352FC271269B000FD0B4C /* Assembly */,
 				3E5352FE271269B000FD0B4C /* Presenter */,
@@ -355,6 +363,7 @@
 		EAAEC3C927009E4700AFD1FC /* EventList */ = {
 			isa = PBXGroup;
 			children = (
+				F67523F2277F0CC000CCBAC6 /* Components */,
 				EAAEC3CA27009E4700AFD1FC /* Contract */,
 				EAAEC3CC27009E4700AFD1FC /* Assembly */,
 				EAAEC3CE27009E4700AFD1FC /* Presenter */,
@@ -597,7 +606,6 @@
 			isa = PBXGroup;
 			children = (
 				EAAEC3FF27009E4700AFD1FC /* UITableViewComponents */,
-				EAAEC40727009E4700AFD1FC /* ModelRepresentableProtocol.swift */,
 				3E2E081A271738B300E6B40F /* ToolbarPickerView.swift */,
 			);
 			path = Components;
@@ -606,34 +614,83 @@
 		EAAEC3FF27009E4700AFD1FC /* UITableViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				EAAEC40727009E4700AFD1FC /* ModelRepresentableProtocol.swift */,
 				F6D164E32779E1EA00138291 /* TableViewSectionProtocol.swift */,
-				EAAEC40027009E4700AFD1FC /* Cells */,
-				EAAEC40427009E4700AFD1FC /* Sections */,
-				EAAEC40627009E4700AFD1FC /* TableViewContract.swift */,
+				EAAEC40327009E4700AFD1FC /* CellIdentifiable.swift */,
 			);
 			path = UITableViewComponents;
 			sourceTree = "<group>";
 		};
-		EAAEC40027009E4700AFD1FC /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				EAAEC40127009E4700AFD1FC /* EventDetailCellModel.swift */,
-				EAAEC40227009E4700AFD1FC /* EventDetailCell.swift */,
-				3E53530E271273BE00FD0B4C /* FilterCell.swift */,
-				EAAEC40327009E4700AFD1FC /* CellIdentifiable.swift */,
-				3E2E081327170AF700E6B40F /* SortCellModel.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		EAAEC40427009E4700AFD1FC /* Sections */ = {
+		F67523E4277F0A6100CCBAC6 /* EventListCell */ = {
 			isa = PBXGroup;
 			children = (
 				EAAEC40527009E4700AFD1FC /* EventDetailSectionModel.swift */,
-				3E53531027127D0500FD0B4C /* FilterSectionModel.swift */,
-				3E2E081727171D4C00E6B40F /* SortSectionModel.swift */,
+				EAAEC40127009E4700AFD1FC /* EventDetailCellModel.swift */,
+				EAAEC40227009E4700AFD1FC /* EventDetailCell.swift */,
 			);
-			path = Sections;
+			path = EventListCell;
+			sourceTree = "<group>";
+		};
+		F67523E7277F0AC100CCBAC6 /* FilterCell */ = {
+			isa = PBXGroup;
+			children = (
+				3E53531027127D0500FD0B4C /* FilterSectionModel.swift */,
+				F67523E5277F0AB200CCBAC6 /* FilterCellModel.swift */,
+				3E53530E271273BE00FD0B4C /* FilterCell.swift */,
+			);
+			path = FilterCell;
+			sourceTree = "<group>";
+		};
+		F67523EA277F0B4900CCBAC6 /* Entites */ = {
+			isa = PBXGroup;
+			children = (
+				F67523E8277F0AD300CCBAC6 /* FilterModel.swift */,
+				F67523EE277F0C8B00CCBAC6 /* SortModel.swift */,
+			);
+			path = Entites;
+			sourceTree = "<group>";
+		};
+		F67523EB277F0B7B00CCBAC6 /* SortCell */ = {
+			isa = PBXGroup;
+			children = (
+				3E2E081727171D4C00E6B40F /* SortSectionModel.swift */,
+				3E2E081327170AF700E6B40F /* SortCellModel.swift */,
+				F67523EC277F0B8700CCBAC6 /* SortCell.swift */,
+			);
+			path = SortCell;
+			sourceTree = "<group>";
+		};
+		F67523F0277F0C9800CCBAC6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F67523F1277F0CA500CCBAC6 /* UITableViewComponents */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F67523F1277F0CA500CCBAC6 /* UITableViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				F67523E7277F0AC100CCBAC6 /* FilterCell */,
+				F67523EB277F0B7B00CCBAC6 /* SortCell */,
+			);
+			path = UITableViewComponents;
+			sourceTree = "<group>";
+		};
+		F67523F2277F0CC000CCBAC6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F67523F3277F0CC500CCBAC6 /* UITableViewComponents */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F67523F3277F0CC500CCBAC6 /* UITableViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				F67523E4277F0A6100CCBAC6 /* EventListCell */,
+			);
+			path = UITableViewComponents;
 			sourceTree = "<group>";
 		};
 		F69F58CD277A96D300FF0B67 /* SearchUser */ = {
@@ -932,6 +989,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAAEC42927009E4700AFD1FC /* ModelRepresentableProtocol.swift in Sources */,
+				F67523ED277F0B8700CCBAC6 /* SortCell.swift in Sources */,
 				3E2E081B271738B300E6B40F /* ToolbarPickerView.swift in Sources */,
 				F69F58E7277A96D300FF0B67 /* SearchUserCellModel.swift in Sources */,
 				EAAEC42027009E4700AFD1FC /* Date+Ext.swift in Sources */,
@@ -957,6 +1015,7 @@
 				EAAEC42627009E4700AFD1FC /* CellIdentifiable.swift in Sources */,
 				F6D164DF2779E0D400138291 /* UserMainViewController.swift in Sources */,
 				F6D164E42779E1EA00138291 /* TableViewSectionProtocol.swift in Sources */,
+				F67523EF277F0C8B00CCBAC6 /* SortModel.swift in Sources */,
 				3E535307271269B000FD0B4C /* EventListFiltersContract.swift in Sources */,
 				F6F02C54277E103300157AEF /* SubtitleIconModel.swift in Sources */,
 				EAAEC40C27009E4700AFD1FC /* EventListView.swift in Sources */,
@@ -980,11 +1039,11 @@
 				EAAEC41B27009E4700AFD1FC /* EventDetailInteractor.swift in Sources */,
 				3E5352EC2711CB2E00FD0B4C /* IntraAPIService+GetEvents.swift in Sources */,
 				F6D164E02779E0D400138291 /* UserMainInteractor.swift in Sources */,
+				F67523E6277F0AB200CCBAC6 /* FilterCellModel.swift in Sources */,
 				3E25B209270E91C7003F3C37 /* IntraAPIError.swift in Sources */,
 				EAAEC42727009E4700AFD1FC /* EventDetailSectionModel.swift in Sources */,
 				3EB5CF6E2700D89F0011E88C /* UserFullModel.swift in Sources */,
 				3E5352F02711D23800FD0B4C /* EventUsersResponse.swift in Sources */,
-				EAAEC42827009E4700AFD1FC /* TableViewContract.swift in Sources */,
 				EAAEC41927009E4700AFD1FC /* EventDetailDataSource.swift in Sources */,
 				EAAEC40927009E4700AFD1FC /* EventListAssembly.swift in Sources */,
 				EAAEC41C27009E4700AFD1FC /* EventDetailRouter.swift in Sources */,
@@ -1001,6 +1060,7 @@
 				F6F02C4F277E0EF200157AEF /* TasksSubtitleIconSection.swift in Sources */,
 				3E53530A271269B000FD0B4C /* EventListFiltersPresenter.swift in Sources */,
 				3E43911D270094F400C8AC03 /* AppDelegate.swift in Sources */,
+				F67523E9277F0AD300CCBAC6 /* FilterModel.swift in Sources */,
 				3E53530D271269B000FD0B4C /* EventListFiltersRouter.swift in Sources */,
 				EAAEC41027009E4700AFD1FC /* AuthorizationAssembly.swift in Sources */,
 				F6D164DA2779E0D400138291 /* UserMainPresenterDataSource.swift in Sources */,

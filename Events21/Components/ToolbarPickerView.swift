@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol ToolbarPickerViewDelegate: class {
+protocol ToolbarPickerViewDelegate: AnyObject {
     func didTapDone()
     func didTapCancel()
 }

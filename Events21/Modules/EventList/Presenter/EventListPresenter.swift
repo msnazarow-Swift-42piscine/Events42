@@ -52,7 +52,7 @@ class EventListPresenter: ViewToPresenterUserProtocol {
     }
 
     func viewDidLoad() {
-		refresh(filters: [:], sort: [])
+		refresh(filters: interactor.loadFilters() ?? [:], sort: [])
     }
 
     func viewWillAppear(){

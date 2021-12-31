@@ -35,17 +35,17 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
     }
 
 	private func updateView() {
-		view.setName(me.firstName)
-		view.setSurname(me.lastName)
-		view.setLogin(me.login)
+//		view.setName(me.firstName)
+//		view.setSurname(me.lastName)
+//		view.setLogin(me.login)
 		var levels = ""
 		me.cursusUsers.forEach{ cursus in
 			levels.append("\(cursus.cursus.name) \(cursus.level)\n")
 		}
-		view.setLevel("\(levels)")
+//		view.setLevel("\(levels)")
 		interactor.getImage(for: me.imageUrl) { [weak self] image in
 			guard let image = image else { return }
-			self?.view.setProfileImageView(image: image)
+//			self?.view.setProfileImageView(image: image)
 		}
 //		comletion()
 	}
