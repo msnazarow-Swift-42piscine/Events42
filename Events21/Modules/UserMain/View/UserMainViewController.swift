@@ -16,28 +16,14 @@ class UserMainViewController: UIViewController {
 	// MARK: - Views
 
 
-//	lazy var verticalStackView: UIStackView = {
-//		let stackView = UIStackView(arrangedSubviews: [loginLabel, nameLabel, surnameLabel, levelTextView])
-//		stackView.translatesAutoresizingMaskIntoConstraints = false
-//		stackView.spacing = 8
-//		stackView.axis = .vertical
-//		return stackView
-//	}()
-//
-//	lazy var horizontalStackView: UIStackView = {
-//		let stackView = UIStackView(arrangedSubviews: [profileImageView, verticalStackView])
-//		stackView.translatesAutoresizingMaskIntoConstraints = false
-//		stackView.axis = .horizontal
-//		stackView.distribution = .fill
-//		stackView.spacing = 10
-//		return stackView
-//	}()
+
 
 	lazy var tableView: UITableView = {
 		let tableView = UITableView(frame: CGRect(), style: .grouped)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
-		tableView.register(UITableViewCell.self)
-		tableView.delegate = self
+		tableView.register(UserHeader.self)
+		tableView.register(TasksSubtitleIconCell.self)
+		tableView.delegate = presenter.dataSource
 		tableView.dataSource = presenter.dataSource
 		tableView.backgroundColor = .clear
 		return tableView
@@ -71,15 +57,12 @@ class UserMainViewController: UIViewController {
     }
 
     private func setupConstraints() {
+//		UIPicker
 		NSLayoutConstraint.activate([
 			tableView.leftAnchor.constraint(equalTo: tableView.superview!.leftAnchor),
 			tableView.rightAnchor.constraint(equalTo: tableView.superview!.rightAnchor),
 			tableView.topAnchor.constraint(equalTo: tableView.superview!.topAnchor),
 			tableView.bottomAnchor.constraint(equalTo: tableView.superview!.bottomAnchor),
-
-//			horizontalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//			horizontalStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-//			horizontalStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
 		])
     }
 }
@@ -132,6 +115,10 @@ extension UserMainViewController: PresenterToViewUserMainProtocol {
 		}
 	}
 
+	func tableViewReload() {
+		tableView.reloadData()
+	}
+
 	@objc func logoutButtonTapped() {
 		presenter.logoutButtonTapped()
 	}
@@ -139,5 +126,5 @@ extension UserMainViewController: PresenterToViewUserMainProtocol {
 }
 
 extension UserMainViewController: UITableViewDelegate {
-	
+
 }

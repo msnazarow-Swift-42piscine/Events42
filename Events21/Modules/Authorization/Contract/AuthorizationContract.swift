@@ -27,6 +27,7 @@ extension PresenterToViewAuthorizationProtocol {
 protocol ViewToPresenterAuthorizationProtocol: AnyObject, WKNavigationDelegate {
     var dataSource:PresenterToDataSourceAuthorizationProtocol { get }
     func viewDidLoad()
+	func viewWillAppear()
     func buttonDidTapped()
 }
 
@@ -51,7 +52,7 @@ protocol PresenterToRouterAuthorizationProtocol: AnyObject {
 
 // MARK: Presenter Output (Presenter -> DataSource)
 protocol PresenterToDataSourceAuthorizationProtocol: UITableViewDataSource {
-    func updateForSections(_ sections: [EventDetailSectionModel])
+    func updateForSections(_ sections: [EventListSection])
 }
 
 // MARK: Cell Input (Cell -> Presenter)

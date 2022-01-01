@@ -1,5 +1,5 @@
 //
-//  EventDetailCell.swift
+//  EventListCell.swift
 //  Intra21
 //
 //  Created by out-nazarov2-ms on 26.09.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EventDetailCell: CellIdentifiable {
+class EventListCell: CellIdentifiable {
     // MARK: - Views
     let eventTitleLabel: UILabel = {
         let label = UILabel()
@@ -89,7 +89,7 @@ class EventDetailCell: CellIdentifiable {
 	}
 
     override func updateViews() {
-        guard let model = model as? EventDetailCellModel else { return }
+        guard let model = model as? EventListCellModel else { return }
         nameLabel.text = model.name
         eventTitleLabel.text = model.kind
         dateEventLabel.text = model.beginAt.dateSlashString

@@ -32,6 +32,15 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
 
     func viewDidLoad(){
 		updateView()
+		dataSource.updateForHeader([UserHeaderModel(me)])
+		dataSource.updateForSections([
+			TasksSubtitleIconSection([
+				SubtitleIconModel(title: "Skills", subTitle: "", icon: "chevron.right"),
+				SubtitleIconModel(title: "Projects", subTitle: "", icon: "chevron.right"),
+				SubtitleIconModel(title: "Achievements", subTitle: "", icon: "chevron.right"),
+			])
+		])
+		view.tableViewReload()
     }
 
 	private func updateView() {

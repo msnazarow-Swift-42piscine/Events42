@@ -18,7 +18,7 @@ enum UserMainAssembly{
         let interactor = UserMainInteractor(
 			intraAPIService: intraAPIService,
 			imageCashingService: imageCashingService)
-        let dataSource = UserMainPresenterDataSource()
+        let dataSource = UserMainDataSource()
         let presenter = UserMainPresenter(
             interactor: interactor,
             router: router,

@@ -22,7 +22,7 @@ class EventListView: UIViewController {
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.dataSource = presenter?.dataSource
 		tableView.delegate = self
-		tableView.register(EventDetailCell.self, forCellReuseIdentifier: String(describing: EventDetailCell.self))
+		tableView.register(EventListCell.self, forCellReuseIdentifier: String(describing: EventListCell.self))
 		return tableView
 	}()
 

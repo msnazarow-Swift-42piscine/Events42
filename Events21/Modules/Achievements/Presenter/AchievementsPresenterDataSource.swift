@@ -1,21 +1,21 @@
 //
-//  AuthorizationPresenterDataSource.swift
-//  Intra21
+//  AchievementsPresenterDataSource.swift
+//  Events21
 //
-//  Created by out-nazarov2-ms on 25.09.2021.
+//  Created by 19733654 on 01.01.2022.
 //  
 //
 
 import UIKit
 
-class AuthorizationPresenterDataSource: NSObject, PresenterToDataSourceAuthorizationProtocol {
+class AchievementsPresenterDataSource: NSObject, PresenterToDataSourceAchievementsProtocol {
 
     // MARK: Properties
-    weak var presenter: CellToPresenterAuthorizationProtocol!
+    weak var presenter: CellToPresenterAchievementsProtocol?
 
-    private var sections: [EventDetailSectionModel] = []
+    private var sections: [TableViewSectionProtocol] = []
 
-    func updateForSections(_ sections: [EventDetailSectionModel]) {
+    func updateForSections(_ sections: [TableViewSectionProtocol]) {
         self.sections = sections
     }
 
@@ -32,7 +32,7 @@ class AuthorizationPresenterDataSource: NSObject, PresenterToDataSourceAuthoriza
         guard let cell = tableView.dequeueReusableCell(withIdentifier: model.identifier, for: indexPath) as? CellIdentifiable else {
             return UITableViewCell()
         }
-//        cell.presenter = presenter
+        cell.presenter = presenter
         cell.model = model
         return cell
     }

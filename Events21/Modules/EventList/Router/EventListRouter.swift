@@ -11,7 +11,7 @@ import UIKit
 class EventListRouter: PresenterToRouterUserProtocol {
 
     // MARK: - Properties
-    weak var view: UIViewController!
+    weak var view: UIViewController?
 
     // MARK: - Init
     init(view: UIViewController) {
@@ -20,19 +20,20 @@ class EventListRouter: PresenterToRouterUserProtocol {
 
     func routeToEventScreen(with model: EventResponse, userId: Int) {
         DispatchQueue.main.async {
-            self.view.navigationController?.pushViewController(EventDetailAssembly.createModule(with: model, userId: userId), animated: true)
+            self.view?.navigationController?.pushViewController(EventDetailAssembly.createModule(with: model, userId: userId), animated: true)
         }
     }
 
     func routeToAuthScreen(){
         DispatchQueue.main.async {
-            self.view.navigationController?.setViewControllers([AuthorizationAssembly.createModule()], animated: true)
+			self.view?.tabBarController?.navigationController?.popViewController(animated: true)
+//            self.view.navigationController?.setViewControllers([AuthorizationAssembly.createModule()], animated: true)
         }
     }
 
     func presentFilterScreen(delegate: TableViewToFiltersDelegateProtocol) {
         DispatchQueue.main.async {
-			self.view.navigationController?.pushViewController(EventListFiltersAssembly.createModule(delegate: delegate), animated: true)
+			self.view?.navigationController?.pushViewController(EventListFiltersAssembly.createModule(delegate: delegate), animated: true)
         }
     }
 }

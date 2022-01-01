@@ -79,7 +79,7 @@ extension EventListFiltersPresenter: CellToPresenterFiltersProtocol {
         let numberToRemove = sort.count - editingNubmer - 1
         let isLast = editingNubmer == sort.count - 1
         if !text.isEmpty {
-            if isLast{
+			if isLast {
                 sort.append(.none)
             }
         } else if numberToRemove > 0 {

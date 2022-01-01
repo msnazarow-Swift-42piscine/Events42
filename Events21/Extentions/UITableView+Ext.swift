@@ -8,7 +8,11 @@
 import UIKit
 
 extension UITableView {
-	func register(_ cellClass: UITableViewCell.Type){
-        register(cellClass, forCellReuseIdentifier: String(describing: cellClass.self))
-    }
+	func register(_ cellClass: UITableViewCell.Type) {
+		register(cellClass, forCellReuseIdentifier: String(describing: cellClass.self))
+	}
+
+	func register(_ headerClass: UITableViewHeaderFooterView.Type) {
+		register(headerClass, forHeaderFooterViewReuseIdentifier: String(describing: headerClass.self))
+	}
 }

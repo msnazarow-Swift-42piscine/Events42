@@ -44,8 +44,12 @@ class AuthorizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        presenter?.viewDidLoad()
+        presenter.viewDidLoad()
     }
+
+	override func viewWillAppear(_ animated: Bool) {
+		presenter.viewWillAppear()
+	}
 
     private func setupUI() {
 		navigationController?.navigationBar.isHidden = true

@@ -24,9 +24,17 @@ final class TasksSubtitleIconCell: CellIdentifiable {
         let label = UILabel()
 //        label.attributedFont = .subtitle1
         label.numberOfLines = 0
-		label.textColor = .lightGray
+		label.textColor = .white
+//		label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+
+	let valueField: UILabel = {
+		let label = UILabel()
+		label.textColor = .lightGray
+		label.numberOfLines = 0
+		return label
+	}()
 
     private lazy var vStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [nameField, valueField])
@@ -36,28 +44,24 @@ final class TasksSubtitleIconCell: CellIdentifiable {
 
     private lazy var hStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [vStack, iconView])
+		stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         return stack
     }()
 
     private lazy var iconView: UIView = {
         let view = UIView()
+		view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
     let icon: UIImageView = {
         let image = UIImageView()
-		image.tintColor = .green
+		image.tintColor = .white
         image.contentMode = .scaleAspectFit
         image.contentScaleFactor = 1
+		image.translatesAutoresizingMaskIntoConstraints = false
         return image
-    }()
-
-    let valueField: UILabel = {
-        let label = UILabel()
-        label.textColor = .lightGray
-        label.numberOfLines = 0
-        return label
     }()
 
     // MARK: - Init
@@ -69,8 +73,11 @@ final class TasksSubtitleIconCell: CellIdentifiable {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     // MARK: - SetupUI
     func setupUI() {
+		selectionStyle = .none
+		backgroundColor = .clear
         addSubviews()
         setupConstraints()
     }
@@ -89,9 +96,9 @@ final class TasksSubtitleIconCell: CellIdentifiable {
 			icon.centerYAnchor.constraint(equalTo: icon.superview!.centerYAnchor),
 
 			hStack.leftAnchor.constraint(equalTo: hStack.superview!.leftAnchor, constant: Offset.left),
-			hStack.rightAnchor.constraint(equalTo: hStack.superview!.rightAnchor, constant: Offset.right),
+			hStack.rightAnchor.constraint(equalTo: hStack.superview!.rightAnchor, constant: -Offset.right),
 			hStack.topAnchor.constraint(equalTo: hStack.superview!.topAnchor, constant: Offset.top),
-			hStack.bottomAnchor.constraint(equalTo: hStack.superview!.bottomAnchor, constant: Offset.bottom)
+			hStack.bottomAnchor.constraint(equalTo: hStack.superview!.bottomAnchor, constant: -Offset.bottom)
 		])
     }
 
@@ -100,6 +107,6 @@ final class TasksSubtitleIconCell: CellIdentifiable {
         guard let model = model as? TasksSubtitleIconCellModel else { return }
         nameField.text = model.title
         valueField.text = model.subTitle
-		icon.image = UIImage(named: model.icon)
+		icon.image = UIImage(systemName: model.icon)!
     }
 }

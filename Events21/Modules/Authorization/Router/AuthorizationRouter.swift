@@ -24,6 +24,7 @@ class AuthorizationRouter: PresenterToRouterAuthorizationProtocol {
 			let tabView = UITabBarController()
 			let nav1 = UINavigationController(rootViewController: UserMainAssembly.createModule(me: me))
 			nav1.navigationBar.barTintColor = UIColor(patternImage: UIImage(named: "background")!)
+			nav1.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
 			nav1.tabBarItem = UITabBarItem(
 				title: "Main",
 				image: UIImage(systemName: "person"),
@@ -31,6 +32,7 @@ class AuthorizationRouter: PresenterToRouterAuthorizationProtocol {
 			)
 			let nav2 = UINavigationController(rootViewController: SearchUserAssembly.createModule())
 			nav2.navigationBar.barTintColor = UIColor(patternImage: UIImage(named: "background")!)
+			nav2.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
 			nav2.tabBarItem = UITabBarItem(
 				title: "Search",
 				image: UIImage(systemName: "magnifyingglass"),
@@ -38,6 +40,7 @@ class AuthorizationRouter: PresenterToRouterAuthorizationProtocol {
 			)
 			let nav3 = UINavigationController(rootViewController: EventListAssembly.createModule(me: me))
 			nav3.navigationBar.barTintColor = UIColor(patternImage: UIImage(named: "background")!)
+			nav3.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
 			nav3.tabBarItem = UITabBarItem(
 				title: "Events",
 				image: UIImage(systemName: "calendar"),

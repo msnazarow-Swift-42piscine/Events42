@@ -18,6 +18,7 @@ protocol PresenterToViewUserMainProtocol: AnyObject {
 //	func setLevel(_ level: String)
 	func showAlert(title: String, message: String, completion: (() -> Void)?)
 	func showAlertQuestion(title: String, message: String, completion: (() -> Void)?)
+	func tableViewReload()
 }
 
 extension PresenterToViewUserMainProtocol {
@@ -46,8 +47,9 @@ protocol PresenterToRouterUserMainProtocol: AnyObject {
 }
 
 // MARK: Presenter Output (Presenter -> DataSource)
-protocol PresenterToDataSourceUserMainProtocol: UITableViewDataSource {
+protocol PresenterToDataSourceUserMainProtocol: UITableViewDataSource, UITableViewDelegate {
     func updateForSections(_ sections: [TableViewSectionProtocol])
+	func updateForHeader(_ headers: [Identifiable])
 }
 
 // MARK: Cell Input (Cell -> Presenter)

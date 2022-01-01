@@ -1,5 +1,5 @@
 //
-//  EventDetailCellModel.swift
+//  EventListCellModel.swift
 //  Intra21
 //
 //  Created by out-nazarov2-ms on 25.09.2021.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct EventDetailCellModel: Identifiable {
-    let identifier = "EventDetailCell"
+struct EventListCellModel: Identifiable {
+    let identifier = "EventListCell"
     let name: String
     let description: String?
     let maxPeople: Int?

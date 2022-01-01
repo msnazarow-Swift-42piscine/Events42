@@ -20,18 +20,20 @@ class EventDetailView: UIViewController {
         let textView = UITextView()
         textView.textAlignment = .center
         textView.isEditable = false
+		textView.backgroundColor = .clear
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
 
     let registerButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Register", for: .normal)
-        button.backgroundColor = .cyan
-        button.setTitleColor(.black, for: .normal)
+//        button.setTitle("Register", for: .normal)
+//		button.backgroundColor = .cyan.withAlphaComponent(0.3)
+        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 40 * verticalTranslation)
         button.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
+		button.layer.cornerRadius = 10
         return button
     }()
 
@@ -43,7 +45,7 @@ class EventDetailView: UIViewController {
     }
 
     private func setupUI() {
-        view.backgroundColor = .white
+//        view.backgroundColor = .white
         view.isHidden = true
         addSubviews()
         setupConstraints()
@@ -59,9 +61,9 @@ class EventDetailView: UIViewController {
             textView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             textView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             textView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            textView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.7),
             registerButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            registerButton.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 10)
+            registerButton.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 10),
+			registerButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
 
     }
@@ -95,15 +97,15 @@ extension EventDetailView: PresenterToViewEventProtocol{
 
     func setButtonUnregistered() {
         DispatchQueue.main.async { [self] in
-            registerButton.setTitle("Unregister", for: .normal)
-            registerButton.backgroundColor = .red
+            registerButton.setTitle(" Unregister ", for: .normal)
+            registerButton.backgroundColor = .red.withAlphaComponent(0.3)
         }
     }
 
     func setButtonRegistered() {
         DispatchQueue.main.async { [self] in
-            registerButton.setTitle("Register", for: .normal)
-            registerButton.backgroundColor = .cyan
+            registerButton.setTitle(" Register ", for: .normal)
+            registerButton.backgroundColor = .cyan.withAlphaComponent(0.3)
         }
     }
 

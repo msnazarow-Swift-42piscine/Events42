@@ -72,7 +72,7 @@ class EventListPresenter: ViewToPresenterUserProtocol {
                     el.duration = self.formatter.localizedString(for: el.beginAt, relativeTo: el.endAt).replacingOccurrences(of: " ago", with: "")
                     return el
                 }
-                self.dataSource.updateForSections([EventDetailSectionModel(self.events)])
+                self.dataSource.updateForSections([EventListSection(self.events)])
                 self.view.reloadTableViewData()
             case .failure(let error):
                 if let description = error.errorDescription {
@@ -95,7 +95,7 @@ class EventListPresenter: ViewToPresenterUserProtocol {
 //            switch result {
 //            case .success(let responses):
 //                self.events = responses.map{ $0.event }
-//                self.dataSource.updateForSections([EventDetailSectionModel(self.events)])
+//                self.dataSource.updateForSections([EventListSection(self.events)])
 //                self.view.reloadTableViewData()
 //            case .failure(let error):
 //                if let description = error.errorDescription {

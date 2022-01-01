@@ -1,5 +1,5 @@
 //
-//  UserMainPresenterDataSource.swift
+//  UserMainDataSource.swift
 //  Events21
 //
 //  Created by 19733654 on 27.12.2021.
@@ -8,16 +8,21 @@
 
 import UIKit
 
-class UserMainPresenterDataSource: NSObject, PresenterToDataSourceUserMainProtocol {
+class UserMainDataSource: NSObject, PresenterToDataSourceUserMainProtocol {
 
     // MARK: Properties
     weak var presenter: CellToPresenterUserMainProtocol?
 
     private var sections: [TableViewSectionProtocol] = []
+	private var headers: [Identifiable] = []
 
     func updateForSections(_ sections: [TableViewSectionProtocol]) {
         self.sections = sections
     }
+
+	func updateForHeader(_ headers: [Identifiable]) {
+		self.headers = headers
+	}
 
     func numberOfSections(in _: UITableView) -> Int {
         return sections.count
@@ -36,4 +41,17 @@ class UserMainPresenterDataSource: NSObject, PresenterToDataSourceUserMainProtoc
         cell.model = model
         return cell
     }
+}
+
+extension UserMainDataSource {
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let headerModel = headers[section]
+		let tableViewHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerModel.identifier)
+		guard let header = tableViewHeader as? HeaderIdentifiable else {
+			return tableViewHeader
+		}
+		header.model = headerModel
+		header.presenter = presenter
+		return header
+	}
 }

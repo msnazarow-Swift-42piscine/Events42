@@ -9,22 +9,29 @@ import Foundation
 
 struct UserHeaderModel: Identifiable {
 	let identifier = "UserHeader"
-//	let firstName: String
-//	let lastName: String
-//	let login: String
-//	let email: String
-//	let imageUrl: String
-//	let poolMonth: String?
-//	let poolYear: String?
-//	let staff: Bool?
-//	let location: String
-//	let id: Int
-//	let url: String
-//	let createdAt: Date
-//	let phone: String
-//
-//	init(_ property: UserFullModel) {
-//		login = property.login
-//		location =  property.loc
-//	}
+	let name: String
+	let email: String
+	let imageUrl: URL
+	let staff: Bool
+	let location: String
+	let phone: String
+	let wallet: String
+	let correctionPoints: String
+	let cursuses: [CursusUserResponse]
+	var pool: String?
+
+	init(_ property: UserFullModel) {
+		name = "\(property.firstName) \(property.lastName) - \(property.login)"
+		correctionPoints = "\(property.correctionPoint)"
+		if let poolMonth = property.poolMonth, let poolYear = property.poolYear {
+			pool = "\(poolMonth) - \(poolYear)"
+		}
+		location =  property.location ?? property.campus.first?.city ?? "Unknown"
+		wallet = "\(property.wallet)"
+		phone = property.phone
+		imageUrl = property.imageUrl
+		email = property.email
+		staff = property.staff
+		cursuses = property.cursusUsers
+	}
 }

@@ -53,7 +53,7 @@ protocol PresenterToRouterUserProtocol: AnyObject {
 
 // MARK: Presenter Output (Presenter -> DataSource)
 protocol PresenterToDataSourceUserProtocol: UITableViewDataSource {
-    func updateForSections(_ sections: [EventDetailSectionModel])
+    func updateForSections(_ sections: [EventListSection])
 }
 
 // MARK: Cell Input (Cell -> Presenter)

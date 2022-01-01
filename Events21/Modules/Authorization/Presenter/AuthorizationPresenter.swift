@@ -62,7 +62,14 @@ class AuthorizationPresenter: NSObject, ViewToPresenterAuthorizationProtocol {
             }
         }
     }
-    
+
+	func viewWillAppear() {
+		guard interactor.hasToken() else {
+			view.setLoginButtonHidden(false)
+			return
+		}
+	}
+
     func buttonDidTapped() {
 //        router.routeToWebView()
         interactor.getToken { [weak self] result in
