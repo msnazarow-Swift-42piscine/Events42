@@ -14,10 +14,6 @@ class UserMainViewController: UIViewController {
     var presenter: ViewToPresenterUserMainProtocol!
 
 	// MARK: - Views
-
-
-
-
 	lazy var tableView: UITableView = {
 		let tableView = UITableView(frame: CGRect(), style: .grouped)
 		tableView.translatesAutoresizingMaskIntoConstraints = false

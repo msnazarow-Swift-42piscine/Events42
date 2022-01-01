@@ -11,7 +11,7 @@ import UIKit
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewSkillsProtocol: AnyObject {
-
+	func tableViewReload()
 }
 
 

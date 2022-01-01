@@ -28,6 +28,7 @@ class AchievementsViewController: UIViewController {
     }
 
     private func setupUI() {
+		title = "Achievements"
         addSubviews()
         setupConstraints()
     }

@@ -7,6 +7,7 @@
 //
 
 import OrderedCollections
+import UIKit
 
 class UserMainPresenter: ViewToPresenterUserMainProtocol {
 
@@ -16,6 +17,7 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
     let router: PresenterToRouterUserMainProtocol
     let dataSource:PresenterToDataSourceUserMainProtocol
 	let me: UserFullModel
+	var cursusUser: CursusUserResponse?
 
     // MARK: Init
     init(
@@ -28,6 +30,7 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
         self.router = router
         self.dataSource = dataSource
 		self.me = me
+		self.cursusUser = me.cursusUsers.first
     }
 
     func viewDidLoad(){
@@ -87,5 +90,16 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
 }
 
 extension UserMainPresenter: CellToPresenterUserMainProtocol {
-    
+	func didSelectRowAt(_ indexPath: IndexPath) {
+		guard let cursusUser = cursusUser else { return }
+		switch indexPath.row {
+		case 0:
+			router.routeToSkills(skills: cursusUser.skills)
+		case 1:
+			router.routeToProjects(projects: me.projectsUsers, cursusId: cursusUser.cursusId)
+		case 2:
+			router.routeToAchievements(achievements: me.achievements)
+		default: break
+		}
+	}
 }

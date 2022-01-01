@@ -44,6 +44,9 @@ protocol PresenterToInteractorUserMainProtocol: AnyObject {
 // MARK: Presenter Output (Presenter -> Router)
 protocol PresenterToRouterUserMainProtocol: AnyObject {
 	func routeToAuthScreen()
+	func routeToSkills(skills: [SkillModel])
+	func routeToAchievements(achievements: [AchievementResponse])
+	func routeToProjects(projects: [ProjectUser], cursusId: Int)
 }
 
 // MARK: Presenter Output (Presenter -> DataSource)
@@ -54,5 +57,5 @@ protocol PresenterToDataSourceUserMainProtocol: UITableViewDataSource, UITableVi
 
 // MARK: Cell Input (Cell -> Presenter)
 protocol CellToPresenterUserMainProtocol: AnyObject {
-
+	func didSelectRowAt(_ indexPath: IndexPath)
 }

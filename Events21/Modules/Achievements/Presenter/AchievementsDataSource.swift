@@ -1,5 +1,5 @@
 //
-//  ProjectsPresenterDataSource.swift
+//  AchievementsDataSource.swift
 //  Events21
 //
 //  Created by 19733654 on 01.01.2022.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ProjectsPresenterDataSource: NSObject, PresenterToDataSourceProjectsProtocol {
+class AchievementsDataSource: NSObject, PresenterToDataSourceAchievementsProtocol {
 
     // MARK: Properties
-    weak var presenter: CellToPresenterProjectsProtocol?
+    weak var presenter: CellToPresenterAchievementsProtocol?
 
     private var sections: [TableViewSectionProtocol] = []
 

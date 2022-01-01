@@ -9,17 +9,17 @@ import Foundation
 
 struct CursusUserResponse: Codable {
 	let grade: String?
-	let level: Double
-	let skills: [SkillsModel]
+	let level: Float
+	let skills: [SkillModel]
 	let id: Int
 	let cursusId: Int
 	let hasCoalition: Bool
 	let user: UserShortModel
 	let cursus: CursusResponse
+}
 
-	struct SkillsModel: Codable {
-		let id: Int
-		let name: String
-		let level: Double
-	}
+struct SkillModel: Codable {
+	let id: Int
+	let name: String
+	let level: Float
 }

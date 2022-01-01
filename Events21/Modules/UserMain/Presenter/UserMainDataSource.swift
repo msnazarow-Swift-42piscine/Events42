@@ -54,4 +54,8 @@ extension UserMainDataSource {
 		header.presenter = presenter
 		return header
 	}
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		presenter?.didSelectRowAt(indexPath)
+	}
 }

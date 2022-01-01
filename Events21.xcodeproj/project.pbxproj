@@ -81,20 +81,20 @@
 		F61A8BE0277A7F44003169CF /* UIimage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61A8BDF277A7F44003169CF /* UIimage+Ext.swift */; };
 		F61E6D3C2780DE81001CF353 /* SkillsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D2A2780DE81001CF353 /* SkillsContract.swift */; };
 		F61E6D3D2780DE81001CF353 /* SkillsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D2C2780DE81001CF353 /* SkillsAssembly.swift */; };
-		F61E6D3E2780DE81001CF353 /* SkillsPresenterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D2E2780DE81001CF353 /* SkillsPresenterDataSource.swift */; };
+		F61E6D3E2780DE81001CF353 /* SkillsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D2E2780DE81001CF353 /* SkillsDataSource.swift */; };
 		F61E6D3F2780DE81001CF353 /* SkillsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D2F2780DE81001CF353 /* SkillsPresenter.swift */; };
-		F61E6D402780DE81001CF353 /* SkillsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D322780DE81001CF353 /* SkillsCellModel.swift */; };
+		F61E6D402780DE81001CF353 /* SkillCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D322780DE81001CF353 /* SkillCellModel.swift */; };
 		F61E6D412780DE81001CF353 /* SkillsSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D332780DE81001CF353 /* SkillsSectionModel.swift */; };
-		F61E6D422780DE81001CF353 /* SkillsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D342780DE81001CF353 /* SkillsCell.swift */; };
+		F61E6D422780DE81001CF353 /* SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D342780DE81001CF353 /* SkillCell.swift */; };
 		F61E6D432780DE81001CF353 /* SkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D362780DE81001CF353 /* SkillsViewController.swift */; };
 		F61E6D442780DE81001CF353 /* SkillsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D382780DE81001CF353 /* SkillsInteractor.swift */; };
 		F61E6D452780DE81001CF353 /* SkillsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D3B2780DE81001CF353 /* SkillsRouter.swift */; };
 		F61E6D5C2780DEA7001CF353 /* ProjectsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D4A2780DEA7001CF353 /* ProjectsContract.swift */; };
 		F61E6D5D2780DEA7001CF353 /* ProjectsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D4C2780DEA7001CF353 /* ProjectsAssembly.swift */; };
 		F61E6D5E2780DEA7001CF353 /* ProjectsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D4E2780DEA7001CF353 /* ProjectsPresenter.swift */; };
-		F61E6D5F2780DEA7001CF353 /* ProjectsPresenterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D4F2780DEA7001CF353 /* ProjectsPresenterDataSource.swift */; };
-		F61E6D602780DEA7001CF353 /* ProjectsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D522780DEA7001CF353 /* ProjectsCell.swift */; };
-		F61E6D612780DEA7001CF353 /* ProjectsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D532780DEA7001CF353 /* ProjectsCellModel.swift */; };
+		F61E6D5F2780DEA7001CF353 /* ProjectsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D4F2780DEA7001CF353 /* ProjectsDataSource.swift */; };
+		F61E6D602780DEA7001CF353 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D522780DEA7001CF353 /* ProjectCell.swift */; };
+		F61E6D612780DEA7001CF353 /* ProjectCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D532780DEA7001CF353 /* ProjectCellModel.swift */; };
 		F61E6D622780DEA7001CF353 /* ProjectsSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D542780DEA7001CF353 /* ProjectsSectionModel.swift */; };
 		F61E6D632780DEA7001CF353 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D562780DEA7001CF353 /* ProjectsViewController.swift */; };
 		F61E6D642780DEA7001CF353 /* ProjectsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D582780DEA7001CF353 /* ProjectsInteractor.swift */; };
@@ -102,9 +102,9 @@
 		F61E6D7C2780DED4001CF353 /* AchievementsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D6A2780DED4001CF353 /* AchievementsContract.swift */; };
 		F61E6D7D2780DED5001CF353 /* AchievementsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D6C2780DED4001CF353 /* AchievementsAssembly.swift */; };
 		F61E6D7E2780DED5001CF353 /* AchievementsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D6E2780DED4001CF353 /* AchievementsPresenter.swift */; };
-		F61E6D7F2780DED5001CF353 /* AchievementsPresenterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D6F2780DED4001CF353 /* AchievementsPresenterDataSource.swift */; };
+		F61E6D7F2780DED5001CF353 /* AchievementsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D6F2780DED4001CF353 /* AchievementsDataSource.swift */; };
 		F61E6D802780DED5001CF353 /* AchievementsSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D722780DED4001CF353 /* AchievementsSectionModel.swift */; };
-		F61E6D812780DED5001CF353 /* AchievementsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D732780DED4001CF353 /* AchievementsCellModel.swift */; };
+		F61E6D812780DED5001CF353 /* AchievementCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D732780DED4001CF353 /* AchievementCellModel.swift */; };
 		F61E6D822780DED5001CF353 /* AchievementsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D742780DED4001CF353 /* AchievementsCell.swift */; };
 		F61E6D832780DED5001CF353 /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D762780DED4001CF353 /* AchievementsViewController.swift */; };
 		F61E6D842780DED5001CF353 /* AchievementsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E6D782780DED4001CF353 /* AchievementsInteractor.swift */; };
@@ -223,20 +223,20 @@
 		F61A8BDF277A7F44003169CF /* UIimage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimage+Ext.swift"; sourceTree = "<group>"; };
 		F61E6D2A2780DE81001CF353 /* SkillsContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsContract.swift; sourceTree = "<group>"; };
 		F61E6D2C2780DE81001CF353 /* SkillsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsAssembly.swift; sourceTree = "<group>"; };
-		F61E6D2E2780DE81001CF353 /* SkillsPresenterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsPresenterDataSource.swift; sourceTree = "<group>"; };
+		F61E6D2E2780DE81001CF353 /* SkillsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsDataSource.swift; sourceTree = "<group>"; };
 		F61E6D2F2780DE81001CF353 /* SkillsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsPresenter.swift; sourceTree = "<group>"; };
-		F61E6D322780DE81001CF353 /* SkillsCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsCellModel.swift; sourceTree = "<group>"; };
+		F61E6D322780DE81001CF353 /* SkillCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillCellModel.swift; sourceTree = "<group>"; };
 		F61E6D332780DE81001CF353 /* SkillsSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsSectionModel.swift; sourceTree = "<group>"; };
-		F61E6D342780DE81001CF353 /* SkillsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsCell.swift; sourceTree = "<group>"; };
+		F61E6D342780DE81001CF353 /* SkillCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillCell.swift; sourceTree = "<group>"; };
 		F61E6D362780DE81001CF353 /* SkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsViewController.swift; sourceTree = "<group>"; };
 		F61E6D382780DE81001CF353 /* SkillsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsInteractor.swift; sourceTree = "<group>"; };
 		F61E6D3B2780DE81001CF353 /* SkillsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsRouter.swift; sourceTree = "<group>"; };
 		F61E6D4A2780DEA7001CF353 /* ProjectsContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsContract.swift; sourceTree = "<group>"; };
 		F61E6D4C2780DEA7001CF353 /* ProjectsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsAssembly.swift; sourceTree = "<group>"; };
 		F61E6D4E2780DEA7001CF353 /* ProjectsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsPresenter.swift; sourceTree = "<group>"; };
-		F61E6D4F2780DEA7001CF353 /* ProjectsPresenterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsPresenterDataSource.swift; sourceTree = "<group>"; };
-		F61E6D522780DEA7001CF353 /* ProjectsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsCell.swift; sourceTree = "<group>"; };
-		F61E6D532780DEA7001CF353 /* ProjectsCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsCellModel.swift; sourceTree = "<group>"; };
+		F61E6D4F2780DEA7001CF353 /* ProjectsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsDataSource.swift; sourceTree = "<group>"; };
+		F61E6D522780DEA7001CF353 /* ProjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
+		F61E6D532780DEA7001CF353 /* ProjectCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCellModel.swift; sourceTree = "<group>"; };
 		F61E6D542780DEA7001CF353 /* ProjectsSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsSectionModel.swift; sourceTree = "<group>"; };
 		F61E6D562780DEA7001CF353 /* ProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
 		F61E6D582780DEA7001CF353 /* ProjectsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsInteractor.swift; sourceTree = "<group>"; };
@@ -244,9 +244,9 @@
 		F61E6D6A2780DED4001CF353 /* AchievementsContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementsContract.swift; sourceTree = "<group>"; };
 		F61E6D6C2780DED4001CF353 /* AchievementsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementsAssembly.swift; sourceTree = "<group>"; };
 		F61E6D6E2780DED4001CF353 /* AchievementsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementsPresenter.swift; sourceTree = "<group>"; };
-		F61E6D6F2780DED4001CF353 /* AchievementsPresenterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementsPresenterDataSource.swift; sourceTree = "<group>"; };
+		F61E6D6F2780DED4001CF353 /* AchievementsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementsDataSource.swift; sourceTree = "<group>"; };
 		F61E6D722780DED4001CF353 /* AchievementsSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementsSectionModel.swift; sourceTree = "<group>"; };
-		F61E6D732780DED4001CF353 /* AchievementsCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementsCellModel.swift; sourceTree = "<group>"; };
+		F61E6D732780DED4001CF353 /* AchievementCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementCellModel.swift; sourceTree = "<group>"; };
 		F61E6D742780DED4001CF353 /* AchievementsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementsCell.swift; sourceTree = "<group>"; };
 		F61E6D762780DED4001CF353 /* AchievementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
 		F61E6D782780DED4001CF353 /* AchievementsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementsInteractor.swift; sourceTree = "<group>"; };
@@ -721,7 +721,7 @@
 		F61E6D2D2780DE81001CF353 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				F61E6D2E2780DE81001CF353 /* SkillsPresenterDataSource.swift */,
+				F61E6D2E2780DE81001CF353 /* SkillsDataSource.swift */,
 				F61E6D2F2780DE81001CF353 /* SkillsPresenter.swift */,
 			);
 			path = Presenter;
@@ -738,9 +738,9 @@
 		F61E6D312780DE81001CF353 /* UITableViewComponents */ = {
 			isa = PBXGroup;
 			children = (
-				F61E6D322780DE81001CF353 /* SkillsCellModel.swift */,
+				F61E6D322780DE81001CF353 /* SkillCellModel.swift */,
 				F61E6D332780DE81001CF353 /* SkillsSectionModel.swift */,
-				F61E6D342780DE81001CF353 /* SkillsCell.swift */,
+				F61E6D342780DE81001CF353 /* SkillCell.swift */,
 			);
 			path = UITableViewComponents;
 			sourceTree = "<group>";
@@ -811,7 +811,7 @@
 			isa = PBXGroup;
 			children = (
 				F61E6D4E2780DEA7001CF353 /* ProjectsPresenter.swift */,
-				F61E6D4F2780DEA7001CF353 /* ProjectsPresenterDataSource.swift */,
+				F61E6D4F2780DEA7001CF353 /* ProjectsDataSource.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -827,8 +827,8 @@
 		F61E6D512780DEA7001CF353 /* UITableViewComponents */ = {
 			isa = PBXGroup;
 			children = (
-				F61E6D522780DEA7001CF353 /* ProjectsCell.swift */,
-				F61E6D532780DEA7001CF353 /* ProjectsCellModel.swift */,
+				F61E6D522780DEA7001CF353 /* ProjectCell.swift */,
+				F61E6D532780DEA7001CF353 /* ProjectCellModel.swift */,
 				F61E6D542780DEA7001CF353 /* ProjectsSectionModel.swift */,
 			);
 			path = UITableViewComponents;
@@ -900,7 +900,7 @@
 			isa = PBXGroup;
 			children = (
 				F61E6D6E2780DED4001CF353 /* AchievementsPresenter.swift */,
-				F61E6D6F2780DED4001CF353 /* AchievementsPresenterDataSource.swift */,
+				F61E6D6F2780DED4001CF353 /* AchievementsDataSource.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -917,7 +917,7 @@
 			isa = PBXGroup;
 			children = (
 				F61E6D722780DED4001CF353 /* AchievementsSectionModel.swift */,
-				F61E6D732780DED4001CF353 /* AchievementsCellModel.swift */,
+				F61E6D732780DED4001CF353 /* AchievementCellModel.swift */,
 				F61E6D742780DED4001CF353 /* AchievementsCell.swift */,
 			);
 			path = UITableViewComponents;
@@ -1343,11 +1343,11 @@
 				F61E6D832780DED5001CF353 /* AchievementsViewController.swift in Sources */,
 				F61E6D452780DE81001CF353 /* SkillsRouter.swift in Sources */,
 				3E5352F42712254300FD0B4C /* CampusResponse.swift in Sources */,
-				F61E6D5F2780DEA7001CF353 /* ProjectsPresenterDataSource.swift in Sources */,
+				F61E6D5F2780DEA7001CF353 /* ProjectsDataSource.swift in Sources */,
 				F61E6D7D2780DED5001CF353 /* AchievementsAssembly.swift in Sources */,
 				EAAEC41A27009E4700AFD1FC /* EventDetailView.swift in Sources */,
 				F6F02C5A277E1B2D00157AEF /* ProjectUser.swift in Sources */,
-				F61E6D812780DED5001CF353 /* AchievementsCellModel.swift in Sources */,
+				F61E6D812780DED5001CF353 /* AchievementCellModel.swift in Sources */,
 				3E53530B271269B000FD0B4C /* EventListFiltersView.swift in Sources */,
 				F61E6D802780DED5001CF353 /* AchievementsSectionModel.swift in Sources */,
 				F69F58E9277A96D300FF0B67 /* SearchUserInteractor.swift in Sources */,
@@ -1373,12 +1373,12 @@
 				F61A8BE0277A7F44003169CF /* UIimage+Ext.swift in Sources */,
 				3E5352F22711F8A200FD0B4C /* KeychainHelper.swift in Sources */,
 				F69F58E6277A96D300FF0B67 /* SearchUserCell.swift in Sources */,
-				F61E6D402780DE81001CF353 /* SkillsCellModel.swift in Sources */,
+				F61E6D402780DE81001CF353 /* SkillCellModel.swift in Sources */,
 				EAAEC42127009E4700AFD1FC /* DataFormatter+Ext.swift in Sources */,
 				EAAEC42427009E4700AFD1FC /* EventListCellModel.swift in Sources */,
 				3EB5CF722700E05D0011E88C /* ImageCashingService.swift in Sources */,
 				3E2E081427170AF700E6B40F /* SortCellModel.swift in Sources */,
-				F61E6D3E2780DE81001CF353 /* SkillsPresenterDataSource.swift in Sources */,
+				F61E6D3E2780DE81001CF353 /* SkillsDataSource.swift in Sources */,
 				3E5352E727111BDC00FD0B4C /* EventRegisterResponse.swift in Sources */,
 				EAAEC40D27009E4700AFD1FC /* EventListInteractor.swift in Sources */,
 				EAAEC42527009E4700AFD1FC /* EventListCell.swift in Sources */,
@@ -1387,7 +1387,7 @@
 				EAAEC41B27009E4700AFD1FC /* EventDetailInteractor.swift in Sources */,
 				3E5352EC2711CB2E00FD0B4C /* IntraAPIService+GetEvents.swift in Sources */,
 				F6D164E02779E0D400138291 /* UserMainInteractor.swift in Sources */,
-				F61E6D7F2780DED5001CF353 /* AchievementsPresenterDataSource.swift in Sources */,
+				F61E6D7F2780DED5001CF353 /* AchievementsDataSource.swift in Sources */,
 				F67523E6277F0AB200CCBAC6 /* FilterCellModel.swift in Sources */,
 				F61E6D5E2780DEA7001CF353 /* ProjectsPresenter.swift in Sources */,
 				F61E6D632780DEA7001CF353 /* ProjectsViewController.swift in Sources */,
@@ -1418,7 +1418,7 @@
 				3E53530A271269B000FD0B4C /* EventListFiltersPresenter.swift in Sources */,
 				F61E6D3D2780DE81001CF353 /* SkillsAssembly.swift in Sources */,
 				3E43911D270094F400C8AC03 /* AppDelegate.swift in Sources */,
-				F61E6D422780DE81001CF353 /* SkillsCell.swift in Sources */,
+				F61E6D422780DE81001CF353 /* SkillCell.swift in Sources */,
 				F67523E9277F0AD300CCBAC6 /* FilterModel.swift in Sources */,
 				3E53530D271269B000FD0B4C /* EventListFiltersRouter.swift in Sources */,
 				EAAEC41027009E4700AFD1FC /* AuthorizationAssembly.swift in Sources */,
@@ -1438,7 +1438,7 @@
 				EAAEC40E27009E4700AFD1FC /* EventListRouter.swift in Sources */,
 				3E535309271269B000FD0B4C /* EventListFiltersDataSource.swift in Sources */,
 				3E535308271269B000FD0B4C /* EventListFiltersAssembly.swift in Sources */,
-				F61E6D612780DEA7001CF353 /* ProjectsCellModel.swift in Sources */,
+				F61E6D612780DEA7001CF353 /* ProjectCellModel.swift in Sources */,
 				EAAEC41227009E4700AFD1FC /* AuthorizationDataSource.swift in Sources */,
 				3E53530C271269B000FD0B4C /* EventListFiltersInteractor.swift in Sources */,
 				F69F58E3277A96D300FF0B67 /* SearchUserPresenter.swift in Sources */,
@@ -1455,7 +1455,7 @@
 				3E53531327127F4800FD0B4C /* UITableView+Ext.swift in Sources */,
 				EAAEC41D27009E4700AFD1FC /* Intra21Contract.swift in Sources */,
 				EAAEC42227009E4700AFD1FC /* JSONDecoder+Ext.swift in Sources */,
-				F61E6D602780DEA7001CF353 /* ProjectsCell.swift in Sources */,
+				F61E6D602780DEA7001CF353 /* ProjectCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

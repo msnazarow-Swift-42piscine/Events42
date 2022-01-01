@@ -11,9 +11,9 @@ import Foundation
 final class AchievementsSectionModel: TableViewSectionProtocol {
     var rows: [Identifiable] = []
 
-    init(_ properties: [AchievementsModel]) {
+    init(_ properties: [AchievementResponse]) {
         properties.forEach {
-            rows.append(AchievementsCellModel($0))
+            rows.append(AchievementCellModel($0))
         }
     }
 }

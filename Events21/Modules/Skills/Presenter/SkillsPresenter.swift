@@ -15,20 +15,24 @@ class SkillsPresenter: ViewToPresenterSkillsProtocol {
     let interactor: PresenterToInteractorSkillsProtocol
     let router: PresenterToRouterSkillsProtocol
     let dataSource:PresenterToDataSourceSkillsProtocol
+	let skills: [SkillModel]
 
     // MARK: Init
     init(
         interactor: PresenterToInteractorSkillsProtocol,
         router: PresenterToRouterSkillsProtocol,
-        dataSource: PresenterToDataSourceSkillsProtocol
+        dataSource: PresenterToDataSourceSkillsProtocol,
+		skills: [SkillModel]
     ) {
         self.interactor = interactor
         self.router = router
         self.dataSource = dataSource
+		self.skills = skills
     }
 
     func viewDidLoad(){
-
+		dataSource.updateForSections([SkillsSectionModel(skills)])
+		view?.tableViewReload()
     }
 }
 

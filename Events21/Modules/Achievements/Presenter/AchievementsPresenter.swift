@@ -15,16 +15,19 @@ class AchievementsPresenter: ViewToPresenterAchievementsProtocol {
     let interactor: PresenterToInteractorAchievementsProtocol
     let router: PresenterToRouterAchievementsProtocol
     let dataSource:PresenterToDataSourceAchievementsProtocol
+	let achievements: [AchievementResponse]
 
     // MARK: Init
     init(
         interactor: PresenterToInteractorAchievementsProtocol,
         router: PresenterToRouterAchievementsProtocol,
-        dataSource: PresenterToDataSourceAchievementsProtocol
+        dataSource: PresenterToDataSourceAchievementsProtocol,
+		achievements: [AchievementResponse]
     ) {
         self.interactor = interactor
         self.router = router
         self.dataSource = dataSource
+		self.achievements = achievements
     }
 
     func viewDidLoad(){

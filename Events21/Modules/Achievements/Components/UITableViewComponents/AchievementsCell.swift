@@ -18,7 +18,7 @@ class AchievementsCell: CellIdentifiable {
     }
 
     override func updateViews() {
-        guard let model = model as? AchievementsCellModule else { return }
+        guard let model = model as? AchievementCellModel else { return }
 
     }
 }

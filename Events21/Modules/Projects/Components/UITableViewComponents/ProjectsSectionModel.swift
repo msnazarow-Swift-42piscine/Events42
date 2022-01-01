@@ -11,9 +11,9 @@ import Foundation
 final class ProjectsSectionModel: TableViewSectionProtocol {
     var rows: [Identifiable] = []
 
-    init(_ properties: [ProjectsModel]) {
+    init(_ properties: [ProjectUser]) {
         properties.forEach {
-            rows.append(ProjectsCellModel($0))
+            rows.append(ProjectCellModel($0))
         }
     }
 }

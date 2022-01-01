@@ -11,9 +11,9 @@ import Foundation
 final class SkillsSectionModel: TableViewSectionProtocol {
     var rows: [Identifiable] = []
 
-    init(_ properties: [SkillsModel]) {
+    init(_ properties: [SkillModel]) {
         properties.forEach {
-            rows.append(SkillsCellModel($0))
+            rows.append(SkillCellModel($0))
         }
     }
 }

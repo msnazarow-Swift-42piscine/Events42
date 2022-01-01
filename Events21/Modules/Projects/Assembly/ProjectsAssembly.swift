@@ -11,16 +11,18 @@ import UIKit
 enum ProjectsAssembly{
     
     // MARK: Static methods
-    static func createModule() -> UIViewController {
+	static func createModule(projects: [ProjectUser], cursusId: Int) -> UIViewController {
         let router = ProjectsRouter()
         let interactor = ProjectsInteractor()
-        let dataSource = ProjectsPresenterDataSource()
+        let dataSource = ProjectsDataSource()
         let presenter = ProjectsPresenter(
             interactor: interactor,
             router: router,
-            dataSource: dataSource
+            dataSource: dataSource,
+			projects: projects,
+			cursusId: cursusId
         )
-        let view = ProjectsViewController(presenter: ViewToPresenterProjectsProtocol)
+        let view = ProjectsViewController(presenter: presenter)
         presenter.view = view
         router.view = view
         dataSource.presenter = presenter

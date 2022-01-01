@@ -8,11 +8,11 @@
 
 import UIKit
 
-struct AchievementsCellModel: Identifiable {
-    var identifier: String = "AchievementsCellModel"
+struct AchievementCellModel: Identifiable {
+    var identifier: String = "AchievementCell"
 
 
-    init(_ property: AchievementsModel) {
+    init(_ property: AchievementResponse) {
 
     }
 }

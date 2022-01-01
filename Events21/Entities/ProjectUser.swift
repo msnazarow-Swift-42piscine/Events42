@@ -11,12 +11,19 @@ struct ProjectUser: Codable {
 	let id: Int
 	let occurrence: Int
 	let finalMark: Int?
-	let status: String
+	let status: Status
 	let validated: Bool?
 	let currentTeamId: Int?
 	let project: ProjectModel
 	let cursusIds: [Int]
 	let marked: Bool
+
+	enum Status: String, Codable {
+		case waitingForCorrection = "waiting_for_correction"
+		case finished
+		case inProgress = "in_progress"
+		case searchingAGroup = "searching_a_group"
+	}
 
 	enum CodingKeys: String, CodingKey {
 		case id
