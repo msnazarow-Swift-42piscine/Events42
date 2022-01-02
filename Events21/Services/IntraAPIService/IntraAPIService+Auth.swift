@@ -21,7 +21,7 @@ extension IntraAPIService {
         var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = "POST"
 		print("\(request.httpMethod ?? "GET") \(request.url?.absoluteString ?? "")")
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             if let error = error {
                 completion(.failure(IntraAPIError(error: "URLSessionError", errorDescription: error.localizedDescription)))
                 return
@@ -37,7 +37,7 @@ extension IntraAPIService {
                     return
                 }
                 let tokenResponse = try JSONDecoder.intraSecondsSince1970.decode(TokenResponse.self, from: data)
-                self.token = tokenResponse
+                self?.token = tokenResponse
                 KeychainHelper.standard.save(tokenResponse, service: "token", account: "intra42")
                 completion(.success(tokenResponse.accessToken))
             } catch {

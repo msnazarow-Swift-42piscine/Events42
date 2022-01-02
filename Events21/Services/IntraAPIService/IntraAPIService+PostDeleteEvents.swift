@@ -68,7 +68,6 @@ extension IntraAPIService {
                     completion(.failure(IntraAPIError(error: "No data")))
                     return
                 }
-//                try self.decoder.decode(EventRegisterResponse.self, from: data)
                 completion(.success(true))
             } catch {
                 completion(.failure(IntraAPIError(error: "JSONDecoder error", message: error.localizedDescription)))

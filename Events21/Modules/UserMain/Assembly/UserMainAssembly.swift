@@ -22,7 +22,7 @@ enum UserMainAssembly {
             interactor: interactor,
             router: router,
             dataSource: dataSource,
-			me: me
+			user: me
         )
         let view = UserMainViewController(presenter: presenter)
         presenter.view = view

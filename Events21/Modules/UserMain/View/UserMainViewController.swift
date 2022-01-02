@@ -48,7 +48,6 @@ class UserMainViewController: UIViewController {
 
     private func addSubviews() {
 		view.addSubview(tableView)
-//		view.addSubview(horizontalStackView)
     }
 
     private func setupConstraints() {
@@ -62,36 +61,6 @@ class UserMainViewController: UIViewController {
 }
 
 extension UserMainViewController: PresenterToViewUserMainProtocol {
-//	func setProfileImageView(image: UIImage)  {
-//		DispatchQueue.main.async {
-//			self.profileImageView.image = image
-//		}
-//	}
-//
-//	func setLogin(_ login: String) {
-//		DispatchQueue.main.async {
-//			self.loginLabel.text = login
-//		}
-//	}
-//
-//	func setName(_ name: String) {
-//		DispatchQueue.main.async {
-//			self.nameLabel.text = name
-//		}
-//	}
-//
-//	func setSurname(_ surname: String) {
-//		DispatchQueue.main.async {
-//			self.surnameLabel.text = surname
-//		}
-//	}
-//
-//	func setLevel(_ level: String) {
-//		DispatchQueue.main.async {
-//			self.levelTextView.text = level
-//		}
-//	}
-
 	func showAlert(title: String, message: String, completion: (() -> Void)?) {
 		DispatchQueue.main.async { [self] in
 			let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

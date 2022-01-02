@@ -73,7 +73,7 @@ extension IntraAPIService {
 					completion(.failure(error))
 					return
 				}
-				let user = try! JSONDecoder.intraIso8601Full.decode(UserFullModel.self, from: data)
+				let user = try JSONDecoder.intraIso8601Full.decode(UserFullModel.self, from: data)
 				completion(.success(user))
 			} catch {
 				completion(.failure(IntraAPIError(error: "JSONDecoder error", errorDescription: error.localizedDescription)))

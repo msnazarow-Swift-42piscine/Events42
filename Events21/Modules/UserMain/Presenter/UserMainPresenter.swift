@@ -15,7 +15,7 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
     let interactor: PresenterToInteractorUserMainProtocol
     let router: PresenterToRouterUserMainProtocol
     let dataSource: PresenterToDataSourceUserMainProtocol
-	let me: UserFullModel
+	let user: UserFullModel
 	var cursusUser: CursusUserResponse?
 
     // MARK: Init
@@ -23,13 +23,13 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
         interactor: PresenterToInteractorUserMainProtocol,
         router: PresenterToRouterUserMainProtocol,
         dataSource: PresenterToDataSourceUserMainProtocol,
-		me: UserFullModel
+		user: UserFullModel
     ) {
         self.interactor = interactor
         self.router = router
         self.dataSource = dataSource
-		self.me = me
-		self.cursusUser = me.cursusUsers.last
+		self.user = user
+		self.cursusUser = user.cursusUsers.last
     }
 
     func viewDidLoad() {
@@ -37,7 +37,7 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
     }
 
 	private func updateView() {
-		dataSource.updateForHeader([UserHeaderModel(me)])
+		dataSource.updateForHeader([UserHeaderModel(user)])
 		dataSource.updateForSections([
 			TasksSubtitleIconSection([
 				SubtitleIconModel(title: "Skills", subTitle: "", icon: "chevron.right"),
@@ -53,17 +53,6 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
 		if let future = filters[.future], future {
 			interactorFilter[.future] = ["true"]
 		}
-//
-//		let predicates: [(EventResponse, EventResponse) -> Bool] = sort.compactMap{ sortName in
-//			guard let sortName = sortName else { return nil }
-//			return self.predicates[sortName]
-//		}
-//		loadEvents(campusIds: filters[.myCampus]! ? me.campus.map{ $0.id } : [],
-//				   cursusIds: filters[.myCursus]! ? me.cursusUsers.map{ $0.cursusId } : [] ,
-//				   userIds: filters[.didSubscribe]! ? [me.id] : [],
-//				   sort: [],
-//				   filter: interactorFilter,
-//				   sortedByPredicates: predicates)
 	}
 
 	func logoutButtonTapped() {
@@ -82,12 +71,12 @@ extension UserMainPresenter: CellToPresenterUserMainProtocol {
 			router.routeToSkills(skills: cursusUser.skills)
 		case 1:
 			router.routeToProjects(
-				projects: me.projectsUsers.filter {
+				projects: user.projectsUsers.filter {
 					$0.project.parentId == nil && $0.cursusIds.contains(cursusUser.cursusId) && $0.status != .parent
 				}
 			)
 		case 2:
-			router.routeToAchievements(achievements: me.achievements)
+			router.routeToAchievements(achievements: user.achievements)
 		default: break
 		}
 	}

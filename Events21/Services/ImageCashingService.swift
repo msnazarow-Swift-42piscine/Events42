@@ -14,13 +14,13 @@ class ImageCashingService: ImageCashingServiceProtocol {
         if let image = images[url] {
             comletion(image)
         } else {
-            URLSession.shared.dataTask(with: url) { [self] data, _, _ in
+            URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
                 guard let data = data else {
                     return
                 }
 
                 if let image = UIImage(data: data) ?? SVGKImage(data: data)?.uiImage {
-                    saveImage(for: url, image: image)
+					self?.saveImage(for: url, image: image)
                     comletion(image)
                 }
             }.resume()
