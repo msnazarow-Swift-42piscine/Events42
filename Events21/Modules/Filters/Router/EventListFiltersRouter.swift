@@ -9,9 +9,8 @@
 import UIKit
 
 class EventListFiltersRouter: PresenterToRouterFiltersProtocol {
-
     // MARK: - Properties
-    weak var view: UIViewController!
+    weak var view: UIViewController?
 
     // MARK: - Init
     init(view: UIViewController) {

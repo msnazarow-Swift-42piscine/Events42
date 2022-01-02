@@ -10,12 +10,16 @@ import UIKit
 import OrderedCollections
 import AuthenticationServices
 
-let verticalTranslation = max(!UIWindow.isLandscape ?
-								UIScreen.main.bounds.height / 844.0 :
-								UIScreen.main.bounds.height / 390.0, 1)
-let horisontalTranslation = max(!UIWindow.isLandscape ?
-									UIScreen.main.bounds.width / 390.0 :
-									UIScreen.main.bounds.width / 844.0, 1)
+let verticalTranslation = max(
+	!UIWindow.isLandscape ?
+	UIScreen.main.bounds.height / 844.0 :
+	UIScreen.main.bounds.height / 390.0, 1
+)
+let horisontalTranslation = max(
+	!UIWindow.isLandscape ?
+	UIScreen.main.bounds.width / 390.0 :
+	UIScreen.main.bounds.width / 844.0, 1
+)
 
 protocol FiltersStorageProtocol {
 	func saveFilters(filters: OrderedDictionary<String, Bool>)
@@ -42,7 +46,7 @@ protocol IntraAPIServiceProtocol {
 		userId: Int?,
 		eventId: Int?,
 		sort: [String],
-		filter: [String : [String]],
+		filter: [String: [String]],
 		completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void
 	)
 	func getMe(completion: @escaping (Result<UserFullModel, IntraAPIError>) -> Void)
@@ -53,6 +57,10 @@ protocol IntraAPIServiceProtocol {
 	func hasToken() -> Bool
 	func tokenIsOutdated() -> Bool
 	func refreshToken(completion: @escaping (Result<String, IntraAPIError>) -> Void)
-	func getUsers(userId: Int?, eventId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[UserShortModel], IntraAPIError>) -> Void)
+	func getUsers(
+		sort: [String],
+		filter: [String: [String]],
+		completion: @escaping (Result<[UserShortModel], IntraAPIError>) -> Void
+	)
 	func getUser(userId: Int, completion: @escaping (Result<UserFullModel, IntraAPIError>) -> Void)
 }

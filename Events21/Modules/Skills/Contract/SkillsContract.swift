@@ -17,7 +17,7 @@ protocol PresenterToViewSkillsProtocol: AnyObject {
 
 // MARK: View Input (View -> Presenter)
 protocol ViewToPresenterSkillsProtocol: AnyObject {
-    var dataSource:PresenterToDataSourceSkillsProtocol { get }
+    var dataSource: PresenterToDataSourceSkillsProtocol { get }
 
     func viewDidLoad()
 }
@@ -25,12 +25,10 @@ protocol ViewToPresenterSkillsProtocol: AnyObject {
 
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorSkillsProtocol: AnyObject {
-
 }
 
 // MARK: Presenter Output (Presenter -> Router)
 protocol PresenterToRouterSkillsProtocol: AnyObject {
-    
 }
 
 // MARK: Presenter Output (Presenter -> DataSource)
@@ -40,5 +38,4 @@ protocol PresenterToDataSourceSkillsProtocol: UITableViewDataSource {
 
 // MARK: Cell Input (Cell -> Presenter)
 protocol CellToPresenterSkillsProtocol: AnyObject {
-
 }

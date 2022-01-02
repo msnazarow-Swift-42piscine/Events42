@@ -17,7 +17,7 @@ protocol PresenterToViewAchievementsProtocol: AnyObject {
 
 // MARK: View Input (View -> Presenter)
 protocol ViewToPresenterAchievementsProtocol: AnyObject {
-    var dataSource:PresenterToDataSourceAchievementsProtocol { get }
+    var dataSource: PresenterToDataSourceAchievementsProtocol { get }
 
     func viewDidLoad()
 }
@@ -25,12 +25,10 @@ protocol ViewToPresenterAchievementsProtocol: AnyObject {
 
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorAchievementsProtocol: AnyObject {
-
 }
 
 // MARK: Presenter Output (Presenter -> Router)
 protocol PresenterToRouterAchievementsProtocol: AnyObject {
-    
 }
 
 // MARK: Presenter Output (Presenter -> DataSource)
@@ -40,5 +38,4 @@ protocol PresenterToDataSourceAchievementsProtocol: UITableViewDataSource {
 
 // MARK: Cell Input (Cell -> Presenter)
 protocol CellToPresenterAchievementsProtocol: AnyObject {
-
 }

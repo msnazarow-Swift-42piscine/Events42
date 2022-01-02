@@ -21,7 +21,7 @@ class EventListInteractor: PresenterToInteractorUserProtocol {
 		self.filterStorage = filterStorage
 	}
 
-	func getEvents(campusIds: [Int], cursusIds: [Int], userIds: [Int], sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
+	func getEvents(campusIds: [Int], cursusIds: [Int], userIds: [Int], sort: [String], filter: [String: [String]], completion: @escaping (Result<[EventResponse], IntraAPIError>) -> Void) {
 		let group = DispatchGroup()
 		var resultError: IntraAPIError?
 		var resultEvents: [EventResponse] = []
@@ -33,11 +33,13 @@ class EventListInteractor: PresenterToInteractorUserProtocol {
 						if !arrays[2].1.isEmpty {
 							arrays[2].1.forEach { value2 in
 								group.enter()
-								intraAPIService.getEvents(campusId: [value0, value1, value2][arrays.firstIndex(where: {$0.0 == .campusId})!],
-														  cursusId: [value0, value1, value2][arrays.firstIndex(where: {$0.0 == .cursusId})!],
-														  userId: [value0, value1, value2][arrays.firstIndex(where: {$0.0 == .userId})!],
-														  sort: sort,
-														  filter: filter) { result in
+								intraAPIService.getEvents(
+									campusId: [value0, value1, value2][arrays.firstIndex(where: { $0.0 == .campusId })!],
+									cursusId: [value0, value1, value2][arrays.firstIndex(where: { $0.0 == .cursusId })!],
+									userId: [value0, value1, value2][arrays.firstIndex(where: { $0.0 == .userId })!],
+									sort: sort,
+									filter: filter
+								) { result in
 									defer { group.leave() }
 									switch result {
 									case .failure(let error):
@@ -49,11 +51,13 @@ class EventListInteractor: PresenterToInteractorUserProtocol {
 							}
 						} else {
 							group.enter()
-							intraAPIService.getEvents(campusId: arrays[0...1].contains(where: { $0.0 == .campusId }) ? [value0, value1][arrays.firstIndex(where: {$0.0 == .campusId})!] : nil,
-													  cursusId: arrays[0...1].contains(where: { $0.0 == .cursusId }) ? [value0, value1][arrays.firstIndex(where: {$0.0 == .cursusId})!] : nil,
-													  userId: arrays[0...1].contains(where: { $0.0 == .userId }) ? [value0, value1][arrays.firstIndex(where: {$0.0 == .userId})!] : nil,
-													  sort: sort,
-													  filter: filter) { result in
+							intraAPIService.getEvents(
+								campusId: arrays[0...1].contains(where: { $0.0 == .campusId }) ? [value0, value1][arrays.firstIndex(where: { $0.0 == .campusId })!] : nil,
+								cursusId: arrays[0...1].contains(where: { $0.0 == .cursusId }) ? [value0, value1][arrays.firstIndex(where: { $0.0 == .cursusId })!] : nil,
+								userId: arrays[0...1].contains(where: { $0.0 == .userId }) ? [value0, value1][arrays.firstIndex(where: { $0.0 == .userId })!] : nil,
+								sort: sort,
+								filter: filter
+							) { result in
 								defer { group.leave() }
 								switch result {
 								case .failure(let error):
@@ -66,11 +70,13 @@ class EventListInteractor: PresenterToInteractorUserProtocol {
 					}
 				} else {
 					group.enter()
-					intraAPIService.getEvents(campusId: arrays[0].0 == .campusId ? value0 : nil,
-											  cursusId: arrays[0].0 == .cursusId ? value0 : nil,
-											  userId: arrays[0].0 == .userId ? value0 : nil,
-											  sort: sort,
-											  filter: filter) { result in
+					intraAPIService.getEvents(
+						campusId: arrays[0].0 == .campusId ? value0 : nil,
+						cursusId: arrays[0].0 == .cursusId ? value0 : nil,
+						userId: arrays[0].0 == .userId ? value0 : nil,
+						sort: sort,
+						filter: filter
+					) { result in
 						defer { group.leave() }
 						switch result {
 						case .failure(let error):
@@ -83,11 +89,13 @@ class EventListInteractor: PresenterToInteractorUserProtocol {
 			}
 		} else {
 			group.enter()
-			intraAPIService.getEvents(campusId: nil,
-									  cursusId: nil,
-									  userId: nil,
-									  sort: sort,
-									  filter: filter) { result in
+			intraAPIService.getEvents(
+				campusId: nil,
+				cursusId: nil,
+				userId: nil,
+				sort: sort,
+				filter: filter
+			) { result in
 				defer { group.leave() }
 				switch result {
 				case .failure(let error):

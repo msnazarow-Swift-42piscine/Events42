@@ -9,7 +9,6 @@
 import UIKit
 
 class ProjectsViewController: UIViewController {
-
     // MARK: - Properties
     var presenter: ViewToPresenterProjectsProtocol!
 
@@ -60,9 +59,7 @@ class ProjectsViewController: UIViewController {
 }
 
 extension ProjectsViewController: PresenterToViewProjectsProtocol {
-    
 }
 
 extension ProjectsViewController: UITableViewDelegate {
-	
 }

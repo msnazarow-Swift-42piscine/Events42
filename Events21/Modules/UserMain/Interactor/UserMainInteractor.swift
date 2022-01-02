@@ -9,7 +9,6 @@
 import UIKit
 
 class UserMainInteractor: PresenterToInteractorUserMainProtocol {
-
 	let intraAPIService: IntraAPIServiceProtocol
 	let imageCashingService: ImageCashingServiceProtocol
 
@@ -25,7 +24,7 @@ class UserMainInteractor: PresenterToInteractorUserMainProtocol {
 		imageCashingService.getImage(for: url, comletion: completion)
 	}
 
-	func removeToken(){
+	func removeToken() {
 		intraAPIService.removeCode()
 		intraAPIService.removeToken()
 	}

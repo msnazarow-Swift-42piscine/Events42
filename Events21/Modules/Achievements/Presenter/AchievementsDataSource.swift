@@ -9,7 +9,6 @@
 import UIKit
 
 class AchievementsDataSource: NSObject, PresenterToDataSourceAchievementsProtocol {
-
     // MARK: Properties
     weak var presenter: CellToPresenterAchievementsProtocol?
 

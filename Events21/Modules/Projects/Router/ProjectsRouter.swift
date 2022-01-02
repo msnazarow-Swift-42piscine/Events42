@@ -9,8 +9,6 @@
 import UIKit
 
 class ProjectsRouter: PresenterToRouterProjectsProtocol {
-
     // MARK: - Properties
     weak var view: UIViewController?
-
 }

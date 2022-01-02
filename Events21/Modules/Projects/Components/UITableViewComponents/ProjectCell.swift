@@ -81,7 +81,7 @@ class ProjectCell: CellIdentifiable {
 				projectValidatedImage.heightAnchor.constraint(equalToConstant: 21),
 				projectValidatedImage.widthAnchor.constraint(equalToConstant: 21),
 				projectValidatedImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-				projectValidatedImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -42),
+				projectValidatedImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -42)
 			]
 		)
 	}
@@ -93,7 +93,7 @@ class ProjectCell: CellIdentifiable {
 		switch model.status {
 		case .finished:
 			projectValidatedImage.isHidden = false
-			if let validated = model.validated,validated {
+			if let validated = model.validated, validated {
 				projectValidatedImage.image = UIImage(named: "success")
 			} else {
 				projectValidatedImage.image = UIImage(named: "fail")
@@ -103,6 +103,5 @@ class ProjectCell: CellIdentifiable {
 			projectMarkLabel.text = "In Progress"
 		default: break
 		}
-
     }
 }

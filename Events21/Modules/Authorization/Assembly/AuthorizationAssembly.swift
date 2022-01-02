@@ -8,11 +8,9 @@
 
 import UIKit
 
-enum AuthorizationAssembly{
-    
+enum AuthorizationAssembly {
     // MARK: Static methods
     static func createModule() -> UIViewController {
-
         let viewController = AuthorizationViewController()
         let router = AuthorizationRouter(view: viewController)
 //        #if DEBUG
@@ -22,7 +20,12 @@ enum AuthorizationAssembly{
 //        #endif
         let interactor = AuthorizationInteractor(intraAPIService: intraAPIService)
         let dataSource = AuthorizationDataSource()
-        let presenter = AuthorizationPresenter(view: viewController, interactor: interactor, router: router, dataSource: dataSource)
+        let presenter = AuthorizationPresenter(
+			view: viewController,
+			interactor: interactor,
+			router: router,
+			dataSource: dataSource
+		)
 
         viewController.presenter = presenter
         dataSource.presenter = presenter

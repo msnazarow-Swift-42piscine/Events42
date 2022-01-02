@@ -77,7 +77,6 @@ class SearchUserCell: CellIdentifiable {
 
 			pool.topAnchor.constraint(equalTo: login.bottomAnchor, constant: gap),
 			pool.leftAnchor.constraint(equalTo: login.leftAnchor)
-
 		])
 	}
 

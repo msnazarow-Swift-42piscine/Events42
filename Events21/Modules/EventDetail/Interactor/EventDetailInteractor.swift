@@ -9,22 +9,21 @@
 import Foundation
 
 class EventDetailInteractor: PresenterToInteractorEventProtocol {
-
     let intraAPIService: IntraAPIServiceProtocol
 
     init(intraAPIService: IntraAPIServiceProtocol) {
         self.intraAPIService = intraAPIService
     }
-    
-    func registerToEvent(eventId: Int, completion: @escaping (Result<EventUsersResponse, IntraAPIError>) -> Void){
+
+    func registerToEvent(eventId: Int, completion: @escaping (Result<EventUsersResponse, IntraAPIError>) -> Void) {
         intraAPIService.registerToEvent(eventId: eventId, completion: completion)
     }
 
-    func unregisterFromEvent(eventUserId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void){
+    func unregisterFromEvent(eventUserId: Int, completion: @escaping (Result<Bool, IntraAPIError>) -> Void) {
         intraAPIService.unregisterFromEvent(eventUserId: eventUserId, completion: completion)
     }
 
-    func getUserEvents(userIds: [Int], eventIds: [Int], sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
+    func getUserEvents(userIds: [Int], eventIds: [Int], sort: [String], filter: [String: [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
         let group = DispatchGroup()
         var resultError: IntraAPIError?
         var resultEvents: [EventUsersResponse] = []
@@ -34,8 +33,8 @@ class EventDetailInteractor: PresenterToInteractorEventProtocol {
                         if !arrays[1].1.isEmpty {
                             arrays[1].1.forEach { value1 in
                                 group.enter()
-                                intraAPIService.getUserEvents(userId: [value0, value1][arrays.firstIndex(where: {$0.0 == .userId})!],
-                                                              eventId: [value0, value1][arrays.firstIndex(where: {$0.0 == .eventId})!],
+                                intraAPIService.getUserEvents(userId: [value0, value1][arrays.firstIndex(where: { $0.0 == .userId })!],
+                                                              eventId: [value0, value1][arrays.firstIndex(where: { $0.0 == .eventId })!],
                                                               sort: sort,
                                                               filter: filter) { result in
                                     defer { group.leave() }
@@ -62,7 +61,7 @@ class EventDetailInteractor: PresenterToInteractorEventProtocol {
                         }
                     }
                 }
-            }
+                    }
         } else {
             group.enter()
             intraAPIService.getUserEvents(userId: nil,

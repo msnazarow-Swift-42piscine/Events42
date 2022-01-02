@@ -63,4 +63,3 @@ class SortCell: CellIdentifiable {
 		presenter.textFieldDidBeginEditing(model.number)
 	}
 }
-

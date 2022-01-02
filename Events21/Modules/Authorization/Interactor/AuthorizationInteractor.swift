@@ -40,7 +40,7 @@ class AuthorizationInteractor: PresenterToInteractorAuthorizationProtocol {
 		intraAPIService.getMe(completion: comletion)
 	}
 
-	func removeToken(){
+	func removeToken() {
 		intraAPIService.removeCode()
 		intraAPIService.removeToken()
 	}

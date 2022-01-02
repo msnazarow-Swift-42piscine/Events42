@@ -25,7 +25,7 @@ extension PresenterToViewAuthorizationProtocol {
 
 // MARK: View Input (View -> Presenter)
 protocol ViewToPresenterAuthorizationProtocol: AnyObject, WKNavigationDelegate {
-    var dataSource:PresenterToDataSourceAuthorizationProtocol { get }
+    var dataSource: PresenterToDataSourceAuthorizationProtocol { get }
     func viewDidLoad()
 	func viewWillAppear()
     func buttonDidTapped()
@@ -41,7 +41,6 @@ protocol PresenterToInteractorAuthorizationProtocol: AnyObject {
     func tokenIsOutdated() -> Bool
 	func getMe(comletion: @escaping (Result<UserFullModel, IntraAPIError>) -> Void)
 	func removeToken()
-
 }
 
 // MARK: Presenter Output (Presenter -> Router)
@@ -57,5 +56,4 @@ protocol PresenterToDataSourceAuthorizationProtocol: UITableViewDataSource {
 
 // MARK: Cell Input (Cell -> Presenter)
 protocol CellToPresenterAuthorizationProtocol: AnyObject {
-
 }

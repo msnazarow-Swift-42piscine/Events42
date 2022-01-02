@@ -10,7 +10,6 @@ import UIKit
 import WebKit
 
 class AuthorizationRouter: PresenterToRouterAuthorizationProtocol {
-
     // MARK: - Properties
     weak var view: UIViewController!
 
@@ -49,7 +48,6 @@ class AuthorizationRouter: PresenterToRouterAuthorizationProtocol {
 			tabView.viewControllers = [nav1, nav2, nav3]
 			tabView.tabBar.barTintColor = UIColor(patternImage: UIImage(named: "background")!)
 			self?.view.navigationController?.pushViewController(tabView, animated: true)
-//            self?.view.navigationController?.setViewControllers()
         }
     }
 }

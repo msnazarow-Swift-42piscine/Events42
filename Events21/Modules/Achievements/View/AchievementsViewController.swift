@@ -9,7 +9,6 @@
 import UIKit
 
 class AchievementsViewController: UIViewController {
-
     // MARK: - Properties
     var presenter: ViewToPresenterAchievementsProtocol!
 	lazy var tableView: UITableView = {

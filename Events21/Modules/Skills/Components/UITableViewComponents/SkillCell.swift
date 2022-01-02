@@ -13,7 +13,6 @@ class SkillCell: CellIdentifiable {
 
 	private lazy var skillNameLabel: UILabel = {
 		let label = UILabel()
-//		label.translatesAutoresizingMaskIntoConstraints = false
 		label.textAlignment = .left
 		label.textColor = .white
 		return label
@@ -22,7 +21,6 @@ class SkillCell: CellIdentifiable {
 	private lazy var skillValueLabel: UILabel = {
 		let label = UILabel()
 		label.textAlignment = .right
-//		label.translatesAutoresizingMaskIntoConstraints = false
 		label.textColor = .white
 		return label
 	}()
@@ -98,4 +96,3 @@ class SkillCell: CellIdentifiable {
 		skillValueLabel.text = model.level
 	}
 }
-

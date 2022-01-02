@@ -11,31 +11,32 @@ import WebKit
 
 
 class AuthorizationPresenter: NSObject, ViewToPresenterAuthorizationProtocol {
-
     // MARK: Properties
     weak var view: PresenterToViewAuthorizationProtocol!
     let interactor: PresenterToInteractorAuthorizationProtocol
     let router: PresenterToRouterAuthorizationProtocol
-    let dataSource:PresenterToDataSourceAuthorizationProtocol
+    let dataSource: PresenterToDataSourceAuthorizationProtocol
 
     // MARK: Init
-    init(view: PresenterToViewAuthorizationProtocol,
-         interactor: PresenterToInteractorAuthorizationProtocol,
-         router: PresenterToRouterAuthorizationProtocol,
-         dataSource: PresenterToDataSourceAuthorizationProtocol) {
+    init(
+		view: PresenterToViewAuthorizationProtocol,
+		interactor: PresenterToInteractorAuthorizationProtocol,
+		router: PresenterToRouterAuthorizationProtocol,
+		dataSource: PresenterToDataSourceAuthorizationProtocol
+	) {
         self.view = view
         self.interactor = interactor
         self.router = router
         self.dataSource = dataSource
     }
 
-    func viewDidLoad(){
+    func viewDidLoad() {
         guard interactor.hasToken() else {
 			view.setLoginButtonHidden(false)
 			return
 		}
         if !interactor.tokenIsOutdated() {
-			loadMe() { [weak self] in
+			loadMe { [weak self] in
 	//				self?.refresh(
 	//					filters: self?.interactor.loadFilters() ?? [
 	//						.myCursus: false,
@@ -48,7 +49,7 @@ class AuthorizationPresenter: NSObject, ViewToPresenterAuthorizationProtocol {
 			}
         } else {
             interactor.refreshToken { [weak self] _ in
-				self?.loadMe() {
+				self?.loadMe {
 		//				self?.refresh(
 		//					filters: self?.interactor.loadFilters() ?? [
 		//						.myCursus: false,
@@ -75,7 +76,7 @@ class AuthorizationPresenter: NSObject, ViewToPresenterAuthorizationProtocol {
         interactor.getToken { [weak self] result in
             switch result {
             case .success(let token):
-				self?.loadMe() { [weak self] in
+				self?.loadMe { [weak self] in
 		//				self?.refresh(
 		//					filters: self?.interactor.loadFilters() ?? [
 		//						.myCursus: false,
@@ -95,32 +96,24 @@ class AuthorizationPresenter: NSObject, ViewToPresenterAuthorizationProtocol {
             }
         }
     }
-	
+
 
 	func loadMe(comletion: @escaping (() -> Void)) {
-		interactor.getMe() { [weak self] result in
+		interactor.getMe { [weak self] result in
 			switch result {
 			case .success(let me):
 				self?.router.routeToUserScreen(me: me)
 			case .failure(let error):
-				if let description = error.errorDescription {
-					self?.view.showAlert(title: error.error, message: description) {
-						self?.interactor.removeToken()
-						self?.view.setLoginButtonHidden(false)
-//						self.router.routeToAuthScreen()
-					}
-				} else if let message = error.message {
+				if let message = error.errorDescription ?? error.message {
 					self?.view.showAlert(title: error.error, message: message) {
 						self?.interactor.removeToken()
-							self?.view.setLoginButtonHidden(false)
-//						self.router.routeToAuthScreen()
+						self?.view.setLoginButtonHidden(false)
 					}
 				}
 			}
 		}
 	}
 }
- 
+
 extension AuthorizationPresenter: CellToPresenterAuthorizationProtocol {
-    
 }

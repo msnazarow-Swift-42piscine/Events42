@@ -9,7 +9,6 @@
 import UIKit
 
 class SearchUserRouter: PresenterToRouterSearchUserProtocol {
-
     // MARK: - Properties
     weak var view: UIViewController?
 

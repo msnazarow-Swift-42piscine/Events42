@@ -9,7 +9,6 @@
 import UIKit
 
 class ProjectsDataSource: NSObject, PresenterToDataSourceProjectsProtocol {
-
     // MARK: Properties
     weak var presenter: CellToPresenterProjectsProtocol?
 

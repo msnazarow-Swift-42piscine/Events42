@@ -26,7 +26,7 @@ struct UserHeaderModel: Identifiable {
 		if let poolMonth = property.poolMonth, let poolYear = property.poolYear {
 			pool = "\(poolMonth) - \(poolYear)"
 		}
-		location =  property.location ?? property.campus.first?.city ?? "Unknown"
+		location = property.location ?? property.campus.first?.city ?? "Unknown"
 		wallet = "\(property.wallet)"
 		phone = property.phone
 		imageUrl = property.imageUrl

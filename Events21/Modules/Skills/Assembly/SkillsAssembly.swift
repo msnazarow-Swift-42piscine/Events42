@@ -8,8 +8,7 @@
 
 import UIKit
 
-enum SkillsAssembly{
-    
+enum SkillsAssembly {
     // MARK: Static methods
 	static func createModule(skills: [SkillModel]) -> UIViewController {
         let router = SkillsRouter()

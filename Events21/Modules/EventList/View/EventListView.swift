@@ -8,11 +8,10 @@
 
 import UIKit
 
-//TODO: Сверстать основной экран с инфой о пользователе и табличкой евентов - по клике на ивент - в отдельном вью через navigation (можно через popup) доп инфа Event модуль
+// TODO: Сверстать основной экран с инфой о пользователе и табличкой евентов - по клике на ивент - в отдельном вью через navigation (можно через popup) доп инфа Event модуль
 
 
 class EventListView: UIViewController {
-    
     // MARK: - Views
 	lazy var filterButton = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .done, target: self, action: #selector(filtersButtonTapped))
 
@@ -61,7 +60,7 @@ class EventListView: UIViewController {
 			tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
 			tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
 			tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-			tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+			tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 
@@ -70,7 +69,7 @@ class EventListView: UIViewController {
 	}
 }
 
-extension EventListView: PresenterToViewUserProtocol{
+extension EventListView: PresenterToViewUserProtocol {
     func reloadTableViewData() {
         DispatchQueue.main.async {
             self.tableView.reloadData()

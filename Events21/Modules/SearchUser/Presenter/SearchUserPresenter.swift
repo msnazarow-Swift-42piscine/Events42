@@ -9,12 +9,11 @@
 import Foundation
 
 class SearchUserPresenter: ViewToPresenterSearchUserProtocol {
-
     // MARK: Properties
     weak var view: PresenterToViewSearchUserProtocol?
     let interactor: PresenterToInteractorSearchUserProtocol
     let router: PresenterToRouterSearchUserProtocol
-    let dataSource:PresenterToDataSourceSearchUserProtocol
+    let dataSource: PresenterToDataSourceSearchUserProtocol
 	var debounceTimer: Timer?
 
     // MARK: Init
@@ -28,8 +27,7 @@ class SearchUserPresenter: ViewToPresenterSearchUserProtocol {
         self.dataSource = dataSource
     }
 
-    func viewDidLoad(){
-
+    func viewDidLoad() {
     }
 
 	func updateSearchResults(_ text: String?) {
@@ -38,7 +36,7 @@ class SearchUserPresenter: ViewToPresenterSearchUserProtocol {
 		}
 		debounceTimer?.invalidate()
 		debounceTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] _ in
-			self?.interactor.getUsers(filter: ["login" : [text]]) { [weak self] (result) in
+			self?.interactor.getUsers(filter: ["login": [text]]) { [weak self] result in
 				switch result {
 				case .success(let users):
 					self?.dataSource.updateForSections([SearchUserSection(users)])

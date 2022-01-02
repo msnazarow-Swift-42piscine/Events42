@@ -9,8 +9,6 @@
 import UIKit
 
 class AchievementsRouter: PresenterToRouterAchievementsProtocol {
-
     // MARK: - Properties
     weak var view: UIViewController?
-
 }

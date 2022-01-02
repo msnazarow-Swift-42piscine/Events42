@@ -6,13 +6,12 @@
 //  
 //
 
-//TODO: Инфа по ивенту + кнопка зарегистирроваться/отрегестрироваться
+// TODO: Инфа по ивенту + кнопка зарегистирроваться/отрегестрироваться
 
 
 import UIKit
 
 class EventDetailView: UIViewController {
-
     // MARK: - Properties
     var presenter: ViewToPresenterEventProtocol!
 
@@ -70,15 +69,14 @@ class EventDetailView: UIViewController {
             textView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             textView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
 			textView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-])
-
+        ])
     }
-    @objc private func buttonDidTapped(){
+    @objc private func buttonDidTapped() {
          presenter.buttonDidTapped()
     }
 }
 
-extension EventDetailView: PresenterToViewEventProtocol{
+extension EventDetailView: PresenterToViewEventProtocol {
     func setTextView(text: NSAttributedString) {
         DispatchQueue.main.async {
             self.textView.attributedText = text
@@ -104,13 +102,13 @@ extension EventDetailView: PresenterToViewEventProtocol{
     func setButtonUnregistered() {
         DispatchQueue.main.async { [self] in
 			navigationItem.setRightBarButton(unRegisterButton, animated: true)
-		}
+        }
     }
 
     func setButtonRegistered() {
         DispatchQueue.main.async { [self] in
 			navigationItem.setRightBarButton(registerButton, animated: true)
-		}
+        }
     }
 
     func hideButton() {

@@ -6,7 +6,7 @@
 //  
 //
 
-//TODO: Авторизация пользователя, webView? 
+// TODO: Авторизация пользователя, webView? 
 
 
 import UIKit
@@ -14,7 +14,6 @@ import WebKit
 
 
 class AuthorizationViewController: UIViewController {
-
     // MARK: - Properties
     var presenter: ViewToPresenterAuthorizationProtocol!
 
@@ -36,7 +35,7 @@ class AuthorizationViewController: UIViewController {
 		button.isHidden = true
         return button
     }()
-    
+
     let webView = WKWebView()
 
     // MARK: - Lifecycle Methods
@@ -48,6 +47,7 @@ class AuthorizationViewController: UIViewController {
     }
 
 	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
 		presenter.viewWillAppear()
 	}
 
@@ -70,21 +70,18 @@ class AuthorizationViewController: UIViewController {
 			loginButton.widthAnchor.constraint(equalToConstant: 200),
 			loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
 			imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-										imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+			imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
 			imageView.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -50),
 			imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
 		])
-
 	}
 
     @objc private func buttonDidTapped() {
         presenter.buttonDidTapped()
     }
-
-
 }
 
-extension AuthorizationViewController: PresenterToViewAuthorizationProtocol{
+extension AuthorizationViewController: PresenterToViewAuthorizationProtocol {
     func loadRequest(request: URLRequest) {
         webView.load(request)
     }
@@ -113,6 +110,6 @@ extension AuthorizationViewController: WKNavigationDelegate {
             }
             let exceptions = SecTrustCopyExceptions(serverTrust)
             SecTrustSetExceptions(serverTrust, exceptions)
-            completionHandler(.useCredential, URLCredential(trust: serverTrust));
+            completionHandler(.useCredential, URLCredential(trust: serverTrust))
     }
 }

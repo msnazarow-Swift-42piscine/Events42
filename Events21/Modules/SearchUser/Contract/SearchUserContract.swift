@@ -17,7 +17,7 @@ protocol PresenterToViewSearchUserProtocol: AnyObject {
 
 // MARK: View Input (View -> Presenter)
 protocol ViewToPresenterSearchUserProtocol: AnyObject {
-    var dataSource:PresenterToDataSourceSearchUserProtocol { get }
+    var dataSource: PresenterToDataSourceSearchUserProtocol { get }
 
     func viewDidLoad()
 	func updateSearchResults(_ text: String?)
@@ -26,13 +26,19 @@ protocol ViewToPresenterSearchUserProtocol: AnyObject {
 
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorSearchUserProtocol: AnyObject {
-	func getUsers(userId: Int?, eventId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[UserShortModel], IntraAPIError>) -> Void)
+	func getUsers(
+		sort: [String],
+		filter: [String: [String]],
+		completion: @escaping (Result<[UserShortModel], IntraAPIError>) -> Void
+	)
 	func getUser(userId: Int, completion: @escaping (Result<UserFullModel, IntraAPIError>) -> Void)
 }
 
 extension PresenterToInteractorSearchUserProtocol {
-	func getUsers(filter: [String : [String]], completion: @escaping (Result<[UserShortModel], IntraAPIError>) -> Void) {
-		getUsers(userId: nil, eventId: nil, sort: [], filter: filter, completion: completion)
+	func getUsers(
+		filter: [String: [String]],
+		completion: @escaping (Result<[UserShortModel], IntraAPIError>) -> Void) {
+		getUsers(sort: [], filter: filter, completion: completion)
 	}
 }
 

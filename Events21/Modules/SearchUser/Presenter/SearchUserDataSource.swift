@@ -9,7 +9,6 @@
 import UIKit
 
 class SearchUserDataSource: NSObject, PresenterToDataSourceSearchUserProtocol {
-
     // MARK: Properties
     weak var presenter: CellToPresenterSearchUserProtocol?
 

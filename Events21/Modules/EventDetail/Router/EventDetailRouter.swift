@@ -9,7 +9,6 @@
 import UIKit
 
 class EventDetailRouter: PresenterToRouterEventProtocol {
-
     // MARK: - Properties
     weak var view: UIViewController!
 
@@ -17,5 +16,4 @@ class EventDetailRouter: PresenterToRouterEventProtocol {
     init(view: UIViewController) {
         self.view = view
     }
-    
 }

@@ -100,7 +100,7 @@ class AchievementCell: CellIdentifiable {
 
 			descriptionLabel.leftAnchor.constraint(equalTo: nameLabel.leftAnchor),
 			descriptionLabel.rightAnchor.constraint(equalTo: descriptionLabel.superview!.rightAnchor),
-			descriptionLabel.bottomAnchor.constraint(equalTo: descriptionLabel.superview!.bottomAnchor),
+			descriptionLabel.bottomAnchor.constraint(equalTo: descriptionLabel.superview!.bottomAnchor)
 		])
 	}
 

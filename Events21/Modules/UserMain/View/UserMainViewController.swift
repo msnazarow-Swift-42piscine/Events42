@@ -9,7 +9,6 @@
 import UIKit
 
 class UserMainViewController: UIViewController {
-
     // MARK: - Properties
     var presenter: ViewToPresenterUserMainProtocol!
 
@@ -120,5 +119,4 @@ extension UserMainViewController: PresenterToViewUserMainProtocol {
 }
 
 extension UserMainViewController: UITableViewDelegate {
-
 }

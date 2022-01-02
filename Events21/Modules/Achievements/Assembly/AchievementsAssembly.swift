@@ -8,8 +8,7 @@
 
 import UIKit
 
-enum AchievementsAssembly{
-    
+enum AchievementsAssembly {
     // MARK: Static methods
 	static func createModule(achievements: [AchievementResponse]) -> UIViewController {
         let router = AchievementsRouter()

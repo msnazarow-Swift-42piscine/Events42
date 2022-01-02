@@ -23,7 +23,7 @@ extension PresenterToViewUserProtocol {
 
 // MARK: View Input (View -> Presenter)
 protocol ViewToPresenterUserProtocol: AnyObject {
-    var dataSource:PresenterToDataSourceUserProtocol { get }
+    var dataSource: PresenterToDataSourceUserProtocol { get }
 
     func viewDidLoad()
     func didSelectRowAt(modelId: Int)
@@ -58,7 +58,6 @@ protocol PresenterToDataSourceUserProtocol: UITableViewDataSource {
 
 // MARK: Cell Input (Cell -> Presenter)
 protocol CellToPresenterUserProtocol: AnyObject {
-
 }
 
 

@@ -186,7 +186,7 @@ class UserHeader: HeaderIdentifiable {
 
 			levelView.leftAnchor.constraint(equalTo: cursusView.leftAnchor),
 			levelView.rightAnchor.constraint(equalTo: cursusView.rightAnchor),
-			levelView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -gap),
+			levelView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -gap)
 		])
 	}
 
@@ -260,7 +260,7 @@ extension UserHeader: ToolbarPickerViewDelegate {
 		guard let presenter = presenter as? CellToPresenterUserMainProtocol else { return }
 		presenter.didSelectCursus(cursusUser)
 		guard let model = model as? UserHeaderModel else { return }
-		chosenIndex = model.cursuses.firstIndex{ $0.cursusId == cursusUser.cursusId }
+		chosenIndex = model.cursuses.firstIndex { $0.cursusId == cursusUser.cursusId }
 		pickerView.selectRow(chosenIndex ?? 0, inComponent: 0, animated: true)
 	}
 

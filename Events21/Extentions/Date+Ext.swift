@@ -65,11 +65,10 @@ extension Data {
 
 extension Data {
 	var jsonString: String? {
-		guard let json = try? JSONSerialization.jsonObject(with: self, options: .mutableContainers),
-			  let pretty = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) else {
-			return nil
-		}
-
-		return String(data: pretty, encoding: .utf8)// ?.replacingOccurrences(of: "\\", with: "")
+		guard
+			let json = try? JSONSerialization.jsonObject(with: self, options: .mutableContainers),
+			let pretty = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+		else { return nil }
+		return String(data: pretty, encoding: .utf8)?.replacingOccurrences(of: "\\", with: "")
 	}
 }

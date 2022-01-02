@@ -8,8 +8,7 @@
 
 import UIKit
 
-enum ProjectsAssembly{
-    
+enum ProjectsAssembly {
     // MARK: Static methods
 	static func createModule(projects: [ProjectUser]) -> UIViewController {
         let router = ProjectsRouter()

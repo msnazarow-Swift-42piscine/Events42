@@ -9,12 +9,11 @@
 import Foundation
 
 class SkillsPresenter: ViewToPresenterSkillsProtocol {
-
     // MARK: Properties
     weak var view: PresenterToViewSkillsProtocol?
     let interactor: PresenterToInteractorSkillsProtocol
     let router: PresenterToRouterSkillsProtocol
-    let dataSource:PresenterToDataSourceSkillsProtocol
+    let dataSource: PresenterToDataSourceSkillsProtocol
 	let skills: [SkillModel]
 
     // MARK: Init
@@ -30,12 +29,11 @@ class SkillsPresenter: ViewToPresenterSkillsProtocol {
 		self.skills = skills
     }
 
-    func viewDidLoad(){
+    func viewDidLoad() {
 		dataSource.updateForSections([SkillsSectionModel(skills)])
 		view?.tableViewReload()
     }
 }
 
 extension SkillsPresenter: CellToPresenterSkillsProtocol {
-    
 }

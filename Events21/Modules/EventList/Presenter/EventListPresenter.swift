@@ -10,12 +10,11 @@ import Foundation
 import OrderedCollections
 
 class EventListPresenter: ViewToPresenterUserProtocol {
-
     // MARK: Properties
     weak var view: PresenterToViewUserProtocol!
     let interactor: PresenterToInteractorUserProtocol
     let router: PresenterToRouterUserProtocol
-    let dataSource:PresenterToDataSourceUserProtocol
+    let dataSource: PresenterToDataSourceUserProtocol
 
     var events: [EventResponse]!
     var me: UserFullModel
@@ -28,12 +27,12 @@ class EventListPresenter: ViewToPresenterUserProtocol {
 
 
     let predicates: [String: ((EventResponse, EventResponse) -> Bool)] = [
-        "\(String.type) \(String.inc)": { (event1, event2) -> Bool in event1.kind > event2.kind },
-        "\(String.syllabus) \(String.inc)": { (event1, event2) -> Bool in event1.cursusIds.max() ?? 0 > event2.cursusIds.max() ?? 0 },
-        "\(String.campus) \(String.inc)": { (event1, event2) -> Bool in event1.campusIds.max() ?? 0 > event2.campusIds.max() ?? 0 },
-        "\(String.type) \(String.dec)": { (event1, event2) -> Bool in event1.kind < event2.kind },
-        "\(String.syllabus) \(String.dec)": { (event1, event2) -> Bool in event1.cursusIds.max() ?? 0 < event2.cursusIds.max() ?? 0 },
-        "\(String.campus) \(String.dec)": { (event1, event2) -> Bool in event1.campusIds.max() ?? 0 < event2.campusIds.max() ?? 0 }
+        "\(String.type) \(String.inc)": { event1, event2 -> Bool in event1.kind > event2.kind },
+        "\(String.syllabus) \(String.inc)": { event1, event2 -> Bool in event1.cursusIds.max() ?? 0 > event2.cursusIds.max() ?? 0 },
+        "\(String.campus) \(String.inc)": { event1, event2 -> Bool in event1.campusIds.max() ?? 0 > event2.campusIds.max() ?? 0 },
+        "\(String.type) \(String.dec)": { event1, event2 -> Bool in event1.kind < event2.kind },
+        "\(String.syllabus) \(String.dec)": { event1, event2 -> Bool in event1.cursusIds.max() ?? 0 < event2.cursusIds.max() ?? 0 },
+        "\(String.campus) \(String.dec)": { event1, event2 -> Bool in event1.campusIds.max() ?? 0 < event2.campusIds.max() ?? 0 }
     ]
 
     // MARK: Init
@@ -55,16 +54,17 @@ class EventListPresenter: ViewToPresenterUserProtocol {
 		refresh(filters: interactor.loadFilters() ?? [:], sort: [])
     }
 
-    func viewWillAppear(){
+    func viewWillAppear() {
     }
-    
+
     func loadEvents(campusIds: [Int],
                     cursusIds: [Int],
                     userIds: [Int],
                     sort: [String],
-                    filter: [String : [String]],
+                    filter: [String: [String]],
                     sortedByPredicates: [(EventResponse, EventResponse) -> Bool]) {
-        interactor.getEvents(campusIds: campusIds, cursusIds: cursusIds, userIds: userIds, sort: sort, filter: filter) { result in
+        interactor.getEvents(campusIds: campusIds, cursusIds: cursusIds, userIds: userIds, sort: sort, filter: filter) { [weak self] result in
+			guard let self = self else { return }
             switch result {
             case .success(let responses):
                 self.events = responses.sorted(by: sortedByPredicates).map {
@@ -90,29 +90,6 @@ class EventListPresenter: ViewToPresenterUserProtocol {
         }
     }
 
-//    func getUserEvents(userIds: [Int], eventIds: [Int], sort: [String], filter: [String : [String]]) {
-//        interactor.getUserEvents(userIds: userIds, eventIds: eventIds, sort: sort, filter: filter) { result in
-//            switch result {
-//            case .success(let responses):
-//                self.events = responses.map{ $0.event }
-//                self.dataSource.updateForSections([EventListSection(self.events)])
-//                self.view.reloadTableViewData()
-//            case .failure(let error):
-//                if let description = error.errorDescription {
-//                    self.view.showAlert(title: error.error, message: description) {
-//                        self.interactor.removeToken()
-//                        self.router.routeToAuthScreen()
-//                    }
-//                } else if let message = error.message {
-//                    self.view.showAlert(title: error.error, message: message) {
-//                        self.interactor.removeToken()
-//                        self.router.routeToAuthScreen()
-//                    }
-//                }
-//            }
-//        }
-//    }
-
     func didSelectRowAt(modelId: Int) {
         router.routeToEventScreen(with: events[modelId], userId: me.id)
     }
@@ -123,7 +100,6 @@ class EventListPresenter: ViewToPresenterUserProtocol {
 }
 
 extension EventListPresenter: CellToPresenterUserProtocol {
-    
 }
 
 extension EventListPresenter: TableViewToFiltersDelegateProtocol {
@@ -133,12 +109,12 @@ extension EventListPresenter: TableViewToFiltersDelegateProtocol {
             interactorFilter[.future] = ["true"]
         }
 
-        let predicates: [(EventResponse, EventResponse) -> Bool] = sort.compactMap{ sortName in
+        let predicates: [(EventResponse, EventResponse) -> Bool] = sort.compactMap { sortName in
             guard let sortName = sortName else { return nil }
             return self.predicates[sortName]
         }
-        loadEvents(campusIds: (filters[.myCampus] ?? false) ? me.campus.map{ $0.id } : [],
-                   cursusIds: (filters[.myCursus] ?? false) ? me.cursusUsers.map{ $0.cursusId } : [] ,
+        loadEvents(campusIds: (filters[.myCampus] ?? false) ? me.campus.map { $0.id } : [],
+                   cursusIds: (filters[.myCursus] ?? false) ? me.cursusUsers.map { $0.cursusId } : [] ,
                    userIds: (filters[.didSubscribe] ?? false) ? [me.id] : [],
                    sort: [],
                    filter: interactorFilter,

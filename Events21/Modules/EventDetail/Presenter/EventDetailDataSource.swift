@@ -9,7 +9,6 @@
 import UIKit
 
 class EventDetailDataSource: NSObject, PresenterToDataSourceEventProtocol {
-
     // MARK: Properties
     weak var presenter: CellToPresenterEventProtocol!
 
@@ -32,7 +31,7 @@ class EventDetailDataSource: NSObject, PresenterToDataSourceEventProtocol {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: model.identifier, for: indexPath) as? CellIdentifiable else {
             return UITableViewCell()
         }
-//        cell.presenter = presenter
+        cell.presenter = presenter
         cell.model = model
         return cell
     }

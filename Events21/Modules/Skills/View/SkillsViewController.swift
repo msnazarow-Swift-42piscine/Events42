@@ -9,7 +9,6 @@
 import UIKit
 
 class SkillsViewController: UIViewController {
-
     // MARK: - Properties
     var presenter: ViewToPresenterSkillsProtocol!
 

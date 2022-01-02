@@ -8,8 +8,7 @@
 
 import UIKit
 
-enum SearchUserAssembly{
-    
+enum SearchUserAssembly {
     // MARK: Static methods
     static func createModule() -> UIViewController {
         let router = SearchUserRouter()

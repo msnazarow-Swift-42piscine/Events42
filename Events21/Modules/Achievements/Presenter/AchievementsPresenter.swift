@@ -9,12 +9,11 @@
 import Foundation
 
 class AchievementsPresenter: ViewToPresenterAchievementsProtocol {
-
     // MARK: Properties
     weak var view: PresenterToViewAchievementsProtocol?
     let interactor: PresenterToInteractorAchievementsProtocol
     let router: PresenterToRouterAchievementsProtocol
-    let dataSource:PresenterToDataSourceAchievementsProtocol
+    let dataSource: PresenterToDataSourceAchievementsProtocol
 	let achievements: [AchievementResponse]
 
     // MARK: Init
@@ -30,12 +29,11 @@ class AchievementsPresenter: ViewToPresenterAchievementsProtocol {
 		self.achievements = achievements
     }
 
-    func viewDidLoad(){
+    func viewDidLoad() {
 		dataSource.updateForSections([AchievementSection(achievements)])
 		view?.tableViewReload()
     }
 }
 
 extension AchievementsPresenter: CellToPresenterAchievementsProtocol {
-    
 }

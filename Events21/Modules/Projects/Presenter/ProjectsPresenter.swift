@@ -9,12 +9,11 @@
 import Foundation
 
 class ProjectsPresenter: ViewToPresenterProjectsProtocol {
-
     // MARK: Properties
     weak var view: PresenterToViewProjectsProtocol?
     let interactor: PresenterToInteractorProjectsProtocol
     let router: PresenterToRouterProjectsProtocol
-    let dataSource:PresenterToDataSourceProjectsProtocol
+    let dataSource: PresenterToDataSourceProjectsProtocol
 	let projects: [ProjectUser]
 
     // MARK: Init
@@ -30,11 +29,10 @@ class ProjectsPresenter: ViewToPresenterProjectsProtocol {
 		self.projects = projects
     }
 
-    func viewDidLoad(){
+    func viewDidLoad() {
 		dataSource.updateForSections([ProjectsSectionModel(projects)])
     }
 }
 
 extension ProjectsPresenter: CellToPresenterProjectsProtocol {
-    
 }

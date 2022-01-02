@@ -9,7 +9,6 @@
 import UIKit
 
 class EventListRouter: PresenterToRouterUserProtocol {
-
     // MARK: - Properties
     weak var view: UIViewController?
 
@@ -24,10 +23,9 @@ class EventListRouter: PresenterToRouterUserProtocol {
         }
     }
 
-    func routeToAuthScreen(){
+    func routeToAuthScreen() {
         DispatchQueue.main.async {
 			self.view?.tabBarController?.navigationController?.popViewController(animated: true)
-//            self.view.navigationController?.setViewControllers([AuthorizationAssembly.createModule()], animated: true)
         }
     }
 

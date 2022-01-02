@@ -21,7 +21,7 @@ class EventListFiltersPresenter: ViewToPresenterFiltersProtocol {
 		.myCampus: false,
 		.future: false,
 		.didSubscribe: false
-	]
+    ]
     var sort: [String?] = [.none]
 
     var editingNubmer: Int!
@@ -41,7 +41,6 @@ class EventListFiltersPresenter: ViewToPresenterFiltersProtocol {
     }
 
     func viewDidLoad() {
-
     }
 
     func viewWillAppear() {
@@ -51,7 +50,7 @@ class EventListFiltersPresenter: ViewToPresenterFiltersProtocol {
 
         dataSource.updateForSections([
             FilterSectionModel(filters.map { FilterModel(name: $0.key, value: $0.value) }),
-            SortSectionModel(sort.enumerated().map{ SortModel(sortName: $0.element, isActive: $0.offset == 0, number: $0.offset, inputView: view.pickerView) })
+            SortSectionModel(sort.enumerated().map { SortModel(sortName: $0.element, isActive: $0.offset == 0, number: $0.offset, inputView: view.pickerView) })
         ])
     }
 
@@ -99,7 +98,8 @@ extension EventListFiltersPresenter: CellToPresenterFiltersProtocol {
 								isActive: true,
 								number: $0.offset,
 								inputView: view.pickerView
-			) })
+			)
+            })
         ])
         if !text.isEmpty {
             if isLast {

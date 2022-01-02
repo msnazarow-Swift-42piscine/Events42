@@ -9,7 +9,6 @@
 import UIKit
 
 class EventListDataSource: NSObject, PresenterToDataSourceUserProtocol {
-
     // MARK: Properties
     weak var presenter: CellToPresenterUserProtocol!
 

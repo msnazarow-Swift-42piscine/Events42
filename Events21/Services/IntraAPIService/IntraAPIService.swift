@@ -22,7 +22,7 @@ class IntraAPIService: NSObject, IntraAPIServiceProtocol {
         return urlComponents
     }()
 
-    var request: URLRequest{
+    var request: URLRequest {
         var request = URLRequest(url: urlComponents.url!)
         if let token = token {
             request.setValue("Bearer \(token.accessToken)", forHTTPHeaderField: "Authorization")

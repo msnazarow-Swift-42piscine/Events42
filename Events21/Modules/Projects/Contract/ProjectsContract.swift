@@ -11,13 +11,12 @@ import UIKit
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewProjectsProtocol: AnyObject {
-
 }
 
 
 // MARK: View Input (View -> Presenter)
 protocol ViewToPresenterProjectsProtocol: AnyObject {
-    var dataSource:PresenterToDataSourceProjectsProtocol { get }
+    var dataSource: PresenterToDataSourceProjectsProtocol { get }
 
     func viewDidLoad()
 }
@@ -25,12 +24,10 @@ protocol ViewToPresenterProjectsProtocol: AnyObject {
 
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorProjectsProtocol: AnyObject {
-
 }
 
 // MARK: Presenter Output (Presenter -> Router)
 protocol PresenterToRouterProjectsProtocol: AnyObject {
-    
 }
 
 // MARK: Presenter Output (Presenter -> DataSource)
@@ -40,5 +37,4 @@ protocol PresenterToDataSourceProjectsProtocol: UITableViewDataSource {
 
 // MARK: Cell Input (Cell -> Presenter)
 protocol CellToPresenterProjectsProtocol: AnyObject {
-
 }

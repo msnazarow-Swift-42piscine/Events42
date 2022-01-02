@@ -64,15 +64,16 @@ extension IntraAPIService {
                 completion(.failure(IntraAPIError(error: "Authentification Error")))
                 return
             }
-            if let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: true)?.queryItems,
-               let code = queryItems.first(where: {$0.name == "code"})?.value {
+            if
+				let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: true)?.queryItems,
+				let code = queryItems.first(where: { $0.name == "code" })?.value {
                 completion(.success(code))
             }
         }
         if #available(iOS 13.0, *) {
             session.presentationContextProvider = self
         }
-        DispatchQueue.main.async {
+		DispatchQueue.main.async {
             session.start()
         }
     }
@@ -91,19 +92,19 @@ extension IntraAPIService {
 
     func refreshTokenError(completion: @escaping (Result<String, IntraAPIError>) -> Void) {
         if let code = code {
-            getToken(with: code) { result in
+            getToken(with: code) { [weak self] result in
                 switch result {
                 case .success(let token):
                     completion(.success(token))
                 case .failure(let error):
-                    self.getUserCode { result in
-                        self.handleCode(result: result, completion: completion)
+                    self?.getUserCode { [weak self] result in
+                        self?.handleCode(result: result, completion: completion)
                     }
                 }
             }
         } else {
-            getUserCode { result in
-                self.handleCode(result: result, completion: completion)
+            getUserCode { [weak self] result in
+                self?.handleCode(result: result, completion: completion)
             }
         }
     }
@@ -112,12 +113,12 @@ extension IntraAPIService {
         if token.createdAt.addingTimeInterval(TimeInterval(token.expiresIn)) > Date() {
             completion(.success(token.accessToken))
         } else {
-            refreshToken { [self] result in
+            refreshToken { [weak self] result in
                 switch result {
                 case .success(let token):
                     completion(.success(token))
                 case .failure(let error):
-                    refreshTokenError(completion: completion)
+					self?.refreshTokenError(completion: completion)
                 }
             }
         }
@@ -128,19 +129,19 @@ extension IntraAPIService {
         if let token = token {
             handleToken(token: token, completion: completion)
         } else if let code = code {
-            getToken(with: code) { result in
+            getToken(with: code) { [weak self] result in
                 switch result {
                 case .success(let token):
                     completion(.success(token))
                 case .failure(let error):
-                    self.getUserCode { result in
-                        self.handleCode(result: result, completion: completion)
+                    self?.getUserCode { result in
+                        self?.handleCode(result: result, completion: completion)
                     }
                 }
             }
         } else {
-            getUserCode { result in
-                self.handleCode(result: result, completion: completion)
+            getUserCode { [weak self] result in
+                self?.handleCode(result: result, completion: completion)
             }
         }
     }
@@ -162,7 +163,7 @@ extension IntraAPIService {
         var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = "POST"
 		print("\(request.httpMethod ?? "GET") \(request.url?.absoluteString ?? "")")
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             if let error = error {
                 completion(.failure(IntraAPIError(error: "URLSessionError", errorDescription: error.localizedDescription)))
                 return
@@ -178,7 +179,7 @@ extension IntraAPIService {
                     return
                 }
                 let token = try JSONDecoder.intraSecondsSince1970.decode(TokenResponse.self, from: data)
-                self.token = token
+                self?.token = token
                 KeychainHelper.standard.save(token, service: .token, account: .intra42)
                 completion(.success(token.accessToken))
             } catch {
@@ -187,12 +188,12 @@ extension IntraAPIService {
         }.resume()
     }
 
-    func removeToken(){
+    func removeToken() {
         token = nil
         KeychainHelper.standard.delete(service: .token, account: .intra42)
     }
 
-    func removeCode(){
+    func removeCode() {
         code = nil
         KeychainHelper.standard.delete(service: .code, account: .intra42)
     }

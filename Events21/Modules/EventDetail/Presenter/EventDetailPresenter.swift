@@ -9,24 +9,25 @@
 import UIKit
 
 class EventDetailPresenter: ViewToPresenterEventProtocol {
-
 	// MARK: Properties
 	weak var view: PresenterToViewEventProtocol!
 	let interactor: PresenterToInteractorEventProtocol
 	let router: PresenterToRouterEventProtocol
-	let dataSource:PresenterToDataSourceEventProtocol
+	let dataSource: PresenterToDataSourceEventProtocol
 	let model: EventResponse
 	let userId: Int
 	var userEvent: EventUsersResponse?
 	var isRegistered = false
 	// MARK: Init
 
-	init(view: PresenterToViewEventProtocol,
-		 interactor: PresenterToInteractorEventProtocol,
-		 router: PresenterToRouterEventProtocol,
-		 dataSource: PresenterToDataSourceEventProtocol,
-		 model: EventResponse,
-		 userId: Int) {
+	init(
+		view: PresenterToViewEventProtocol,
+		interactor: PresenterToInteractorEventProtocol,
+		router: PresenterToRouterEventProtocol,
+		dataSource: PresenterToDataSourceEventProtocol,
+		model: EventResponse,
+		userId: Int
+	) {
 		self.view = view
 		self.interactor = interactor
 		self.router = router
@@ -35,7 +36,7 @@ class EventDetailPresenter: ViewToPresenterEventProtocol {
 		self.userId = userId
 	}
 
-	func viewDidLoad(){
+	func viewDidLoad() {
 		interactor.getUserEvents(userIds: [userId], eventIds: [model.id], sort: [], filter: [:]) { [weak self] result in
 			defer { self?.view.show() }
 			switch result {
@@ -94,7 +95,7 @@ class EventDetailPresenter: ViewToPresenterEventProtocol {
 		}
 	}
 
-	func buttonDidTapped(){
+	func buttonDidTapped() {
 		if !isRegistered {
 			interactor.registerToEvent(eventId: model.id) { [weak self] result in
 				switch result {
@@ -129,11 +130,9 @@ class EventDetailPresenter: ViewToPresenterEventProtocol {
 					}
 				}
 			}
-
 		}
 	}
 }
 
 extension EventDetailPresenter: CellToPresenterEventProtocol {
-
 }

@@ -23,7 +23,7 @@ protocol PresenterToViewFiltersProtocol: AnyObject {
 
 // MARK: View Input (View -> Presenter)
 protocol ViewToPresenterFiltersProtocol: AnyObject {
-    var dataSource:PresenterToDataSourceFiltersProtocol { get }
+    var dataSource: PresenterToDataSourceFiltersProtocol { get }
 
     func viewDidLoad()
     func viewWillAppear()
@@ -39,11 +39,13 @@ protocol PresenterToInteractorFiltersProtocol: AnyObject {
 
 // MARK: Presenter Output (Presenter -> Router)
 protocol PresenterToRouterFiltersProtocol: AnyObject {
-    
 }
 
 // MARK: Presenter Output (Presenter -> DataSource)
-protocol PresenterToDataSourceFiltersProtocol: UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate, ToolbarPickerViewDelegate {
+protocol PresenterToDataSourceFiltersProtocol: UITableViewDataSource,
+	UIPickerViewDataSource,
+	UIPickerViewDelegate,
+	ToolbarPickerViewDelegate {
     func appendSortSelect(_ strings: [String?])
 //    func addLabelToPickerView( _title: String)
     func updateForSections(_ sections: [TableViewSectionProtocol])
@@ -53,7 +55,7 @@ protocol PresenterToDataSourceFiltersProtocol: UITableViewDataSource, UIPickerVi
 
 // MARK: Cell Input (Cell -> Presenter)
 protocol CellToPresenterFiltersProtocol: AnyObject {
-    var dataSource:PresenterToDataSourceFiltersProtocol { get }
+    var dataSource: PresenterToDataSourceFiltersProtocol { get }
 
     func switcherDidChanged(_ title: String)
     func textFieldDidBeginEditing(_ number: Int)

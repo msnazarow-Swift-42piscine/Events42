@@ -9,6 +9,4 @@
 import Foundation
 
 class SkillsInteractor: PresenterToInteractorSkillsProtocol {
-
-   
 }

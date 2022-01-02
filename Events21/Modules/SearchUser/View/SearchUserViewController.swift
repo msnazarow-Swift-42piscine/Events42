@@ -9,7 +9,6 @@
 import UIKit
 
 class SearchUserViewController: UIViewController {
-
     // MARK: - Properties
     var presenter: ViewToPresenterSearchUserProtocol!
 
@@ -78,10 +77,8 @@ extension SearchUserViewController: PresenterToViewSearchUserProtocol {
 extension SearchUserViewController: UISearchResultsUpdating {
 	func updateSearchResults(for searchController: UISearchController) {
 		presenter.updateSearchResults(searchController.searchBar.text)
-
 	}
 }
 
 extension SearchUserViewController: UITableViewDelegate {
-
 }

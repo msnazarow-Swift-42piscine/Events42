@@ -8,8 +8,7 @@
 
 import UIKit
 
-enum UserMainAssembly{
-    
+enum UserMainAssembly {
     // MARK: Static methods
 	static func createModule(me: UserFullModel) -> UIViewController {
         let router = UserMainRouter()

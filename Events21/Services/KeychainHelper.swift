@@ -38,7 +38,6 @@ final class KeychainHelper {
     }
 
     func read(service: String, account: String) -> Data? {
-
         let query = [
             kSecAttrService: service,
             kSecAttrAccount: account,
@@ -57,7 +56,7 @@ final class KeychainHelper {
             kSecAttrService: service,
             kSecAttrAccount: account,
             kSecClass: kSecClassGenericPassword
-            ] as CFDictionary
+        ] as CFDictionary
 
         // Delete item from keychain
         SecItemDelete(query)
@@ -65,7 +64,7 @@ final class KeychainHelper {
 }
 
 extension KeychainHelper {
-    func save<T>(_ item: T, service: String, account: String) where T : Codable {
+    func save<T>(_ item: T, service: String, account: String) where T: Codable {
         do {
             // Encode as JSON data and save in keychain
             let data = try JSONEncoder().encode(item)
@@ -75,7 +74,7 @@ extension KeychainHelper {
         }
     }
 
-    func read<T>(service: String, account: String, type: T.Type) -> T? where T : Codable {
+    func read<T>(service: String, account: String, type: T.Type) -> T? where T: Codable {
         // Read item data from keychain
         guard let data = read(service: service, account: account) else {
             return nil

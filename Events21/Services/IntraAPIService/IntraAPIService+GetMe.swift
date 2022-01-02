@@ -11,7 +11,7 @@ extension IntraAPIService {
     func getMe(completion: @escaping (Result<UserFullModel, IntraAPIError>) -> Void) {
         urlComponents.path = "/v2/me"
 		print("\(request.httpMethod ?? "GET") \(request.url?.absoluteString ?? "")")
-        URLSession.shared.dataTask(with: request){ data, _, error in
+        URLSession.shared.dataTask(with: request) { data, _, error in
 			if let error = error {
 				completion(.failure(IntraAPIError(error: "Error", errorDescription: error.localizedDescription)))
 				return
@@ -29,7 +29,7 @@ extension IntraAPIService {
                 let me = try JSONDecoder.intraIso8601Full.decode(UserFullModel.self, from: data)
                 self.me = me
                 completion(.success(me))
-            } catch(let error) {
+            } catch let error {
                 completion(.failure(IntraAPIError(error: "JSONDecoderError", errorDescription: error.localizedDescription)))
             }
         }.resume()

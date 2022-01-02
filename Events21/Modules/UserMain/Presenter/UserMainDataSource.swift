@@ -9,7 +9,6 @@
 import UIKit
 
 class UserMainDataSource: NSObject, PresenterToDataSourceUserMainProtocol {
-
     // MARK: Properties
     weak var presenter: CellToPresenterUserMainProtocol?
 

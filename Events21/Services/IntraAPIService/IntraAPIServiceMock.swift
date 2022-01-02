@@ -5,9 +5,9 @@
 ////  Created by out-nazarov2-ms on 10.10.2021.
 ////
 //
-//import Foundation
+// import Foundation
 //
-//class IntraAPIServiceMock {
+// class IntraAPIServiceMock {
 //    let event = EventResponse(id: 0, name: "myName", description: "Mydescr", maxPeople: 30, nbrSubscribers: 20, location: "Carolina", kind: "Prize", beginAt: Date(), endAt: Date().addingTimeInterval(7200), cursusIds: [1], campusIds: [2])
 //
 //    lazy var cursusUser = CursusUserResponse(id: 0, hasCoalition: true, cursus: cursus, cursusId: 1, level: 30.3)
@@ -23,11 +23,11 @@
 //    lazy var eventUser = EventUsersResponse(event: event, eventId: 2, id: 3, user: user, userId: 0)
 //
 //    let token = "my_very_secure_token"
-//}
+// }
 //
 //
 //
-//extension IntraAPIServiceMock {
+// extension IntraAPIServiceMock {
 //    func registerToEvent(eventId: Int, completion: @escaping (Result<EventUsersResponse, IntraAPIError>) -> Void) {
 //        completion(.success(eventUser))
 //    }
@@ -101,4 +101,4 @@
 //    }
 //
 //
-//}
+// }

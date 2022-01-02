@@ -9,8 +9,6 @@
 import UIKit
 
 class SkillsRouter: PresenterToRouterSkillsProtocol {
-
     // MARK: - Properties
     weak var view: UIViewController?
-
 }

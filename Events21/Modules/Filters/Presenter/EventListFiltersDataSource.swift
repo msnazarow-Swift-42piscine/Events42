@@ -92,7 +92,6 @@ extension EventListFiltersDataSource {
 
 
 extension EventListFiltersDataSource {
-
     func didTapDone() {
         if let sort = sortSelect[selectedSort] {
             presenter.setTextField("\(sort) \(order[selectedOrder])")

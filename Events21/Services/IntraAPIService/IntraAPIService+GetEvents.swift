@@ -61,7 +61,7 @@ extension IntraAPIService {
 			userId?.URLQueryItem(name: .userId),
 			sort.URLQueryItem(name: "sort"),
 			100.URLQueryItem(name: "page[size]")
-		] + filter.URLQueryItems(name: "filter")
+        ] + filter.URLQueryItems(name: "filter")
 		urlComponents.queryItems = queryItems.compactMap { $0 }
 		print("\(request.httpMethod ?? "GET") \(request.url?.absoluteString ?? "")")
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -122,7 +122,7 @@ private extension Array where Element == String {
 private extension Dictionary where Key == String, Value == [String] {
 	func URLQueryItems(name: String) -> [URLQueryItem] {
 		if !self.isEmpty {
-			return self.map { (key, value) -> URLQueryItem in
+			return self.map { key, value -> URLQueryItem in
 				.init(name: "\(name)[\(key)]", value: value.joined(separator: ","))
 			}
 		} else {

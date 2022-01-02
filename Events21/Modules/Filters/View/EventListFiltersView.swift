@@ -66,7 +66,7 @@ class EventListFiltersView: UITableViewController {
 //        tableView.tableHeaderView =  label
         tableView.estimatedSectionHeaderHeight = 40 * verticalTranslation
         tableView.sectionHeaderHeight = 40 * verticalTranslation
-        tableView.bounces  = false
+        tableView.bounces = false
     }
 
     private func setupConstraints() {
@@ -78,7 +78,7 @@ class EventListFiltersView: UITableViewController {
     }
 }
 
-extension EventListFiltersView: PresenterToViewFiltersProtocol{
+extension EventListFiltersView: PresenterToViewFiltersProtocol {
     func updateSortItem(_ number: Int) {
         tableView.reloadRows(at: [IndexPath(row: number, section: 1)], with: .automatic)
     }
@@ -88,7 +88,7 @@ extension EventListFiltersView: PresenterToViewFiltersProtocol{
     }
 
     func removeRows(after indexPath: IndexPath, number: Int) {
-        tableView.deleteRows(at: Array(indexPath.row ... indexPath.row + number - 1).map{ IndexPath(row: $0, section: indexPath.section)}, with: .automatic)
+        tableView.deleteRows(at: Array(indexPath.row ... indexPath.row + number - 1).map { IndexPath(row: $0, section: indexPath.section) }, with: .automatic)
     }
 
     func selectPicker(at row: Int) {
@@ -99,5 +99,3 @@ extension EventListFiltersView: PresenterToViewFiltersProtocol{
         pickerView.reloadAllComponents()
     }
 }
-
-

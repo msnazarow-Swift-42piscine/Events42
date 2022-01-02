@@ -53,9 +53,11 @@ class FilterCell: CellIdentifiable {
         switcher.isOn = model.value
     }
 
-    @objc func switcherDidChanged(){
-        guard let model = model as? FilterCellModel,
-			  let presenter = presenter as? CellToPresenterFiltersProtocol else { return }
+    @objc func switcherDidChanged() {
+        guard
+			let model = model as? FilterCellModel,
+			let presenter = presenter as? CellToPresenterFiltersProtocol
+		else { return }
         presenter.switcherDidChanged(model.name)
     }
 }

@@ -10,12 +10,11 @@ import OrderedCollections
 import UIKit
 
 class UserMainPresenter: ViewToPresenterUserMainProtocol {
-
     // MARK: Properties
     weak var view: PresenterToViewUserMainProtocol!
     let interactor: PresenterToInteractorUserMainProtocol
     let router: PresenterToRouterUserMainProtocol
-    let dataSource:PresenterToDataSourceUserMainProtocol
+    let dataSource: PresenterToDataSourceUserMainProtocol
 	let me: UserFullModel
 	var cursusUser: CursusUserResponse?
 
@@ -33,7 +32,7 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
 		self.cursusUser = me.cursusUsers.last
     }
 
-    func viewDidLoad(){
+    func viewDidLoad() {
 		updateView()
     }
 
@@ -43,7 +42,7 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
 			TasksSubtitleIconSection([
 				SubtitleIconModel(title: "Skills", subTitle: "", icon: "chevron.right"),
 				SubtitleIconModel(title: "Projects", subTitle: "", icon: "chevron.right"),
-				SubtitleIconModel(title: "Achievements", subTitle: "", icon: "chevron.right"),
+				SubtitleIconModel(title: "Achievements", subTitle: "", icon: "chevron.right")
 			])
 		])
 		view.tableViewReload()
@@ -73,7 +72,6 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
 			self.router.routeToAuthScreen()
 		}
 	}
-
 }
 
 extension UserMainPresenter: CellToPresenterUserMainProtocol {
@@ -83,7 +81,11 @@ extension UserMainPresenter: CellToPresenterUserMainProtocol {
 		case 0:
 			router.routeToSkills(skills: cursusUser.skills)
 		case 1:
-			router.routeToProjects(projects: me.projectsUsers.filter { $0.project.parentId == nil && $0.cursusIds.contains(cursusUser.cursusId) })
+			router.routeToProjects(
+				projects: me.projectsUsers.filter {
+					$0.project.parentId == nil && $0.cursusIds.contains(cursusUser.cursusId) && $0.status != .parent
+				}
+			)
 		case 2:
 			router.routeToAchievements(achievements: me.achievements)
 		default: break

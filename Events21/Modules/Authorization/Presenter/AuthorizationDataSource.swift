@@ -9,7 +9,6 @@
 import UIKit
 
 class AuthorizationDataSource: NSObject, PresenterToDataSourceAuthorizationProtocol {
-
     // MARK: Properties
     weak var presenter: CellToPresenterAuthorizationProtocol!
 
