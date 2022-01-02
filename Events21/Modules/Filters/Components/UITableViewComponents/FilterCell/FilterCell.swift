@@ -12,6 +12,7 @@ class FilterCell: CellIdentifiable {
 
     let label: UILabel = {
         let label = UILabel()
+		label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -32,6 +33,7 @@ class FilterCell: CellIdentifiable {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+		backgroundColor = .clear
         contentView.addSubview(stack)
         NSLayoutConstraint.activate([
             stack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: gap),

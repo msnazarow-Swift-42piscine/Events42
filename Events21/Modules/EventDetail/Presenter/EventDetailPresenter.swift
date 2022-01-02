@@ -66,7 +66,7 @@ class EventDetailPresenter: ViewToPresenterEventProtocol {
             text.append(NSAttributedString(string: "\(model.kind)\n", attributes: [.font: UIFont.systemFont(ofSize: 40 * verticalTranslation), .foregroundColor: UIColor.cyan]))
                   text.append(NSAttributedString(string: "\(model.name)\n", attributes: [.font: UIFont.systemFont(ofSize: 30 * verticalTranslation), .foregroundColor: UIColor.black]))
               if let description = model.description {
-            text.append(NSAttributedString(string: "\(description)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.darkGray]))
+            text.append(NSAttributedString(string: "\(description)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.white]))
         }
             let maxPeople = (model.maxPeople != nil) ? "/\(model.maxPeople!)" : ""
             text.append(NSAttributedString(string: "Current number of guests: \(model.nbrSubscribers)\(maxPeople)\n", attributes: [.font: UIFont.systemFont(ofSize: 20 * verticalTranslation), .foregroundColor: UIColor.black]))

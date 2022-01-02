@@ -20,23 +20,33 @@ class EventDetailView: UIViewController {
         let textView = UITextView()
         textView.textAlignment = .center
         textView.isEditable = false
+		textView.textColor = .white
 		textView.backgroundColor = .clear
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
 
-    let registerButton: UIButton = {
-        let button = UIButton()
-//        button.setTitle("Register", for: .normal)
-//		button.backgroundColor = .cyan.withAlphaComponent(0.3)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 40 * verticalTranslation)
-        button.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-		button.layer.cornerRadius = 10
-        return button
-    }()
+	lazy var registerButton: UIBarButtonItem = {
+		let button = UIBarButtonItem(title: "Register", style: .done, target: self, action: #selector(buttonDidTapped))
+		button.tintColor = .white
+		button.setBackgroundImage(
+			UIColor.cyan.withAlphaComponent(0.3).image(CGSize(width: 150, height: 30)),
+			for: .normal,
+			barMetrics: .default
+		)
+		return button
+	}()
 
+	lazy var unRegisterButton: UIBarButtonItem = {
+		let button = UIBarButtonItem(title: "Unregister", style: .done, target: self, action: #selector(buttonDidTapped))
+		button.tintColor = .white
+		button.setBackgroundImage(
+			UIColor.red.withAlphaComponent(0.3).image(CGSize(width: 150, height: 30)),
+			for: .normal,
+			barMetrics: .default
+		)
+		return button
+	}()
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +55,6 @@ class EventDetailView: UIViewController {
     }
 
     private func setupUI() {
-//        view.backgroundColor = .white
         view.isHidden = true
         addSubviews()
         setupConstraints()
@@ -53,7 +62,6 @@ class EventDetailView: UIViewController {
 
     private func addSubviews() {
         view.addSubview(textView)
-        view.addSubview(registerButton)
     }
 
     private func setupConstraints() {
@@ -61,10 +69,8 @@ class EventDetailView: UIViewController {
             textView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             textView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             textView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            registerButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            registerButton.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 10),
-			registerButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
+			textView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+])
 
     }
     @objc private func buttonDidTapped(){
@@ -97,21 +103,19 @@ extension EventDetailView: PresenterToViewEventProtocol{
 
     func setButtonUnregistered() {
         DispatchQueue.main.async { [self] in
-            registerButton.setTitle(" Unregister ", for: .normal)
-            registerButton.backgroundColor = .red.withAlphaComponent(0.3)
-        }
+			navigationItem.setRightBarButton(unRegisterButton, animated: true)
+		}
     }
 
     func setButtonRegistered() {
         DispatchQueue.main.async { [self] in
-            registerButton.setTitle(" Register ", for: .normal)
-            registerButton.backgroundColor = .cyan.withAlphaComponent(0.3)
-        }
+			navigationItem.setRightBarButton(registerButton, animated: true)
+		}
     }
 
     func hideButton() {
         DispatchQueue.main.async { [self] in
-            registerButton.isHidden = true
+			navigationItem.setRightBarButton(nil, animated: true)
         }
     }
 
@@ -122,3 +126,11 @@ extension EventDetailView: PresenterToViewEventProtocol{
     }
 }
 
+
+private extension UIBarButtonItem {
+	convenience init(customView: UIView, target: AnyObject?, action: Selector?) {
+		self.init(customView: customView)
+		self.target = target
+		self.action = action
+	}
+}

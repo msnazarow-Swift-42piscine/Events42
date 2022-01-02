@@ -15,7 +15,7 @@ enum SearchUserAssembly{
         let router = SearchUserRouter()
 		let intraAPIService = IntraAPIService.shared
         let interactor = SearchUserInteractor(intraAPIservice: intraAPIService)
-        let dataSource = SearchUserPresenterDataSource()
+        let dataSource = SearchUserDataSource()
         let presenter = SearchUserPresenter(
             interactor: interactor,
             router: router,

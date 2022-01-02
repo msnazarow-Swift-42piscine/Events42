@@ -31,9 +31,9 @@ class UserMainRouter: PresenterToRouterUserMainProtocol {
 		}
 	}
 
-	func routeToProjects(projects: [ProjectUser], cursusId: Int) {
+	func routeToProjects(projects: [ProjectUser]) {
 		DispatchQueue.main.async { [weak self] in
-			self?.view?.navigationController?.pushViewController(ProjectsAssembly.createModule(projects: projects, cursusId: cursusId), animated: true)
+			self?.view?.navigationController?.pushViewController(ProjectsAssembly.createModule(projects: projects), animated: true)
 		}
 	}
 }

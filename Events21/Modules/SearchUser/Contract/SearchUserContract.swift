@@ -27,6 +27,7 @@ protocol ViewToPresenterSearchUserProtocol: AnyObject {
 // MARK: Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorSearchUserProtocol: AnyObject {
 	func getUsers(userId: Int?, eventId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[UserShortModel], IntraAPIError>) -> Void)
+	func getUser(userId: Int, completion: @escaping (Result<UserFullModel, IntraAPIError>) -> Void)
 }
 
 extension PresenterToInteractorSearchUserProtocol {
@@ -37,15 +38,15 @@ extension PresenterToInteractorSearchUserProtocol {
 
 // MARK: Presenter Output (Presenter -> Router)
 protocol PresenterToRouterSearchUserProtocol: AnyObject {
-    
+	func routeToUser(user: UserFullModel)
 }
 
 // MARK: Presenter Output (Presenter -> DataSource)
-protocol PresenterToDataSourceSearchUserProtocol: UITableViewDataSource {
+protocol PresenterToDataSourceSearchUserProtocol: UITableViewDataSource, UITableViewDelegate {
     func updateForSections(_ sections: [TableViewSectionProtocol])
 }
 
 // MARK: Cell Input (Cell -> Presenter)
 protocol CellToPresenterSearchUserProtocol: AnyObject {
-
+	func didSelectUser(userId: Int)
 }

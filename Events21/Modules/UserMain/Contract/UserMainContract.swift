@@ -11,11 +11,6 @@ import UIKit
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewUserMainProtocol: AnyObject {
-//	func setProfileImageView(image: UIImage)
-//	func setLogin(_ login: String)
-//	func setName(_ name: String)
-//	func setSurname(_ surname: String)
-//	func setLevel(_ level: String)
 	func showAlert(title: String, message: String, completion: (() -> Void)?)
 	func showAlertQuestion(title: String, message: String, completion: (() -> Void)?)
 	func tableViewReload()
@@ -46,7 +41,7 @@ protocol PresenterToRouterUserMainProtocol: AnyObject {
 	func routeToAuthScreen()
 	func routeToSkills(skills: [SkillModel])
 	func routeToAchievements(achievements: [AchievementResponse])
-	func routeToProjects(projects: [ProjectUser], cursusId: Int)
+	func routeToProjects(projects: [ProjectUser])
 }
 
 // MARK: Presenter Output (Presenter -> DataSource)
@@ -58,4 +53,5 @@ protocol PresenterToDataSourceUserMainProtocol: UITableViewDataSource, UITableVi
 // MARK: Cell Input (Cell -> Presenter)
 protocol CellToPresenterUserMainProtocol: AnyObject {
 	func didSelectRowAt(_ indexPath: IndexPath)
+	func didSelectCursus(_ cursusUser: CursusUserResponse)
 }

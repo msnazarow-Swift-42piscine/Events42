@@ -54,4 +54,5 @@ protocol IntraAPIServiceProtocol {
 	func tokenIsOutdated() -> Bool
 	func refreshToken(completion: @escaping (Result<String, IntraAPIError>) -> Void)
 	func getUsers(userId: Int?, eventId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[UserShortModel], IntraAPIError>) -> Void)
+	func getUser(userId: Int, completion: @escaping (Result<UserFullModel, IntraAPIError>) -> Void)
 }

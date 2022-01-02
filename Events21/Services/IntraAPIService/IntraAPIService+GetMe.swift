@@ -26,7 +26,7 @@ extension IntraAPIService {
                     completion(.failure(error))
                     return
                 }
-                let me = try! JSONDecoder.intraIso8601Full.decode(UserFullModel.self, from: data)
+                let me = try JSONDecoder.intraIso8601Full.decode(UserFullModel.self, from: data)
                 self.me = me
                 completion(.success(me))
             } catch(let error) {

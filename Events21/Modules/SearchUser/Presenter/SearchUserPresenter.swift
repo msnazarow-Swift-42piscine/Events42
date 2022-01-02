@@ -52,5 +52,14 @@ class SearchUserPresenter: ViewToPresenterSearchUserProtocol {
 }
 
 extension SearchUserPresenter: CellToPresenterSearchUserProtocol {
-    
+	func didSelectUser(userId: Int) {
+		interactor.getUser(userId: userId) { [weak self] result in
+			switch result {
+			case .success(let user):
+				self?.router.routeToUser(user: user)
+			case .failure(let error):
+				print(error.localizedDescription)
+			}
+		}
+	}
 }

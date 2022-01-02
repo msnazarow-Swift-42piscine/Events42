@@ -13,4 +13,9 @@ class SearchUserRouter: PresenterToRouterSearchUserProtocol {
     // MARK: - Properties
     weak var view: UIViewController?
 
+	func routeToUser(user: UserFullModel) {
+		DispatchQueue.main.async {
+			self.view?.navigationController?.pushViewController(UserMainAssembly.createModule(me: user), animated: true)
+		}
+	}
 }

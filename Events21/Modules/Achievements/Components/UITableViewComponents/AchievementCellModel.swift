@@ -10,9 +10,15 @@ import UIKit
 
 struct AchievementCellModel: Identifiable {
     var identifier: String = "AchievementCell"
-
+	let name: String
+	let description: String
+	let tier: AchievementResponse.Tier
+	let image: URL
 
     init(_ property: AchievementResponse) {
-
+		name = property.name
+		description = property.description
+		tier = property.tier
+		image = property.image
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import SVGKit
 class ImageCashingService: ImageCashingServiceProtocol {
     var images: [URL: UIImage] = [:]
     func getImage(for url: URL, comletion: @escaping (UIImage?) -> Void) {
@@ -18,7 +18,8 @@ class ImageCashingService: ImageCashingServiceProtocol {
                 guard let data = data else {
                     return
                 }
-                if let image = UIImage(data: data) {
+
+                if let image = UIImage(data: data) ?? SVGKImage(data: data)?.uiImage {
                     saveImage(for: url, image: image)
                     comletion(image)
                 }

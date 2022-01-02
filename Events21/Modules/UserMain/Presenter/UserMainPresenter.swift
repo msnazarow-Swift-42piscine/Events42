@@ -35,6 +35,9 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
 
     func viewDidLoad(){
 		updateView()
+    }
+
+	private func updateView() {
 		dataSource.updateForHeader([UserHeaderModel(me)])
 		dataSource.updateForSections([
 			TasksSubtitleIconSection([
@@ -44,22 +47,6 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
 			])
 		])
 		view.tableViewReload()
-    }
-
-	private func updateView() {
-//		view.setName(me.firstName)
-//		view.setSurname(me.lastName)
-//		view.setLogin(me.login)
-		var levels = ""
-		me.cursusUsers.forEach{ cursus in
-			levels.append("\(cursus.cursus.name) \(cursus.level)\n")
-		}
-//		view.setLevel("\(levels)")
-		interactor.getImage(for: me.imageUrl) { [weak self] image in
-			guard let image = image else { return }
-//			self?.view.setProfileImageView(image: image)
-		}
-//		comletion()
 	}
 
 	func refresh(filters: OrderedDictionary<String, Bool>, sort: [String?]) {
@@ -96,10 +83,14 @@ extension UserMainPresenter: CellToPresenterUserMainProtocol {
 		case 0:
 			router.routeToSkills(skills: cursusUser.skills)
 		case 1:
-			router.routeToProjects(projects: me.projectsUsers, cursusId: cursusUser.cursusId)
+			router.routeToProjects(projects: me.projectsUsers.filter { $0.project.parentId == nil && $0.cursusIds.contains(cursusUser.cursusId) })
 		case 2:
 			router.routeToAchievements(achievements: me.achievements)
 		default: break
 		}
+	}
+
+	func didSelectCursus(_ cursusUser: CursusUserResponse) {
+		self.cursusUser = cursusUser
 	}
 }

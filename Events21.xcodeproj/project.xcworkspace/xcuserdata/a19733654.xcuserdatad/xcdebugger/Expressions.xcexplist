@@ -25,6 +25,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in ImageCashingService.getImage(for:comletion:):ImageCashingService.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "String(data: data, encoding: .utf8)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AchievementCell.updateViews():AchievementCell.swift">
+      </ContextState>
+      <ContextState
          contextName = "EventListFiltersPresenter.switcherDidChanged(_:):EventListFiltersPresenter.swift">
          <PersistentStrings>
             <PersistentString
@@ -39,6 +50,9 @@
                value = "navigationController?.navigationItem">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in IntraAPIService.getUser(userId:completion:):IntraAPIService+GetUsers.swift">
       </ContextState>
       <ContextState
          contextName = "UserViewController.setupNavigationController():UserViewController.swift">

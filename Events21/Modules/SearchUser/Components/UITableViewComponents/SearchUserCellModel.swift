@@ -14,6 +14,7 @@ struct SearchUserCellModel: Identifiable {
 	let login: String
 	var pool: String?
 	let staff: Bool
+	let userId: Int
 
     init(_ property: UserShortModel) {
 		imageUrl = property.imageUrl
@@ -22,5 +23,6 @@ struct SearchUserCellModel: Identifiable {
 			pool = "Poll at \(month) \(year)"
 		}
 		staff = property.staff ?? false
+		userId = property.id
     }
 }

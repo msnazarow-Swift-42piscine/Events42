@@ -9,21 +9,22 @@
 import UIKit
 
 class EventListFiltersView: UITableViewController {
-    let label: UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 40 * verticalTranslation))
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 30 * verticalTranslation)
-        label.textAlignment = .center
-        label.text = "Filters"
-        return label
-    }()
+//    let label: UILabel = {
+//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 40 * verticalTranslation))
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.font = .systemFont(ofSize: 30 * verticalTranslation)
+//        label.textAlignment = .center
+//		label.text
+//        label.text = "Filters"
+//        return label
+//    }()
 
-    lazy var header: UITableViewHeaderFooterView = {
-        let header = UITableViewHeaderFooterView()
-        header.translatesAutoresizingMaskIntoConstraints = false
-        header.addSubview(label)
-        return header
-    }()
+//    lazy var header: UITableViewHeaderFooterView = {
+//        let header = UITableViewHeaderFooterView()
+//        header.translatesAutoresizingMaskIntoConstraints = false
+//        header.addSubview(label)
+//        return header
+//    }()
 
     let pickerView: ToolbarPickerView = {
         let pickerView = ToolbarPickerView()
@@ -48,6 +49,8 @@ class EventListFiltersView: UITableViewController {
     }
 
     private func setupUI() {
+		title = "Filters"
+		view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
         addSubviews()
         setupConstraints()
         tableView.register(FilterCell.self)
@@ -60,18 +63,18 @@ class EventListFiltersView: UITableViewController {
 
     private func addSubviews() {
         tableView.allowsSelection = false
-        tableView.tableHeaderView =  label
+//        tableView.tableHeaderView =  label
         tableView.estimatedSectionHeaderHeight = 40 * verticalTranslation
         tableView.sectionHeaderHeight = 40 * verticalTranslation
         tableView.bounces  = false
     }
 
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: tableView.layoutMarginsGuide.topAnchor,constant: 10),
-            label.leadingAnchor.constraint(equalTo: tableView.layoutMarginsGuide.leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: tableView.layoutMarginsGuide.trailingAnchor)
-        ])
+//        NSLayoutConstraint.activate([
+//            label.topAnchor.constraint(equalTo: tableView.layoutMarginsGuide.topAnchor,constant: 10),
+//            label.leadingAnchor.constraint(equalTo: tableView.layoutMarginsGuide.leadingAnchor),
+//            label.trailingAnchor.constraint(equalTo: tableView.layoutMarginsGuide.trailingAnchor)
+//        ])
     }
 }
 

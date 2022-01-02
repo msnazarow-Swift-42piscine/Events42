@@ -14,5 +14,5 @@ struct CampusResponse: Codable {
     let active: Bool
     let usersCount: Int
     let name: String
-    let vogsphereId: Int
+    let vogsphereId: Int?
 }

@@ -24,7 +24,7 @@ class SearchUserViewController: UIViewController {
 	lazy var tableView: UITableView = {
 		let tableView = UITableView()
 		tableView.register(SearchUserCell.self)
-		tableView.delegate = self
+		tableView.delegate = presenter.dataSource
 		tableView.dataSource = presenter.dataSource
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.backgroundColor = .clear

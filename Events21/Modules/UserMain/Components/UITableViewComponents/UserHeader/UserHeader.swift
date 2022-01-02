@@ -10,6 +10,8 @@ import UIKit
 class UserHeader: HeaderIdentifiable {
 	let gap: CGFloat = 10
 
+	var cursus: CursusUserResponse?
+
 	let profileImageView: UIImageView = {
 		let imageView = UIImageView()
 		imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,8 +85,9 @@ class UserHeader: HeaderIdentifiable {
 	let staffLabel: UILabel = {
 		let label = UILabel()
 		label.font = .systemFont(ofSize: 14 * verticalTranslation)
-		label.backgroundColor = .red.withAlphaComponent(0.3)
+		label.backgroundColor = UIColor.red.withAlphaComponent(0.7)
 		label.text = "STAFF"
+		label.textColor = .white
 		label.layer.cornerRadius = 10
 		label.textAlignment = .left
 		return label
@@ -94,6 +97,7 @@ class UserHeader: HeaderIdentifiable {
 		let stackView = UIStackView(
 			arrangedSubviews: [walletLabel, correctionPointsLabel, phoneLabel, emailLabel, locationLabel]
 		)
+		stackView.alignment = .leading
 		stackView.translatesAutoresizingMaskIntoConstraints = false
 		stackView.spacing = 8
 		stackView.axis = .vertical
@@ -128,7 +132,11 @@ class UserHeader: HeaderIdentifiable {
 		return view
 	}()
 
-	lazy var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(removeKeyboard))
+	let levelView: UserProfileProgressView = {
+		let view = UserProfileProgressView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		return view
+	}()
 
 	override init(reuseIdentifier: String?) {
 		super.init(reuseIdentifier: reuseIdentifier)
@@ -145,12 +153,12 @@ class UserHeader: HeaderIdentifiable {
 	}
 
 	func addSubviews() {
-		addGestureRecognizer(tapGestureRecognizer)
 		contentView.addSubview(profileImageView)
 		contentView.addSubview(nameLabel)
 		contentView.addSubview(rightStack)
 		contentView.addSubview(bottomStack)
 		contentView.addSubview(cursusView)
+		contentView.addSubview(levelView)
 	}
 
 	func setupConstraints() {
@@ -164,7 +172,7 @@ class UserHeader: HeaderIdentifiable {
 			profileImageView.rightAnchor.constraint(equalTo: rightStack.leftAnchor, constant: -gap),
 
 			rightStack.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor),
-			rightStack.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+			rightStack.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -gap),
 
 			bottomStack.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: gap),
 			bottomStack.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: gap),
@@ -172,7 +180,11 @@ class UserHeader: HeaderIdentifiable {
 			cursusView.leftAnchor.constraint(equalTo: profileImageView.leftAnchor),
 			cursusView.rightAnchor.constraint(equalTo: rightStack.rightAnchor),
 			cursusView.topAnchor.constraint(equalTo: bottomStack.bottomAnchor, constant: gap),
-			cursusView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -gap)
+			cursusView.bottomAnchor.constraint(equalTo: levelView.topAnchor, constant: -gap),
+
+			levelView.leftAnchor.constraint(equalTo: cursusView.leftAnchor),
+			levelView.rightAnchor.constraint(equalTo: cursusView.rightAnchor),
+			levelView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -gap),
 		])
 	}
 
@@ -200,15 +212,17 @@ class UserHeader: HeaderIdentifiable {
 		locationLabel.text = "Location \(model.location)"
 		emailLabel.text = "Email \(model.email)"
 		phoneLabel.text = "Mobile \(model.phone)"
-		if let cursus = model.cursuses.first?.cursus.name {
-			cursusView.text = "Cursus \(cursus) ▼"
-			cursusView.isHidden = false
-		} else {
+		guard let cursusUser = model.cursuses.first else {
 			cursusView.isHidden = true
+			levelView.isHidden = true
+			return
 		}
+		cursusView.text = "Cursus \(cursusUser.cursus.name) ▼"
+		cursusView.isHidden = false
+		levelView.configure(level: cursusUser.level, progress: cursusUser.level - cursusUser.level.rounded(.down))
 	}
 
-	@objc func removeKeyboard() {
+	func removeKeyboard() {
 		cursusView.resignFirstResponder()
 	}
 }
@@ -230,8 +244,68 @@ extension UserHeader: UIPickerViewDelegate, UIPickerViewDataSource {
 
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		guard let model = model as? UserHeaderModel else { return }
-		cursusView.text = "Cursus \(model.cursuses[row].cursus.name) ▼"
+		let cursusUser = model.cursuses[row]
+		levelView.configure(level: cursusUser.level, progress: cursusUser.level - cursusUser.level.rounded(.down))
+		cursusView.text = "Cursus \(cursusUser.cursus.name) ▼"
 		cursusView.resignFirstResponder()
+		guard let presenter = presenter as? CellToPresenterUserMainProtocol else { return }
+		presenter.didSelectCursus(cursusUser)
 	}
 
+}
+
+final class UserProfileProgressView: UIView {
+
+	private lazy var progressBar: UIProgressView = {
+		let view = UIProgressView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.trackTintColor = UIColor(red: 0.13, green: 0.13, blue: 0.15, alpha: 0.50)
+		view.progressTintColor = UIColor(red: 0.00, green: 0.73, blue: 0.74, alpha: 1.00)
+		return view
+	}()
+
+	private lazy var textInProgress: UILabel = {
+		let label = UILabel()
+		label.translatesAutoresizingMaskIntoConstraints = false
+		label.textColor = .white
+		return label
+	}()
+
+	required init() {
+		super.init(frame: .zero)
+		addSubviews()
+		makeConstraints()
+	}
+
+	@available(*, unavailable)
+	required init?(coder _: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+
+	func configure(level: Float, progress: Float) {
+		textInProgress.text = "level \("\(level)".replacingOccurrences(of: ".", with: " - ")) %"
+		progressBar.progress = progress
+	}
+}
+
+private extension UserProfileProgressView {
+	func addSubviews() {
+		addSubview(progressBar)
+		progressBar.addSubview(textInProgress)
+	}
+
+	func makeConstraints() {
+		NSLayoutConstraint.activate(
+			[
+				progressBar.topAnchor.constraint(equalTo: topAnchor),
+				progressBar.bottomAnchor.constraint(equalTo: bottomAnchor),
+				progressBar.leadingAnchor.constraint(equalTo: leadingAnchor),
+				progressBar.trailingAnchor.constraint(equalTo: trailingAnchor),
+				progressBar.heightAnchor.constraint(equalToConstant: 20),
+
+				textInProgress.centerXAnchor.constraint(equalTo: progressBar.centerXAnchor),
+				textInProgress.centerYAnchor.constraint(equalTo: progressBar.centerYAnchor),
+			]
+		)
+	}
 }

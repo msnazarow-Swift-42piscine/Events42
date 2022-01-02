@@ -20,6 +20,7 @@ class EventListCell: CellIdentifiable {
 
     let nameLabel: UILabel = {
         let label = UILabel()
+		label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14 * verticalTranslation)
         return label
@@ -27,6 +28,7 @@ class EventListCell: CellIdentifiable {
 
     let dateEventLabel: UILabel = {
         let label = UILabel()
+		label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .boldSystemFont(ofSize: 20 * verticalTranslation)
         label.textAlignment = .left
@@ -35,6 +37,7 @@ class EventListCell: CellIdentifiable {
 
     let durationTimeLabel: UILabel = {
         let label = UILabel()
+		label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .boldSystemFont(ofSize: 20 * verticalTranslation)
         label.textAlignment = .right

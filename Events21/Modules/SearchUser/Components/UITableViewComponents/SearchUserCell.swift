@@ -22,18 +22,24 @@ class SearchUserCell: CellIdentifiable {
 
 	let login: UILabel = {
 		let label = UILabel()
+		label.textColor = .white
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
 	}()
 
 	let pool: UILabel = {
 		let label = UILabel()
+		label.textColor = .white
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
 	}()
 
 	let staff: UILabel = {
 		let label = UILabel()
+		label.backgroundColor = .red
+		label.textColor = .white
+		label.layer.cornerRadius = 5
+		label.clipsToBounds = true
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
 	}()

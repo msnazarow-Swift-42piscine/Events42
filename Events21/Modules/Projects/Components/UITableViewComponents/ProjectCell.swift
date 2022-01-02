@@ -14,6 +14,7 @@ class ProjectCell: CellIdentifiable {
 	private lazy var projectNameLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
+		label.numberOfLines = 0
 		label.textColor = .white
 		return label
 	}()
@@ -71,6 +72,7 @@ class ProjectCell: CellIdentifiable {
 				projectNameLabel.topAnchor.constraint(equalTo: view.topAnchor),
 				projectNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
 				projectNameLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+				projectNameLabel.trailingAnchor.constraint(equalTo: projectValidatedImage.leadingAnchor, constant: -gap),
 
 				projectMarkLabel.topAnchor.constraint(equalTo: view.topAnchor),
 				projectMarkLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),

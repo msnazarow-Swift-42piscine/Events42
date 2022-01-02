@@ -31,7 +31,8 @@ class AchievementsPresenter: ViewToPresenterAchievementsProtocol {
     }
 
     func viewDidLoad(){
-
+		dataSource.updateForSections([AchievementSection(achievements)])
+		view?.tableViewReload()
     }
 }
 

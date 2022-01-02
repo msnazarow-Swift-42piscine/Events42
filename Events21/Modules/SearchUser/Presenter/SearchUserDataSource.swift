@@ -1,5 +1,5 @@
 //
-//  SearchUserPresenterDataSource.swift
+//  SearchUserDataSource.swift
 //  Events21
 //
 //  Created by 19733654 on 28.12.2021.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchUserPresenterDataSource: NSObject, PresenterToDataSourceSearchUserProtocol {
+class SearchUserDataSource: NSObject, PresenterToDataSourceSearchUserProtocol {
 
     // MARK: Properties
     weak var presenter: CellToPresenterSearchUserProtocol?
@@ -36,4 +36,14 @@ class SearchUserPresenterDataSource: NSObject, PresenterToDataSourceSearchUserPr
         cell.model = model
         return cell
     }
+}
+
+extension SearchUserDataSource {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		guard let presenter = presenter as? CellToPresenterSearchUserProtocol,
+			  let model = sections[indexPath.section].rows[indexPath.row] as? SearchUserCellModel
+			  else { return }
+
+		presenter.didSelectUser(userId: model.userId)
+	}
 }

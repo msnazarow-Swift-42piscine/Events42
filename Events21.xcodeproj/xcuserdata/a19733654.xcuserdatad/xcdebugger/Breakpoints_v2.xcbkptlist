@@ -82,6 +82,38 @@
             endingLineNumber = "41"
             landmarkName = "updateSearchResults(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "86B39113-9690-4643-B894-E0B83C3202A7 - f4c0eb721f36ca3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSTimer) -&gt; () in Events21.SearchUserPresenter.updateSearchResults(Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Modules/SearchUser/Presenter/SearchUserPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "86B39113-9690-4643-B894-E0B83C3202A7 - da36256739d983ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;Events21.UserShortModel&gt;, Events21.IntraAPIError&gt;) -&gt; () in closure #1 (__C.NSTimer) -&gt; () in Events21.SearchUserPresenter.updateSearchResults(Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Modules/SearchUser/Presenter/SearchUserPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "144">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -162,6 +194,53 @@
             endingLineNumber = "43"
             landmarkName = "updateSearchResults(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "753C166F-46E0-4A51-B367-375EE7DDF048 - da36256739d9836d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;Events21.UserShortModel&gt;, Events21.IntraAPIError&gt;) -&gt; () in closure #1 (__C.NSTimer) -&gt; () in Events21.SearchUserPresenter.updateSearchResults(Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Modules/SearchUser/Presenter/SearchUserPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "158">
+               </Location>
+               <Location
+                  uuid = "753C166F-46E0-4A51-B367-375EE7DDF048 - da36256739d9836d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;Events21.UserShortModel&gt;, Events21.IntraAPIError&gt;) -&gt; () in closure #1 (__C.NSTimer) -&gt; () in Events21.SearchUserPresenter.updateSearchResults(Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Modules/SearchUser/Presenter/SearchUserPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "190">
+               </Location>
+               <Location
+                  uuid = "753C166F-46E0-4A51-B367-375EE7DDF048 - da36256739d9836d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;Events21.UserShortModel&gt;, Events21.IntraAPIError&gt;) -&gt; () in closure #1 (__C.NSTimer) -&gt; () in Events21.SearchUserPresenter.updateSearchResults(Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Modules/SearchUser/Presenter/SearchUserPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "1076">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -178,6 +257,38 @@
             endingLineNumber = "140"
             landmarkName = "refresh(filters:sort:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CBA4A7A4-4849-4D12-BC8F-C6EB305CFA5E - 8db36d53574af94a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Events21.EventListPresenter.refresh(filters: OrderedCollections.OrderedDictionary&lt;Swift.String, Swift.Bool&gt;, sort: Swift.Array&lt;Swift.Optional&lt;Swift.String&gt;&gt;) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Modules/EventList/Presenter/EventListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "1075">
+               </Location>
+               <Location
+                  uuid = "CBA4A7A4-4849-4D12-BC8F-C6EB305CFA5E - f7986a4c17398356"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Events21.CampusResponse) -&gt; Swift.Int in Events21.EventListPresenter.refresh(filters: OrderedCollections.OrderedDictionary&lt;Swift.String, Swift.Bool&gt;, sort: Swift.Array&lt;Swift.Optional&lt;Swift.String&gt;&gt;) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Modules/EventList/Presenter/EventListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -231,64 +342,224 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "04DF80DD-3336-4D58-AB89-9712A64CA0F6"
+            uuid = "A8043CE9-447B-4632-A42C-ABC27E1BBC0B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Events21/Modules/UserMain/Presenter/UserMainDataSource.swift"
+            filePath = "Events21/Modules/Achievements/Components/UITableViewComponents/AchievementCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "tableView(_:viewForHeaderInSection:)"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "updateViews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C9ADB82B-E044-4BBC-B4EE-ABC9652B7E99"
+            uuid = "1080B354-9D38-4F0C-AADE-B466030B6976"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Events21/Modules/UserMain/Presenter/UserMainPresenter.swift"
+            filePath = "Events21/Services/ImageCashingService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "getImage(for:comletion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3807F7D9-B861-471D-95CD-74D11E724848"
+            uuid = "BF4F96D6-A977-4628-9BBB-939C159DE096"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Events21/Modules/UserMain/Presenter/UserMainPresenter.swift"
+            filePath = "Events21/Services/ImageCashingService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "didSelectRowAt(_:)"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "getImage(for:comletion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "73B7C8FF-0EB7-44D3-BD7F-A9369D1D5C8A"
+            uuid = "329D3F21-54B5-4279-A873-A52858613D83"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Events21/Modules/UserMain/Presenter/UserMainPresenter.swift"
+            filePath = "Events21/Services/ImageCashingService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "didSelectRowAt(_:)"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "getImage(for:comletion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EAE3BBF8-2E1D-4253-B0EF-3E67F5BD0F61"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Events21/Modules/SearchUser/Presenter/SearchUserPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "didSelectUser(userId:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EAE3BBF8-2E1D-4253-B0EF-3E67F5BD0F61 - adcc4ad32df4dfe4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Events21.SearchUserPresenter.didSelectUser(userId: Swift.Int) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Modules/SearchUser/Presenter/SearchUserPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  uuid = "EAE3BBF8-2E1D-4253-B0EF-3E67F5BD0F61 - 5cae609eb25a00fa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Events21.UserFullModel, Events21.IntraAPIError&gt;) -&gt; () in Events21.SearchUserPresenter.didSelectUser(userId: Swift.Int) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Modules/SearchUser/Presenter/SearchUserPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "198">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2E9833AB-12F0-4F60-80FD-4AA0D0E32486"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Events21/Modules/SearchUser/Interactor/SearchUserInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "getUser(userId:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C78FDA97-FD7B-4369-A144-D749C33F851B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Events21/Services/IntraAPIService/IntraAPIService+GetUsers.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "getUser(userId:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "59ECF2F6-F834-4470-95A8-DA6719E113BE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Events21/Services/IntraAPIService/IntraAPIService+GetUsers.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "getUser(userId:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "59ECF2F6-F834-4470-95A8-DA6719E113BE - 67be960abe02f99"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Events21.IntraAPIService.getUser(userId: Swift.Int, completion: (Swift.Result&lt;Events21.UserFullModel, Events21.IntraAPIError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Services/IntraAPIService/IntraAPIService+GetUsers.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "2662">
+               </Location>
+               <Location
+                  uuid = "59ECF2F6-F834-4470-95A8-DA6719E113BE - fc6d03036b57be95"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Events21.IntraAPIService.getUser(userId: Swift.Int, completion: (Swift.Result&lt;Events21.UserFullModel, Events21.IntraAPIError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Events21"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a19733654/Documents/Intra21/Events21/Services/IntraAPIService/IntraAPIService+GetUsers.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "3986">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AC6F6AF1-BA71-483E-9097-EF32212A28EE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Events21/Modules/EventDetail/View/EventDetailView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "setupConstraints()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1A66EBFF-D746-4323-A2D0-78E7B0B1256C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Events21/Modules/UserMain/Components/UITableViewComponents/UserHeader/UserHeader.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
+            landmarkName = "updateViews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
