@@ -9,10 +9,14 @@ import Foundation
 
 extension IntraAPIService {
     func registerToEvent(eventId: Int, completion: @escaping (Result<EventUsersResponse, IntraAPIError>) -> Void) {
+		guard let me = me else {
+			completion(.failure(IntraAPIError(error: "Error", errorDescription: "User not found")))
+			return
+		}
         urlComponents.path = "/v2/events_users"
         urlComponents.queryItems = [
             .init(name: "events_user[event_id]", value: "\(eventId)"),
-            .init(name: "events_user[user_id]", value: "\(me!.id)")
+            .init(name: "events_user[user_id]", value: "\(me.id)")
         ]
         var request = self.request
         request.httpMethod = "POST"

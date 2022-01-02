@@ -53,12 +53,11 @@ class UserMainViewController: UIViewController {
     }
 
     private func setupConstraints() {
-//		UIPicker
 		NSLayoutConstraint.activate([
 			tableView.leftAnchor.constraint(equalTo: tableView.superview!.leftAnchor),
 			tableView.rightAnchor.constraint(equalTo: tableView.superview!.rightAnchor),
 			tableView.topAnchor.constraint(equalTo: tableView.superview!.topAnchor),
-			tableView.bottomAnchor.constraint(equalTo: tableView.superview!.bottomAnchor),
+			tableView.bottomAnchor.constraint(equalTo: tableView.superview!.bottomAnchor)
 		])
     }
 }
@@ -118,7 +117,6 @@ extension UserMainViewController: PresenterToViewUserMainProtocol {
 	@objc func logoutButtonTapped() {
 		presenter.logoutButtonTapped()
 	}
-
 }
 
 extension UserMainViewController: UITableViewDelegate {

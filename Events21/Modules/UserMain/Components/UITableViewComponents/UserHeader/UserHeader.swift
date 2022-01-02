@@ -10,7 +10,8 @@ import UIKit
 class UserHeader: HeaderIdentifiable {
 	let gap: CGFloat = 10
 
-	var cursus: CursusUserResponse?
+	var cursusUser: CursusUserResponse?
+	var chosenIndex: Int?
 
 	let profileImageView: UIImageView = {
 		let imageView = UIImageView()
@@ -119,14 +120,15 @@ class UserHeader: HeaderIdentifiable {
 		view.textAlignment = .center
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.inputView = pickerView
+		view.inputAccessoryView = pickerView.toolbar
 		view.isHidden = true
 		return view
 	}()
 
-	lazy var pickerView: UIPickerView = {
-		let view = UIPickerView()
+	lazy var pickerView: ToolbarPickerView = {
+		let view = ToolbarPickerView()
+		view.toolbarDelegate = self
 		view.translatesAutoresizingMaskIntoConstraints = false
-		view.heightAnchor.constraint(equalToConstant: 150).isActive = true
 		view.dataSource = self
 		view.delegate = self
 		return view
@@ -212,7 +214,7 @@ class UserHeader: HeaderIdentifiable {
 		locationLabel.text = "Location \(model.location)"
 		emailLabel.text = "Email \(model.email)"
 		phoneLabel.text = "Mobile \(model.phone)"
-		guard let cursusUser = model.cursuses.first else {
+		guard let cursusUser = model.cursuses.last else {
 			cursusView.isHidden = true
 			levelView.isHidden = true
 			return
@@ -220,6 +222,8 @@ class UserHeader: HeaderIdentifiable {
 		cursusView.text = "Cursus \(cursusUser.cursus.name) ▼"
 		cursusView.isHidden = false
 		levelView.configure(level: cursusUser.level, progress: cursusUser.level - cursusUser.level.rounded(.down))
+		chosenIndex = model.cursuses.count - 1
+		pickerView.selectRow(chosenIndex!, inComponent: 0, animated: true)
 	}
 
 	func removeKeyboard() {
@@ -244,18 +248,29 @@ extension UserHeader: UIPickerViewDelegate, UIPickerViewDataSource {
 
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		guard let model = model as? UserHeaderModel else { return }
-		let cursusUser = model.cursuses[row]
+		cursusUser = model.cursuses[row]
+	}
+}
+extension UserHeader: ToolbarPickerViewDelegate {
+	func didTapDone() {
+		cursusView.resignFirstResponder()
+		guard let cursusUser = cursusUser else { return }
 		levelView.configure(level: cursusUser.level, progress: cursusUser.level - cursusUser.level.rounded(.down))
 		cursusView.text = "Cursus \(cursusUser.cursus.name) ▼"
-		cursusView.resignFirstResponder()
 		guard let presenter = presenter as? CellToPresenterUserMainProtocol else { return }
 		presenter.didSelectCursus(cursusUser)
+		guard let model = model as? UserHeaderModel else { return }
+		chosenIndex = model.cursuses.firstIndex{ $0.cursusId == cursusUser.cursusId }
+		pickerView.selectRow(chosenIndex ?? 0, inComponent: 0, animated: true)
 	}
 
+	func didTapCancel() {
+		cursusView.resignFirstResponder()
+		pickerView.selectRow(chosenIndex ?? 0, inComponent: 0, animated: true)
+	}
 }
 
 final class UserProfileProgressView: UIView {
-
 	private lazy var progressBar: UIProgressView = {
 		let view = UIProgressView()
 		view.translatesAutoresizingMaskIntoConstraints = false
@@ -304,7 +319,7 @@ private extension UserProfileProgressView {
 				progressBar.heightAnchor.constraint(equalToConstant: 20),
 
 				textInProgress.centerXAnchor.constraint(equalTo: progressBar.centerXAnchor),
-				textInProgress.centerYAnchor.constraint(equalTo: progressBar.centerYAnchor),
+				textInProgress.centerYAnchor.constraint(equalTo: progressBar.centerYAnchor)
 			]
 		)
 	}

@@ -30,7 +30,7 @@ class UserMainPresenter: ViewToPresenterUserMainProtocol {
         self.router = router
         self.dataSource = dataSource
 		self.me = me
-		self.cursusUser = me.cursusUsers.first
+		self.cursusUser = me.cursusUsers.last
     }
 
     func viewDidLoad(){

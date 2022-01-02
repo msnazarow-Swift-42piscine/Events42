@@ -40,7 +40,7 @@ extension IntraAPIService {
                 self.token = tokenResponse
                 KeychainHelper.standard.save(tokenResponse, service: "token", account: "intra42")
                 completion(.success(tokenResponse.accessToken))
-            } catch  {
+            } catch {
                 completion(.failure(IntraAPIError(error: "JSONDecoderError", errorDescription: error.localizedDescription)))
             }
         }.resume()
@@ -186,6 +186,7 @@ extension IntraAPIService {
             }
         }.resume()
     }
+
     func removeToken(){
         token = nil
         KeychainHelper.standard.delete(service: .token, account: .intra42)
@@ -199,7 +200,7 @@ extension IntraAPIService {
     func hasToken() -> Bool {
         return token != nil
     }
-    
+
     func tokenIsOutdated() -> Bool {
         if let token = token, token.createdAt.addingTimeInterval(TimeInterval(token.expiresIn)) <= Date() {
             return true
@@ -207,7 +208,6 @@ extension IntraAPIService {
             return false
         }
     }
-
 }
 
 extension IntraAPIService: ASWebAuthenticationPresentationContextProviding {

@@ -8,12 +8,10 @@
 import Foundation
 
 final class KeychainHelper {
-
     static let standard = KeychainHelper()
     private init() {}
 
     func save(_ data: Data, service: String, account: String) {
-
         let query = [
             kSecValueData: data,
             kSecAttrService: service,
@@ -29,7 +27,7 @@ final class KeychainHelper {
             let query = [
                 kSecAttrService: service,
                 kSecAttrAccount: account,
-                kSecClass: kSecClassGenericPassword,
+                kSecClass: kSecClassGenericPassword
             ] as CFDictionary
 
             let attributesToUpdate = [kSecValueData: data] as CFDictionary
@@ -55,11 +53,10 @@ final class KeychainHelper {
     }
 
     func delete(service: String, account: String) {
-
         let query = [
             kSecAttrService: service,
             kSecAttrAccount: account,
-            kSecClass: kSecClassGenericPassword,
+            kSecClass: kSecClassGenericPassword
             ] as CFDictionary
 
         // Delete item from keychain
@@ -68,21 +65,17 @@ final class KeychainHelper {
 }
 
 extension KeychainHelper {
-
     func save<T>(_ item: T, service: String, account: String) where T : Codable {
-
         do {
             // Encode as JSON data and save in keychain
             let data = try JSONEncoder().encode(item)
             save(data, service: service, account: account)
-
         } catch {
             assertionFailure("Fail to encode item for keychain: \(error)")
         }
     }
 
     func read<T>(service: String, account: String, type: T.Type) -> T? where T : Codable {
-
         // Read item data from keychain
         guard let data = read(service: service, account: account) else {
             return nil
@@ -97,5 +90,4 @@ extension KeychainHelper {
             return nil
         }
     }
-
 }

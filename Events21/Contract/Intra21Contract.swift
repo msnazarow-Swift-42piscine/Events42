@@ -11,11 +11,11 @@ import OrderedCollections
 import AuthenticationServices
 
 let verticalTranslation = max(!UIWindow.isLandscape ?
-                            UIScreen.main.bounds.height / 844.0 :
-                            UIScreen.main.bounds.height / 390.0, 1)
+								UIScreen.main.bounds.height / 844.0 :
+								UIScreen.main.bounds.height / 390.0, 1)
 let horisontalTranslation = max(!UIWindow.isLandscape ?
-                            UIScreen.main.bounds.width / 390.0 :
-                            UIScreen.main.bounds.width / 844.0, 1)
+									UIScreen.main.bounds.width / 390.0 :
+									UIScreen.main.bounds.width / 844.0, 1)
 
 protocol FiltersStorageProtocol {
 	func saveFilters(filters: OrderedDictionary<String, Bool>)

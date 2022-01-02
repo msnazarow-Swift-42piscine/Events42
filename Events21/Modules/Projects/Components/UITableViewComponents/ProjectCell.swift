@@ -90,10 +90,19 @@ class ProjectCell: CellIdentifiable {
         guard let model = model as? ProjectCellModel else { return }
 		projectNameLabel.text = model.name
 		projectMarkLabel.text = "\(model.finalMark ?? 0)"
-		if let validated = model.validated, validated {
-			projectValidatedImage.image = UIImage(named: "success")
-		} else {
-			projectValidatedImage.image = UIImage(named: "fail")
+		switch model.status {
+		case .finished:
+			projectValidatedImage.isHidden = false
+			if let validated = model.validated,validated {
+				projectValidatedImage.image = UIImage(named: "success")
+			} else {
+				projectValidatedImage.image = UIImage(named: "fail")
+			}
+		case .waitingForCorrection, .searchingAGroup, .inProgress:
+			projectValidatedImage.isHidden = true
+			projectMarkLabel.text = "In Progress"
+		default: break
 		}
+
     }
 }

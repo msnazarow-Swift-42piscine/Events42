@@ -25,7 +25,7 @@ extension IntraAPIService {
 			100.URLQueryItem(name: "page[size]")
 		] + filter.URLQueryItems(name: "filter")
 
-		urlComponents.queryItems = queryItems.compactMap{ $0 }
+		urlComponents.queryItems = queryItems.compactMap { $0 }
 		print("\(request.httpMethod ?? "GET") \(request.url?.absoluteString ?? "")")
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
@@ -54,15 +54,15 @@ extension IntraAPIService {
         }.resume()
     }
 
-    func getUserEvents(userId: Int?, eventId: Int?, sort: [String], filter: [String : [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
+    func getUserEvents(userId: Int?, eventId: Int?, sort: [String], filter: [String: [String]], completion: @escaping (Result<[EventUsersResponse], IntraAPIError>) -> Void) {
         urlComponents.path = ("/v2/events_users")
-        var queryItems: [URLQueryItem?] = [
+        let queryItems: [URLQueryItem?] = [
 			eventId?.URLQueryItem(name: .eventId),
 			userId?.URLQueryItem(name: .userId),
 			sort.URLQueryItem(name: "sort"),
 			100.URLQueryItem(name: "page[size]")
 		] + filter.URLQueryItems(name: "filter")
-		urlComponents.queryItems = queryItems.compactMap{ $0 }
+		urlComponents.queryItems = queryItems.compactMap { $0 }
 		print("\(request.httpMethod ?? "GET") \(request.url?.absoluteString ?? "")")
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
@@ -75,7 +75,11 @@ extension IntraAPIService {
             }
 			print(data.jsonString ?? "")
 			if response.statusCode >= 400 {
-				completion(.failure(IntraAPIError(error: response.value(forHTTPHeaderField: "Status") ?? "HTTP Error", errorDescription: data.html2String, statusCode: response.statusCode)))
+				completion(.failure(IntraAPIError(
+					error: response.value(forHTTPHeaderField: "Status") ?? "HTTP Error",
+					errorDescription: data.html2String,
+					statusCode: response.statusCode
+				)))
 				return
 			}
             do {

@@ -8,13 +8,13 @@
 import Foundation
 
 extension Sequence {
-    func sorted( by Predicates: [(Element, Element) -> Bool]) -> [Element] {
-    return sorted(by:) { lhs, rhs in
-      for predicate in Predicates {
-        if predicate(lhs, rhs) { return true }
-        if predicate(rhs, lhs) { return false }
-      }
-      return false
-    }
-  }
+	func sorted(by predicates: [(Element, Element) -> Bool]) -> [Element] {
+		return sorted(by:) { lhs, rhs in
+			for predicate in predicates {
+				if predicate(lhs, rhs) { return true }
+				if predicate(rhs, lhs) { return false }
+			}
+			return false
+		}
+	}
 }

@@ -13,7 +13,7 @@ class IntraAPIService: NSObject, IntraAPIServiceProtocol {
     let secret = "9dd7cc32e3dd76eccfcd4587cd3a435ac3826d35c86715c92207aa8b868f06d1"
     var token = KeychainHelper.standard.read(service: .token, account: .intra42, type: TokenResponse.self)
     var code = KeychainHelper.standard.read(service: .code, account: .intra42, type: String.self)
-    var me: UserFullModel!
+    var me: UserFullModel?
 
     var urlComponents: URLComponents = {
         var urlComponents = URLComponents()

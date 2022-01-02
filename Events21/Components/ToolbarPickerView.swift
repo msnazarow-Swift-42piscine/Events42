@@ -14,7 +14,6 @@ protocol ToolbarPickerViewDelegate: AnyObject {
 }
 
 class ToolbarPickerView: UIPickerView {
-
     public private(set) var toolbar: UIToolbar?
     public weak var toolbarDelegate: ToolbarPickerViewDelegate?
 

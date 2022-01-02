@@ -10,26 +10,29 @@ import Foundation
 import OrderedCollections
 
 class EventListFiltersPresenter: ViewToPresenterFiltersProtocol {
-
     // MARK: Properties
     weak var view: PresenterToViewFiltersProtocol!
     let interactor: PresenterToInteractorFiltersProtocol
     let router: PresenterToRouterFiltersProtocol
-    let dataSource:PresenterToDataSourceFiltersProtocol
-    let delegate: TableViewToFiltersDelegateProtocol
-    var filters: OrderedDictionary<String, Bool> = [ .myCursus: false,
-                                                     .myCampus: false,
-                                                     .future: false,
-                                                     .didSubscribe: false]
+    let dataSource: PresenterToDataSourceFiltersProtocol
+    weak var delegate: TableViewToFiltersDelegateProtocol?
+    var filters: OrderedDictionary<String, Bool> = [
+		.myCursus: false,
+		.myCampus: false,
+		.future: false,
+		.didSubscribe: false
+	]
     var sort: [String?] = [.none]
 
     var editingNubmer: Int!
     // MARK: Init
-    init(view: PresenterToViewFiltersProtocol,
-         interactor: PresenterToInteractorFiltersProtocol,
-         router: PresenterToRouterFiltersProtocol,
-         dataSource: PresenterToDataSourceFiltersProtocol,
-         delegate: TableViewToFiltersDelegateProtocol) {
+    init(
+		view: PresenterToViewFiltersProtocol,
+		interactor: PresenterToInteractorFiltersProtocol,
+		router: PresenterToRouterFiltersProtocol,
+		dataSource: PresenterToDataSourceFiltersProtocol,
+		delegate: TableViewToFiltersDelegateProtocol
+	) {
         self.view = view
         self.interactor = interactor
         self.router = router
@@ -47,13 +50,13 @@ class EventListFiltersPresenter: ViewToPresenterFiltersProtocol {
         }
 
         dataSource.updateForSections([
-            FilterSectionModel(filters.map{ FilterModel(name: $0.key, value: $0.value) }),
+            FilterSectionModel(filters.map { FilterModel(name: $0.key, value: $0.value) }),
             SortSectionModel(sort.enumerated().map{ SortModel(sortName: $0.element, isActive: $0.offset == 0, number: $0.offset, inputView: view.pickerView) })
         ])
     }
 
     func viewDidDisappear() {
-        delegate.refresh(filters: filters, sort: sort)
+        delegate?.refresh(filters: filters, sort: sort)
         interactor.saveFilters(filters: filters)
     }
 }
@@ -83,13 +86,20 @@ extension EventListFiltersPresenter: CellToPresenterFiltersProtocol {
                 sort.append(.none)
             }
         } else if numberToRemove > 0 {
-            dataSource.appendSortSelect(Array(sort[editingNubmer ... sort.count - 2].map{ var el = $0 ?? ""; el.removeLast(2); return el }))
+            dataSource.appendSortSelect(Array(
+				sort[editingNubmer ... sort.count - 2].map { var el = $0 ?? ""; el.removeLast(2); return el }
+			))
             sort.removeLast(numberToRemove)
         }
         sort[editingNubmer] = text
         dataSource.updateForSections([
-            FilterSectionModel(filters.map{ FilterModel(name: $0.key, value: $0.value) }),
-            SortSectionModel(sort.enumerated().map{ SortModel(sortName: $0.element, isActive: true, number: $0.offset, inputView: view.pickerView) })
+            FilterSectionModel(filters.map { FilterModel(name: $0.key, value: $0.value) }),
+            SortSectionModel(sort.enumerated().map { SortModel(
+								sortName: $0.element,
+								isActive: true,
+								number: $0.offset,
+								inputView: view.pickerView
+			) })
         ])
         if !text.isEmpty {
             if isLast {
@@ -98,9 +108,8 @@ extension EventListFiltersPresenter: CellToPresenterFiltersProtocol {
         } else if numberToRemove > 0 {
             view.removeRows(after: IndexPath(row: editingNubmer, section: 1), number: numberToRemove)
         }
-
     }
-    func textFieldResignFirstResponder(){
+    func textFieldResignFirstResponder() {
         defer { view.updateSortItem(editingNubmer) }
     }
 
@@ -108,4 +117,3 @@ extension EventListFiltersPresenter: CellToPresenterFiltersProtocol {
         view.selectPicker(at: row)
     }
 }
-
