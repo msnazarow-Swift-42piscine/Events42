@@ -28,6 +28,15 @@ class SearchUserPresenter: ViewToPresenterSearchUserProtocol {
     }
 
     func viewDidLoad() {
+		interactor.getUsers(filter: ["login": ["  "]]) { [weak self] result in
+			switch result {
+			case .success(let users):
+				self?.dataSource.updateForSections([SearchUserSection(users)])
+				self?.view?.tableViewReload()
+			case .failure(let error):
+				print(error)
+			}
+		}
     }
 
 	func updateSearchResults(_ text: String?) {

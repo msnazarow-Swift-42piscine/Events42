@@ -47,7 +47,7 @@ class SearchUserViewController: UIViewController {
 		view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
 		navigationItem.searchController = searchController
 		definesPresentationContext = true
-//		navigationItem.searchController?.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
+		navigationItem.hidesSearchBarWhenScrolling = false
         addSubviews()
         setupConstraints()
     }
