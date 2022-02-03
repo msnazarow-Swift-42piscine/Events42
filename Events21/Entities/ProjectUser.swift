@@ -23,6 +23,7 @@ struct ProjectUser: Codable {
 		case finished
 		case inProgress = "in_progress"
 		case searchingAGroup = "searching_a_group"
+		case creatingGroup = "creating_group"
 		case parent
 	}
 
