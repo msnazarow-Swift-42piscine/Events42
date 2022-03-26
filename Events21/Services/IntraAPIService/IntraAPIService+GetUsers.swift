@@ -13,7 +13,7 @@ extension IntraAPIService {
 		var queryItems: [URLQueryItem?] = [
 			sort.URLQueryItem(name: "sort"),
 			100.URLQueryItem(name: "page[size]")
-		] + filter.URLQueryItems(name: "filter")
+		] + filter.URLQueryItems(name: "range")
 		urlComponents.queryItems = queryItems.compactMap { $0 }
 		print("\(request.httpMethod ?? "GET") \(request.url?.absoluteString ?? "")")
 		URLSession.shared.dataTask(with: request) { data, response, error in

@@ -45,7 +45,7 @@ class SearchUserPresenter: ViewToPresenterSearchUserProtocol {
 		}
 		debounceTimer?.invalidate()
 		debounceTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] _ in
-			self?.interactor.getUsers(filter: ["login": [text]]) { [weak self] result in
+			self?.interactor.getUsers(filter: ["login": [text, "\(text)zzzzzzz"]]) { [weak self] result in
 				switch result {
 				case .success(let users):
 					self?.dataSource.updateForSections([SearchUserSection(users)])
